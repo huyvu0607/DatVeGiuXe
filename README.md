@@ -1,1 +1,2 @@
-# LapTrinhMang
+# LapTrinhMang 
+Nhóm 10: 
