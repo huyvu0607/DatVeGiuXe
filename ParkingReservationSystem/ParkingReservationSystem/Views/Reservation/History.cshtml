@@ -1,0 +1,48 @@
+﻿@model List<ParkingReservationSystem.ViewModels.ReservationHistoryViewModel>
+@{
+    ViewData["Title"] = "Lịch sử giao dịch";
+}
+
+<h2>Lịch sử giao dịch của bạn</h2>
+
+@if (!Model.Any())
+{
+    <p>Bạn chưa có giao dịch nào.</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Mã chỗ</th>
+                <th>Thời gian đặt</th>
+                <th>Hết hạn</th>
+                <th>Trạng thái</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.SlotCode</td>
+                    <td>@item.ReservedAt</td>
+                    <td>@item.ExpiresAt?.ToString("HH:mm dd/MM/yyyy")</td>
+                    <td>
+                        @if (item.IsConfirmed)
+                        {
+                            <span class="badge bg-success">Đã thanh toán</span>
+                        }
+                        else
+                        {
+
+                            <a class="badge bg-warning text-dark"
+                               href="@Url.Action("ThanhToan", "Booking", new { id = item.Id })">
+                                Chưa thanh toán
+                            </a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

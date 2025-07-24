@@ -1,0 +1,14 @@
+﻿@model ParkingReservationSystem.Models.Reservation
+
+<h2>Thanh toán giữ chỗ</h2>
+
+<p>Mã chỗ: @Model.SlotCode</p>
+<p>Tên: @Model.Name</p>
+<p>Email: @Model.Email</p>
+<p>Giữ chỗ đến: @(Model.ExpiresAt.HasValue ? Model.ExpiresAt.Value.ToString("HH:mm:ss") : "Chưa có")</p>
+
+
+<form asp-action="Confirm" method="post">
+    <input type="hidden" name="reservationId" value="@Model.Id" />
+    <button type="submit" class="btn btn-success">Thanh toán (Giả lập)</button>
+</form>

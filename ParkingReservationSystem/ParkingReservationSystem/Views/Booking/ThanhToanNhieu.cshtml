@@ -1,0 +1,34 @@
+﻿@model List<ParkingReservationSystem.Models.Reservation>
+
+@{
+    ViewData["Title"] = "Thanh toán nhiều chỗ";
+}
+
+<h2>Thanh toán giữ chỗ</h2>
+
+<form method="post" asp-action="ConfirmMultiple">
+    <p>
+        Mã chỗ: <span style="color: red; font-weight: bold;">
+            @string.Join(", ", Model.Select(res => res.SlotCode))
+        </span>
+    </p>
+
+    <p>Tên: @Model[0].Name</p>
+    <p>Email: @Model[0].Email</p>
+    <p>Giữ chỗ đến: @(Model[0].ExpiresAt?.ToString("HH:mm:ss") ?? "Chưa có")</p>
+
+    @* Truyền toàn bộ danh sách ID *@
+    @foreach (var reservation in Model)
+    {
+        <input type="hidden" name="reservationIds" value="@reservation.Id" />
+    }
+
+    <button type="submit" class="btn btn-success">Xác nhận thanh toán (giả lập)</button>
+
+    <a asp-controller="Reservation"
+       asp-action="CancelMultipleReservation"
+       class="btn btn-danger"
+       onclick="return confirm('Bạn có chắc muốn huỷ các đặt chỗ này không?')">
+        Huỷ đặt chỗ
+    </a>
+</form>

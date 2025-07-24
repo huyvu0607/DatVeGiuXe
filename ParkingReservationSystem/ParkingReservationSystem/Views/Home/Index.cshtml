@@ -1,0 +1,189 @@
+﻿@model List<ParkingReservationSystem.ViewModels.ParkingSlotViewModel>
+
+@{
+    ViewData["Title"] = "Chọn chỗ giữ xe";
+    var success = Context.Request.Query["success"];
+}
+
+<style>
+    .layout-container {
+        display: flex;
+        gap: 40px;
+    }
+
+    .slot-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 80px);
+        gap: 15px;
+    }
+
+    .slot-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        height: 80px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        color: white;
+        user-select: none;
+        position: relative;
+        transition: 0.2s ease-in-out;
+        background-color: #f8f9fa;
+    }
+
+        .slot-box.available {
+            background-color: #28a745; /* xanh */
+        }
+
+        .slot-box.selected {
+            background-color: #fd7e14; /* màu cam đậm */
+            color: #fff;
+            border-color: #fd7e14;
+        }
+
+        .slot-box.occupied {
+            background-color: #6c757d; /* xám */
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+
+    .form-area {
+        width: 300px;
+    }
+</style>
+
+<h2 class="mb-4">Chọn chỗ giữ xe</h2>
+
+@if (!Model.Any())
+{
+    <p>Hiện không có chỗ nào.</p>
+}
+else
+{
+    <form method="post" asp-controller="Booking" asp-action="HoldMultiple">
+        <div class="layout-container">
+            <!-- Bên trái: hiển thị ô chỗ giữ xe -->
+            <div class="slot-grid">
+                @foreach (var slot in Model)
+                {
+                    var statusClass = slot.IsConfirmed ? "occupied" : (slot.IsSelected ? "selected" : "available");
+
+                    <label class="slot-box @statusClass">
+                        @if (!slot.IsConfirmed)
+                        {
+                            <input type="checkbox" name="selectedSlots" value="@slot.SlotCode" class="d-none" />
+                        }
+                        <span>@slot.SlotCode</span>
+                    </label>
+                }
+            </div>
+            <!-- Giữa: các chú thích màu -->
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 20px; height: 20px; background-color: #28a745; border-radius: 4px;"></div>
+                    <span>Chỗ còn trống</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 20px; height: 20px; background-color: #fd7e14; border-radius: 4px;"></div>
+                    <span>Đang chọn</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 20px; height: 20px; background-color: #6c757d; border-radius: 4px;"></div>
+                    <span>Đã được giữ</span>
+                </div>
+            </div>
+            <!-- Bên phải: thông tin khách hàng -->
+            <div class="form-area">
+                <input type="text" name="name" placeholder="Tên bạn" required class="form-control mb-2" />
+                @if (Context.Session.GetString("UserName") != null)
+                {
+                    <input type="hidden" name="email" value="@Context.Session.GetString("UserEmail")" />
+                }
+                else
+                {
+                    <input type="email" name="email" placeholder="Email" required class="form-control mb-2" />
+                }
+                <input type="text" name="phone" placeholder="Số điện thoại" required class="form-control mb-2" />
+
+                <button type="submit" class="btn btn-primary w-100">Giữ chỗ</button>
+            </div>
+
+        </div>
+    </form>
+}
+
+
+
+
+<!-- Toast sau thanh toán -->
+@* Toast khi thanh toán thành công *@
+@if (success == "True")
+{
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+        <div id="myToast" class="toast bg-success text-white" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    ✅ Đã thanh toán thành công!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toastEl = document.getElementById('myToast');
+            if (toastEl) {
+                const toast = new bootstrap.Toast(toastEl);
+                toast.show();
+                setTimeout(() => toast.hide(), 5000);
+            }
+        });
+    </script>
+}
+
+<!-- Script xử lý checkbox chọn slot -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const slotBoxes = document.querySelectorAll(".slot-box input[type='checkbox']");
+        slotBoxes.forEach(function (checkbox) {
+            checkbox.addEventListener("change", function () {
+                const label = checkbox.closest(".slot-box");
+                if (checkbox.checked) {
+                    label.classList.add("selected");
+                } else {
+                    label.classList.remove("selected");
+                }
+            });
+        });
+    });
+</script>
+
+<!-- Toast cảnh báo nếu chưa chọn slot (màu cam) -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+    <div id="warnToast" class="toast bg-warning text-dark" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                ⚠️ Vui lòng chọn ít nhất một chỗ trước khi thanh toán!
+            </div>
+            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form");
+        form.addEventListener("submit", function (e) {
+            const selected = document.querySelectorAll("input[name='selectedSlots']:checked");
+            if (selected.length === 0) {
+                e.preventDefault();
+                const warnToast = new bootstrap.Toast(document.getElementById('warnToast'));
+                warnToast.show();
+            }
+        });
+    });
+</script>
