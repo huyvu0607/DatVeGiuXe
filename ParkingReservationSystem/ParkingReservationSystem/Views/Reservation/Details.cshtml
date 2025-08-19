@@ -1,0 +1,78 @@
+﻿@model ParkingReservationSystem.Models.Reservation
+
+<div class="container py-5">
+    <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-header bg-primary text-white d-flex align-items-center">
+            <i class="fas fa-ticket-alt me-2"></i>
+            <h3 class="mb-0">Chi tiết đặt chỗ</h3>
+        </div>
+
+        <div class="card-body p-4">
+            <div class="row">
+                <!-- Thông tin -->
+                <div class="col-md-8">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <strong><i class="fas fa-barcode me-2 text-primary"></i>Mã chỗ:</strong>
+                            <span class="ms-2">@Model.SlotCode</span>
+                        </li>
+                        @* <li class="list-group-item">
+                        <strong><i class="fas fa-layer-group me-2 text-primary"></i>Tầng:</strong>
+                        <span class="ms-2">@Model.ParkingSlot.Floor</span>
+                        </li> *@
+                        <li class="list-group-item">
+                            <strong><i class="fas fa-user me-2 text-primary"></i>Tên:</strong>
+                            <span class="ms-2">@Model.Name</span>
+                        </li>
+                        <li class="list-group-item">
+                            <strong><i class="fas fa-envelope me-2 text-primary"></i>Email:</strong>
+                            <span class="ms-2">@Model.Email</span>
+                        </li>
+                        <li class="list-group-item">
+                            <strong><i class="fas fa-clock me-2 text-primary"></i>Đến:</strong>
+                            <span class="ms-2">
+                                @(Model.ExpiresAt?.ToString("HH:mm dd/MM/yyyy") ?? "Chưa có")
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- QR Code -->
+                <div class="col-md-4 text-center">
+                    @if (ViewBag.QRCode != null)
+                    {
+                        <div class="p-3 border rounded bg-light">
+                            <img src="@ViewBag.QRCode" alt="QR Code" class="img-fluid" style="max-width:200px;" />
+                            <p class="mt-2 text-muted">Mã QR đặt chỗ</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer d-flex justify-content-between">
+            <a href="@Url.Action("History", "Reservation")" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-1"></i> Quay lại lịch sử
+            </a>
+
+             @* @if (Model.IsConfirmed)
+             {
+                 <a href="@Url.Action("ExportToPdf", "Reservation", new { id = Model.Id })"
+                    class="btn btn-success">
+                     <i class="fas fa-file-pdf me-1"></i> Xuất PDF
+                 </a>
+             } *@
+        </div>
+    </div>
+</div>
+
+<style>
+    .list-group-item {
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+    }
+
+        .list-group-item strong {
+            color: #2c3e50;
+        }
+</style>

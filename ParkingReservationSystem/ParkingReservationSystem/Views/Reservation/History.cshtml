@@ -30,9 +30,11 @@
                                 <th class="ps-4"><i class="fas fa-barcode me-2"></i>Mã chỗ</th>
                                 <th><i class="fas fa-clock me-2"></i>Thời gian đặt</th>
                                 <th><i class="fas fa-hourglass-end me-2"></i>Hết hạn</th>
-                                <th class="text-end pe-4"><i class="fas fa-info-circle me-2"></i>Trạng thái</th>
+                                <th><i class="fas fa-info-circle me-2"></i>Trạng thái</th>
+                                <th class="text-center"><i class="fas fa-eye me-2"></i>Chi tiết</th>
                             </tr>
                         </thead>
+
                         <tbody>
                             @foreach (var item in Model)
                             {
@@ -64,9 +66,17 @@
                                             </a>
                                         }
                                     </td>
+                                    <td class="text-center">
+
+                                        <a href="@Url.Action("Details", "Reservation", new { id = item.Id })"
+                                           class="btn btn-sm btn-outline-info">
+                                            <i class="fas fa-eye me-1"></i>Xem
+                                        </a>
+                                    </td>
                                 </tr>
                             }
                         </tbody>
+
                     </table>
                 </div>
 

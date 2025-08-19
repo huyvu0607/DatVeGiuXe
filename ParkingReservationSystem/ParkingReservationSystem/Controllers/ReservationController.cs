@@ -3,6 +3,7 @@ using ParkingReservationSystem.Models;
 using ParkingReservationSystem.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
+using QRCoder;
 
 namespace ParkingReservationSystem.Controllers
 {
@@ -65,6 +66,30 @@ namespace ParkingReservationSystem.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public IActionResult Details(int id)
+        {
+            var reservation = _context.Reservations
+                .Include(r => r.ParkingSlot)
+                .FirstOrDefault(r => r.Id == id);
+
+            if (reservation == null)
+            {
+                return NotFound();
+            }
+
+            // Tạo nội dung QR
+            string qrContent = $"Mã chỗ: {reservation.SlotCode}\n";
+
+            using (QRCodeGenerator qrGenerator = new QRCodeGenerator())
+            using (QRCodeData qrCodeData = qrGenerator.CreateQrCode(qrContent, QRCodeGenerator.ECCLevel.Q))
+            {
+                var qrCode = new PngByteQRCode(qrCodeData);  // KHÔNG dùng QRCode (bitmap)
+                byte[] qrBytes = qrCode.GetGraphic(20);
+                ViewBag.QRCode = "data:image/png;base64," + Convert.ToBase64String(qrBytes);
+            }
+
+            return View(reservation);
+        }
 
 
 

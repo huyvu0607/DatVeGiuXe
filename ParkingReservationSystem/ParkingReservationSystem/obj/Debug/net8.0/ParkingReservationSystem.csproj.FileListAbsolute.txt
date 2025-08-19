@@ -503,3 +503,4 @@ D:\HOC_TREN_TRUONG\Lap_trinh_mang\GITHUB\LapTrinhMang\ParkingReservationSystem\P
 D:\HOC_TREN_TRUONG\Lap_trinh_mang\GITHUB\LapTrinhMang\ParkingReservationSystem\ParkingReservationSystem\obj\Debug\net8.0\ParkingReservationSystem.pdb
 D:\HOC_TREN_TRUONG\Lap_trinh_mang\GITHUB\LapTrinhMang\ParkingReservationSystem\ParkingReservationSystem\obj\Debug\net8.0\ParkingReservationSystem.genruntimeconfig.cache
 D:\HOC_TREN_TRUONG\Lap_trinh_mang\GITHUB\LapTrinhMang\ParkingReservationSystem\ParkingReservationSystem\obj\Debug\net8.0\ref\ParkingReservationSystem.dll
+D:\HOC_TREN_TRUONG\Lap_trinh_mang\GITHUB\LapTrinhMang\ParkingReservationSystem\ParkingReservationSystem\bin\Debug\net8.0\QRCoder.dll

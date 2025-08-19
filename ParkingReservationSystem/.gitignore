@@ -1,0 +1,51 @@
+# ASP.NET Core
+bin/
+obj/
+*.user
+*.suo
+*.vs/
+*.vscode/
+*.db
+*.db-journal
+*.pfx
+*.publishsettings
+
+# Visual Studio
+*.exe
+*.dll
+*.pdb
+*.cache
+*.log
+*.vspscc
+*.vssscc
+*.sln.docstates
+
+# Rider
+.idea/
+
+# NuGet
+*.nupkg
+packages/
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Node / Frontend (nếu có)
+node_modules/
+npm-debug.log
+yarn-error.log
+dist/
+
+# Resharper
+_ReSharper*/
+
+# MacOS
+.DS_Store
+
+# User-specific files
+*.local
+*.env
+
+# PDF / QRCode outputs (nếu muốn tách riêng)
+wwwroot/exports/
