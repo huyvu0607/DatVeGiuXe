@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "eLzsu04Byuw=",
+  "dgSpecHash": "SsujNAj+xWE=",
   "success": true,
-  "projectFilePath": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ParkingReservationSystem.csproj",
+  "projectFilePath": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\GITHUB\\LapTrinhMang\\ParkingReservationSystem\\ParkingReservationSystem\\ParkingReservationSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Huywill\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Huywill\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

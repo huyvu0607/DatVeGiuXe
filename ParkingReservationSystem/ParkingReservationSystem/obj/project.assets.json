@@ -4726,11 +4726,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ParkingReservationSystem.csproj",
+      "projectUniqueName": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\GITHUB\\LapTrinhMang\\ParkingReservationSystem\\ParkingReservationSystem\\ParkingReservationSystem.csproj",
       "projectName": "ParkingReservationSystem",
-      "projectPath": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ParkingReservationSystem.csproj",
+      "projectPath": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\GITHUB\\LapTrinhMang\\ParkingReservationSystem\\ParkingReservationSystem\\ParkingReservationSystem.csproj",
       "packagesPath": "C:\\Users\\Huywill\\.nuget\\packages\\",
-      "outputPath": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\obj\\",
+      "outputPath": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\GITHUB\\LapTrinhMang\\ParkingReservationSystem\\ParkingReservationSystem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Huywill\\AppData\\Roaming\\NuGet\\NuGet.Config",

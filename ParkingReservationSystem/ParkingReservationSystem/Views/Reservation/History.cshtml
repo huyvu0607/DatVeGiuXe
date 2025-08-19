@@ -3,46 +3,97 @@
     ViewData["Title"] = "Lịch sử giao dịch";
 }
 
-<h2>Lịch sử giao dịch của bạn</h2>
+<div class="container py-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h2 class="h4 mb-0"><i class="fas fa-history me-2"></i>Lịch sử giao dịch</h2>
+        </div>
 
-@if (!Model.Any())
-{
-    <p>Bạn chưa có giao dịch nào.</p>
-}
-else
-{
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Mã chỗ</th>
-                <th>Thời gian đặt</th>
-                <th>Hết hạn</th>
-                <th>Trạng thái</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
+        <div class="card-body">
+            @if (!Model.Any())
             {
-                <tr>
-                    <td>@item.SlotCode</td>
-                    <td>@item.ReservedAt</td>
-                    <td>@item.ExpiresAt?.ToString("HH:mm dd/MM/yyyy")</td>
-                    <td>
-                        @if (item.IsConfirmed)
-                        {
-                            <span class="badge bg-success">Đã thanh toán</span>
-                        }
-                        else
-                        {
-
-                            <a class="badge bg-warning text-dark"
-                               href="@Url.Action("ThanhToan", "Booking", new { id = item.Id })">
-                                Chưa thanh toán
-                            </a>
-                        }
-                    </td>
-                </tr>
+                <div class="text-center py-5">
+                    <i class="fas fa-calendar-times fa-3x text-muted mb-3"></i>
+                    <h4 class="text-muted">Bạn chưa có giao dịch nào</h4>
+                    <p class="text-muted">Khi bạn đặt chỗ đỗ xe, lịch sử sẽ hiển thị tại đây</p>
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-primary mt-3">
+                        <i class="fas fa-parking me-2"></i>Đặt chỗ ngay
+                    </a>
+                </div>
             }
-        </tbody>
-    </table>
-}
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th class="ps-4"><i class="fas fa-barcode me-2"></i>Mã chỗ</th>
+                                <th><i class="fas fa-clock me-2"></i>Thời gian đặt</th>
+                                <th><i class="fas fa-hourglass-end me-2"></i>Hết hạn</th>
+                                <th class="text-end pe-4"><i class="fas fa-info-circle me-2"></i>Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="align-middle">
+                                    <td class="ps-4 fw-bold">@item.SlotCode</td>
+                                    <td>@item.ReservedAt.ToString("HH:mm dd/MM/yyyy")</td>
+                                    <td>
+                                        @if (item.ExpiresAt.HasValue)
+                                        {
+                                            @item.ExpiresAt.Value.ToString("HH:mm dd/MM/yyyy")
+                                        }
+                                        else
+                                        {
+                                            <span class="text-muted">Không có</span>
+                                        }
+                                    </td>
+                                    <td class="text-end pe-4">
+                                        @if (item.IsConfirmed)
+                                        {
+                                            <span class="badge rounded-pill bg-success py-2 px-3">
+                                                <i class="fas fa-check-circle me-1"></i> Đã thanh toán
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <a class="badge rounded-pill bg-warning text-dark py-2 px-3 text-decoration-none hover-grow"
+                                               href="@Url.Action("ThanhToan", "Booking", new { id = item.Id })">
+                                                <i class="fas fa-exclamation-circle me-1"></i> Chưa thanh toán
+                                            </a>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <div class="text-muted">
+                        Hiển thị <strong>@Model.Count</strong> giao dịch gần nhất
+                    </div>
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-outline-primary">
+                        <i class="fas fa-plus me-2"></i>Đặt chỗ mới
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .hover-grow {
+        transition: all 0.2s ease-in-out;
+    }
+    .hover-grow:hover {
+        transform: scale(1.05);
+    }
+    .table-hover tbody tr:hover {
+        background-color: rgba(13, 110, 253, 0.05);
+    }
+    .badge {
+        font-weight: 500;
+    }
+</style>
