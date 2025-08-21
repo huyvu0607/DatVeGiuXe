@@ -1,14 +1,57 @@
 ﻿@model ParkingReservationSystem.Models.Reservation
 
-<h2>Thanh toán giữ chỗ</h2>
+@{
+    ViewData["Title"] = "Thanh toán giữ chỗ";
+}
 
-<p>Mã chỗ: @Model.SlotCode</p>
-<p>Tên: @Model.Name</p>
-<p>Email: @Model.Email</p>
-<p>Giữ chỗ đến: @(Model.ExpiresAt.HasValue ? Model.ExpiresAt.Value.ToString("HH:mm:ss") : "Chưa có")</p>
+<div class="container mt-4">
+    <div class="card shadow-lg border-0">
+        <div class="card-header bg-success text-white">
+            <h4 class="mb-0"><i class="fas fa-credit-card"></i> Xác nhận thanh toán giữ chỗ</h4>
+        </div>
+        <div class="card-body">
+            <form asp-action="Confirm" method="post">
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Mã chỗ:</label>
+                    <div class="text-danger fw-bold">
+                        @Model.SlotCode
+                    </div>
+                </div>
 
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Tầng:</label>
+                    <div class="text-danger fw-bold">
+                        @Model.ParkingSlot.Floor
+                    </div>
+                </div>
 
-<form asp-action="Confirm" method="post">
-    <input type="hidden" name="reservationId" value="@Model.Id" />
-    <button type="submit" class="btn btn-success">Thanh toán (Giả lập)</button>
-</form>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Tên người đặt:</label>
+                        <div>@Model.Name</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Email:</label>
+                        <div>@Model.Email</div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Giữ chỗ đến:</label>
+                    <div>@(Model.ExpiresAt?.ToString("HH:mm:ss") ?? "Chưa có")</div>
+                </div>
+
+                <input type="hidden" name="reservationId" value="@Model.Id" />
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-success px-4">
+                        <i class="fas fa-check-circle me-1"></i> Thanh toán (Giả lập)
+                    </button>
+                    <a asp-controller="Reservation" asp-action="History" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left me-1"></i> Quay lại lịch sử
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
