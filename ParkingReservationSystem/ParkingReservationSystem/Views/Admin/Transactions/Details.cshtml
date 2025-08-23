@@ -1,0 +1,68 @@
+﻿@page
+@model ParkingReservationSystem.Views.Admin.History.DetailsModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Reservation</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Reservation.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Reservation.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Reservation.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Reservation.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Reservation.Phone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Reservation.Phone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Reservation.ReservedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Reservation.ReservedAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Reservation.ExpiresAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Reservation.ExpiresAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Reservation.IsConfirmed)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Reservation.IsConfirmed)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Reservation.User)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Reservation.User.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Reservation.ParkingSlot)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Reservation.ParkingSlot.SlotCode)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Reservation.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
