@@ -1,0 +1,533 @@
+﻿@model ParkingReservationSystem.ViewModels.MultipleDetailViewModel
+@{
+    ViewData["Title"] = "Chi tiết nhiều mã chỗ";
+}
+
+<style>
+    .details-container {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 40px 0;
+    }
+
+    .main-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border: none;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .header-section {
+        background: linear-gradient(135deg, #2c3e50, #34495e);
+        color: white;
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .header-section::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @@keyframes shimmer {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(180deg); }
+    }
+
+    .main-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0;
+        position: relative;
+        z-index: 2;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .main-subtitle {
+        opacity: 0.9;
+        margin-top: 10px;
+        position: relative;
+        z-index: 2;
+        font-size: 1.1rem;
+    }
+
+    .reservation-card {
+        background: linear-gradient(145deg, #ffffff, #f8f9fa);
+        border-radius: 15px;
+        margin-bottom: 25px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        overflow: hidden;
+        border: 1px solid rgba(102, 126, 234, 0.1);
+    }
+
+    .reservation-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        border-color: rgba(102, 126, 234, 0.3);
+    }
+
+    .card-number {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.1rem;
+        z-index: 3;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    .qr-section {
+        background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+        padding: 25px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .qr-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        animation: slide 3s ease-in-out infinite;
+    }
+
+    @@keyframes slide {
+        0% { left: -100%; }
+        100% { left: 100%; }
+    }
+
+    .qr-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 15px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .qr-code-img {
+        border-radius: 15px;
+        padding: 15px;
+        background: white;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        position: relative;
+        z-index: 2;
+        max-width: 250px;
+        width: 100%;
+    }
+
+    .qr-code-img:hover {
+        transform: scale(1.05);
+    }
+
+    .info-section {
+        padding: 25px;
+        position: relative;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        position: relative;
+        padding-left: 15px;
+    }
+
+    .section-title::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 4px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border-radius: 2px;
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .info-item {
+        display: flex;
+        align-items: center;
+        padding: 12px 15px;
+        background: linear-gradient(145deg, #ffffff, #f8f9fa);
+        border-radius: 10px;
+        border-left: 4px solid transparent;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .info-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: linear-gradient(90deg, rgba(102, 126, 234, 0.1), transparent);
+        transition: width 0.3s ease;
+    }
+
+    .info-item:hover {
+        transform: translateX(5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-left-color: #667eea;
+    }
+
+    .info-item:hover::before {
+        width: 100%;
+    }
+
+    .info-icon {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        color: white;
+        font-size: 14px;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 2;
+    }
+
+    .icon-slot { background: linear-gradient(135deg, #667eea, #764ba2); }
+    .icon-floor { background: linear-gradient(135deg, #f093fb, #f5576c); }
+    .icon-user { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+    .icon-email { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+    .icon-time { background: linear-gradient(135deg, #fa709a, #fee140); }
+    .icon-expire { background: linear-gradient(135deg, #a8edea, #fed6e3); }
+    .icon-payment { background: linear-gradient(135deg, #ff9a9e, #fecfef); }
+
+    .info-content {
+        flex: 1;
+        position: relative;
+        z-index: 2;
+    }
+
+    .info-label {
+        font-weight: 600;
+        color: #2c3e50;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 3px;
+    }
+
+    .info-value {
+        color: #34495e;
+        font-size: 1rem;
+        font-weight: 500;
+        word-break: break-all;
+    }
+
+    .status-badge {
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 0.75rem;
+        display: inline-block;
+    }
+
+    .status-paid {
+        background: linear-gradient(135deg, #11998e, #38ef7d);
+        color: white;
+        box-shadow: 0 3px 10px rgba(17, 153, 142, 0.3);
+    }
+
+    .status-unpaid {
+        background: linear-gradient(135deg, #f093fb, #f5576c);
+        color: white;
+        box-shadow: 0 3px 10px rgba(240, 147, 251, 0.3);
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    @@keyframes pulse {
+        0%, 100% { box-shadow: 0 3px 10px rgba(240, 147, 251, 0.3); }
+        50% { box-shadow: 0 3px 15px rgba(240, 147, 251, 0.5); }
+    }
+
+    .divider {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #e9ecef, transparent);
+        margin: 20px 0;
+    }
+
+    .back-button {
+        background: linear-gradient(135deg, #2c3e50, #34495e);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 25px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        margin: 20px;
+        box-shadow: 0 8px 25px rgba(44, 62, 80, 0.3);
+    }
+
+    .back-button::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        transition: all 0.5s ease;
+        transform: translate(-50%, -50%);
+    }
+
+    .back-button:hover::before {
+        width: 300px;
+        height: 300px;
+    }
+
+    .back-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 35px rgba(44, 62, 80, 0.4);
+        color: white;
+        text-decoration: none;
+    }
+
+    .floating-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .floating-element {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: float 8s ease-in-out infinite;
+    }
+
+    .floating-element:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .floating-element:nth-child(2) { left: 30%; animation-delay: 2s; }
+    .floating-element:nth-child(3) { left: 70%; animation-delay: 4s; }
+    .floating-element:nth-child(4) { left: 90%; animation-delay: 6s; }
+
+    @@keyframes float {
+        0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+        10%, 90% { opacity: 1; }
+        50% { transform: translateY(-20px) rotate(180deg); }
+    }
+
+    @@media (max-width: 768px) {
+        .details-container { padding: 20px 0; }
+        .header-section { padding: 20px; }
+        .main-title { font-size: 1.5rem; }
+        .main-subtitle { font-size: 1rem; }
+        .reservation-card { margin-bottom: 20px; }
+        .qr-section, .info-section { padding: 20px; }
+        .section-title { font-size: 1.1rem; }
+        .back-button { margin: 15px; padding: 12px 25px; }
+        .card-number { width: 35px; height: 35px; font-size: 1rem; }
+    }
+</style>
+
+<div class="details-container">
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-11">
+                <div class="main-card card">
+                    <div class="header-section">
+                        <h1 class="main-title">
+                            <i class="fas fa-parking me-3"></i>Chi tiết các mã đã đặt
+                        </h1>
+                        <p class="main-subtitle mb-0">
+                            Quản lý và theo dõi tất cả @Model.Reservations.Count chỗ đỗ xe đã đặt
+                        </p>
+                    </div>
+
+                    <div class="card-body p-4">
+                        @for (int i = 0; i < Model.Reservations.Count; i++)
+                        {
+                            var reservation = Model.Reservations[i];
+                            var qrImage = Model.QRBase64List[i];
+
+                            <div class="reservation-card">
+                                <div class="card-number">@(i + 1)</div>
+                                <div class="row g-0">
+                                    <!-- QR Code Section -->
+                                    <div class="col-lg-4" style="margin: auto">
+                                        <div class="qr-section">
+                                            <h6 class="qr-title">
+                                                <i class="fas fa-qrcode me-2"></i>Mã QR
+                                            </h6>
+                                            <img src="@qrImage" alt="QR Code - @reservation.SlotCode" class="qr-code-img img-fluid" />
+                                            <p class="mt-2 text-muted small">Mã chỗ: <strong>@reservation.SlotCode</strong></p>
+                                            <p class="mt-1 text-muted small">Quét để xác nhận</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Information Section -->
+                                    <div class="col-lg-8">
+                                        <div class="info-section">
+                                            <h6 class="section-title">
+                                                <i class="fas fa-info-circle me-2"></i>Thông tin chỗ @(i + 1)
+                                            </h6>
+                                            <div class="info-grid">
+
+                                                <div class="info-item">
+                                                    <div class="info-icon icon-slot">
+                                                        <i class="fas fa-parking"></i>
+                                                    </div>
+                                                    <div class="info-content">
+                                                        <div class="info-label">Mã chỗ đỗ</div>
+                                                        <div class="info-value">@reservation.SlotCode</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="info-item">
+                                                    <div class="info-icon icon-floor">
+                                                        <i class="fas fa-layer-group"></i>
+                                                    </div>
+                                                    <div class="info-content">
+                                                        <div class="info-label">Tầng</div>
+                                                        <div class="info-value">Tầng @reservation.ParkingSlot?.Floor</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="info-item">
+                                                    <div class="info-icon icon-user">
+                                                        <i class="fas fa-user"></i>
+                                                    </div>
+                                                    <div class="info-content">
+                                                        <div class="info-label">Tên khách hàng</div>
+                                                        <div class="info-value">@reservation.Name</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="info-item">
+                                                    <div class="info-icon icon-email">
+                                                        <i class="fas fa-envelope"></i>
+                                                    </div>
+                                                    <div class="info-content">
+                                                        <div class="info-label">Email</div>
+                                                        <div class="info-value">@reservation.Email</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="info-item">
+                                                    <div class="info-icon icon-time">
+                                                        <i class="fas fa-clock"></i>
+                                                    </div>
+                                                    <div class="info-content">
+                                                        <div class="info-label">Thời gian đặt</div>
+                                                        <div class="info-value">@reservation.ReservedAt.ToString("HH:mm - dd/MM/yyyy")</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="info-item">
+                                                    <div class="info-icon icon-expire">
+                                                        <i class="fas fa-hourglass-end"></i>
+                                                    </div>
+                                                    <div class="info-content">
+                                                        <div class="info-label">Hết hạn thanh toán</div>
+                                                        <div class="info-value">@(reservation.ExpiresAt?.ToString("HH:mm - dd/MM/yyyy") ?? "Không xác định")</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="info-item">
+                                                    <div class="info-icon icon-payment">
+                                                        <i class="fas fa-credit-card"></i>
+                                                    </div>
+                                                    <div class="info-content">
+                                                        <div class="info-label">Tình trạng thanh toán</div>
+                                                        <div class="info-value">
+                                                            @if (reservation.IsConfirmed)
+                                                            {
+                                                                <span class="status-badge status-paid">
+                                                                    <i class="fas fa-check me-1"></i>Đã thanh toán
+                                                                </span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <span class="status-badge status-unpaid">
+                                                                    <i class="fas fa-exclamation-triangle me-1"></i>Chưa thanh toán
+                                                                </span>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @if (i < Model.Reservations.Count - 1)
+                                {
+                                    <div class="divider"></div>
+                                }
+                            </div>
+                        }
+
+                        <div class="text-center">
+                            <a asp-controller="Home" asp-action="Index" class="back-button">
+                                <i class="fas fa-arrow-left me-2"></i>Quay lại trang chủ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

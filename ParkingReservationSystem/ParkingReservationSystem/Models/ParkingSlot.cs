@@ -10,4 +10,6 @@ public partial class ParkingSlot
     public string SlotCode { get; set; } = null!;
 
     public bool IsAvailable { get; set; }
+
+    public int Floor { get; set; }
 }

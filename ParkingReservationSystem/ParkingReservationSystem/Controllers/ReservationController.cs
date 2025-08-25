@@ -4,6 +4,7 @@ using ParkingReservationSystem.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 using QRCoder;
+using Microsoft.AspNetCore.SignalR;
 
 namespace ParkingReservationSystem.Controllers
 {
@@ -90,7 +91,68 @@ namespace ParkingReservationSystem.Controllers
 
             return View(reservation);
         }
+        [HttpPost]
+        public async Task<IActionResult> ConfirmMultiple(List<int> reservationIds)
+        {
+            try
+            {
+                if (reservationIds == null || !reservationIds.Any())
+                {
+                    TempData["ErrorMessage"] = "Không có đặt chỗ nào để xác nhận.";
+                    return RedirectToAction("Index", "Home");
+                }
 
+                // Lấy thông tin reservations
+                var reservations = _context.Reservations
+                    .Where(r => reservationIds.Contains(r.Id))
+                    .ToList();
+
+                if (!reservations.Any())
+                {
+                    TempData["ErrorMessage"] = "Không tìm thấy đặt chỗ cần xác nhận.";
+                    return RedirectToAction("Index", "Home");
+                }
+
+                var slotCodes = reservations.Select(r => r.SlotCode).ToList();
+                var customerName = reservations.First().Name;
+
+                // Xác nhận đặt chỗ
+                foreach (var reservation in reservations)
+                {
+                    reservation.IsConfirmed = true;
+                    _context.Reservations.Update(reservation);
+                }
+
+                var affected = _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "Có lỗi xảy ra khi xác nhận: " + ex.Message;
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        // THÊM MỚI: Phương thức để hiển thị trang thanh toán
+        public IActionResult PaymentMultiple(List<int> reservationIds)
+        {
+            if (reservationIds == null || !reservationIds.Any())
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var reservations = _context.Reservations
+                .Include(r => r.ParkingSlot)
+                .Where(r => reservationIds.Contains(r.Id))
+                .ToList();
+
+            if (!reservations.Any())
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(reservations);
+        }
 
 
     }
