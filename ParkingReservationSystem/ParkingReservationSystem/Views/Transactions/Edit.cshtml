@@ -1,0 +1,935 @@
+﻿@model ParkingReservationSystem.Models.Reservation
+@{
+    ViewData["Title"] = "Chỉnh sửa đặt chỗ";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    :root {
+        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --success-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        --danger-gradient: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+        --card-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        --hover-transform: translateY(-2px);
+    }
+
+    .page-wrapper {
+        min-height: 100vh;
+        padding: 2rem 0;
+    }
+
+    .edit-container {
+        max-width: 900px;
+        margin: 0 auto;
+        animation: slideUp 0.6s ease-out;
+    }
+
+    @@keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+
+    .main-card {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        border: none;
+        border-radius: 24px;
+        box-shadow: var(--card-shadow);
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+        .main-card:hover {
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+    .card-header-modern {
+        background: var(--primary-gradient);
+        color: white;
+        padding: 2rem;
+        border: none;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .card-header-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            animation: shine 3s infinite;
+        }
+
+    @@keyframes shine {
+        0% {
+            transform: translateX(-100%);
+        }
+
+        100% {
+            transform: translateX(100%);
+        }
+    }
+
+    .card-header-modern h3 {
+        margin: 0;
+        font-weight: 600;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .card-body-modern {
+        padding: 2.5rem;
+        background: #fafbfc;
+    }
+
+    .alert-modern {
+        border: none;
+        border-radius: 16px;
+        padding: 1.25rem 1.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .alert-info-modern {
+        background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%);
+        color: #0277bd;
+        border-left: 4px solid #03a9f4;
+    }
+
+    .alert-success-modern {
+        background: var(--success-gradient);
+        color: white;
+    }
+
+    .alert-danger-modern {
+        background: var(--danger-gradient);
+        color: white;
+    }
+
+    .form-section {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+        border: 1px solid rgba(0,0,0,0.04);
+        transition: all 0.3s ease;
+    }
+
+        .form-section:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+    .section-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #2d3748;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid #e2e8f0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .form-group-modern {
+        margin-bottom: 1.5rem;
+        position: relative;
+    }
+
+    .form-label-modern {
+        font-weight: 600;
+        color: #4a5568;
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .required-star {
+        color: #e53e3e;
+        font-size: 0.8rem;
+    }
+
+    .form-control-modern {
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: #fafafa;
+    }
+
+        .form-control-modern:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            background: white;
+            outline: none;
+        }
+
+    .form-select-modern {
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: #fafafa;
+        cursor: pointer;
+    }
+
+        .form-select-modern:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            background: white;
+            outline: none;
+        }
+
+    /* Modern Toggle Switch for Confirmation Status */
+    .toggle-container {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        border-radius: 16px;
+        padding: 1.5rem;
+        border: 2px solid #e2e8f0;
+        transition: all 0.3s ease;
+        margin-top: 1rem;
+    }
+
+        .toggle-container:hover {
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            border-color: #cbd5e0;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+    .toggle-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .toggle-label-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .toggle-title {
+        font-weight: 600;
+        color: #2d3748;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .toggle-description {
+        font-size: 0.875rem;
+        color: #718096;
+    }
+
+    .toggle-switch {
+        position: relative;
+        width: 60px;
+        height: 32px;
+        background: #cbd5e0;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+        .toggle-switch.active {
+            background: var(--success-gradient);
+            box-shadow: 0 4px 12px rgba(17, 153, 142, 0.3);
+        }
+
+    .toggle-slider {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 26px;
+        height: 26px;
+        background: white;
+        border-radius: 50%;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .toggle-switch.active .toggle-slider {
+        transform: translateX(28px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .toggle-input {
+        display: none;
+    }
+
+    .status-indicator {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-top: 0.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .status-confirmed {
+        background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+        color: #065f46;
+        border: 2px solid #10b981;
+    }
+
+    .status-pending {
+        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+        color: #92400e;
+        border: 2px solid #f59e0b;
+    }
+
+    .btn-group-modern {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 2px solid #e2e8f0;
+    }
+
+    .btn-modern {
+        padding: 0.875rem 2rem;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 1rem;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        min-width: 150px;
+        justify-content: center;
+    }
+
+    .btn-success-modern {
+        background: var(--success-gradient);
+        color: white;
+        box-shadow: 0 4px 15px rgba(17, 153, 142, 0.3);
+        color: white;
+        padding: 15px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+
+        .btn-success-modern:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(17, 153, 142, 0.4);
+            color: white;
+        }
+
+    .btn-secondary-modern {
+        background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+        color: white;
+        box-shadow: 0 4px 15px rgba(100, 116, 139, 0.3);
+        color: white;
+        padding: 15px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+
+        .btn-secondary-modern:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(100, 116, 139, 0.4);
+            color: white;
+        }
+
+    .validation-errors {
+        background: var(--danger-gradient);
+        color: white;
+        border-radius: 16px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .text-danger-modern {
+        color: #e53e3e;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+        display: block;
+    }
+
+    .guest-indicator {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.25rem 0.75rem;
+        background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%);
+        color: #0277bd;
+        border-radius: 12px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-top: 0.5rem;
+    }
+
+    @@media (max-width: 768px) {
+        .edit-container {
+            padding: 0 1rem;
+        }
+
+        .card-body-modern {
+            padding: 1.5rem;
+        }
+
+        .form-section {
+            padding: 1.5rem;
+        }
+
+        .btn-group-modern {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .toggle-wrapper {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+    }
+</style>
+
+<div class="page-wrapper">
+    <div class="edit-container">
+        <div class="card main-card">
+            <div class="card-header-modern">
+                <h3>
+                    <i class="fas fa-edit"></i>
+                    Chỉnh sửa đặt chỗ #@Model.Id
+                </h3>
+            </div>
+            <div class="card-body-modern">
+
+                @* Show validation errors *@
+                @if (ViewData.ModelState.Any(x => x.Value.Errors.Count > 0))
+                {
+                <div class="validation-errors">
+                    <h5><i class="fas fa-exclamation-triangle"></i> Lỗi validation:</h5>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        @foreach (var modelState in ViewData.ModelState)
+                            {
+                                foreach (var error in modelState.Value.Errors)
+                                {
+                        <li><strong>@modelState.Key:</strong> @error.ErrorMessage</li>
+                                }
+                            }
+                    </ul>
+                </div>
+                }
+
+                @* Success/Error Messages *@
+                @if (TempData["SuccessMessage"] != null)
+                {
+                <div class="alert-modern alert-success-modern">
+                    <i class="fas fa-check-circle"></i> @TempData["SuccessMessage"]
+                </div>
+                }
+                @if (TempData["ErrorMessage"] != null)
+                {
+                <div class="alert-modern alert-danger-modern">
+                    <i class="fas fa-times-circle"></i> @TempData["ErrorMessage"]
+                </div>
+                }
+                @if (ViewBag.ErrorMessage != null)
+                {
+                <div class="alert-modern alert-danger-modern">
+                    <i class="fas fa-times-circle"></i> @ViewBag.ErrorMessage
+                </div>
+                }
+
+                <form asp-action="Edit" method="post" id="reservationForm">
+                    <input type="hidden" asp-for="Id" />
+
+                    <!-- Section 1: Thông tin đặt chỗ -->
+                    <div class="form-section">
+                        <div class="section-title">
+                            <i class="fas fa-parking"></i>
+                            Thông tin đặt chỗ
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group-modern">
+                                    <label asp-for="SlotCode" class="form-label-modern">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Mã chỗ đỗ
+                                        <span class="required-star">*</span>
+                                    </label>
+                                    <select asp-for="SlotCode" class="form-select form-select-modern" asp-items="ViewBag.SlotCode" required>
+                                        <option value="">-- Chọn chỗ đỗ --</option>
+                                    </select>
+                                    <span asp-validation-for="SlotCode" class="text-danger-modern"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group-modern">
+                                    <label asp-for="UserId" class="form-label-modern">
+                                        <i class="fas fa-user"></i>
+                                        Người dùng
+                                    </label>
+                                    <select asp-for="UserId" class="form-select form-select-modern" asp-items="ViewBag.UserId" id="userSelect">
+                                        <option value="">-- Khách vãng lai --</option>
+                                    </select>
+                                    <span asp-validation-for="UserId" class="text-danger-modern"></span>
+                                    <div id="guestIndicator" class="guest-indicator" style="display: none;">
+                                        <i class="fas fa-user-friends"></i>
+                                        Khách vãng lai - Không cần tài khoản
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Thông tin liên lạc -->
+                    <div class="form-section">
+                        <div class="section-title">
+                            <i class="fas fa-address-card"></i>
+                            Thông tin liên lạc
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group-modern">
+                                    <label asp-for="Name" class="form-label-modern">
+                                        <i class="fas fa-signature"></i>
+                                        Họ tên
+                                        <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="Name" class="form-control form-control-modern" required />
+                                    <span asp-validation-for="Name" class="text-danger-modern"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group-modern">
+                                    <label asp-for="Phone" class="form-label-modern">
+                                        <i class="fas fa-phone"></i>
+                                        Số điện thoại
+                                        <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="Phone" class="form-control form-control-modern" required />
+                                    <span asp-validation-for="Phone" class="text-danger-modern"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group-modern">
+                            <label asp-for="Email" class="form-label-modern">
+                                <i class="fas fa-envelope"></i>
+                                Email
+                                <span class="required-star">*</span>
+                            </label>
+                            <input asp-for="Email" class="form-control form-control-modern" type="email" required />
+                            <span asp-validation-for="Email" class="text-danger-modern"></span>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Thông tin thời gian & xác nhận -->
+                    <div class="form-section">
+                        <div class="section-title">
+                            <i class="fas fa-clock"></i>
+                            Thông tin thời gian & thanh toán
+                        </div>
+
+                        <div class="form-group-modern">
+                            <label asp-for="ReservedAt" class="form-label-modern">
+                                <i class="fas fa-calendar-alt"></i>
+                                Thời gian đặt
+                                <span class="required-star">*</span>
+                            </label>
+                            <input asp-for="ReservedAt" class="form-control form-control-modern" type="datetime-local" required id="reservedAtInput" />
+                            <span asp-validation-for="ReservedAt" class="text-danger-modern"></span>
+                        </div>
+
+                        <!-- Modern Toggle for Confirmation Status -->
+                        <div class="toggle-container">
+                            <div class="toggle-wrapper">
+                                <div class="toggle-label-content">
+                                    <div class="toggle-title">
+                                        <i class="fas fa-credit-card"></i>
+                                        Trạng thái thanh toán
+                                    </div>
+                                    <div class="toggle-description">
+                                        Bật để xác nhận khách hàng đã thanh toán
+                                    </div>
+                                    <div id="statusIndicator" class="status-indicator status-pending">
+                                        <i class="fas fa-clock" style="display: none"></i>
+                                        <span id="statusText">Chưa thanh toán</span>
+                                    </div>
+                                </div>
+                                <div class="toggle-switch" id="confirmToggle">
+                                    <div class="toggle-slider"></div>
+                                </div>
+                            </div>
+                            <input type="hidden" asp-for="IsConfirmed" id="isConfirmedInput" />
+                        </div>
+                    </div>
+
+                    <input type="hidden" asp-for="ExpiresAt" />
+
+                    <div class="btn-group-modern">
+                        <button type="submit" class="btn btn-success-modern" id="submitBtn">
+                            <i class="fas fa-save"></i>
+                            Lưu thay đổi
+                        </button>
+                        <a asp-action="Index" class="btn btn-secondary-modern">
+                            <i class="fas fa-arrow-left"></i>
+                            Quay lại
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Elements
+        const confirmToggle = document.getElementById('confirmToggle');
+        const isConfirmedInput = document.getElementById('isConfirmedInput');
+        const statusIndicator = document.getElementById('statusIndicator');
+        const statusText = document.getElementById('statusText');
+        const reservedAtInput = document.getElementById('reservedAtInput');
+        const userSelect = document.getElementById('userSelect');
+        const guestIndicator = document.getElementById('guestIndicator');
+        const form = document.getElementById('reservationForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Disable HTML5 validation to prevent browser conflicts
+        form.setAttribute('novalidate', 'novalidate');
+
+        // Remove any existing min/max attributes that cause conflicts
+        reservedAtInput.removeAttribute('min');
+        reservedAtInput.removeAttribute('max');
+
+        // Get current datetime for validation
+        function getCurrentDateTime() {
+            const now = new Date();
+            now.setSeconds(0, 0); // Round to minute precision
+            return now;
+        }
+
+        // Validate datetime manually
+        function validateDateTime(dateTimeValue) {
+            if (!dateTimeValue) return { valid: false, message: 'Vui lòng chọn thời gian đặt chỗ' };
+
+            const selectedDate = new Date(dateTimeValue);
+            const now = getCurrentDateTime();
+
+            if (isNaN(selectedDate.getTime())) {
+                return { valid: false, message: 'Định dạng thời gian không hợp lệ' };
+            }
+
+            if (selectedDate < now) {
+                return { valid: false, message: 'Thời gian đặt chỗ không thể trong quá khứ' };
+            }
+
+            return { valid: true, message: '' };
+        }
+
+        // Show validation error
+        function showValidationError(input, message) {
+            input.style.borderColor = '#e53e3e';
+            input.style.backgroundColor = '#fed7d7';
+
+            // Remove existing error message
+            const existingError = input.parentElement.querySelector('.datetime-error');
+            if (existingError) {
+                existingError.remove();
+            }
+
+            // Add new error message
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'datetime-error';
+            errorDiv.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${message}`;
+            input.parentElement.appendChild(errorDiv);
+        }
+
+        // Clear validation error
+        function clearValidationError(input) {
+            input.style.borderColor = '#e2e8f0';
+            input.style.backgroundColor = '#fafafa';
+
+            const errorMsg = input.parentElement.querySelector('.datetime-error');
+            if (errorMsg) {
+                errorMsg.remove();
+            }
+        }
+
+        // Initialize toggle state
+        function updateToggleState() {
+            const isConfirmed = isConfirmedInput.value === 'true';
+            if (isConfirmed) {
+                confirmToggle.classList.add('active');
+                statusIndicator.className = 'status-indicator status-confirmed';
+                statusText.innerHTML = '<i class="fas fa-check-circle"></i> Đã thanh toán';
+            } else {
+                confirmToggle.classList.remove('active');
+                statusIndicator.className = 'status-indicator status-pending';
+                statusText.innerHTML = '<i class="fas fa-clock"></i> Chưa thanh toán';
+            }
+        }
+
+        // Toggle click handler
+        confirmToggle.addEventListener('click', function () {
+            const currentValue = isConfirmedInput.value === 'true';
+            isConfirmedInput.value = (!currentValue).toString();
+            updateToggleState();
+        });
+
+        // Initialize on page load
+        updateToggleState();
+
+        // Handle user selection
+        function updateUserSelection() {
+            if (userSelect.value === '' || userSelect.value === null) {
+                guestIndicator.style.display = 'flex';
+            } else {
+                guestIndicator.style.display = 'none';
+            }
+        }
+
+        userSelect.addEventListener('change', updateUserSelection);
+        updateUserSelection(); // Initialize
+
+        // Auto calculate ExpiresAt when ReservedAt changes
+        reservedAtInput.addEventListener('change', function () {
+            // Clear previous validation errors
+            clearValidationError(this);
+
+            if (this.value) {
+                // Validate the selected datetime
+                const validation = validateDateTime(this.value);
+
+                if (!validation.valid) {
+                    showValidationError(this, validation.message);
+                    return;
+                }
+
+                // Calculate ExpiresAt (ReservedAt + 10 minutes)
+                const reservedDate = new Date(this.value);
+                const expiresDate = new Date(reservedDate.getTime() + (10 * 60 * 1000));
+
+                // Format to datetime-local format
+                const year = expiresDate.getFullYear();
+                const month = String(expiresDate.getMonth() + 1).padStart(2, '0');
+                const day = String(expiresDate.getDate()).padStart(2, '0');
+                const hours = String(expiresDate.getHours()).padStart(2, '0');
+                const minutes = String(expiresDate.getMinutes()).padStart(2, '0');
+
+                const formattedDate = `${year}-${month}-${day}T${hours}:${minutes}`;
+                document.querySelector('input[name="ExpiresAt"]').value = formattedDate;
+            }
+        });
+
+        // Validate on blur
+        reservedAtInput.addEventListener('blur', function () {
+            if (this.value) {
+                const validation = validateDateTime(this.value);
+                if (!validation.valid) {
+                    showValidationError(this, validation.message);
+                } else {
+                    clearValidationError(this);
+                }
+            }
+        });
+
+        // Form submission validation
+        form.addEventListener('submit', function (e) {
+            let isValid = true;
+
+            // Validate required fields
+            const requiredFields = [
+                { input: document.querySelector('select[name="SlotCode"]'), message: 'Vui lòng chọn chỗ đỗ xe' },
+                { input: document.querySelector('input[name="Name"]'), message: 'Vui lòng nhập họ tên' },
+                { input: document.querySelector('input[name="Phone"]'), message: 'Vui lòng nhập số điện thoại' },
+                { input: document.querySelector('input[name="Email"]'), message: 'Vui lòng nhập email' },
+                { input: reservedAtInput, message: 'Vui lòng chọn thời gian đặt chỗ' }
+            ];
+
+            // Clear all previous errors
+            requiredFields.forEach(field => {
+                if (field.input) {
+                    clearValidationError(field.input);
+                }
+            });
+
+            // Check required fields
+            requiredFields.forEach(field => {
+                if (field.input && (!field.input.value || field.input.value.trim() === '')) {
+                    showValidationError(field.input, field.message);
+                    isValid = false;
+                }
+            });
+
+            // Special validation for datetime
+            if (reservedAtInput.value) {
+                const validation = validateDateTime(reservedAtInput.value);
+                if (!validation.valid) {
+                    showValidationError(reservedAtInput, validation.message);
+                    isValid = false;
+                }
+            }
+
+            // Prevent form submission if validation fails
+            if (!isValid) {
+                e.preventDefault();
+
+                // Focus on first error field
+                const firstError = document.querySelector('.datetime-error');
+                if (firstError) {
+                    const errorInput = firstError.parentElement.querySelector('input, select');
+                    if (errorInput) {
+                        errorInput.focus();
+                        errorInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+
+                return false;
+            }
+        });
+
+        // Focus animation for form controls
+        const formControls = document.querySelectorAll('.form-control-modern, .form-select-modern');
+        formControls.forEach(control => {
+            control.addEventListener('focus', function () {
+                this.style.transform = 'scale(1.02)';
+            });
+
+            control.addEventListener('blur', function () {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Button click animation
+        const buttons = document.querySelectorAll('.btn-modern');
+        buttons.forEach(button => {
+            button.addEventListener('click', function (e) {
+                if (this.disabled) return;
+
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255,255,255,0.5);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    pointer-events: none;
+                `;
+
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+    });
+
+    // Add CSS for animations and styling
+    const style = document.createElement('style');
+    style.textContent = `
+    @@keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+    @@keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        /* Style for datetime input with past dates disabled */
+        input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+        }
+
+        /* Error styling for datetime input */
+        .form-control-modern.error {
+            border-color: #e53e3e !important;
+            background-color: #fed7d7 !important;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        .datetime-error {
+            color: #e53e3e;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+    @@keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Additional styling for better UX */
+        input[type="datetime-local"]:invalid {
+            border-color: #e53e3e;
+            box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+        }
+
+        input[type="datetime-local"]:valid {
+            border-color: #10b981;
+        }
+    `;
+    document.head.appendChild(style);
+</script>
