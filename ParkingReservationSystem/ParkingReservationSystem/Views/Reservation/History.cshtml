@@ -1,48 +1,223 @@
 ﻿@model List<ParkingReservationSystem.ViewModels.ReservationHistoryViewModel>
+
 @{
     ViewData["Title"] = "Lịch sử giao dịch";
+    var success = Context.Request.Query["success"];
+
+    // Nhóm các đặt chỗ cách nhau dưới 60 phút
+    var groups = new List<List<ParkingReservationSystem.ViewModels.ReservationHistoryViewModel>>();
+    var tempGroup = new List<ParkingReservationSystem.ViewModels.ReservationHistoryViewModel>();
+    var lastTime = DateTime.MinValue;
+    var threshold = TimeSpan.FromMinutes(60);
+
+    var sorted = Model.OrderBy(x => x.ReservedAt).ToList();
+
+    foreach (var item in sorted)
+    {
+        if (lastTime != DateTime.MinValue && (item.ReservedAt - lastTime) > threshold)
+        {
+            if (tempGroup.Any())
+                groups.Add(new List<ParkingReservationSystem.ViewModels.ReservationHistoryViewModel>(tempGroup));
+
+            tempGroup.Clear();
+        }
+
+        tempGroup.Add(item);
+        lastTime = item.ReservedAt;
+    }
+
+    if (tempGroup.Any())
+        groups.Add(tempGroup);
+
+    // Sắp xếp từng nhóm theo thời gian đặt mới → cũ
+    for (int i = 0; i < groups.Count; i++)
+    {
+        groups[i] = groups[i].OrderByDescending(x => x.ReservedAt).ToList();
+    }
 }
 
-<h2>Lịch sử giao dịch của bạn</h2>
-
-@if (!Model.Any())
-{
-    <p>Bạn chưa có giao dịch nào.</p>
+@section Styles {
+    <link rel="stylesheet" href="~/css/history.css" />
 }
-else
-{
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Mã chỗ</th>
-                <th>Thời gian đặt</th>
-                <th>Hết hạn</th>
-                <th>Trạng thái</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
+
+<div class="history-container">
+    <!-- Header Section -->
+    <div class="header-section">
+        <div class="header-content">
+            <h1 class="header-title">
+                <i class="fas fa-history me-3"></i>
+                Lịch sử giao dịch
+            </h1>
+            <p class="header-subtitle">Theo dõi tất cả các giao dịch đặt chỗ xe của bạn</p>
+
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-number">@Model.Count()</div>
+                    <div class="stat-label">Tổng giao dịch</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">@Model.Count(x => x.IsConfirmed)</div>
+                    <div class="stat-label">Đã thanh toán</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">@Model.Count(x => !x.IsConfirmed)</div>
+                    <div class="stat-label">Chờ thanh toán</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">@groups.Count</div>
+                    <div class="stat-label">Đợt đặt chỗ</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content-section">
+        @if (!Model.Any())
+        {
+            <div class="empty-state">
+                <i class="fas fa-car-crash empty-icon"></i>
+                <h3>Chưa có giao dịch nào</h3>
+                <p>Bạn chưa có giao dịch đặt chỗ xe nào. <a href="@Url.Action("Index", "Home")" class="text-decoration-none">Đặt chỗ ngay!</a></p>
+            </div>
+        }
+        else
+        {
+            @for (int i = groups.Count - 1, order = groups.Count; i >= 0; i--, order--)
             {
-                <tr>
-                    <td>@item.SlotCode</td>
-                    <td>@item.ReservedAt</td>
-                    <td>@item.ExpiresAt?.ToString("HH:mm dd/MM/yyyy")</td>
-                    <td>
-                        @if (item.IsConfirmed)
-                        {
-                            <span class="badge bg-success">Đã thanh toán</span>
-                        }
-                        else
-                        {
+                var group = groups[i];
+                var groupTime = group.First().ReservedAt;
 
-                            <a class="badge bg-warning text-dark"
-                               href="@Url.Action("ThanhToan", "Booking", new { id = item.Id })">
-                                Chưa thanh toán
-                            </a>
-                        }
-                    </td>
-                </tr>
+                <div class="booking-group fade-in">
+                    <div class="group-header">
+                        <div class="group-title">
+                            <i class="fas fa-layer-group"></i>
+                            Đợt đặt chỗ #@order
+                        </div>
+                        <div class="group-meta">
+                            <div>
+                                <i class="fas fa-clock me-1"></i>
+                                @groupTime.ToString("HH:mm - dd/MM/yyyy")
+                            </div>
+                            <div class="slots-count">
+                                <i class="fas fa-car me-1"></i>
+                                @group.Count chỗ
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="booking-table table table-hover align-middle">
+                            <thead>
+                                <tr>
+                                    <th><i class="fas fa-parking me-1"></i>Mã chỗ</th>
+                                    <th><i class="fas fa-clock me-1"></i>Thời gian đặt</th>
+                                    <th><i class="fas fa-hourglass-end me-1"></i>Hết hạn</th>
+                                    <th><i class="fas fa-info-circle me-1"></i>Trạng thái</th>
+                                    <th><i class="fas fa-cogs me-1"></i>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    var subGroups = group
+                                    .GroupBy(x => x.ReservedAt)
+                                    .OrderByDescending(g => g.Key)
+                                    .ToList();
+                                }
+
+                                @for (int j = 0; j < subGroups.Count; j++)
+                                {
+                                    var subGroup = subGroups[j];
+
+                                    @foreach (var item in subGroup)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <div class="slot-code">@item.SlotCode</div>
+                                            </td>
+                                            <td>
+                                                <div class="time-info">
+                                                    <div>@item.ReservedAt.ToString("HH:mm")</div>
+                                                    <small class="text-muted">@item.ReservedAt.ToString("dd/MM/yyyy")</small>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                @if (item.ExpiresAt.HasValue)
+                                                {
+                                                    <div class="time-info @(item.ExpiresAt < DateTime.Now ? "expired-time" : "")">
+                                                        <div>@item.ExpiresAt.Value.ToString("HH:mm")</div>
+                                                        <small>@item.ExpiresAt.Value.ToString("dd/MM/yyyy")</small>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">-</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (item.IsConfirmed)
+                                                {
+                                                    <span class="status-badge status-confirmed">
+                                                        <i class="fas fa-check-circle me-1"></i>
+                                                        Đã thanh toán
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <a class="status-badge status-pending"
+                                                       href="@Url.Action("ThanhToan", "Booking", new { id = item.Id })">
+                                                        <i class="fas fa-exclamation-circle me-1"></i>
+                                                        Chưa thanh toán
+                                                    </a>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (item.IsConfirmed)
+                                                {
+                                                    <a class="action-btn"
+                                                       href="@Url.Action("Details", "Reservation", new { id = item.Id })">
+                                                        <i class="fas fa-eye"></i>
+                                                        Chi tiết
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">-</span>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+
+                                    @if (j < subGroups.Count - 1)
+                                    {
+                                        <tr><td colspan="5" style="background: linear-gradient(135deg, #FFFFFF	 0%, #DDDDDD 100%);"><hr class="section-divider"></td></tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             }
-        </tbody>
-    </table>
+        }
+    </div>
+</div>
+
+<!-- Success Toast -->
+@if (success == "True")
+{
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+        <div id="successToast" class="toast success-toast text-white" role="alert">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="fas fa-check-circle me-2"></i>
+                    Thanh toán thành công! Cảm ơn bạn đã sử dụng dịch vụ.
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script src="~/js/history.js"></script>
 }
