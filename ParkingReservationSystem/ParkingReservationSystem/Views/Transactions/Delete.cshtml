@@ -1,0 +1,667 @@
+﻿@model ParkingReservationSystem.Models.Reservation
+@{
+    ViewData["Title"] = "Xác nhận xóa đặt chỗ";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .delete-container {
+        /* background: linear-gradient(135deg, #dc2626 0%, #991b1b 50%, #7f1d1d 100%); */
+        min-height: 100vh;
+        padding: 2rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .delete-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="warning" width="20" height="20" patternUnits="userSpaceOnUse"><polygon points="10,2 18,16 2,16" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23warning)"/></svg>');
+            opacity: 0.5;
+        }
+
+    .delete-card {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        border-radius: 25px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        overflow: hidden;
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+        animation: slideIn 0.6s ease-out;
+    }
+
+    @@keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(100px) scale(0.9);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    .delete-header {
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        color: white;
+        padding: 3rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .delete-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+    @@keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 0.7;
+        }
+
+        50% {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+    }
+
+    .warning-icon {
+        font-size: 4rem;
+        color: #fbbf24;
+        margin-bottom: 1rem;
+        animation: bounce 2s infinite;
+        position: relative;
+        z-index: 1;
+    }
+
+    @@keyframes bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+
+    .delete-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .delete-message {
+        font-size: 1.2rem;
+        opacity: 0.95;
+        position: relative;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        display: inline-block;
+        margin-top: 1rem;
+    }
+
+    .delete-body {
+        padding: 3rem;
+    }
+
+    .warning-box {
+        background: linear-gradient(135deg, #fef3c7, #fde68a);
+        border: 2px solid #f59e0b;
+        border-radius: 20px;
+        padding: 2rem;
+        margin-bottom: 3rem;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(245, 158, 11, 0.2);
+    }
+
+    .warning-text {
+        color: #92400e;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .reservation-summary {
+        background: linear-gradient(145deg, #f8fafc, #e2e8f0);
+        border-radius: 20px;
+        padding: 2.5rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        border-left: 5px solid #ef4444;
+    }
+
+    .summary-title {
+        color: #1e293b;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+
+    .summary-item {
+        display: flex;
+        align-items: center;
+        background: white;
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+        .summary-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+    .summary-icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        font-size: 18px;
+        color: white;
+        flex-shrink: 0;
+    }
+
+    .summary-content {
+        flex: 1;
+    }
+
+    .summary-label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.5rem;
+    }
+
+    .summary-value {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #1e293b;
+        word-break: break-word;
+    }
+
+    /* Icon backgrounds */
+    .icon-user-summary {
+        background: linear-gradient(135deg, #06b6d4, #0891b2);
+    }
+
+    .icon-email-summary {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+    }
+
+    .icon-phone-summary {
+        background: linear-gradient(135deg, #10b981, #059669);
+    }
+
+    .icon-parking-summary {
+        background: linear-gradient(135deg, #6366f1, #4f46e5);
+    }
+
+    .icon-calendar-summary {
+        background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    }
+
+    .icon-time-summary {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+    }
+
+    .icon-status-summary {
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+    }
+
+    .icon-id-summary {
+        background: linear-gradient(135deg, #ec4899, #db2777);
+    }
+
+    .actions-container {
+        background: rgba(248, 250, 252, 0.8);
+        border-top: 2px solid rgba(239, 68, 68, 0.2);
+        padding: 2.5rem;
+        text-align: center;
+    }
+
+    .btn-group-delete {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .btn-delete-confirm {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+        color: white;
+        border: none;
+        padding: 18px 40px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
+    }
+
+        .btn-delete-confirm::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-delete-confirm:hover::before {
+            left: 100%;
+        }
+
+        .btn-delete-confirm:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(239, 68, 68, 0.4);
+        }
+
+    .btn-cancel {
+        background: linear-gradient(135deg, #6b7280, #4b5563);
+        color: white;
+        padding: 18px 35px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: 0 6px 20px rgba(107, 114, 128, 0.3);
+    }
+
+        .btn-cancel:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(107, 114, 128, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+    .danger-notice {
+        background: linear-gradient(135deg, #fca5a5, #f87171);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+        text-align: center;
+        font-weight: 600;
+        box-shadow: 0 8px 20px rgba(248, 113, 113, 0.3);
+    }
+
+    .countdown-timer {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: linear-gradient(135deg, #1f2937, #111827);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        font-weight: 600;
+        z-index: 1000;
+        opacity: 0;
+        transform: translateY(100px);
+        animation: slideUp 0.5s ease forwards 2s;
+    }
+
+    @@keyframes slideUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .delete-container {
+            padding: 1rem;
+        }
+
+        .delete-body,
+        .actions-container {
+            padding: 1.5rem;
+        }
+
+        .summary-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .btn-group-delete {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn-delete-confirm,
+        .btn-cancel {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .countdown-timer {
+            bottom: 1rem;
+            right: 1rem;
+            left: 1rem;
+        }
+    }
+
+    .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .loading-content {
+        background: white;
+        padding: 3rem;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .spinner-delete {
+        width: 60px;
+        height: 60px;
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #ef4444;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 1rem;
+    }
+
+    @@keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<div class="delete-container">
+    <div class="delete-card">
+        <div class="delete-header">
+            <div class="warning-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h1 class="delete-title">Xác nhận xóa đặt chỗ</h1>
+            <div class="delete-message">
+                Hành động này không thể hoàn tác!
+            </div>
+        </div>
+
+        <div class="delete-body">
+            <div class="warning-box">
+                <p class="warning-text">
+                    <i class="fas fa-exclamation-circle me-2"></i>
+                    Bạn có chắc chắn muốn xóa đặt chỗ này không? Tất cả dữ liệu liên quan sẽ bị xóa vĩnh viễn và không thể khôi phục.
+                </p>
+            </div>
+
+            <div class="danger-notice">
+                <i class="fas fa-shield-alt me-2"></i>
+                Chỗ đỗ xe sẽ được giải phóng và có thể được đặt bởi người khác
+            </div>
+
+            <div class="reservation-summary">
+                <div class="summary-title">
+                    <i class="fas fa-file-alt"></i>
+                    Thông tin đặt chỗ sẽ bị xóa
+                </div>
+
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <div class="summary-icon icon-user-summary">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="summary-content">
+                            <div class="summary-label">Khách hàng</div>
+                            <div class="summary-value">@Html.DisplayFor(model => model.Name)</div>
+                        </div>
+                    </div>
+
+                    <div class="summary-item">
+                        <div class="summary-icon icon-email-summary">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="summary-content">
+                            <div class="summary-label">Email</div>
+                            <div class="summary-value">@Html.DisplayFor(model => model.Email)</div>
+                        </div>
+                    </div>
+
+                    <div class="summary-item">
+                        <div class="summary-icon icon-phone-summary">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="summary-content">
+                            <div class="summary-label">Điện thoại</div>
+                            <div class="summary-value">@Html.DisplayFor(model => model.Phone)</div>
+                        </div>
+                    </div>
+
+                    <div class="summary-item">
+                        <div class="summary-icon icon-parking-summary">
+                            <i class="fas fa-parking"></i>
+                        </div>
+                        <div class="summary-content">
+                            <div class="summary-label">Chỗ đỗ</div>
+                            <div class="summary-value">@Html.DisplayFor(model => model.ParkingSlot.SlotCode)</div>
+                        </div>
+                    </div>
+
+                    <div class="summary-item">
+                        <div class="summary-icon icon-calendar-summary">
+                            <i class="fas fa-calendar-plus"></i>
+                        </div>
+                        <div class="summary-content">
+                            <div class="summary-label">Ngày đặt</div>
+                            <div class="summary-value">@Html.DisplayFor(model => model.ReservedAt)</div>
+                        </div>
+                    </div>
+
+                    <div class="summary-item">
+                        <div class="summary-icon icon-time-summary">
+                            <i class="fas fa-calendar-times"></i>
+                        </div>
+                        <div class="summary-content">
+                            <div class="summary-label">Hết hạn</div>
+                            <div class="summary-value">@Html.DisplayFor(model => model.ExpiresAt)</div>
+                        </div>
+                    </div>
+
+                    <div class="summary-item">
+                        <div class="summary-icon icon-status-summary">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="summary-content">
+                            <div class="summary-label">Trạng thái</div>
+                            <div class="summary-value">
+                                @(Model.IsConfirmed ? "Đã xác nhận" : "Chờ xác nhận")
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="summary-item">
+                        <div class="summary-icon icon-id-summary">
+                            <i class="fas fa-id-badge"></i>
+                        </div>
+                        <div class="summary-content">
+                            <div class="summary-label">ID Người dùng</div>
+                            <div class="summary-value">@Html.DisplayFor(model => model.User.Id)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions-container">
+            <div class="btn-group-delete">
+                <form asp-action="Delete" id="deleteForm">
+                    <input type="hidden" asp-for="Id" />
+                    <button type="submit" class="btn-delete-confirm" onclick="return confirmDelete()">
+                        <i class="fas fa-trash-alt me-2"></i>
+                        Xóa vĩnh viễn
+                    </button>
+                </form>
+                <a asp-action="Index" class="btn-cancel">
+                    <i class="fas fa-arrow-left me-2"></i>
+                    Hủy bỏ
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="countdown-timer" id="countdownTimer" style="display: none;">
+    <i class="fas fa-clock me-2"></i>
+    <span id="countdown">5</span> giây để suy nghĩ lại...
+</div>
+
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-content">
+        <div class="spinner-delete"></div>
+        <h3>Đang xóa đặt chỗ...</h3>
+        <p>Vui lòng chờ trong giây lát</p>
+    </div>
+</div>
+
+<script>
+let countdownActive = false;
+let countdownValue = 5;
+
+function confirmDelete() {
+    if (!countdownActive) {
+        startCountdown();
+        return false;
+    }
+
+    const confirmed = confirm('Bạn có thực sự chắc chắn muốn xóa đặt chỗ này không? Hành động này không thể hoàn tác!');
+    if (confirmed) {
+        document.getElementById('loadingOverlay').style.display = 'flex';
+        return true;
+    }
+    return false;
+}
+
+function startCountdown() {
+    const timer = document.getElementById('countdownTimer');
+    const countdownSpan = document.getElementById('countdown');
+
+    timer.style.display = 'block';
+    countdownActive = false;
+
+    const interval = setInterval(() => {
+        countdownValue--;
+        countdownSpan.textContent = countdownValue;
+
+        if (countdownValue <= 0) {
+            clearInterval(interval);
+            timer.style.display = 'none';
+            countdownActive = true;
+            countdownValue = 5;
+
+            // Enable the delete button with different styling
+            const deleteBtn = document.querySelector('.btn-delete-confirm');
+            deleteBtn.innerHTML = '<i class="fas fa-trash-alt me-2"></i>XÁC NHẬN XÓA';
+            deleteBtn.style.animation = 'pulse 1s infinite';
+        }
+    }, 1000);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Add entrance animations
+    const summaryItems = document.querySelectorAll('.summary-item');
+    summaryItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
+        setTimeout(() => {
+            item.style.transition = 'all 0.5s ease';
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
+
+    // Add warning sound effect (optional)
+    const playWarningSound = () => {
+        // You can add audio element here if needed
+        console.log('Warning: Delete operation initiated');
+    };
+
+    // Add shake animation on hover for delete button
+    const deleteBtn = document.querySelector('.btn-delete-confirm');
+    deleteBtn.addEventListener('mouseenter', function() {
+        if (!countdownActive) {
+            this.style.animation = 'shake 0.5s ease-in-out';
+        }
+    });
+
+    deleteBtn.addEventListener('animationend', function() {
+        this.style.animation = '';
+    });
+});
+
+// Add shake keyframe
+const style = document.createElement('style');
+style.textContent = `
+    @@keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        75% { transform: translateX(5px); }
+    }
+`;
+document.head.appendChild(style);
+</script>
