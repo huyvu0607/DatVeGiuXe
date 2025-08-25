@@ -24,6 +24,71 @@
     }
 
     <button type="submit" class="btn btn-success">Xác nhận thanh toán (giả lập)</button>
+    @model List<ParkingReservationSystem.Models.Reservation>
+
+@{
+    ViewData["Title"] = "Thanh toán nhiều chỗ";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-lg border-0">
+        <div class="card-header bg-success text-white">
+            <h4 class="mb-0"><i class="fas fa-credit-card"></i> Xác nhận thanh toán giữ chỗ</h4>
+        </div>
+        <div class="card-body">
+            <form method="post" asp-action="ConfirmMultiple">
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Mã chỗ:</label>
+                    <div class="text-danger fw-bold">
+                        @string.Join(", ", Model.Select(res => res.SlotCode))
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Tầng:</label>
+                    <div class="text-danger fw-bold">
+                        @string.Join(", ", Model.Select(res => res.ParkingSlot.Floor))
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Tên người đặt:</label>
+                        <div>@Model[0].Name</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Email:</label>
+                        <div>@Model[0].Email</div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Giữ chỗ đến:</label>
+                    <div>@(Model[0].ExpiresAt?.ToString("HH:mm:ss") ?? "Chưa có")</div>
+                </div>
+
+                @* Truyền toàn bộ danh sách ID *@
+                @foreach (var reservation in Model)
+                {
+                    <input type="hidden" name="reservationIds" value="@reservation.Id" />
+                }
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-success px-4">
+                        <i class="fas fa-check-circle me-1"></i> Xác nhận thanh toán (giả lập)
+                    </button>
+
+                    <a asp-controller="Reservation"
+                       asp-action="CancelMultipleReservation"
+                       class="btn btn-outline-danger px-4"
+                       onclick="return confirm('Bạn có chắc muốn huỷ các đặt chỗ này không?')">
+                        <i class="fas fa-times-circle me-1"></i> Huỷ đặt chỗ
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
     <a asp-controller="Reservation"
        asp-action="CancelMultipleReservation"

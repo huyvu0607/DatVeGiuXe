@@ -1,0 +1,75 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Dashboard";
+
+    var recentActivities = ViewData["RecentActivities"] as List<ParkingReservationSystem.Controllers.RecentActivity> ?? new List<ParkingReservationSystem.Controllers.RecentActivity>();
+    var weeklyStats = ViewData["WeeklyStats"] as List<ParkingReservationSystem.Controllers.DailyStats> ?? new List<ParkingReservationSystem.Controllers.DailyStats>();
+    var statusStats = ViewData["StatusStats"] as ParkingReservationSystem.Controllers.StatusStats ?? new ParkingReservationSystem.Controllers.StatusStats();
+}
+
+<!-- Include CSS and JS files -->
+<link rel="stylesheet" href="~/css/Admin/admin-dashboard.css" />
+
+<!-- Add custom styles for multi-slot display -->
+<style>
+    .parking-slots-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        max-width: 200px;
+    }
+
+    .parking-slot-chip {
+        display: inline-block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 11px;
+        font-weight: 600;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        margin: 1px;
+    }
+
+        .parking-slot-chip:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .parking-slot-chip.primary {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .parking-slot-chip.success {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .parking-slot-chip.warning {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .parking-slot-chip.na {
+            background: linear-gradient(135deg, #a8a8a8 0%, #d3d3d3 100%);
+            color: #666;
+        }
+
+    .slots-count-badge {
+        background: #e74c3c;
+        color: white;
+        font-size: 10px;
+        padding: 2px 6px;
+        border-radius: 10px;
+        margin-left: 5px;
+        font-weight: bold;
+    }
+
+    .table td {
+        vertical-align: middle;
+    }
+
+
+</script>
+
+<script src="~/js/Admin/admin-dashboard.js"></script>
