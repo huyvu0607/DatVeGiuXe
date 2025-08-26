@@ -1,1 +1,222 @@
-﻿
+﻿@model ParkingReservationSystem.ViewModels.User.EditUserViewModel
+@{
+    ViewData["Title"] = "Chỉnh Sửa Người Dùng";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <!-- Header Section -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 class="text-primary mb-1">
+                        <i class="fas fa-user-edit me-2"></i>Chỉnh Sửa Người Dùng
+                    </h2>
+                    <p class="text-muted mb-0">Cập nhật thông tin người dùng trong hệ thống</p>
+                </div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a asp-action="Index" class="text-decoration-none">Người Dùng</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Chỉnh Sửa</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-xl-6">
+            <!-- Form Card -->
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-warning text-white">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-edit me-2"></i>Cập Nhật Thông Tin
+                    </h5>
+                </div>
+
+                <div class="card-body p-4">
+                    <form asp-action="Edit" id="editUserForm" novalidate>
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" asp-for="CurrentPasswordHash" />
+
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger d-none" role="alert">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            <strong>Vui lòng kiểm tra lại thông tin:</strong>
+                        </div>
+
+                        <!-- User ID Display -->
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-semibold text-muted">
+                                <i class="fas fa-hashtag text-primary me-2"></i>ID Người Dùng
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-hashtag text-muted"></i>
+                                </span>
+                                <input type="text" class="form-control bg-light" value="@Model?.Id" readonly />
+                            </div>
+                        </div>
+
+                        <!-- Name Field -->
+                        <div class="form-group mb-3">
+                            <label asp-for="Name" class="form-label fw-semibold">
+                                <i class="fas fa-user text-primary me-2"></i>Họ và Tên
+                                <span class="text-danger">*</span>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0">
+                                    <i class="fas fa-user text-muted"></i>
+                                </span>
+                                <input asp-for="Name" class="form-control border-start-0 ps-0"
+                                       placeholder="Nhập họ và tên đầy đủ" />
+                            </div>
+                            <span asp-validation-for="Name" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Email Field -->
+                        <div class="form-group mb-3">
+                            <label asp-for="Email" class="form-label fw-semibold">
+                                <i class="fas fa-envelope text-primary me-2"></i>Email
+                                <span class="text-danger">*</span>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0">
+                                    <i class="fas fa-envelope text-muted"></i>
+                                </span>
+                                <input asp-for="Email" type="email" class="form-control border-start-0 ps-0"
+                                       placeholder="example@email.com" />
+                            </div>
+                            <span asp-validation-for="Email" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Password Field -->
+                        <div class="form-group mb-3">
+                            <label asp-for="Password" class="form-label fw-semibold">
+                                <i class="fas fa-lock text-primary me-2"></i>Mật Khẩu Mới
+                                <span class="text-warning small">(Để trống nếu không muốn thay đổi)</span>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0">
+                                    <i class="fas fa-lock text-muted"></i>
+                                </span>
+                                <!-- Thêm data-val="false" để tắt client validation cho trường này -->
+                                <input asp-for="Password" type="password"
+                                       class="form-control border-start-0 ps-0"
+                                       placeholder="Nhập mật khẩu mới hoặc để trống"
+                                       id="passwordField"
+                                       data-val="false" />
+                                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                    <i class="fas fa-eye" id="eyeIcon"></i>
+                                </button>
+                            </div>
+                            <div class="form-text">
+                                <small class="text-muted">
+                                    <i class="fas fa-info-circle me-1"></i>
+                                    Để trống nếu không muốn thay đổi mật khẩu hiện tại
+                                </small>
+                            </div>
+                            <!-- Thêm div để hiển thị lỗi validation từ server -->
+                            <div id="password-validation-error" class="text-danger small" style="display: none;"></div>
+                        </div>
+                        <!-- Role Field -->
+                        <div class="form-group mb-4">
+                            <label asp-for="Role" class="form-label fw-semibold">
+                                <i class="fas fa-user-tag text-primary me-2"></i>Vai Trò
+                                <span class="text-danger">*</span>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0">
+                                    <i class="fas fa-user-tag text-muted"></i>
+                                </span>
+                                <select asp-for="Role" class="form-select border-start-0">
+                                    <option value="">-- Chọn vai trò --</option>
+                                    <option value="Admin">Quản trị viên</option>
+                                    <option value="User">Người dùng</option>
+                                </select>
+                            </div>
+                            <span asp-validation-for="Role" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="d-flex gap-2 justify-content-end border-top pt-3">
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="fas fa-arrow-left me-2"></i>Quay Lại
+                            </a>
+                            <a asp-action="Details" asp-route-id="@Model?.Id" class="btn btn-outline-info">
+                                <i class="fas fa-eye me-2"></i>Xem Chi Tiết
+                            </a>
+                            <button type="submit" class="btn btn-warning text-white" id="submitBtn">
+                                <i class="fas fa-save me-2"></i>Lưu Thay Đổi
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Warning Card -->
+            <div class="card mt-4 border-0 bg-light">
+                <div class="card-body">
+                    <h6 class="text-warning mb-3">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Lưu ý quan trọng
+                    </h6>
+                    <ul class="list-unstyled mb-0 small text-muted">
+                        <li class="mb-1"><i class="fas fa-info-circle text-info me-2"></i>Việc thay đổi email có thể ảnh hưởng đến việc đăng nhập của người dùng</li>
+                        <li class="mb-1"><i class="fas fa-info-circle text-info me-2"></i>Để trống trường mật khẩu nếu không muốn thay đổi</li>
+                        <li class="mb-1"><i class="fas fa-info-circle text-info me-2"></i>Thay đổi vai trò sẽ ảnh hưởng đến quyền truy cập của người dùng</li>
+                        <li><i class="fas fa-info-circle text-info me-2"></i>Tất cả thay đổi sẽ có hiệu lực ngay lập tức</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        // Toggle password visibility
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordField = document.getElementById('passwordField');
+            const eyeIcon = document.getElementById('eyeIcon');
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                eyeIcon.className = 'fas fa-eye-slash';
+            } else {
+                passwordField.type = 'password';
+                eyeIcon.className = 'fas fa-eye';
+            }
+        });
+
+        // Form validation enhancement
+        document.getElementById('editUserForm').addEventListener('submit', function(e) {
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.innerHTML;
+
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Đang lưu...';
+            submitBtn.disabled = true;
+
+            // Re-enable after 3 seconds (in case of validation errors)
+            setTimeout(function() {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 3000);
+        });
+
+        // Confirmation for role change
+        document.querySelector('select[name="Role"]').addEventListener('change', function() {
+            if (this.value !== this.defaultValue) {
+                const confirmChange = confirm('Bạn có chắc chắn muốn thay đổi vai trò của người dùng này? Điều này sẽ ảnh hưởng đến quyền truy cập của họ.');
+                if (!confirmChange) {
+                    this.value = this.defaultValue;
+                }
+            }
+        });
+    </script>
+}

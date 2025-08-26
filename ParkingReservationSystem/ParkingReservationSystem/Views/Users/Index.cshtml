@@ -1,1 +1,285 @@
-﻿
+﻿@model IEnumerable<ParkingReservationSystem.Models.User>
+@{
+    ViewData["Title"] = "User Management";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var currentUserId = ViewBag.CurrentUserId;
+}
+
+<link rel="stylesheet" href="~/css/Admin/users-management.css" />
+
+<div class="users-management-container">
+    <!-- Header Section -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">
+                <i class="fas fa-users"></i>
+                User Management
+            </h1>
+            <div class="header-actions">
+                <a asp-action="Create" class="btn btn-create">
+                    <i class="fas fa-plus"></i>
+                    Add New User
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="stats-container">
+        <div class="stat-card admin-stat">
+            <div class="stat-icon">
+                <i class="fas fa-user-shield"></i>
+            </div>
+            <div class="stat-content">
+                <h3>@ViewBag.AdminCount</h3>
+                <p>Administrators</p>
+            </div>
+        </div>
+        <div class="stat-card user-stat">
+            <div class="stat-icon">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="stat-content">
+                <h3>@ViewBag.UserCount</h3>
+                <p>Regular Users</p>
+            </div>
+        </div>
+        <div class="stat-card total-stat">
+            <div class="stat-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-content">
+                <h3>@ViewBag.TotalCount</h3>
+                <p>Total Users</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filters and Search -->
+    <div class="filters-container">
+        <form method="get" class="filter-form">
+            <div class="filter-group">
+                <label for="searchTerm" class="filter-label">
+                    <i class="fas fa-search"></i>
+                    Search
+                </label>
+                <input type="text"
+                       id="searchTerm"
+                       name="searchTerm"
+                       value="@ViewBag.SearchTerm"
+                       placeholder="Search by name or email..."
+                       class="form-control search-input">
+            </div>
+
+            <div class="filter-group">
+                <label for="roleFilter" class="filter-label">
+                    <i class="fas fa-filter"></i>
+                    Role Filter
+                </label>
+                <select name="roleFilter" id="roleFilter" class="form-control role-select">
+                    <option value="">All Roles</option>
+                    <option value="Admin" selected="@(ViewBag.RoleFilter == "Admin")">Administrators</option>
+                    <option value="User" selected="@(ViewBag.RoleFilter == "User")">Regular Users</option>
+                </select>
+            </div>
+
+            <div class="filter-actions">
+                <button type="submit" class="btn btn-filter">
+                    <i class="fas fa-search"></i>
+                    Filter
+                </button>
+                <a href="@Url.Action("Index")" class="btn btn-clear">
+                    <i class="fas fa-times"></i>
+                    Clear
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Users Table -->
+    <div class="table-container">
+        <table class="users-table">
+            <thead>
+                <tr>
+                    <th class="sortable" data-sort="name">
+                        <i class="fas fa-user"></i>
+                        Name
+                        <i class="fas fa-sort sort-icon"></i>
+                    </th>
+                    <th class="sortable" data-sort="email">
+                        <i class="fas fa-envelope"></i>
+                        Email
+                        <i class="fas fa-sort sort-icon"></i>
+                    </th>
+                    <th class="role-column">
+                        <i class="fas fa-user-tag"></i>
+                        Role
+                    </th>
+                    <th class="actions-column">
+                        <i class="fas fa-cogs"></i>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Any())
+                {
+                    @foreach (var user in Model)
+                    {
+                        <tr class="user-row" data-role="@user.Role.ToLower()">
+                            <td class="name-cell">
+                                <div class="user-info">
+                                    <div class="user-avatar">
+                                        <i class="fas fa-user-circle"></i>
+                                    </div>
+                                    <span class="user-name">
+                                        @user.Name
+                                        @if (user.Id == currentUserId)
+                                        {
+                                            <span class="badge badge-self">(You)</span>
+                                        }
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="email-cell">
+                                <span class="user-email">@user.Email</span>
+                            </td>
+                            <td class="role-cell">
+                                <span class="role-badge role-@user.Role.ToLower()">
+                                    @if (user.Role == "Admin")
+                                    {
+                                        <i class="fas fa-user-shield"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="fas fa-user"></i>
+                                    }
+                                    @user.Role
+                                </span>
+                            </td>
+                            <td class="actions-cell">
+                                <div class="action-buttons">
+                                    <!-- View Details - Always available -->
+                                    <a asp-action="Details"
+                                       asp-route-id="@user.Id"
+                                       class="btn-action btn-view"
+                                       title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+
+                                    <!-- Edit - Only for own account or regular Users -->
+                                    @if (user.Id == currentUserId || user.Role != "Admin")
+                                    {
+                                        <a asp-action="Edit"
+                                           asp-route-id="@user.Id"
+                                           class="btn-action btn-edit"
+                                           title="Edit User">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <span class="btn-action btn-disabled"
+                                              title="Cannot edit other admin accounts">
+                                            <i class="fas fa-edit"></i>
+                                        </span>
+                                    }
+
+                                    <!-- Delete - Only for regular Users (not own account, not other admins) -->
+                                    @if (user.Id != currentUserId && user.Role != "Admin")
+                                    {
+                                        <a asp-action="Delete"
+                                           asp-route-id="@user.Id"
+                                           class="btn-action btn-delete"
+                                           title="Delete User">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <span class="btn-action btn-disabled"
+                                              title="@(user.Id == currentUserId ? "Cannot delete your own account" : "Cannot delete admin accounts")">
+                                            <i class="fas fa-trash"></i>
+                                        </span>
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4" class="no-data">
+                            <div class="no-data-message">
+                                <i class="fas fa-users-slash"></i>
+                                <h3>No users found</h3>
+                                <p>No users match your current filters.</p>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    @if (ViewBag.TotalPages > 1)
+    {
+        <div class="pagination-container">
+            <div class="pagination-info">
+                <span>Showing @((ViewBag.CurrentPage - 1) * ViewBag.PageSize + 1) to @(Math.Min(ViewBag.CurrentPage * ViewBag.PageSize, ViewBag.TotalCount)) of @ViewBag.TotalCount entries</span>
+            </div>
+
+            <nav class="pagination-nav">
+                <ul class="pagination">
+                    @if (ViewBag.HasPreviousPage)
+                    {
+                        <li class="page-item">
+                            <a class="page-link"
+                               href="@Url.Action("Index", new {
+                                   page = ViewBag.CurrentPage - 1,
+                                   roleFilter = ViewBag.RoleFilter,
+                                   searchTerm = ViewBag.SearchTerm
+                               })">
+                                <i class="fas fa-chevron-left"></i>
+                                Previous
+                            </a>
+                        </li>
+                    }
+
+                    @for (int i = Math.Max(1, ViewBag.CurrentPage - 2); i <= Math.Min(ViewBag.TotalPages, ViewBag.CurrentPage + 2); i++)
+                    {
+                        <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                            <a class="page-link"
+                               href="@Url.Action("Index", new {
+                                   page = i,
+                                   roleFilter = ViewBag.RoleFilter,
+                                   searchTerm = ViewBag.SearchTerm
+                               })">
+                                @i
+                            </a>
+                        </li>
+                    }
+
+                    @if (ViewBag.HasNextPage)
+                    {
+                        <li class="page-item">
+                            <a class="page-link"
+                               href="@Url.Action("Index", new {
+                                   page = ViewBag.CurrentPage + 1,
+                                   roleFilter = ViewBag.RoleFilter,
+                                   searchTerm = ViewBag.SearchTerm
+                               })">
+                                Next
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    }
+</div>
+
+<script src="~/js/Admin/users-management.js"></script>
