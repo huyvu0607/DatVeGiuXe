@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System;
 using System.Collections.Generic;
 
 namespace ParkingReservationSystem.Models;
@@ -25,5 +26,7 @@ public partial class Reservation
 
     public virtual User? User { get; set; }
 
+
+    [ValidateNever]
     public virtual ParkingSlot ParkingSlot { get; set; }
 }

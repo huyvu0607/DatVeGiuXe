@@ -1,0 +1,1536 @@
+﻿@model ParkingReservationSystem.Models.ParkingSlot
+@{
+    ViewData["Title"] = "Chỉnh sửa chỗ đỗ xe";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid px-4 py-4">
+    <!-- Modern Header Section -->
+    <div class="row align-items-center mb-5">
+        <div class="col">
+            <div class="header-content">
+                <div class="d-flex align-items-center">
+                    <div class="icon-wrapper me-4">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div style="margin-left: 15px">
+                        <h1 class="page-title mb-1">Chỉnh sửa chỗ đỗ xe</h1>
+                        <p class="page-subtitle mb-0">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Cập nhật thông tin cho chỗ đỗ xe: 
+                            <span class="slot-code-highlight">@Model.SlotCode</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-auto">
+            <div class="action-buttons d-flex gap-2">
+                <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-outline-secondary btn-modern">
+                    <i class="fas fa-eye me-2"></i>Chi tiết
+                </a>
+                <a asp-action="Index" class="btn btn-outline-secondary btn-modern">
+                    <i class="fas fa-arrow-left me-2"></i>Quay lại danh sách
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modern Form Card -->
+    <div class="row justify-content-center">
+        <div class="col-xl-8 col-lg-10">
+            <div class="main-card">
+                <!-- Card Header -->
+                <div class="card-header-modern">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <div class="header-icon">
+                                <i class="fas fa-cog"></i>
+                            </div>
+                            <div>
+                                <h4 class="header-title mb-0">Cập nhật thông tin</h4>
+                                <small class="header-subtitle">Chỉnh sửa thông tin và trạng thái chỗ đỗ xe</small>
+                            </div>
+                        </div>
+                        <div class="header-status">
+                            <span class="badge badge-edit">
+                                <i class="fas fa-edit me-1"></i>Chỉnh sửa
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card Body -->
+                <div class="card-body-modern p-5">
+                    <form asp-action="Edit" id="editForm" class="modern-form">
+                        <!-- Validation Summary -->
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger-modern mb-4" role="alert">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-exclamation-triangle me-3"></i>
+                                <div>
+                                    <strong>Có lỗi xảy ra!</strong>
+                                    <p class="mb-0">Vui lòng kiểm tra lại thông tin đã nhập</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <input type="hidden" asp-for="Id" />
+
+                        <!-- Basic Information Section -->
+                        <div class="form-section mb-5">
+                            <div class="section-header mb-4">
+                                <h5 class="section-title">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    Thông tin cơ bản
+                                </h5>
+                                <p class="section-subtitle">Cập nhật mã và vị trí chỗ đỗ xe</p>
+                            </div>
+
+                            <div class="row g-4">
+                                <!-- Slot Code -->
+                                <div class="col-md-6">
+                                    <div class="form-group-modern">
+                                        <label asp-for="SlotCode" class="form-label-modern">
+                                            <i class="fas fa-barcode me-2 text-primary"></i>
+                                            Mã chỗ đỗ xe
+                                            <span class="required-asterisk">*</span>
+                                        </label>
+                                        <div class="input-wrapper">
+                                            <input asp-for="SlotCode" 
+                                                   class="form-control-modern" 
+                                                   placeholder="VD: A1, B2, C3..."
+                                                   id="slotCodeInput"
+                                                   autocomplete="off" />
+                                            <div class="input-icon">
+                                                <i class="fas fa-parking"></i>
+                                            </div>
+                                        </div>
+                                        <span asp-validation-for="SlotCode" class="validation-message"></span>
+                                        <small class="form-text">Mã chỗ đỗ xe phải là duy nhất trong hệ thống</small>
+                                    </div>
+                                </div>
+
+                                <!-- Floor -->
+                                <div class="col-md-6">
+                                    <div class="form-group-modern">
+                                        <label asp-for="Floor" class="form-label-modern">
+                                            <i class="fas fa-layer-group me-2 text-info"></i>
+                                            Tầng
+                                            <span class="required-asterisk">*</span>
+                                        </label>
+                                        <div class="select-wrapper">
+                                            <select asp-for="Floor" class="form-select-modern" id="floorSelect">
+                                                <option value="" disabled>Chọn tầng</option>
+                                                <option value="1">Tầng 1 (Tầng trệt)</option>
+                                                <option value="2">Tầng 2</option>
+                                                <option value="3">Tầng 3</option>
+                                                <option value="4">Tầng 4</option>
+                                                <option value="5">Tầng 5</option>
+                                                <option value="B1">Tầng hầm B1</option>
+                                                <option value="B2">Tầng hầm B2</option>
+                                            </select>
+                                            <div class="select-icon">
+                                                <i class="fas fa-chevron-down"></i>
+                                            </div>
+                                        </div>
+                                        <span asp-validation-for="Floor" class="validation-message"></span>
+                                        <small class="form-text">Chọn tầng mà chỗ đỗ xe được đặt</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Availability Status Section -->
+                        <div class="form-section mb-5">
+                            <div class="section-header mb-4">
+                                <h5 class="section-title">
+                                    <i class="fas fa-toggle-on me-2"></i>
+                                    Trạng thái sử dụng
+                                </h5>
+                                <p class="section-subtitle">Quản lý tính khả dụng của chỗ đỗ xe</p>
+                            </div>
+                            
+                            <div class="status-card">
+                                <div class="row align-items-center g-4">
+                                    <div class="col-md-6">
+                                        <div class="switch-container">
+                                            <div class="form-switch-modern">
+                                                <input class="switch-input" 
+                                                       type="checkbox" 
+                                                       asp-for="IsAvailable"
+                                                       id="availabilitySwitch" />
+                                                <label class="switch-label" for="availabilitySwitch">
+                                                    <span class="switch-slider"></span>
+                                                </label>
+                                            </div>
+                                            <div class="switch-text">
+                                                <h6 class="status-title" id="statusText">
+                                                    @(Model.IsAvailable ? "Có sẵn" : "Đã được sử dụng")
+                                                </h6>
+                                                <small class="status-description">
+                                                    Bật/tắt để thay đổi trạng thái chỗ đỗ xe
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="status-visual" id="statusIcon">
+                                            @if (Model.IsAvailable)
+                                            {
+                                                <div class="status-available">
+                                                    <div class="status-icon">
+                                                        <i class="fas fa-check-circle"></i>
+                                                    </div>
+                                                    <span class="status-label">Sẵn sàng sử dụng</span>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="status-occupied">
+                                                    <div class="status-icon">
+                                                        <i class="fas fa-times-circle"></i>
+                                                    </div>
+                                                    <span class="status-label">Đang được sử dụng</span>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Current Status Display -->
+                        <div class="status-alert-modern" id="statusAlert">
+                            <div class="alert-content">
+                                <div class="alert-icon" id="statusDot">
+                                    <i class="fas fa-circle"></i>
+                                </div>
+                                <div class="alert-text flex-grow-1">
+                                    <h6 class="alert-title" id="statusTitle"></h6>
+                                    <p class="alert-message" id="statusMessage"></p>
+                                </div>
+                                <div class="alert-badge" id="statusBadge">
+                                    <span class="badge"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="form-actions">
+                            <div class="d-flex gap-3 justify-content-end flex-wrap" style="gap: 12px">
+                                <a asp-action="Index" class="btn btn-secondary-modern">
+                                    <i class="fas fa-times me-2"></i>Hủy bỏ
+                                </a>
+                                <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-info-modern">
+                                    <i class="fas fa-eye me-2"></i>Xem chi tiết
+                                </a>
+                                <button type="submit" class="btn btn-success-modern" id="submitBtn">
+                                    <i class="fas fa-save me-2"></i>
+                                    <span class="btn-text">Lưu thay đổi</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modern Styles -->
+<style>
+    :root {
+        --primary-color: #3b82f6;
+        --primary-hover: #2563eb;
+        --primary-light: #eff6ff;
+        --success-color: #10b981;
+        --success-hover: #059669;
+        --success-light: #ecfdf5;
+        --danger-color: #ef4444;
+        --danger-hover: #dc2626;
+        --danger-light: #fef2f2;
+        --warning-color: #f59e0b;
+        --warning-hover: #d97706;
+        --warning-light: #fffbeb;
+        --info-color: #06b6d4;
+        --info-hover: #0891b2;
+        --info-light: #f0f9ff;
+        --secondary-color: #64748b;
+        --secondary-hover: #475569;
+        --secondary-light: #f8fafc;
+        --text-primary: #0f172a;
+        --text-secondary: #64748b;
+        --text-muted: #94a3b8;
+        --border-color: #e2e8f0;
+        --border-hover: #cbd5e1;
+        --bg-white: #ffffff;
+        --bg-gray-50: #f8fafc;
+        --bg-gray-100: #f1f5f9;
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        --border-radius: 12px;
+        --border-radius-lg: 16px;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background: var(--bg-white);
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        color: var(--text-primary);
+        line-height: 1.6;
+        font-size: 14px;
+    }
+
+    .container-fluid {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    /* Header Styles */
+    .header-content {
+        padding: 0;
+    }
+
+    .icon-wrapper {
+        width: 64px;
+        height: 64px;
+        background: linear-gradient(135deg, var(--warning-color), var(--warning-hover));
+        border-radius: var(--border-radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: white;
+        box-shadow: var(--shadow-lg);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .icon-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        animation: shine 2s infinite;
+    }
+
+    .page-title {
+        font-size: 2.25rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin: 0;
+        letter-spacing: -0.025em;
+    }
+
+    .page-subtitle {
+        color: var(--text-secondary);
+        font-size: 1rem;
+        font-weight: 500;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .slot-code-highlight {
+        background: linear-gradient(135deg, var(--warning-color), var(--warning-hover));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 800;
+        font-size: 1.1em;
+        padding: 0.25rem 0.5rem;
+        border-radius: 6px;
+        border: 2px solid var(--warning-light);
+        background-color: var(--warning-light);
+        color: var(--warning-color);
+        -webkit-text-fill-color: var(--warning-color);
+    }
+
+    .btn-outline-secondary.btn-modern {
+        background: var(--bg-white);
+        border: 2px solid var(--border-color);
+        color: var(--text-secondary);
+        border-radius: var(--border-radius);
+        padding: 12px 24px;
+        font-weight: 600;
+        transition: var(--transition);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .btn-outline-secondary.btn-modern:hover {
+        background: var(--secondary-light);
+        border-color: var(--secondary-color);
+        color: var(--secondary-hover);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow);
+    }
+
+    /* Card Styles */
+    .main-card {
+        background: var(--bg-white);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--shadow-xl);
+        overflow: hidden;
+        position: relative;
+        animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-header-modern {
+        background: linear-gradient(135deg, var(--bg-gray-50) 0%, var(--bg-white) 100%);
+        border-bottom: 1px solid var(--border-color);
+        padding: 2rem;
+    }
+
+    .header-icon {
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, var(--warning-color), var(--warning-hover));
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        font-size: 20px;
+        color: white;
+        box-shadow: var(--shadow);
+    }
+
+    .header-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0;
+    }
+
+    .header-subtitle {
+        color: var(--text-secondary);
+        font-weight: 500;
+        margin-top: 0.25rem;
+    }
+
+    .header-status .badge {
+        background: var(--warning-light);
+        color: var(--warning-color);
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.875rem;
+        border: 1px solid rgba(245, 158, 11, 0.2);
+    }
+
+    .card-body-modern {
+        background: var(--bg-white);
+    }
+
+    /* Form Section Styles */
+    .form-section {
+        position: relative;
+    }
+
+    .section-header {
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .section-subtitle {
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+        margin: 0.5rem 0 0 2rem;
+    }
+
+    /* Form Controls */
+    .form-group-modern {
+        margin-bottom: 0;
+    }
+
+    .form-label-modern {
+        display: block;
+        margin-bottom: 0.75rem;
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+    }
+
+    .required-asterisk {
+        color: var(--danger-color);
+        margin-left: 0.25rem;
+        font-weight: 700;
+    }
+
+    .input-wrapper,
+    .select-wrapper {
+        position: relative;
+    }
+
+    .form-control-modern,
+    .form-select-modern {
+        width: 100%;
+        padding: 16px 50px 16px 20px;
+        background: var(--bg-white);
+        border: 2px solid var(--border-color);
+        border-radius: var(--border-radius);
+        color: var(--text-primary);
+        font-size: 1rem;
+        font-weight: 500;
+        transition: var(--transition);
+        box-shadow: var(--shadow-sm);
+        outline: none;
+    }
+
+    .form-control-modern:focus,
+    .form-select-modern:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), var(--shadow);
+        transform: translateY(-1px);
+    }
+
+    .form-control-modern::placeholder {
+        color: var(--text-muted);
+        font-style: italic;
+        font-weight: 400;
+    }
+
+    .input-icon,
+    .select-icon {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+        pointer-events: none;
+        transition: var(--transition-fast);
+    }
+
+    .form-control-modern:focus + .input-icon,
+    .form-select-modern:focus + .select-icon {
+        color: var(--primary-color);
+    }
+
+    .form-text {
+        display: block;
+        margin-top: 0.5rem;
+        color: var(--text-muted);
+        font-size: 0.875rem;
+        font-weight: 400;
+    }
+
+    .validation-message {
+        display: block;
+        color: var(--danger-color);
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+        font-weight: 500;
+        padding: 0.5rem 0.75rem;
+        background: var(--danger-light);
+        border-radius: 8px;
+        border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+
+    /* Alert Styles */
+    .alert-danger-modern {
+        background: var(--danger-light);
+        border: 1px solid rgba(239, 68, 68, 0.2);
+        border-radius: var(--border-radius);
+        color: var(--danger-color);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .alert-danger-modern strong {
+        color: var(--danger-color);
+        font-weight: 700;
+    }
+
+    /* Status Card Styles */
+    .status-card {
+        background: var(--bg-gray-50);
+        border: 2px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        transition: var(--transition);
+    }
+
+    .status-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-2px);
+    }
+
+    .switch-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    /* Modern Switch Styles */
+    .form-switch-modern {
+        position: relative;
+    }
+
+    .switch-input {
+        appearance: none;
+        width: 64px;
+        height: 32px;
+        background: var(--border-color);
+        border-radius: 16px;
+        position: relative;
+        cursor: pointer;
+        transition: var(--transition);
+        border: none;
+        outline: none;
+    }
+
+    .switch-input:checked {
+        background: var(--success-color);
+    }
+
+    .switch-input::before {
+        content: '';
+        position: absolute;
+        width: 28px;
+        height: 28px;
+        background: white;
+        border-radius: 50%;
+        top: 2px;
+        left: 2px;
+        transition: var(--transition);
+        box-shadow: var(--shadow);
+    }
+
+    .switch-input:checked::before {
+        transform: translateX(32px);
+    }
+
+    .switch-text {
+        flex-grow: 1;
+    }
+
+    .status-title {
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+    }
+
+    .status-description {
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+        margin: 0;
+    }
+
+    /* Status Visual */
+    .status-visual {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .status-available,
+    .status-occupied {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .status-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        animation: pulse 2s infinite;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .status-available .status-icon {
+        background: linear-gradient(135deg, var(--success-color), var(--success-hover));
+        color: white;
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    }
+
+    .status-occupied .status-icon {
+        background: linear-gradient(135deg, var(--danger-color), var(--danger-hover));
+        color: white;
+        box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+    }
+
+    .status-label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+    }
+
+    /* Status Alert */
+    .status-alert-modern {
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        transition: var(--transition);
+        transform: scale(0.95);
+        opacity: 0;
+        animation: fadeInScale 0.5s ease-out 0.3s forwards;
+    }
+
+    .status-alert-modern.alert-success {
+        background: var(--success-light);
+        border: 2px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .status-alert-modern.alert-warning {
+        background: var(--danger-light);
+        border: 2px solid rgba(239, 68, 68, 0.2);
+    }
+
+    .alert-content {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .alert-icon {
+        font-size: 1.5rem;
+        flex-shrink: 0;
+    }
+
+    .alert-title {
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+    }
+
+    .alert-message {
+        color: var(--text-secondary);
+        margin: 0;
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    .alert-badge {
+        flex-shrink: 0;
+    }
+
+    .alert-badge .badge {
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .alert-success .alert-badge .badge {
+        background: var(--success-color);
+        color: white;
+    }
+
+    .alert-warning .alert-badge .badge {
+        background: var(--danger-color);
+        color: white;
+    }
+
+    /* Button Styles */
+    .form-actions {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .btn-success-modern {
+        background: linear-gradient(135deg, var(--success-color), var(--success-hover));
+        border: none;
+        border-radius: var(--border-radius);
+        padding: 16px 32px;
+        font-weight: 700;
+        color: white;
+        font-size: 1rem;
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        min-width: 180px;
+    }
+
+    .btn-success-modern:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+        background: linear-gradient(135deg, var(--success-hover), #047857);
+    }
+
+    .btn-secondary-modern {
+        background: var(--bg-white);
+        border: 2px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 14px 32px;
+        font-weight: 600;
+        color: var(--text-secondary);
+        font-size: 1rem;
+        transition: var(--transition);
+        box-shadow: var(--shadow-sm);
+        min-width: 140px;
+    }
+
+    .btn-secondary-modern:hover {
+        background: var(--secondary-light);
+        border-color: var(--secondary-color);
+        color: var(--secondary-hover);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow);
+    }
+
+    .btn-info-modern {
+        background: linear-gradient(135deg, var(--info-color), var(--info-hover));
+        border: none;
+        border-radius: var(--border-radius);
+        padding: 14px 32px;
+        font-weight: 600;
+        color: white;
+        font-size: 1rem;
+        transition: var(--transition);
+        box-shadow: var(--shadow);
+        min-width: 160px;
+    }
+
+    .btn-info-modern:hover {
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-lg);
+        background: linear-gradient(135deg, var(--info-hover), #0e7490);
+    }
+
+    /* Loading States */
+    .btn-loading {
+        position: relative;
+        pointer-events: none;
+        opacity: 0.8;
+    }
+
+    .btn-loading .btn-text {
+        opacity: 0;
+    }
+
+    .btn-loading::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        margin: -10px 0 0 -10px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 1s linear infinite;
+    }
+
+    /* Success States */
+    .form-control-modern.success,
+    .form-select-modern.success {
+        border-color: var(--success-color);
+        background: rgba(16, 185, 129, 0.05);
+    }
+
+    .form-control-modern.success + .input-icon,
+    .form-select-modern.success + .select-icon {
+        color: var(--success-color);
+    }
+
+    .form-control-modern.error,
+    .form-select-modern.error {
+        border-color: var(--danger-color);
+        background: rgba(239, 68, 68, 0.05);
+        animation: shake 0.5s ease-in-out;
+    }
+
+    .form-control-modern.error + .input-icon,
+    .form-select-modern.error + .select-icon {
+        color: var(--danger-color);
+    }
+
+    /* Animations */
+    @@keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @@keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+    }
+
+    @@keyframes fadeInScale {
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @@keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    @@keyframes shine {
+        0% { left: -100%; }
+        100% { left: 100%; }
+    }
+
+    @@keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+        20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+
+    /* Ripple Effect */
+    .ripple {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ripple::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+
+    .ripple:active::before {
+        width: 300px;
+        height: 300px;
+    }
+
+    /* Responsive Design */
+    @@media (max-width: 768px) {
+        .container-fluid {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .page-title {
+            font-size: 1.75rem;
+        }
+        
+        .icon-wrapper {
+            width: 56px;
+            height: 56px;
+            font-size: 20px;
+        }
+        
+        .card-header-modern,
+        .card-body-modern {
+            padding: 1.5rem;
+        }
+        
+        .form-actions .d-flex {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .btn-success-modern,
+        .btn-secondary-modern,
+        .btn-info-modern {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .switch-container {
+            flex-direction: column;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        .status-visual {
+            margin-top: 1rem;
+        }
+
+        .header-content .d-flex {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .icon-wrapper {
+            margin-bottom: 1rem;
+            margin-right: 0;
+        }
+
+        .action-buttons {
+            margin-top: 1rem;
+            justify-content: center;
+        }
+
+        .slot-code-highlight {
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        .alert-content {
+            flex-direction: column;
+            text-align: center;
+            gap: 1rem;
+        }
+    }
+
+    @@media (max-width: 576px) {
+        .col-xl-8 {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .main-card {
+            margin-left: -15px;
+            margin-right: -15px;
+            border-radius: 0;
+            border-left: none;
+            border-right: none;
+        }
+
+        .form-control-modern,
+        .form-select-modern {
+            font-size: 16px; /* Prevents zoom on iOS */
+        }
+
+        .status-icon {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+        }
+    }
+
+    /* Focus states for accessibility */
+    .btn-modern:focus,
+    .form-control-modern:focus,
+    .form-select-modern:focus,
+    .switch-input:focus {
+        outline: 2px solid var(--primary-color);
+        outline-offset: 2px;
+    }
+
+    /* Dark mode support */
+    @@media (prefers-color-scheme: dark) {
+        :root {
+            --bg-white: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+        }
+    }
+
+    /* High contrast mode support */
+    @@media (prefers-contrast: high) {
+        .form-control-modern,
+        .form-select-modern {
+            border-width: 3px;
+        }
+        
+        .btn-success-modern,
+        .btn-secondary-modern,
+        .btn-info-modern {
+            border-width: 3px;
+        }
+
+        .switch-input {
+            border: 3px solid var(--border-color);
+        }
+    }
+
+    /* Reduced motion support */
+    @@media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+
+    /* Print styles */
+    @@media print {
+        .btn-modern,
+        .action-buttons {
+            display: none !important;
+        }
+        
+        .main-card {
+            box-shadow: none !important;
+            border: 1px solid #ccc !important;
+        }
+        
+        body {
+            background: white !important;
+        }
+
+        .status-icon {
+            animation: none !important;
+        }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--bg-gray-100);
+        border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--border-color);
+        border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--border-hover);
+    }
+</style>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const availabilitySwitch = document.getElementById('availabilitySwitch');
+            const statusText = document.getElementById('statusText');
+            const statusAlert = document.getElementById('statusAlert');
+            const statusDot = document.getElementById('statusDot');
+            const statusTitle = document.getElementById('statusTitle');
+            const statusMessage = document.getElementById('statusMessage');
+            const statusBadge = document.getElementById('statusBadge');
+            const statusIcon = document.getElementById('statusIcon');
+            const form = document.getElementById('editForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const slotCodeInput = document.getElementById('slotCodeInput');
+
+            // Update status display with enhanced animations
+            function updateStatusDisplay() {
+                const isAvailable = availabilitySwitch.checked;
+
+                // Add transition effect
+                statusAlert.style.transition = 'all 0.3s ease';
+                statusAlert.style.transform = 'scale(0.95)';
+                statusAlert.style.opacity = '0';
+
+                setTimeout(() => {
+                    if (isAvailable) {
+                        statusText.textContent = 'Có sẵn';
+                        statusAlert.className = 'status-alert-modern alert-success';
+                        statusDot.innerHTML = '<i class="fas fa-circle" style="color: var(--success-color);"></i>';
+                        statusTitle.textContent = 'Chỗ đỗ xe có sẵn';
+                        statusMessage.textContent = 'Chỗ đỗ xe này có thể được đặt trước và sử dụng bởi khách hàng.';
+                        statusBadge.innerHTML = '<span class="badge">Sẵn sàng</span>';
+                        statusIcon.innerHTML = `
+                            <div class="status-available">
+                                <div class="status-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <span class="status-label">Sẵn sàng sử dụng</span>
+                            </div>
+                        `;
+                    } else {
+                        statusText.textContent = 'Đã được sử dụng';
+                        statusAlert.className = 'status-alert-modern alert-warning';
+                        statusDot.innerHTML = '<i class="fas fa-circle" style="color: var(--danger-color);"></i>';
+                        statusTitle.textContent = 'Chỗ đỗ xe đang được sử dụng';
+                        statusMessage.textContent = 'Chỗ đỗ xe này hiện không khả dụng và không thể đặt trước.';
+                        statusBadge.innerHTML = '<span class="badge">Đang dùng</span>';
+                        statusIcon.innerHTML = `
+                            <div class="status-occupied">
+                                <div class="status-icon">
+                                    <i class="fas fa-times-circle"></i>
+                                </div>
+                                <span class="status-label">Đang được sử dụng</span>
+                            </div>
+                        `;
+                    }
+
+                    // Animate back in
+                    statusAlert.style.transform = 'scale(1)';
+                    statusAlert.style.opacity = '1';
+                }, 150);
+            }
+
+            // Initialize status display
+            updateStatusDisplay();
+
+            // Enhanced switch change handler
+            availabilitySwitch.addEventListener('change', function() {
+                updateStatusDisplay();
+                
+                // Add visual feedback
+                this.style.transform = 'scale(1.1)';
+                this.parentElement.style.transition = 'all 0.3s ease';
+                
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+
+                // Show notification
+                showNotification(
+                    this.checked ? 'Chỗ đỗ xe đã được đặt về trạng thái "Có sẵn"' : 'Chỗ đỗ xe đã được đặt về trạng thái "Đã sử dụng"',
+                    this.checked ? 'success' : 'warning'
+                );
+            });
+
+            // Enhanced form submission with better UX
+            form.addEventListener('submit', function(e) {
+                const btnText = submitBtn.querySelector('.btn-text');
+                const originalText = btnText.textContent;
+                
+                btnText.textContent = 'Đang lưu...';
+                submitBtn.classList.add('btn-loading', 'ripple');
+                submitBtn.disabled = true;
+
+                const cardBody = document.querySelector('.card-body-modern');
+                cardBody.style.opacity = '0.8';
+                cardBody.style.pointerEvents = 'none';
+                
+                // Re-enable if validation fails
+                setTimeout(() => {
+                    const hasErrors = form.querySelector('.validation-message:not(:empty)') || 
+                                    form.querySelector('.field-validation-error:not(:empty)');
+                    if (hasErrors) {
+                        btnText.textContent = originalText;
+                        submitBtn.classList.remove('btn-loading', 'ripple');
+                        submitBtn.disabled = false;
+                        cardBody.style.opacity = '1';
+                        cardBody.style.pointerEvents = 'auto';
+                        showNotification('Có lỗi xảy ra, vui lòng kiểm tra lại!', 'error');
+                    }
+                }, 100);
+            });
+
+            // Enhanced input animations and validation
+            const inputs = document.querySelectorAll('.form-control-modern, .form-select-modern');
+            inputs.forEach(input => {
+                // Focus animation
+                input.addEventListener('focus', function() {
+                    this.closest('.form-group-modern').style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = '0 8px 25px rgba(59, 130, 246, 0.15), 0 0 0 3px rgba(59, 130, 246, 0.1)';
+                });
+                
+                // Blur animation
+                input.addEventListener('blur', function() {
+                    this.closest('.form-group-modern').style.transform = 'translateY(0)';
+                    this.style.boxShadow = '';
+                });
+
+                // Real-time validation styling
+                input.addEventListener('input', function() {
+                    if (this.value.trim()) {
+                        this.classList.add('success');
+                        this.classList.remove('error');
+                    } else {
+                        this.classList.remove('success', 'error');
+                    }
+                    
+                    // Specific validation for slot code
+                    if (this.id === 'slotCodeInput') {
+                        validateSlotCode(this);
+                    }
+                });
+
+                // Change event for select
+                input.addEventListener('change', function() {
+                    if (this.value) {
+                        this.classList.add('success');
+                        this.classList.remove('error');
+                    }
+                });
+            });
+
+            // Slot code validation function
+            function validateSlotCode(input) {
+                const value = input.value.trim().toUpperCase();
+                const pattern = /^[A-Z]+[0-9]+$/;
+                
+                if (value && !pattern.test(value)) {
+                    input.classList.add('error');
+                    input.classList.remove('success');
+                } else if (value) {
+                    input.classList.remove('error');
+                    input.classList.add('success');
+                }
+            }
+
+            // Add ripple effect to buttons
+            const buttons = document.querySelectorAll('.btn-success-modern, .btn-secondary-modern, .btn-info-modern');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255,255,255,0.4);
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        left: ${x}px;
+                        top: ${y}px;
+                        width: ${size}px;
+                        height: ${size}px;
+                        pointer-events: none;
+                    `;
+                    
+                    this.appendChild(ripple);
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+
+            // Notification system
+            function showNotification(message, type = 'info', duration = 4000) {
+                // Remove existing notifications
+                const existingNotifications = document.querySelectorAll('.notification');
+                existingNotifications.forEach(n => n.remove());
+
+                const notification = document.createElement('div');
+                notification.className = `notification notification-${type}`;
+                
+                const icons = {
+                    success: 'fas fa-check-circle',
+                    error: 'fas fa-exclamation-circle',
+                    warning: 'fas fa-exclamation-triangle',
+                    info: 'fas fa-info-circle'
+                };
+
+                notification.innerHTML = `
+                    <div class="notification-content">
+                        <i class="${icons[type]} me-2"></i>
+                        <span>${message}</span>
+                        <button class="notification-close" onclick="this.parentElement.parentElement.remove()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="notification-progress"></div>
+                `;
+
+                document.body.appendChild(notification);
+
+                // Auto remove after duration
+                setTimeout(() => {
+                    if (notification.parentElement) {
+                        notification.style.transform = 'translateX(100%)';
+                        setTimeout(() => notification.remove(), 300);
+                    }
+                }, duration);
+
+                // Animate progress bar
+                const progressBar = notification.querySelector('.notification-progress');
+                setTimeout(() => {
+                    progressBar.style.width = '0%';
+                }, 100);
+            }
+
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && e.ctrlKey) {
+                    e.preventDefault();
+                    if (!submitBtn.disabled) {
+                        form.submit();
+                    }
+                }
+                
+                if (e.key === 'Escape') {
+                    // Close any open notifications
+                    const notifications = document.querySelectorAll('.notification');
+                    notifications.forEach(n => n.remove());
+                }
+            });
+
+            // Auto-focus first input
+            setTimeout(() => {
+                slotCodeInput.focus();
+            }, 300);
+
+            // Form dirty checking
+            let formIsDirty = false;
+            const originalValues = {};
+            
+            // Store original values
+            inputs.forEach(input => {
+                originalValues[input.id || input.name] = input.value;
+            });
+            originalValues['availabilitySwitch'] = availabilitySwitch.checked;
+
+            // Track changes
+            inputs.forEach(input => {
+                input.addEventListener('input', () => {
+                    formIsDirty = checkFormDirty();
+                });
+                input.addEventListener('change', () => {
+                    formIsDirty = checkFormDirty();
+                });
+            });
+
+            availabilitySwitch.addEventListener('change', () => {
+                formIsDirty = checkFormDirty();
+            });
+
+            function checkFormDirty() {
+                for (let input of inputs) {
+                    if (input.value !== originalValues[input.id || input.name]) {
+                        return true;
+                    }
+                }
+                if (availabilitySwitch.checked !== originalValues['availabilitySwitch']) {
+                    return true;
+                }
+                return false;
+            }
+
+            // Warn user before leaving if form is dirty
+            window.addEventListener('beforeunload', function(e) {
+                if (formIsDirty && !form.submitted) {
+                    e.preventDefault();
+                    e.returnValue = 'Bạn có những thay đổi chưa được lưu. Bạn có chắc chắn muốn rời khỏi trang?';
+                    return e.returnValue;
+                }
+            });
+
+            // Mark form as submitted to avoid warning
+            form.addEventListener('submit', function() {
+                form.submitted = true;
+            });
+
+            // Add CSS for notifications
+            const style = document.createElement('style');
+            style.textContent = `
+                .notification {
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    min-width: 300px;
+                    max-width: 500px;
+                    background: white;
+                    border-radius: 12px;
+                    box-shadow: var(--shadow-xl);
+                    z-index: 9999;
+                    transform: translateX(100%);
+                    animation: slideInRight 0.3s ease-out forwards;
+                    overflow: hidden;
+                    border-left: 4px solid;
+                }
+
+                .notification-success {
+                    border-left-color: var(--success-color);
+                }
+
+                .notification-error {
+                    border-left-color: var(--danger-color);
+                }
+
+                .notification-warning {
+                    border-left-color: var(--warning-color);
+                }
+
+                .notification-info {
+                    border-left-color: var(--info-color);
+                }
+
+                .notification-content {
+                    padding: 16px 20px;
+                    display: flex;
+                    align-items: center;
+                    color: var(--text-primary);
+                    font-weight: 500;
+                    position: relative;
+                }
+
+                .notification-close {
+                    background: none;
+                    border: none;
+                    color: var(--text-muted);
+                    cursor: pointer;
+                    padding: 4px;
+                    border-radius: 4px;
+                    margin-left: auto;
+                    transition: all 0.2s;
+                }
+
+                .notification-close:hover {
+                    background: var(--bg-gray-100);
+                    color: var(--text-primary);
+                }
+
+                .notification-progress {
+                    height: 3px;
+                    background: var(--success-color);
+                    width: 100%;
+                    transition: width 4s linear;
+                }
+
+                .notification-error .notification-progress {
+                    background: var(--danger-color);
+                }
+
+                .notification-warning .notification-progress {
+                    background: var(--warning-color);
+                }
+
+                .notification-info .notification-progress {
+                    background: var(--info-color);
+                }
+
+                @@keyframes slideInRight {
+                    to {
+                        transform: translateX(0);
+                    }
+                }
+
+                @@keyframes ripple {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+
+            console.log('Parking Slot Edit Form initialized successfully');
+        });
+    </script>
+}

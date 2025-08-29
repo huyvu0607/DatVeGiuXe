@@ -7,7 +7,7 @@
         public DateTime ReservedAt { get; set; }
         public DateTime? ExpiresAt { get; set; }
         public bool IsConfirmed { get; set; }
-        /* public bool IsExpired => ExpiresAt.HasValue && ExpiresAt.Value < DateTime.Now && !IsConfirmed;*/
+       /* public bool IsExpired => ExpiresAt.HasValue && ExpiresAt.Value < DateTime.Now && !IsConfirmed;*/
 
     }
 }

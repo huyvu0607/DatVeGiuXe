@@ -1,138 +1,382 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\",
+  "WorkspaceRootPath": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\admin\\transactions\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\admin\\transactions\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\admin\\transactions\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\admin\\transactions\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\parkingreservationsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\parkingreservationsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\admin\\transactions\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\admin\\transactions\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\css\\history.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\css\\history.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\admin\\transactions\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\admin\\transactions\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\js\\history.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\js\\history.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\admin\\transactions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\admin\\transactions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\multipledetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\multipledetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\pages\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\pages\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\reservationhistoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\reservationhistoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\parkingslotviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\parkingslotviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\booking\\thanhtoannhieu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\booking\\thanhtoannhieu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\booking\\thanhtoan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\booking\\thanhtoan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\reservation\\history.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\reservation\\history.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\reservation\\history.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\reservation\\history.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\models\\parkingslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\models\\parkingslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\controllers\\admin\\transactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\admin\\transactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\transactions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\transactions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\js\\admin\\transactions.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\js\\admin\\transactions.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\css\\admin\\transactions.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\css\\admin\\transactions.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\models\\parkingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\models\\parkingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\css\\admin\\admin-dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\css\\admin\\admin-dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\css\\admin\\users-management.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\css\\admin\\users-management.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\transactions\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\transactions\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\parkingslots\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\parkingslots\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\js\\selection.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\js\\selection.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\js\\parking-selection.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\js\\parking-selection.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\js\\parking-signalr.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\js\\parking-signalr.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\reservation\\multipledetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\reservation\\multipledetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\js\\parking-signalr-client.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\js\\parking-signalr-client.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\hubs\\parkinghub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\hubs\\parkinghub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\config\\emailsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\config\\emailsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\js\\privacy.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\js\\privacy.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\js\\parking-slots.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\js\\parking-slots.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\controllers\\admin\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\admin\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\css\\parking-selection.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\css\\parking-selection.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\js\\auth-scripts.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\js\\auth-scripts.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\js\\admin\\admin-dashboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\js\\admin\\admin-dashboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\user\\updateprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\user\\updateprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\github3\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\groupedreservationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\groupedreservationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\services\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\services\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\services\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\services\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\js\\admin\\users-management.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\js\\admin\\users-management.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\controllers\\admin\\parkingslotscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\admin\\parkingslotscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\dailyreservationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\dailyreservationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\models\\parkingslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\models\\parkingslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\models\\parkingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\models\\parkingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\serviceresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\serviceresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\resetpasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\resetpasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\reservationhistoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\reservationhistoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\parkingslots\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\parkingslots\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\parkingslots\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\parkingslots\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\parkingslots\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\parkingslots\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\parkingslots\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\parkingslots\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\css\\parking-slots.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\css\\parking-slots.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\transactions\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\transactions\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\multiplereservationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\multiplereservationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\users\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\users\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\multipledetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\multipledetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\reservation\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\reservation\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\users\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\users\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\users\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\users\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\users\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\users\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\user\\edituserviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\user\\edituserviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\transactions\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\transactions\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\transactions\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\transactions\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\user\\createuserviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\user\\createuserviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\testsocket\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\testsocket\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\booking\\thanhtoannhieu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\booking\\thanhtoannhieu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\css\\auth-styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\css\\auth-styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\adminlte\\dist\\css\\adminlte.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\adminlte\\dist\\css\\adminlte.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\admin\\transactions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\admin\\transactions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\booking\\thanhtoan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\booking\\thanhtoan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\account\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\account\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\checkemailrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\checkemailrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\views\\account\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\account\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\migrations\\20250818095736_addpasswordresetcolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\migrations\\20250818095736_addpasswordresetcolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\migrations\\parkingdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\migrations\\parkingdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\migrations\\20250724152149_adduserrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\migrations\\20250724152149_adduserrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\forgotpasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\forgotpasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|d:\\hoc_tren_truong\\lap_trinh_mang\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\parkingslotviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\parkingslotviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -142,16 +386,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 214,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 9,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -170,407 +406,1132 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Dashboard.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Dashboard.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Admin\\Dashboard.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Dashboard.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\Admin\\Dashboard.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAEcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-23T17:25:00.197Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Index.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Index.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Index.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Index.cshtml",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAACwAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-23T17:24:48.74Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Edit.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Edit.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Edit.cshtml",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAwwCIAAABKAAAAAAAAAA==",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Transactions\\Edit.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Transactions\\Edit.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Transactions\\Edit.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Transactions\\Edit.cshtml",
+              "ViewState": "AgIAAG4DAAAAAAAAAAAmwGUDAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-23T17:24:41.23Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-22T11:23:52.733Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "users-management.css",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\css\\Admin\\users-management.css",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\css\\Admin\\users-management.css",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\css\\Admin\\users-management.css",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\css\\Admin\\users-management.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-08-21T17:55:00.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "admin-dashboard.css",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\css\\Admin\\admin-dashboard.css",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\css\\Admin\\admin-dashboard.css",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\css\\Admin\\admin-dashboard.css",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\css\\Admin\\admin-dashboard.css",
+              "ViewState": "AgIAACAAAAAAAAAAAAAnwCgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-08-20T06:23:08.333Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "History.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Reservation\\History.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Reservation\\History.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Reservation\\History.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Reservation\\History.cshtml",
+              "ViewState": "AgIAAPwBAAAAAAAAAAAgwCICAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-25T06:58:43.722Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Details.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Details.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Details.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Details.cshtml",
-              "ViewState": "AgIAABoAAAAAAAAAAADwvzIAAAAdAAAAAAAAAA==",
+              "Title": "history.css",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\css\\history.css",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\css\\history.css",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\css\\history.css",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\css\\history.css",
+              "ViewState": "AgIAAOEBAAAAAAAAAAAmwPwBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-08-20T08:36:27.434Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Shared\\_AdminLayout.cshtml",
+              "ViewState": "AgIAAAkBAAAAAAAAAAAAABQBAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-23T17:24:31.987Z",
+              "WhenOpened": "2025-08-19T17:21:26.431Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Delete.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Delete.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Delete.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACcAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-23T17:23:58.259Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Create.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Create.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Create.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-23T17:23:53.446Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "MultipleDetailViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\MultipleDetailViewModel.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\MultipleDetailViewModel.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\MultipleDetailViewModel.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\MultipleDetailViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-21T13:56:53.504Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "_ValidationScriptsPartial.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Pages\\_ValidationScriptsPartial.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Pages\\_ValidationScriptsPartial.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Pages\\_ValidationScriptsPartial.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Pages\\_ValidationScriptsPartial.cshtml",
+              "Title": "ParkingReservationSystem.csproj",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ParkingReservationSystem.csproj",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\ParkingReservationSystem.csproj",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ParkingReservationSystem.csproj",
+              "RelativeToolTip": "ParkingReservationSystem\\ParkingReservationSystem.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-21T13:57:25.807Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "LoginViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\LoginViewModel.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\LoginViewModel.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\LoginViewModel.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\LoginViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T15:46:34.584Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ParkingSlotViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ParkingSlotViewModel.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\ParkingSlotViewModel.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ParkingSlotViewModel.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\ParkingSlotViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T19:14:24.852Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ThanhToan.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Booking\\ThanhToan.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Booking\\ThanhToan.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Booking\\ThanhToan.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\Booking\\ThanhToan.cshtml",
-              "ViewState": "AgIAAA4AAAAAAAAAAADwvx4AAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-23T14:13:09.3Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Account\\Register.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Account\\Register.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Account\\Register.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\Account\\Register.cshtml",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAADMAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-23T15:54:04.754Z"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-22T16:43:03.274Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Program.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Program.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Program.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAlAAAAAAAAAA==",
+              "Title": "TransactionsController.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\Admin\\TransactionsController.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\Admin\\TransactionsController.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\Admin\\TransactionsController.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\Admin\\TransactionsController.cs",
+              "ViewState": "AgIAAK8BAAAAAAAAAAAgwL4BAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T15:54:51.921Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-20T07:38:03.458Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ThanhToanNhieu.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Booking\\ThanhToanNhieu.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Booking\\ThanhToanNhieu.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Booking\\ThanhToanNhieu.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\Booking\\ThanhToanNhieu.cshtml",
-              "ViewState": "AgIAACcAAAAAAAAAAADwv0MAAAAWAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "ReservationController.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\ReservationController.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\ReservationController.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\ReservationController.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\ReservationController.cs",
+              "ViewState": "AgIAADECAAAAAAAAAAAswEsCAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T10:45:02.353Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "history.js",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\history.js",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\js\\history.js",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\history.js",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\js\\history.js",
+              "ViewState": "AgIAALUBAAAAAAAAAAAQwNkBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-29T15:42:59.161Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "transactions.js",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\Admin\\transactions.js",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\js\\Admin\\transactions.js",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\Admin\\transactions.js",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\js\\Admin\\transactions.js",
+              "ViewState": "AgIAAPEGAAAAAAAAAAAwwAsHAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-22T06:52:35.275Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Transactions\\Index.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Transactions\\Index.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Transactions\\Index.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Transactions\\Index.cshtml",
+              "ViewState": "AgIAAOMDAAAAAAAAAAAwwPcDAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-23T19:48:51.827Z"
+              "WhenOpened": "2025-08-22T06:40:52.409Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "ReservationHistoryViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ReservationHistoryViewModel.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\ReservationHistoryViewModel.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ReservationHistoryViewModel.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\ReservationHistoryViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABrAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T16:10:02.816Z"
+              "Title": "transactions.css",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\css\\Admin\\transactions.css",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\css\\Admin\\transactions.css",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\css\\Admin\\transactions.css",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\css\\Admin\\transactions.css",
+              "ViewState": "AgIAAHQGAAAAAAAAAAAAAIYGAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-08-22T06:51:54.154Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAADwAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 13,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\ParkingSlots\\Index.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\ParkingSlots\\Index.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\ParkingSlots\\Index.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\ParkingSlots\\Index.cshtml",
+              "ViewState": "AgIAAJsAAAAAAAAAAAAwwLEAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-23T15:54:23.229Z"
+              "WhenOpened": "2025-08-20T06:12:48.316Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "RegisterViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\RegisterViewModel.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\RegisterViewModel.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\RegisterViewModel.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\RegisterViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T15:47:05.628Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ErrorViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ErrorViewModel.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Models\\ErrorViewModel.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ErrorViewModel.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Models\\ErrorViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T14:10:20.265Z"
+              "DocumentIndex": 14,
+              "Title": "selection.js",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\selection.js",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\js\\selection.js",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\selection.js",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\js\\selection.js",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAQwIEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-29T03:53:12.111Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 18,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAH0AAAAAAAAAAAAswEsAAAAAAAAAAAAAAA==",
+              "Title": "BookingController.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\BookingController.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\BookingController.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\BookingController.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\BookingController.cs",
+              "ViewState": "AgIAAPoAAAAAAAAAAAAgwCABAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T15:47:59.371Z"
+              "WhenOpened": "2025-08-19T05:26:22.505Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAgwE4AAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-23T14:02:08.474Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "History.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Reservation\\History.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Reservation\\History.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Reservation\\History.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\Reservation\\History.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACEAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-23T15:49:31.08Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "ParkingSlot.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ParkingSlot.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Models\\ParkingSlot.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ParkingSlot.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Models\\ParkingSlot.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\AdminController.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAOwAAAAAAAAAAAAQwBYBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T14:11:48.037Z"
+              "WhenOpened": "2025-08-19T05:25:59.332Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwDQAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T13:56:33.396Z"
+              "DocumentIndex": 16,
+              "Title": "parking-selection.js",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\parking-selection.js",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\js\\parking-selection.js",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\parking-selection.js",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\js\\parking-selection.js",
+              "ViewState": "AgIAAA8CAAAAAAAAAAAYwDQCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-18T17:58:39.105Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "parking-signalr.js",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\parking-signalr.js",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\js\\parking-signalr.js",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\parking-signalr.js",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\js\\parking-signalr.js",
+              "ViewState": "AgIAAGkCAAAAAAAAAAAAwIwCAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-19T05:26:44.573Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "site.js",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\js\\site.js",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\js\\site.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-29T05:43:46.632Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 22,
-              "Title": "ReservationController.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\ReservationController.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\ReservationController.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\ReservationController.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\ReservationController.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAgwEEAAAAJAAAAAAAAAA==",
+              "Title": "parking-signalr-client.js",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\parking-signalr-client.js",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\js\\parking-signalr-client.js",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\parking-signalr-client.js",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\js\\parking-signalr-client.js",
+              "ViewState": "AgIAAFEEAAAAAAAAAAAwwGsEAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-29T04:22:24.977Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAuwDYAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T16:10:52.674Z"
+              "WhenOpened": "2025-08-19T05:24:26.503Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 20,
-              "Title": "BookingController.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\BookingController.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\BookingController.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\BookingController.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\BookingController.cs",
-              "ViewState": "AgIAAJ8AAAAAAAAAAAAgwMQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T13:56:35.229Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAbAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAABoBAAAAAAAAAAAAACsBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-23T14:30:51.402Z"
+              "WhenOpened": "2025-08-18T16:50:05.555Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\appsettings.json",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\appsettings.json",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\appsettings.json",
-              "RelativeToolTip": "ParkingReservationSystem\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-23T16:15:39.797Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "Privacy.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Home\\Privacy.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Home\\Privacy.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Home\\Privacy.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\Home\\Privacy.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 21,
+              "Title": "MultipleDetail.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Reservation\\MultipleDetail.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Reservation\\MultipleDetail.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Reservation\\MultipleDetail.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Reservation\\MultipleDetail.cshtml",
+              "ViewState": "AgIAAPUBAAAAAAAAAAAuwBQCAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-23T14:15:21.018Z"
+              "WhenOpened": "2025-08-21T05:50:52.533Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 23,
               "Title": "Reservation.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\Reservation.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\Reservation.cs",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Models\\Reservation.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\Reservation.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\Reservation.cs",
               "RelativeToolTip": "ParkingReservationSystem\\Models\\Reservation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA3wCAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T13:58:25.034Z"
+              "WhenOpened": "2025-08-19T06:13:20.569Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 28,
-              "Title": "ParkingDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ParkingDbContext.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Models\\ParkingDbContext.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ParkingDbContext.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Models\\ParkingDbContext.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAcwB8AAABPAAAAAAAAAA==",
+              "Title": "parking-slots.js",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\parking-slots.js",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\js\\parking-slots.js",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\parking-slots.js",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\js\\parking-slots.js",
+              "ViewState": "AgIAAG0BAAAAAAAAAAApwH0BAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-19T05:26:45.08Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ParkingHub.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Hubs\\ParkingHub.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Hubs\\ParkingHub.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Hubs\\ParkingHub.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Hubs\\ParkingHub.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAkwFAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T13:54:14.275Z"
+              "WhenOpened": "2025-08-20T06:24:01.053Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 29,
-              "Title": "_Layout.cshtml.css",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml.css",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml.css",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml.css",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml.css",
-              "ViewState": "AgIAACQAAAAAAAAAAAAUwDEAAAAAAAAAAAAAAA==",
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\Admin\\UsersController.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\Admin\\UsersController.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\Admin\\UsersController.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\Admin\\UsersController.cs",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAgwPgAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T11:03:26.07Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "privacy.js",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\privacy.js",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\js\\privacy.js",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\privacy.js",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\js\\privacy.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-29T04:17:55.428Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "EmailSettings.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Config\\EmailSettings.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Config\\EmailSettings.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Config\\EmailSettings.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Config\\EmailSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T10:28:19.582Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "parking-selection.css",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\css\\parking-selection.css",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\css\\parking-selection.css",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\css\\parking-selection.css",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\css\\parking-selection.css",
+              "ViewState": "AgIAAFACAAAAAAAAAAAQwFUCAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-07-23T19:12:33.859Z"
+              "WhenOpened": "2025-08-18T17:54:24.519Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 31,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\User.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Models\\User.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\User.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T15:37:59.133Z"
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAPkEAAAAAAAAAAAswAQFAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-18T09:16:45.369Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "auth-scripts.js",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\auth-scripts.js",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\js\\auth-scripts.js",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\auth-scripts.js",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\js\\auth-scripts.js",
+              "ViewState": "AgIAAE4DAAAAAAAAAAAYwGcDAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-18T09:27:33.099Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 32,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAPUAAAAAAAAAAAAAABMBAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T09:40:27.701Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "UpdateProfileViewModel.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\User\\UpdateProfileViewModel.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\User\\UpdateProfileViewModel.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\User\\UpdateProfileViewModel.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\User\\UpdateProfileViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T16:19:25.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "admin-dashboard.js",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\Admin\\admin-dashboard.js",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\js\\Admin\\admin-dashboard.js",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\Admin\\admin-dashboard.js",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\js\\Admin\\admin-dashboard.js",
+              "ViewState": "AgIAAHwBAAAAAAAAAAAnwFgBAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-20T06:23:19.736Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Startup.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Startup.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Startup.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Startup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T10:28:36.235Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\appsettings.json",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\appsettings.json",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\appsettings.json",
+              "RelativeToolTip": "ParkingReservationSystem\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-18T09:46:08.904Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Program.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Program.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Program.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Program.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAkwEwAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T09:47:01.629Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\User.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Models\\User.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\User.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T09:45:51.428Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "GroupedReservationViewModel.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\GroupedReservationViewModel.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\GroupedReservationViewModel.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\GroupedReservationViewModel.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\GroupedReservationViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T18:17:25.566Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "ReservationService.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\ReservationService.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Services\\ReservationService.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\ReservationService.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Services\\ReservationService.cs",
+              "ViewState": "AgIAALwAAAAAAAAAAAAuwNYAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-20T08:46:07.248Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "IEmailService.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\IEmailService.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Services\\IEmailService.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\IEmailService.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Services\\IEmailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T09:41:56.976Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Services\\EmailService.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\EmailService.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Services\\EmailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T09:42:21.924Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Services\\UserService.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\UserService.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Services\\UserService.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAwHYAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T09:44:49.863Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\IUserService.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Services\\IUserService.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\IUserService.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Services\\IUserService.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T09:44:16.229Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Index.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Users\\Index.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Index.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Users\\Index.cshtml",
+              "ViewState": "AgIAAAcBAAAAAAAAAAAAABwBAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-21T10:49:08.162Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "users-management.js",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\Admin\\users-management.js",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\js\\Admin\\users-management.js",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\js\\Admin\\users-management.js",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\js\\Admin\\users-management.js",
+              "ViewState": "AgIAAN8AAAAAAAAAAAAgwEYBAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-21T17:55:59.844Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "ParkingSlotsController.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\Admin\\ParkingSlotsController.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\Admin\\ParkingSlotsController.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\Admin\\ParkingSlotsController.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\Admin\\ParkingSlotsController.cs",
+              "ViewState": "AgIAAJwAAAAAAAAAAAAuwLsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-20T06:12:20.529Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "ParkingDbContext.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ParkingDbContext.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Models\\ParkingDbContext.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ParkingDbContext.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Models\\ParkingDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T10:03:41.055Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "DailyReservationViewModel.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\DailyReservationViewModel.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\DailyReservationViewModel.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\DailyReservationViewModel.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\DailyReservationViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T18:17:09.264Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "ParkingSlot.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ParkingSlot.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Models\\ParkingSlot.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ParkingSlot.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Models\\ParkingSlot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T10:03:41.839Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "ResetPasswordViewModel.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ResetPasswordViewModel.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\ResetPasswordViewModel.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ResetPasswordViewModel.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\ResetPasswordViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T09:39:55.825Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "ReservationHistoryViewModel.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ReservationHistoryViewModel.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\ReservationHistoryViewModel.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ReservationHistoryViewModel.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\ReservationHistoryViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T09:49:53.489Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "ServiceResult.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ServiceResult.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\ServiceResult.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ServiceResult.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\ServiceResult.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAYwBEAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T15:58:27.705Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "parking-slots.css",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\css\\parking-slots.css",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\css\\parking-slots.css",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\css\\parking-slots.css",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\css\\parking-slots.css",
+              "ViewState": "AgIAAIMCAAAAAAAAAAAAwKQCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-08-19T05:26:43.257Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\ParkingSlots\\Delete.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\ParkingSlots\\Delete.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\ParkingSlots\\Delete.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\ParkingSlots\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-21T18:04:56.454Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\ParkingSlots\\Create.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\ParkingSlots\\Create.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\ParkingSlots\\Create.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\ParkingSlots\\Create.cshtml",
+              "ViewState": "AgIAAJAAAAAAAAAAAAAWwJ4AAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-21T18:04:47.911Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\ParkingSlots\\Edit.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\ParkingSlots\\Edit.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\ParkingSlots\\Edit.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\ParkingSlots\\Edit.cshtml",
+              "ViewState": "AgIAAM0AAAAAAAAAAAAWwNsAAABkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-24T03:09:53.669Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\ParkingSlots\\Details.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\ParkingSlots\\Details.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\ParkingSlots\\Details.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\ParkingSlots\\Details.cshtml",
+              "ViewState": "AgIAAI0FAAAAAAAAAAAswJcFAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-24T03:09:49.079Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Transactions\\Create.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Transactions\\Create.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Transactions\\Create.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Transactions\\Create.cshtml",
+              "ViewState": "AgIAALkCAAAAAAAAAAApwNACAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-22T11:23:27.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Reservation\\Details.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Reservation\\Details.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Reservation\\Details.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Reservation\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-19T09:10:01.075Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "MultipleDetailViewModel.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\MultipleDetailViewModel.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\MultipleDetailViewModel.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\MultipleDetailViewModel.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\MultipleDetailViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T09:49:51.442Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Create.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Users\\Create.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Create.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Users\\Create.cshtml",
+              "ViewState": "AgIAAKIEAAAAAAAAAAAiwMsEAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-21T18:02:11.402Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "MultipleReservationModel.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\MultipleReservationModel.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\MultipleReservationModel.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\MultipleReservationModel.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\MultipleReservationModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T08:13:45.8Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Edit.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Users\\Edit.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Edit.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Users\\Edit.cshtml",
+              "ViewState": "AgIAAN4EAAAAAAAAAAAswPEEAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-21T18:02:22.282Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Details.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Users\\Details.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Details.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Users\\Details.cshtml",
+              "ViewState": "AgIAABEAAAAAAAAAAAAWwCEAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-21T18:02:18.506Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Delete.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Users\\Delete.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Delete.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Users\\Delete.cshtml",
+              "ViewState": "AgIAABkAAAAAAAAAAAAWwCMAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-21T18:02:14.674Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "EditUserViewModel.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\User\\EditUserViewModel.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\User\\EditUserViewModel.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\User\\EditUserViewModel.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\User\\EditUserViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T19:00:48.907Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Transactions\\Details.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Transactions\\Details.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Transactions\\Details.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Transactions\\Details.cshtml",
+              "ViewState": "AgIAAMoAAAAAAAAAAAAWwOMAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-22T07:00:21.015Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Admin\\Dashboard.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Dashboard.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Admin\\Dashboard.cshtml",
+              "ViewState": "AgIAALkAAAAAAAAAAAAcwMoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-19T12:04:54.23Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Transactions\\Delete.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Transactions\\Delete.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Transactions\\Delete.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Transactions\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-22T11:23:44.685Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Account\\Register.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-18T09:27:25.713Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-21T19:23:29.587Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
               "Title": "_ViewImports.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\_ViewImports.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\_ViewImports.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\github3\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\_ViewImports.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\_ViewImports.cshtml",
               "RelativeToolTip": "ParkingReservationSystem\\Views\\_ViewImports.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-23T14:11:40.331Z"
+              "WhenOpened": "2025-08-21T19:23:36.819Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\TestSocket\\Index.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\TestSocket\\Index.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\TestSocket\\Index.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\TestSocket\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-21T17:43:31.082Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "CreateUserViewModel.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\User\\CreateUserViewModel.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\User\\CreateUserViewModel.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\User\\CreateUserViewModel.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\User\\CreateUserViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T18:52:37.202Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
+              "Title": "ThanhToanNhieu.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Booking\\ThanhToanNhieu.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Booking\\ThanhToanNhieu.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Booking\\ThanhToanNhieu.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Booking\\ThanhToanNhieu.cshtml",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAYwIQAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-19T05:31:46.281Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 78,
+              "Title": "auth-styles.css",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\css\\auth-styles.css",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\css\\auth-styles.css",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\css\\auth-styles.css",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\css\\auth-styles.css",
+              "ViewState": "AgIAAK8CAAAAAAAAAADwvx0BAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-08-18T09:27:36.879Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 79,
+              "Title": "adminlte.css",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\adminlte\\dist\\css\\adminlte.css",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\adminlte\\dist\\css\\adminlte.css",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\adminlte\\dist\\css\\adminlte.css",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\adminlte\\dist\\css\\adminlte.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-08-20T07:40:32.048Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 80,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Index.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Index.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Index.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Index.cshtml",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAowE0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-20T06:08:58.443Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 82,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Account\\Login.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAiwKcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-18T09:27:17.722Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 81,
+              "Title": "ThanhToan.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Booking\\ThanhToan.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Booking\\ThanhToan.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Booking\\ThanhToan.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Booking\\ThanhToan.cshtml",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAowG4AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-19T06:44:12.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 83,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAACwBAAAAAAAAAAAAAEwBAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-18T09:32:35.497Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 84,
+              "Title": "ResetPassword.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Account\\ResetPassword.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Account\\ResetPassword.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Account\\ResetPassword.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Account\\ResetPassword.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-18T09:39:26.561Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 85,
+              "Title": "RegisterViewModel.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\RegisterViewModel.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\RegisterViewModel.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\RegisterViewModel.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\RegisterViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T09:49:52.77Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 86,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\LoginViewModel.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\LoginViewModel.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\LoginViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAwAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T09:49:50.028Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 87,
+              "Title": "CheckEmailRequest.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\CheckEmailRequest.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\CheckEmailRequest.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\CheckEmailRequest.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\CheckEmailRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T16:23:16.705Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 88,
+              "Title": "ForgotPassword.cshtml",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Account\\ForgotPassword.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Account\\ForgotPassword.cshtml",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Account\\ForgotPassword.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Account\\ForgotPassword.cshtml",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAowFAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-18T09:39:05.455Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 89,
+              "Title": "20250818095736_AddPasswordResetColumns.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Migrations\\20250818095736_AddPasswordResetColumns.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Migrations\\20250818095736_AddPasswordResetColumns.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Migrations\\20250818095736_AddPasswordResetColumns.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Migrations\\20250818095736_AddPasswordResetColumns.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAgwCwAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T09:57:36.719Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 90,
+              "Title": "ParkingDbContextModelSnapshot.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Migrations\\ParkingDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Migrations\\ParkingDbContextModelSnapshot.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Migrations\\ParkingDbContextModelSnapshot.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Migrations\\ParkingDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T09:58:04.258Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 91,
+              "Title": "20250724152149_AddUserRole.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Migrations\\20250724152149_AddUserRole.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Migrations\\20250724152149_AddUserRole.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\Migrations\\20250724152149_AddUserRole.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Migrations\\20250724152149_AddUserRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T09:58:05.728Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 92,
+              "Title": "ForgotPasswordViewModel.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ForgotPasswordViewModel.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\ForgotPasswordViewModel.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ForgotPasswordViewModel.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\ForgotPasswordViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T09:49:43.54Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 93,
+              "Title": "ParkingSlotViewModel.cs",
+              "DocumentMoniker": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ParkingSlotViewModel.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\ParkingSlotViewModel.cs",
+              "ToolTip": "D:\\HOC_TREN_TRUONG\\Lap_trinh_mang\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ParkingSlotViewModel.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\ParkingSlotViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T09:49:52.169Z"
             }
           ]
         },

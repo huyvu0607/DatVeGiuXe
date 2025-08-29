@@ -1,0 +1,1228 @@
+﻿@model ParkingReservationSystem.ViewModels.User.CreateUserViewModel
+@{
+    ViewData["Title"] = "Tạo Người Dùng Mới";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid px-4 py-3">
+    <!-- Animated Header with Glassmorphism -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="header-card position-relative overflow-hidden rounded-4 shadow-lg">
+                <div class="header-bg"></div>
+                <div class="header-content position-relative z-3 p-5 text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-container me-4">
+                                <div class="floating-icon">
+                                    <i class="fas fa-user-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h1 class="display-5 fw-bold mb-2 text-shadow">Tạo Người Dùng Mới</h1>
+                                <p class="fs-5 mb-0 opacity-90">Thêm người dùng mới vào hệ thống quản lý bãi đỗ xe</p>
+                            </div>
+                        </div>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb glass-breadcrumb mb-0">
+                                <li class="breadcrumb-item">
+                                    <a asp-action="Index" class="text-white text-decoration-none fw-semibold">
+                                        <i class="fas fa-users me-2"></i>Người Dùng
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item active text-white fw-bold" aria-current="page">
+                                    <i class="fas fa-plus me-2"></i>Tạo Mới
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-8">
+            <!-- Enhanced Form Card with Glass Effect -->
+            <div class="form-container">
+                <div class="glass-card rounded-4 overflow-hidden shadow-2xl">
+                    <!-- Header with Gradient Animation -->
+                    <div class="card-header position-relative overflow-hidden p-4">
+                        <div class="header-wave"></div>
+                        <div class="position-relative z-3 d-flex align-items-center text-white">
+                            <div class="icon-pulse me-3">
+                                <i class="fas fa-info-circle fa-2x"></i>
+                            </div>
+                            <div>
+                                <h4 class="mb-1 fw-bold">Thông Tin Người Dùng</h4>
+                                <p class="mb-0 opacity-90">Vui lòng điền đầy đủ thông tin bên dưới</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body p-5">
+                        <!-- Success Alert with Animation -->
+                        <div id="successAlert" class="alert alert-success alert-modern d-none" role="alert">
+                            <div class="d-flex align-items-center">
+                                <div class="alert-icon me-3">
+                                    <i class="fas fa-check-circle fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1 fw-bold">Thành công!</h6>
+                                    <p class="mb-0">Người dùng đã được tạo thành công.</p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-close btn-close-modern" data-bs-dismiss="alert"></button>
+                        </div>
+
+                        <form asp-action="Create" method="post" id="createUserForm" novalidate>
+                            @Html.AntiForgeryToken()
+
+                            <div asp-validation-summary="ModelOnly" class="alert alert-danger alert-modern d-none" role="alert">
+                                <div class="d-flex align-items-center">
+                                    <div class="alert-icon me-3">
+                                        <i class="fas fa-exclamation-triangle fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1 fw-bold">Vui lòng kiểm tra lại thông tin:</h6>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-close btn-close-modern" data-bs-dismiss="alert"></button>
+                            </div>
+
+                            <div class="row g-4">
+                                <!-- Name Field with Floating Animation -->
+                                <div class="col-md-6">
+                                    <div class="form-floating-modern">
+                                        <input asp-for="Name" class="form-control-modern"
+                                               placeholder=" " id="nameInput" />
+                                        <label for="nameInput" class="form-label-modern">
+                                            <i class="fas fa-user me-2"></i>Họ và Tên
+                                            <span class="required-star">*</span>
+                                        </label>
+                                        <div class="input-underline"></div>
+                                        <span asp-validation-for="Name" class="error-message"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Email Field -->
+                                <div class="col-md-6">
+                                    <div class="form-floating-modern">
+                                        <input asp-for="Email" type="email" class="form-control-modern"
+                                               placeholder=" " id="emailInput" />
+                                        <label for="emailInput" class="form-label-modern">
+                                            <i class="fas fa-envelope me-2"></i>Email
+                                            <span class="required-star">*</span>
+                                        </label>
+                                        <div class="input-underline"></div>
+                                        <span asp-validation-for="Email" class="error-message"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Password Field with Strength Indicator -->
+                                <div class="col-12">
+                                    <div class="form-floating-modern">
+                                        <input asp-for="Password" type="password" class="form-control-modern"
+                                               placeholder=" " id="passwordField" />
+                                        <label for="passwordField" class="form-label-modern">
+                                            <i class="fas fa-lock me-2"></i>Mật Khẩu
+                                            <span class="required-star">*</span>
+                                        </label>
+                                        <div class="input-underline"></div>
+                                        <button class="password-toggle" type="button" id="togglePassword">
+                                            <i class="fas fa-eye" id="eyeIcon"></i>
+                                        </button>
+                                        <span asp-validation-for="Password" class="error-message"></span>
+                                    </div>
+
+                                    <!-- Password Strength Indicator -->
+                                    <div class="password-strength mt-3">
+                                        <div class="strength-bar">
+                                            <div class="strength-fill" id="strengthFill"></div>
+                                        </div>
+                                        <small class="strength-text" id="strengthText">Nhập mật khẩu</small>
+                                    </div>
+                                </div>
+
+                                <!-- Password Requirements with Modern Design -->
+                                <div class="col-12">
+                                    <div class="requirements-card">
+                                        <h6 class="requirements-title">
+                                            <i class="fas fa-shield-alt me-2"></i>Yêu cầu mật khẩu:
+                                        </h6>
+                                        <div class="row g-3">
+                                            <div class="col-sm-6">
+                                                <div class="requirement-item" id="length-req">
+                                                    <i class="fas fa-circle req-icon"></i>
+                                                    <span>Ít nhất 8 ký tự</span>
+                                                </div>
+                                                <div class="requirement-item" id="upper-req">
+                                                    <i class="fas fa-circle req-icon"></i>
+                                                    <span>Có chữ hoa (A-Z)</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="requirement-item" id="lower-req">
+                                                    <i class="fas fa-circle req-icon"></i>
+                                                    <span>Có chữ thường (a-z)</span>
+                                                </div>
+                                                <div class="requirement-item" id="number-req">
+                                                    <i class="fas fa-circle req-icon"></i>
+                                                    <span>Có số (0-9)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Role Field with Custom Select -->
+                                <div class="col-12">
+                                    <div class="form-floating-modern">
+                                        <select asp-for="Role" class="form-control-modern" id="roleSelect">
+                                            <option value="">-- Chọn vai trò --</option>
+                                            <option value="Admin">👑 Quản trị viên</option>
+                                            <option value="User">👤 Người dùng</option>
+                                        </select>
+                                        <label for="roleSelect" class="form-label-modern">
+                                            <i class="fas fa-user-tag me-2"></i>Vai Trò
+                                            <span class="required-star">*</span>
+                                        </label>
+                                        <div class="input-underline"></div>
+                                        <span asp-validation-for="Role" class="error-message"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Enhanced Form Actions -->
+                            <div class="form-actions mt-5">
+                                <div class="d-flex gap-3 justify-content-end">
+                                    <a asp-action="Index" class="btn btn-secondary-modern">
+                                        <i class="fas fa-arrow-left me-2"></i>
+                                        <span>Quay Lại</span>
+                                    </a>
+                                    <button type="submit" class="btn btn-primary-modern" id="submitBtn">
+                                        <div class="btn-content">
+                                            <i class="fas fa-save me-2"></i>
+                                            <span>Tạo Người Dùng</span>
+                                        </div>
+                                        <div class="btn-loader">
+                                            <div class="spinner"></div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Enhanced Help Section -->
+                <div class="help-section mt-5">
+                    <div class="glass-card rounded-4 p-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-2 text-center">
+                                <div class="help-icon">
+                                    <i class="fas fa-question-circle fa-3x"></i>
+                                </div>
+                            </div>
+                            <div class="col-md-10">
+                                <h5 class="help-title mb-3">
+                                    <i class="fas fa-lightbulb me-2"></i>Hướng dẫn sử dụng
+                                </h5>
+                                <div class="row g-3">
+                                    <div class="col-sm-6">
+                                        <div class="help-item">
+                                            <i class="fas fa-check-circle help-item-icon"></i>
+                                            <span>Tất cả các trường có dấu (*) là bắt buộc</span>
+                                        </div>
+                                        <div class="help-item">
+                                            <i class="fas fa-check-circle help-item-icon"></i>
+                                            <span>Email phải là địa chỉ hợp lệ và duy nhất</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="help-item">
+                                            <i class="fas fa-check-circle help-item-icon"></i>
+                                            <span>Mật khẩu sẽ được mã hóa tự động</span>
+                                        </div>
+                                        <div class="help-item">
+                                            <i class="fas fa-check-circle help-item-icon"></i>
+                                            <span>Vai trò xác định quyền truy cập hệ thống</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        .header-card {
+            border: none;
+            background: var(--primary-gradient);
+            border-radius: 15px;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            animation: backgroundSlide 20s ease-in-out infinite;
+        }
+
+        @@keyframes backgroundSlide {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-20px); }
+        }
+
+        .icon-container {
+            position: relative;
+        }
+
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @@keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .glass-breadcrumb {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 8px 16px;
+        }
+
+        /* Glass Card Styles */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 20px 40px var(--shadow-color);
+            border-radius: 15px;
+        }
+
+        .card-header {
+            background: var(--secondary-gradient);
+            border: none;
+        }
+
+        .header-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" fill="rgba(255,255,255,0.1)"></path></svg>') repeat-x;
+            animation: wave 15s ease-in-out infinite;
+        }
+
+        @@keyframes wave {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-50px); }
+        }
+
+        .icon-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @@keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Modern Form Styles */
+        .form-floating-modern {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control-modern {
+            width: 100%;
+            padding: 20px 16px 8px;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid #dee2e6;
+            border-radius: 12px 12px 0 0;
+            background: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .form-control-modern:focus {
+            outline: 0;
+            border-bottom-color: #667eea;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .form-label-modern {
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            transform: translateY(-50%);
+            font-size: 1rem;
+            font-weight: 500;
+            color: #6c757d;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            background: transparent;
+            padding: 0;
+            margin: 0;
+        }
+
+        .form-control-modern:focus ~ .form-label-modern,
+        .form-control-modern:not(:placeholder-shown) ~ .form-label-modern {
+            top: 8px;
+            font-size: 0.75rem;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .input-underline {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary-gradient);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .form-control-modern:focus ~ .input-underline {
+            width: 100%;
+        }
+
+        .required-star {
+            color: #e74c3c;
+            animation: blink 1.5s infinite;
+        }
+
+        @@keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: block;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .error-message:not(:empty) {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Password Toggle */
+        .password-toggle {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #6c757d;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 5;
+        }
+
+        .password-toggle:hover {
+            color: #667eea;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        /* Email Validation States */
+        .form-floating-modern.email-checking .form-control-modern {
+            border-bottom-color: #17a2b8;
+            background: rgba(23, 162, 184, 0.05);
+        }
+
+        .form-floating-modern.email-checking::after {
+            content: '';
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            border: 2px solid #17a2b8;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            z-index: 10;
+        }
+
+        .form-floating-modern.valid .form-control-modern {
+            border-bottom-color: #28a745;
+            background: rgba(40, 167, 69, 0.05);
+        }
+
+        .form-floating-modern.valid::after {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #28a745;
+            z-index: 10;
+        }
+
+        .form-floating-modern.invalid .form-control-modern {
+            border-bottom-color: #dc3545;
+            background: rgba(220, 53, 69, 0.05);
+        }
+
+        .form-floating-modern.invalid::after {
+            content: '\f00d';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #dc3545;
+            z-index: 10;
+        }
+
+        /* Password Strength */
+        .password-strength {
+            margin-top: 1rem;
+        }
+
+        .strength-bar {
+            height: 4px;
+            background: #e9ecef;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .strength-fill {
+            height: 100%;
+            background: var(--primary-gradient);
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .strength-text {
+            display: block;
+            margin-top: 0.5rem;
+            font-weight: 500;
+            color: #6c757d;
+        }
+
+        /* Requirements Card */
+        .requirements-card {
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .requirements-title {
+            color: #495057;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .requirement-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            color: #6c757d;
+            transition: all 0.3s ease;
+        }
+
+        .req-icon {
+            margin-right: 0.75rem;
+            font-size: 0.5rem;
+            color: #dee2e6;
+            transition: all 0.3s ease;
+        }
+
+        .requirement-item.valid {
+            color: #28a745;
+        }
+
+        .requirement-item.valid .req-icon {
+            color: #28a745;
+        }
+
+        /* Modern Buttons */
+        .btn-primary-modern {
+            background: var(--primary-gradient);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 32px;
+            font-weight: 600;
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary-modern:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-primary-modern:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn-secondary-modern {
+            background: rgba(108, 117, 125, 0.1);
+            border: 2px solid #6c757d;
+            border-radius: 25px;
+            padding: 12px 32px;
+            font-weight: 600;
+            color: #6c757d;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary-modern:hover {
+            background: #6c757d;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(108, 117, 125, 0.4);
+        }
+
+        .btn-content {
+            display: flex;
+            align-items: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
+
+        .btn-primary-modern.loading .btn-content {
+            opacity: 0;
+        }
+
+        .btn-primary-modern.loading .btn-loader {
+            opacity: 1;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @@keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Alert Styles */
+        .alert-modern {
+            border: none;
+            border-radius: 15px;
+            padding: 1.25rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .alert-success.alert-modern {
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(40, 167, 69, 0.05) 100%);
+            color: #155724;
+            border-left: 4px solid #28a745;
+        }
+
+        .alert-danger.alert-modern {
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(220, 53, 69, 0.05) 100%);
+            color: #721c24;
+            border-left: 4px solid #dc3545;
+        }
+
+        .alert-icon {
+            color: inherit;
+        }
+
+        .btn-close-modern {
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-close-modern:hover {
+            opacity: 1;
+        }
+
+        /* Help Section */
+        .help-section .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .help-icon {
+            color: #667eea;
+            animation: bounce 2s infinite;
+        }
+
+        @@keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .help-title {
+            color: #495057;
+            font-weight: 700;
+        }
+
+        .help-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            color: #6c757d;
+        }
+
+        .help-item-icon {
+            color: #28a745;
+            margin-right: 0.75rem;
+            font-size: 0.875rem;
+        }
+
+        /* Animations */
+        .form-container {
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        @@keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 50px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        /* Validation alert */
+        #validationAlert {
+            animation: slideInDown 0.3s ease;
+        }
+
+        @@keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translate3d(0, -100%, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        /* Enhanced shake animation */
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @@keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        /* Form validation states */
+        .form-floating-modern.focused {
+            transform: scale(1.02);
+        }
+
+        .form-floating-modern.selected {
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 12px;
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+
+        @@keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive Design */
+        @@media (max-width: 768px) {
+            .header-content {
+                padding: 2rem !important;
+            }
+
+            .header-content .d-flex {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .icon-container {
+                margin-bottom: 1rem;
+            }
+
+            .card-body {
+                padding: 2rem !important;
+            }
+
+            .help-section .row {
+                text-align: center;
+            }
+
+            .help-section .col-md-2 {
+                margin-bottom: 1rem;
+            }
+        }
+
+        @@media (max-width: 576px) {
+            .form-actions .d-flex {
+                flex-direction: column !important;
+                gap: 1rem !important;
+            }
+
+            .btn-primary-modern,
+            .btn-secondary-modern {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            // Global variables
+            let emailCheckTimeout;
+            let emailValidationCache = {}; // Cache để lưu kết quả check email
+
+            // Enhanced password toggle
+            $('#togglePassword').on('click', function() {
+                const passwordField = $('#passwordField');
+                const eyeIcon = $('#eyeIcon');
+                
+                if (passwordField.attr('type') === 'password') {
+                    passwordField.attr('type', 'text');
+                    eyeIcon.removeClass('fa-eye').addClass('fa-eye-slash');
+                } else {
+                    passwordField.attr('type', 'password');
+                    eyeIcon.removeClass('fa-eye-slash').addClass('fa-eye');
+                }
+            });
+
+            // Enhanced password validation with strength indicator
+            $('#passwordField').on('input', function() {
+                const password = $(this).val();
+                let strength = 0;
+                let strengthText = '';
+
+                // Check requirements
+                const checks = [
+                    { id: 'length-req', test: password.length >= 8 },
+                    { id: 'upper-req', test: /[A-Z]/.test(password) },
+                    { id: 'lower-req', test: /[a-z]/.test(password) },
+                    { id: 'number-req', test: /[0-9]/.test(password) }
+                ];
+
+                checks.forEach(check => {
+                    const element = $('#' + check.id);
+                    if (check.test) {
+                        element.addClass('valid');
+                        strength += 25;
+                    } else {
+                        element.removeClass('valid');
+                    }
+                });
+
+                // Update strength bar
+                $('#strengthFill').css('width', strength + '%');
+
+                // Update strength text and color
+                if (strength === 0) {
+                    strengthText = 'Nhập mật khẩu';
+                    $('#strengthFill').css('background', '#dee2e6');
+                } else if (strength <= 25) {
+                    strengthText = 'Mật khẩu yếu';
+                    $('#strengthFill').css('background', 'linear-gradient(135deg, #e74c3c, #c0392b)');
+                } else if (strength <= 50) {
+                    strengthText = 'Mật khẩu trung bình';
+                    $('#strengthFill').css('background', 'linear-gradient(135deg, #f39c12, #e67e22)');
+                } else if (strength <= 75) {
+                    strengthText = 'Mật khẩu tốt';
+                    $('#strengthFill').css('background', 'linear-gradient(135deg, #3498db, #2980b9)');
+                } else {
+                    strengthText = 'Mật khẩu mạnh';
+                    $('#strengthFill').css('background', 'linear-gradient(135deg, #27ae60, #229954)');
+                }
+
+                $('#strengthText').text(strengthText);
+            });
+
+            // Real-time email validation - SỬA PHẦN NÀY
+            function validateEmail(email, isRealTime = true) {
+                const emailField = $('#emailInput');
+                const parent = emailField.closest('.form-floating-modern');
+                const errorSpan = parent.find('.error-message');
+                
+                // Reset states
+                parent.removeClass('valid invalid email-checking');
+                errorSpan.text('').css('display', 'none');
+                
+                if (!email || email.length === 0) {
+                    return;
+                }
+                
+                // Basic email format validation
+                const emailRegex = /^[^\s@@]+@@[^\s@@]+\.[^\s@@]+$/;
+                if (!emailRegex.test(email)) {
+                    parent.addClass('invalid');
+                    errorSpan.text('Định dạng email không hợp lệ').css('display', 'block');
+                    return false;
+                }
+                
+                // Kiểm tra cache trước
+                if (emailValidationCache.hasOwnProperty(email)) {
+                    if (emailValidationCache[email]) {
+                        parent.addClass('invalid');
+                        errorSpan.text('Email này đã tồn tại trong hệ thống').css('display', 'block');
+                        return false;
+                    } else {
+                        parent.addClass('valid');
+                        return true;
+                    }
+                }
+                
+                if (isRealTime) {
+                    // Show checking state chỉ khi real-time
+                    parent.addClass('email-checking');
+                    
+                    // AJAX call để check email
+                    $.ajax({
+                        url: '@Url.Action("CheckEmailExists", "Users")',
+                        type: 'GET',
+                        data: { email: email },
+                        success: function(response) {
+                            parent.removeClass('email-checking');
+                            
+                            // Lưu vào cache
+                            emailValidationCache[email] = response.exists;
+                            
+                            if (response.exists) {
+                                parent.addClass('invalid');
+                                errorSpan.text('Email này đã tồn tại trong hệ thống').css('display', 'block');
+                            } else {
+                                parent.addClass('valid');
+                                errorSpan.css('display', 'none');
+                            }
+                        },
+                        error: function() {
+                            parent.removeClass('email-checking');
+                            parent.addClass('invalid');
+                            errorSpan.text('Không thể kiểm tra email. Vui lòng thử lại').css('display', 'block');
+                        }
+                    });
+                }
+                
+                return true; // Return true for AJAX case, result will be handled in callback
+            }
+
+            // Email input events
+            $('#emailInput').on('input', function() {
+                const email = $(this).val().trim();
+                
+                // Clear previous timeout
+                clearTimeout(emailCheckTimeout);
+                
+                // Clear cache for this email to force recheck
+                if (emailValidationCache.hasOwnProperty(email)) {
+                    delete emailValidationCache[email];
+                }
+                
+                // Debounce the validation
+                emailCheckTimeout = setTimeout(() => {
+                    validateEmail(email, true);
+                }, 500);
+            });
+
+            // QUAN TRỌNG: Event khi focus vào email field
+            $('#emailInput').on('focus', function() {
+                const email = $(this).val().trim();
+                const parent = $(this).closest('.form-floating-modern');
+                
+                parent.addClass('focused');
+                
+                // Nếu có email và chưa validate, validate lại
+                if (email && !parent.hasClass('valid') && !parent.hasClass('invalid') && !parent.hasClass('email-checking')) {
+                    // Clear cache để force recheck
+                    if (emailValidationCache.hasOwnProperty(email)) {
+                        delete emailValidationCache[email];
+                    }
+                    validateEmail(email, true);
+                }
+            });
+
+            // Event khi blur khỏi email field
+            $('#emailInput').on('blur', function() {
+                const email = $(this).val().trim();
+                const parent = $(this).closest('.form-floating-modern');
+                
+                if (!email) {
+                    parent.removeClass('focused');
+                    return;
+                }
+                
+                // Final validation khi blur
+                validateEmail(email, true);
+            });
+
+            // Enhanced form validation before submit
+            $('#createUserForm').on('submit', function(e) {
+                const form = $(this);
+                const submitBtn = $('#submitBtn');
+                
+                // Remove existing validation alert
+                $('#validationAlert').remove();
+                
+                // Check if email is still being validated
+                if ($('.email-checking').length > 0) {
+                    e.preventDefault();
+                    
+                    const alertHtml = `
+                        <div id="validationAlert" class="alert alert-danger alert-modern" role="alert">
+                            <div class="d-flex align-items-center">
+                                <div class="alert-icon me-3">
+                                    <i class="fas fa-hourglass-half fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1 fw-bold">Vui lòng chờ:</h6>
+                                    <p class="mb-0">Đang kiểm tra email, vui lòng chờ trong giây lát</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    form.prepend(alertHtml);
+                    
+                    // Scroll to alert
+                    $('#validationAlert')[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return false;
+                }
+                
+                // Check for validation errors
+                let hasErrors = false;
+                let errorMessages = [];
+                
+                // Check email validation
+                const emailParent = $('#emailInput').closest('.form-floating-modern');
+                if (emailParent.hasClass('invalid')) {
+                    hasErrors = true;
+                    errorMessages.push('Email không hợp lệ hoặc đã tồn tại');
+                }
+                
+                // Check required fields
+                $('.form-control-modern[required], .form-control-modern').each(function() {
+                    const field = $(this);
+                    const value = field.val().trim();
+                    const fieldName = field.closest('.form-floating-modern').find('.form-label-modern').text().replace('*', '').trim();
+                    
+                    if (!value && (field.prop('required') || field.attr('id') !== 'roleSelect')) {
+                        hasErrors = true;
+                        errorMessages.push(`${fieldName} là bắt buộc`);
+                        field.closest('.form-floating-modern').addClass('invalid');
+                    }
+                });
+                
+                // Check password strength
+                const password = $('#passwordField').val();
+                if (password) {
+                    if (password.length < 8) {
+                        hasErrors = true;
+                        errorMessages.push('Mật khẩu phải có ít nhất 8 ký tự');
+                    }
+                    if (!/[A-Z]/.test(password)) {
+                        hasErrors = true;
+                        errorMessages.push('Mật khẩu phải chứa ít nhất một chữ hoa');
+                    }
+                    if (!/[a-z]/.test(password)) {
+                        hasErrors = true;
+                        errorMessages.push('Mật khẩu phải chứa ít nhất một chữ thường');
+                    }
+                    if (!/[0-9]/.test(password)) {
+                        hasErrors = true;
+                        errorMessages.push('Mật khẩu phải chứa ít nhất một số');
+                    }
+                }
+                
+                if (hasErrors) {
+                    e.preventDefault();
+                    
+                    // Show validation errors
+                    const alertHtml = `
+                        <div id="validationAlert" class="alert alert-danger alert-modern" role="alert">
+                            <div class="d-flex align-items-center">
+                                <div class="alert-icon me-3">
+                                    <i class="fas fa-exclamation-triangle fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1 fw-bold">Vui lòng kiểm tra lại thông tin:</h6>
+                                    <ul class="mb-0 ps-3">
+                                        ${errorMessages.map(msg => `<li>${msg}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-close btn-close-modern" onclick="$('#validationAlert').remove()"></button>
+                        </div>
+                    `;
+                    form.prepend(alertHtml);
+                    
+                    // Focus on first invalid field
+                    $('.form-floating-modern.invalid').first().find('.form-control-modern').focus();
+                    
+                    // Add shake animation
+                    form.addClass('shake');
+                    setTimeout(() => form.removeClass('shake'), 500);
+                    
+                    // Scroll to alert
+                    $('#validationAlert')[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    return false;
+                }
+                
+                // If validation passes, add loading state
+                submitBtn.addClass('loading');
+                submitBtn.prop('disabled', true);
+            });
+
+            // Auto-focus and smooth animations
+            $('#nameInput').focus();
+
+            // Add input focus animations
+            $('.form-control-modern').on('focus', function() {
+                $(this).closest('.form-floating-modern').addClass('focused');
+            }).on('blur', function() {
+                if (!$(this).val()) {
+                    $(this).closest('.form-floating-modern').removeClass('focused');
+                }
+            });
+
+            // General field validation on blur
+            $('.form-control-modern').on('blur', function() {
+                const field = $(this);
+                const value = field.val().trim();
+                const parent = field.closest('.form-floating-modern');
+                
+                // Skip email field (handled separately)
+                if (field.attr('id') === 'emailInput') {
+                    return;
+                }
+                
+                if (field.hasClass('input-validation-error') || (!value && field.prop('required'))) {
+                    parent.addClass('invalid');
+                } else if (value) {
+                    parent.addClass('valid').removeClass('invalid');
+                }
+            });
+
+            // Role selection animation
+            $('#roleSelect').on('change', function() {
+                $(this).closest('.form-floating-modern').addClass('selected');
+                
+                const value = $(this).val();
+                if (value) {
+                    $(this).closest('.form-floating-modern').addClass('valid').removeClass('invalid');
+                }
+            });
+
+            // Add particle effect to buttons
+            $('.btn-primary-modern').on('click', function(e) {
+                const button = $(this);
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const ripple = $('<span class="ripple"></span>');
+                ripple.css({
+                    left: x + 'px',
+                    top: y + 'px',
+                    width: '0px',
+                    height: '0px'
+                });
+                
+                button.append(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+
+            // Clear validation cache when form is reset
+            $(document).on('reset', '#createUserForm', function() {
+                emailValidationCache = {};
+                $('.form-floating-modern').removeClass('valid invalid email-checking focused selected');
+                $('.error-message').text('').css('display', 'none');
+            });
+        });
+    </script>
+}

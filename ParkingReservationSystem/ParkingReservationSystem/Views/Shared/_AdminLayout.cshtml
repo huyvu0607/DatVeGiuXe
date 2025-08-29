@@ -1,0 +1,422 @@
+﻿@{
+    Layout = null;
+    var currentPage = ViewContext.RouteData.Values["action"]?.ToString();
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - Admin</title>
+    <link rel="stylesheet" href="~/adminlte/plugins/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="~/adminlte/dist/css/adminlte.min.css" />
+    <link rel="stylesheet" href="~/adminlte/dist/css/adminlte.css" />
+    <!-- Toastify CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!-- Toastify JS -->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    @RenderSection("Styles", required: false)
+    
+    <style>
+        /* Enhanced Sidebar Styles */
+        .main-sidebar {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .nav-sidebar .nav-item .nav-link {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 2px 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-sidebar .nav-item .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            transform: translateX(5px);
+        }
+        
+        .nav-sidebar .nav-item .nav-link.active {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+            color: white !important;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+            transform: translateX(5px);
+        }
+        
+        .nav-sidebar .nav-item .nav-link.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: #ffc107;
+            animation: pulse 2s infinite;
+        }
+        
+        @@keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        
+        .nav-sidebar .nav-item .nav-link i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-sidebar .nav-item .nav-link.active i {
+            transform: scale(1.1);
+        }
+        
+        /* Enhanced Navbar */
+        .main-header {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
+            border-bottom: 3px solid #007bff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand a {
+            color: #007bff !important;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+        
+        .navbar-brand a:hover {
+            background: rgba(0, 123, 255, 0.1);
+            transform: translateY(-1px);
+        }
+        
+        /* Enhanced Brand Link */
+        .brand-link {
+            background: linear-gradient(135deg, #343a40 0%, #495057 100%) !important;
+            border-bottom: 3px solid #007bff !important;
+            transition: all 0.3s ease;
+        }
+        
+        .brand-text {
+            color: #fff !important;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+        }
+        
+        /* Content Wrapper Enhancements */
+        .content-wrapper {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: calc(100vh - 130px);
+        }
+        
+        /* Footer Enhancement */
+        .main-footer {
+            background: linear-gradient(135deg, #343a40 0%, #495057 100%) !important;
+            color: #fff !important;
+            border-top: 3px solid #007bff;
+            padding: 15px;
+        }
+        
+        /* Navigation Badge for Active Items */
+        .nav-sidebar .nav-item .nav-link.active .nav-badge {
+            background: #ffc107;
+            color: #212529;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 10px;
+            margin-left: auto;
+            font-weight: 600;
+        }
+        
+        /* Loading Animation for Page Transitions */
+        .page-transition {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        
+        @@keyframes fadeInUp {
+            to {
+                opacity: 1;cá
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Improvements */
+        @@media (max-width: 768px) {
+            .nav-sidebar .nav-item .nav-link {
+                margin: 2px 4px;
+            }
+            
+            .content-wrapper {
+                padding: 15px !important;
+            }
+        }
+        
+        /* Scrollbar Styling for Sidebar */
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .sidebar::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.3);
+            border-radius: 3px;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.5);
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <!-- Enhanced Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <span class="navbar-brand">
+                <a asp-controller="Home" asp-action="Index">
+                    <i class="fas fa-home mr-2"></i>
+                    Quay Lại Trang Chủ
+                </a>
+            </span>
+            
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <button class="nav-link btn btn-link" data-widget="fullscreen" type="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- Enhanced Sidebar -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <a href="#" class="brand-link text-center">
+                <i class="fas fa-cog fa-spin mr-2"></i>
+                <span class="brand-text font-weight-light">Quản Trị Hệ Thống</span>
+            </a>
+            
+            <div class="sidebar">
+                <!-- User Panel -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex align-items-center">
+                    <div class="image">
+                        <div class="img-circle elevation-2" style="width: 35px; height: 35px; background: linear-gradient(135deg, #007bff, #0056b3); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-user text-white"></i>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <span class="d-block text-white font-weight-bold">Administrator</span>
+                    </div>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" role="menu" data-widget="treeview" data-accordion="false">
+                        <li class="nav-item">
+                            <a asp-controller="Admin" asp-action="Dashboard" 
+                               class="nav-link @(currentController == "Admin" && currentPage == "Dashboard" ? "active" : "")">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Dashboard
+                                    @if(currentController == "Admin" && currentPage == "Dashboard")
+                                    {
+                                        <span class="nav-badge">●</span>
+                                    }
+                                </p>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a asp-controller="ParkingSlots" asp-action="Index" 
+                               class="nav-link @(currentController == "ParkingSlots" ? "active" : "")">
+                                <i class="nav-icon fas fa-parking"></i>
+                                <p>
+                                    Chỗ Giữ Xe
+                                    @if(currentController == "ParkingSlots")
+                                    {
+                                        <span class="nav-badge">●</span>
+                                    }
+                                </p>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a asp-controller="Users" asp-action="Index" 
+                               class="nav-link @(currentController == "Users" ? "active" : "")">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    Quản Lý Tài Khoản
+                                    @if(currentController == "Users")
+                                    {
+                                        <span class="nav-badge">●</span>
+                                    }
+                                </p>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a asp-controller="Transactions" asp-action="Index" 
+                               class="nav-link @(currentController == "Transactions" ? "active" : "")">
+                                <i class="nav-icon fas fa-credit-card"></i>
+                                <p>
+                                    Quản Lý Thanh Toán
+                                    @if(currentController == "Transactions")
+                                    {
+                                        <span class="nav-badge">●</span>
+                                    }
+                                </p>
+                            </a>
+                        </li>
+                        
+                        <!-- Additional Menu Items -->
+                        
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        
+        <!-- Enhanced Content Wrapper -->
+        <div class="content-wrapper p-4">
+            <!-- Content Header -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0 text-dark font-weight-bold">@ViewData["Title"]</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item">
+                                    <a asp-controller="Admin" asp-action="Dashboard">
+                                        <i class="fas fa-home"></i> Dashboard
+                                    </a>
+                                </li>
+                                @if(currentController != "Admin" || currentPage != "Dashboard")
+                                {
+                                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                                }
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Content -->
+            <section class="content">
+                <div class="container-fluid page-transition">
+                    @RenderBody()
+                </div>
+            </section>
+        </div>
+        
+        <!-- Enhanced Footer -->
+        <footer class="main-footer text-center">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-left">
+                    <strong>&copy; 2025 <span class="text-primary">Parking Admin System</span>.</strong> 
+                    All rights reserved.
+                </div>
+                <div class="col-md-6 text-right">
+                    <small class="text-muted">
+                        <i class="fas fa-code mr-1"></i>
+                        Version 2.0.1 | 
+                        <i class="fas fa-clock mr-1"></i>
+                        <span id="current-time"></span>
+                    </small>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="~/adminlte/plugins/jquery/jquery.min.js"></script>
+    <script src="~/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/adminlte/dist/js/adminlte.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Real-time clock in footer
+            function updateTime() {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString('vi-VN', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+                $('#current-time').text(timeString);
+            }
+            
+            updateTime();
+            setInterval(updateTime, 1000);
+            
+            // Enhanced sidebar toggle animation
+            $('[data-widget="pushmenu"]').on('click', function() {
+                setTimeout(function() {
+                    $('.content-wrapper, .main-footer').toggleClass('sidebar-collapsed');
+                }, 150);
+            });
+            
+            // Smooth page transitions
+            $('.nav-sidebar .nav-link').on('click', function() {
+                if (!$(this).hasClass('active')) {
+                    $('.content').addClass('page-loading');
+                    
+                    setTimeout(function() {
+                        $('.content').removeClass('page-loading');
+                    }, 300);
+                }
+            });
+            
+            // Navigation item hover effects
+            $('.nav-sidebar .nav-item').hover(
+                function() {
+                    $(this).find('i').addClass('fa-pulse');
+                },
+                function() {
+                    $(this).find('i').removeClass('fa-pulse');
+                }
+            );
+            
+            // Active navigation indicator
+            $('.nav-sidebar .nav-link.active').each(function() {
+                $(this).prepend('<div class="active-indicator"></div>');
+            });
+        });
+        
+        // Global notification function
+        function showNotification(message, type = 'success') {
+            Toastify({
+                text: message,
+                duration: 3000,
+                gravity: "top",
+                position: "right",
+                backgroundColor: type === 'success' ? 
+                    "linear-gradient(to right, #00b09b, #96c93d)" :
+                    type === 'error' ?
+                    "linear-gradient(to right, #ff5f6d, #ffc371)" :
+                    "linear-gradient(to right, #4facfe, #00f2fe)",
+                stopOnFocus: true,
+                onClick: function(){} // Callback after click
+            }).showToast();
+        }
+        
+        // Enhanced loading states
+        function showLoading(element) {
+            $(element).html('<i class="fas fa-spinner fa-spin mr-2"></i>Đang tải...');
+            $(element).prop('disabled', true);
+        }
+        
+        function hideLoading(element, originalText) {
+            $(element).html(originalText);
+            $(element).prop('disabled', false);
+        }
+    </script>
+    
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -3,67 +3,169 @@
     ViewData["Title"] = "Đăng nhập";
 }
 
-<style>
-    .login-container {
-        max-width: 400px;
-        margin: 80px auto;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        background-color: #ffffff;
-    }
+@section Styles {
+    <link rel="stylesheet" href="~/css/auth-styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+}
 
-    .login-title {
-        font-weight: bold;
-        color: #28a745;
-        margin-bottom: 25px;
-        text-align: center;
-    }
-
-    .form-label {
-        font-weight: 500;
-    }
-
-    .btn-success {
-        width: 100%;
-        padding: 10px;
-        font-weight: bold;
-    }
-
-    .register-link {
-        display: block;
-        text-align: center;
-        margin-top: 15px;
-    }
-    .a {
-        text-decoration: none
-    }
-</style>
-
-<div class="login-container">
-    <h2 class="login-title">Đăng nhập hệ thống</h2>
-
-    @if (ViewBag.Error != null)
-    {
-        <div class="alert alert-danger">@ViewBag.Error</div>
-    }
-
-    <form asp-action="Login" method="post">
-        <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input name="email" type="email" class="form-control" required placeholder="Nhập email của bạn" />
+<div class="auth-wrapper">
+    <div class="auth-container">
+        <!-- Header Section -->
+        <div class="auth-header">
+            <div class="auth-icon">
+                <i class="fas fa-car"></i>
+            </div>
+            <h1 class="auth-title">Đăng nhập</h1>
+            <p class="auth-subtitle">Chào mừng trở lại! Vui lòng đăng nhập vào tài khoản của bạn</p>
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Mật khẩu</label>
-            <input name="password" type="password" class="form-control" required placeholder="Nhập mật khẩu" />
+        <!-- Hidden elements for JavaScript error handling -->
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="validation-summary-errors" style="display: none;">
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <span>@error.ErrorMessage</span>
+                }
+            </div>
+        }
+
+        <!-- Error Alert (will be handled by JavaScript) -->
+        @if (ViewBag.Error != null)
+        {
+            <div class="auth-alert alert-danger" >
+                <i class="fas fa-exclamation-circle"></i>
+                <span>@ViewBag.Error</span>
+                <button class="alert-close" type="button">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        }
+
+        <!-- Success Alert (will be handled by JavaScript) -->
+        @if (ViewBag.Success != null)
+        {
+            <div class="auth-alert alert-success" >
+                <i class="fas fa-check-circle"></i>
+                <span>@ViewBag.Success</span>
+                <button class="alert-close" type="button">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        }
+
+        <!-- Login Form -->
+        <form asp-action="Login" method="post" class="auth-form" novalidate>
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <label asp-for="Email" class="form-label">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </label>
+                <input asp-for="Email"
+                       type="email"
+                       class="form-input"
+                       required
+                       placeholder="Nhập địa chỉ email của bạn"
+                       autocomplete="email"
+                       autocapitalize="off"
+                       spellcheck="false" />
+                <span asp-validation-for="Email" class="text-danger" style="display: none;"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password" class="form-label">
+                    <i class="fas fa-lock"></i>
+                    Mật khẩu
+                </label>
+                <input asp-for="Password"
+                       type="password"
+                       class="form-input"
+                       required
+                       placeholder="Nhập mật khẩu của bạn"
+                       autocomplete="current-password" />
+                <span asp-validation-for="Password" class="text-danger" style="display: none;"></span>
+
+                <!-- Forgot Password Link -->
+                <div class="forgot-password">
+                    <a asp-action="ForgotPassword" class="auth-link">
+                        <i class="fas fa-key"></i>
+                        Quên mật khẩu?
+                    </a>
+                </div>
+            </div>
+
+            <button type="submit" class="auth-button">
+                <span class="button-text">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Đăng nhập
+                </span>
+                <div class="button-loader"></div>
+            </button>
+        </form>
+
+        <!-- Footer -->
+        <div class="auth-footer">
+            <p class="auth-link-text">Chưa có tài khoản?</p>
+            <a asp-action="Register" class="auth-link">
+                Đăng ký ngay
+                <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
-
-        <button type="submit" class="btn btn-success">Đăng nhập</button>
-    </form>
-
-    <p class="register-link">
-        Chưa có tài khoản? <a asp-action="Register">Đăng ký ngay</a>
-    </p>
-
+    </div>
 </div>
+
+@section Scripts {
+    <script src="~/js/auth-scripts.js"></script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        // Handle server-side errors immediately
+        document.addEventListener('DOMContentLoaded', function () {
+            // Method 1: Using JSON serialization (Recommended)
+        @if (ViewBag.Error != null)
+        {
+            <text>
+                        const errorMessage = @Html.Raw(Json.Serialize(ViewBag.Error.ToString()));
+                            setTimeout(() => {
+                                if (window.authManager) {
+                            window.authManager.showLoginError(errorMessage);
+                                }
+                            }, 100);
+            </text>
+        }
+
+        @if (ViewBag.Success != null)
+        {
+            <text>
+                        const successMessage = @Html.Raw(Json.Serialize(ViewBag.Success.ToString()));
+                            setTimeout(() => {
+                                if (window.authManager) {
+                            window.authManager.showSuccess(successMessage);
+                                }
+                            }, 100);
+            </text>
+        }
+                });
+
+        // Alternative Method 2: Using data attributes
+        window.addEventListener('load', function () {
+            const authContainer = document.querySelector('.auth-container');
+            if (authContainer) {
+                const errorMsg = authContainer.dataset.error;
+                const successMsg = authContainer.dataset.success;
+
+                if (errorMsg && window.authManager) {
+                    window.authManager.showLoginError(errorMsg);
+                }
+
+                if (successMsg && window.authManager) {
+                    window.authManager.showSuccess(successMsg);
+                }
+            }
+        });
+    </script>
+}

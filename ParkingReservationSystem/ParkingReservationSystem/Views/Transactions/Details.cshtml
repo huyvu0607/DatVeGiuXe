@@ -1,0 +1,567 @@
+﻿@model ParkingReservationSystem.Models.Reservation
+@{
+    ViewData["Title"] = "Chi tiết đặt chỗ";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .details-container {
+         /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+        min-height: 100vh;
+        padding: 2rem 0;
+    }
+
+    .details-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-radius: 25px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        overflow: hidden;
+        max-width: 1000px;
+        margin: 0 auto;
+        transform: translateY(0);
+        transition: all 0.3s ease;
+    }
+
+    .details-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+    }
+
+    .details-header {
+        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        color: white;
+        padding: 3rem;
+        position: relative;
+        text-align: center;
+        overflow: hidden;
+    }
+
+     /* .details-header::before {
+         content: '';
+         position: absolute;
+         top: -50%;
+         left: -50%;
+         width: 200%;
+         height: 200%;
+         background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.1), transparent);
+         animation: rotate 10s linear infinite;
+     } */
+
+    @@keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .details-title {
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .details-id {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        position: relative;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        display: inline-block;
+        margin-top: 1rem;
+    }
+
+    .details-body {
+        padding: 3rem;
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .info-card {
+        background: linear-gradient(145deg, #f8fafc, #e2e8f0);
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .info-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #4f46e5, #7c3aed, #06b6d4, #10b981);
+        background-size: 200% 100%;
+        animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @@keyframes shimmer {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+    }
+
+    .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        background: linear-gradient(145deg, #ffffff, #f1f5f9);
+    }
+
+    .info-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .info-item:last-child {
+        margin-bottom: 0;
+        border-bottom: none;
+    }
+
+    .info-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1.5rem;
+        font-size: 20px;
+        color: white;
+        flex-shrink: 0;
+    }
+
+    .info-content {
+        flex: 1;
+    }
+
+    .info-label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.5rem;
+    }
+
+    .info-value {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #1e293b;
+        word-break: break-word;
+    }
+
+    /* Icon colors */
+    .icon-user { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+    .icon-email { background: linear-gradient(135deg, #f59e0b, #d97706); }
+    .icon-phone { background: linear-gradient(135deg, #10b981, #059669); }
+    .icon-calendar { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+    .icon-time { background: linear-gradient(135deg, #ef4444, #dc2626); }
+    .icon-check { background: linear-gradient(135deg, #22c55e, #16a34a); }
+    .icon-parking { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+    .icon-id { background: linear-gradient(135deg, #ec4899, #db2777); }
+
+    .status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .status-confirmed {
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        color: white;
+        box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+    }
+
+    .status-pending {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+        color: white;
+        box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+    }
+
+    .actions-section {
+        background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+        padding: 2rem;
+        border-top: 1px solid rgba(148, 163, 184, 0.2);
+        text-align: center;
+    }
+
+    .btn-group-actions {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .btn-edit {
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        color: white;
+        padding: 15px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-edit:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        color: white;
+        text-decoration: none;
+    }
+
+    .btn-back {
+        background: linear-gradient(135deg, #6b7280, #4b5563);
+        color: white;
+        padding: 15px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: 0 4px 15px rgba(107, 114, 128, 0.3);
+    }
+
+    .btn-back:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(107, 114, 128, 0.4);
+        color: white;
+        text-decoration: none;
+    }
+
+    .floating-info {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: linear-gradient(135deg, #1f2937, #111827);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        font-size: 0.9rem;
+        opacity: 0;
+        transform: translateY(100px);
+        animation: slideUp 0.5s ease forwards 1s;
+    }
+
+    @@keyframes slideUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .details-container {
+            padding: 1rem;
+        }
+
+        .details-body {
+            padding: 1.5rem;
+        }
+
+        .info-grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .info-card {
+            padding: 1.5rem;
+        }
+
+        .btn-group-actions {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn-edit,
+        .btn-back {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .floating-info {
+            bottom: 1rem;
+            right: 1rem;
+            left: 1rem;
+        }
+    }
+
+    .reservation-timeline {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        margin: 2rem 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline-item {
+        display: flex;
+        align-items: center;
+        padding: 1rem 0;
+        border-left: 3px solid #e5e7eb;
+        margin-left: 1rem;
+        padding-left: 2rem;
+        position: relative;
+    }
+
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -8px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #3b82f6;
+    }
+
+    .timeline-item.completed {
+        border-color: #22c55e;
+    }
+
+    .timeline-item.completed::before {
+        background: #22c55e;
+    }
+</style>
+
+<div class="details-container">
+    <div class="details-card">
+        <div class="details-header">
+            <h1 class="details-title">
+                <i class="fas fa-info-circle me-3"></i>Chi tiết đặt chỗ
+            </h1>
+            <div class="details-id">
+                Mã đặt chỗ: #@Model.Id
+            </div>
+        </div>
+
+        <div class="details-body">
+            <div class="info-grid">
+                <!-- Personal Information Card -->
+                <div class="info-card">
+                    <h3 style="color: #1e293b; margin-bottom: 2rem; font-weight: 700;">
+                        <i class="fas fa-user me-2"></i>Thông tin cá nhân
+                    </h3>
+
+                    <div class="info-item">
+                        <div class="info-icon icon-user">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-label">Họ tên</div>
+                            <div class="info-value">@Html.DisplayFor(model => model.Name)</div>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon icon-email">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-label">Email</div>
+                            <div class="info-value">@Html.DisplayFor(model => model.Email)</div>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon icon-phone">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-label">Số điện thoại</div>
+                            <div class="info-value">@Html.DisplayFor(model => model.Phone)</div>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon icon-id">
+                            <i class="fas fa-id-badge"></i>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-label">ID Người dùng</div>
+                            <div class="info-value">@Html.DisplayFor(model => model.User.Id)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reservation Details Card -->
+                <div class="info-card">
+                    <h3 style="color: #1e293b; margin-bottom: 2rem; font-weight: 700;">
+                        <i class="fas fa-car me-2"></i>Thông tin đặt chỗ
+                    </h3>
+
+                    <div class="info-item">
+                        <div class="info-icon icon-parking">
+                            <i class="fas fa-parking"></i>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-label">Mã chỗ đỗ</div>
+                            <div class="info-value">@Html.DisplayFor(model => model.ParkingSlot.SlotCode)</div>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon icon-calendar">
+                            <i class="fas fa-calendar-plus"></i>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-label">Thời gian đặt</div>
+                            <div class="info-value">@Html.DisplayFor(model => model.ReservedAt)</div>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon icon-time">
+                            <i class="fas fa-calendar-times"></i>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-label">Thời gian hết hạn</div>
+                            <div class="info-value">@Html.DisplayFor(model => model.ExpiresAt)</div>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon icon-check">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-label">Trạng thái</div>
+                            <div class="info-value">
+                                @if (Model.IsConfirmed)
+                                {
+                                    <span class="status-badge status-confirmed">
+                                        <i class="fas fa-check"></i>
+                                        Đã xác nhận
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="status-badge status-pending">
+                                        <i class="fas fa-clock"></i>
+                                        Chờ xác nhận
+                                    </span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Section -->
+            <div class="reservation-timeline">
+                <h3 style="color: #1e293b; margin-bottom: 2rem; font-weight: 700;">
+                    <i class="fas fa-history me-2"></i>Lịch sử đặt chỗ
+                </h3>
+
+                <div class="timeline-item completed">
+                    <div>
+                        <strong>Đặt chỗ được tạo</strong><br>
+                        <small class="text-muted">@Html.DisplayFor(model => model.ReservedAt)</small>
+                    </div>
+                </div>
+
+                <div class="timeline-item @(Model.IsConfirmed ? "completed" : "")">
+                    <div>
+                        <strong>@(Model.IsConfirmed ? "Đã xác nhận" : "Chờ xác nhận")</strong><br>
+                        <small class="text-muted">
+                            @(Model.IsConfirmed ? "Đặt chỗ đã được xác nhận" : "Đang chờ xác nhận từ quản trị viên")
+                        </small>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div>
+                        <strong>Hết hạn</strong><br>
+                        <small class="text-muted">@Html.DisplayFor(model => model.ExpiresAt)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions-section">
+            <div class="btn-group-actions">
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn-edit">
+                    <i class="fas fa-edit"></i>
+                    Chỉnh sửa
+                </a>
+                <a asp-action="Index" class="btn-back">
+                    <i class="fas fa-arrow-left"></i>
+                    Quay lại danh sách
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="floating-info">
+    <i class="fas fa-info-circle me-2"></i>
+    Đặt chỗ được tạo vào @Html.DisplayFor(model => model.ReservedAt)
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add entrance animations
+        const cards = document.querySelectorAll('.info-card');
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px)';
+            setTimeout(() => {
+                card.style.transition = 'all 0.6s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 200);
+        });
+
+        // Add hover effects to info items
+        const infoItems = document.querySelectorAll('.info-item');
+        infoItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(10px)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+            });
+        });
+
+        // Check if reservation is expired
+        const expirationDate = new Date('@Model.ExpiresAt');
+        const now = new Date();
+
+        // if (now > expirationDate) {
+        //     const floatingInfo = document.querySelector('.floating-info');
+        //     floatingInfo.innerHTML = '<i class="fas fa-exclamation-triangle me-2"></i>Đặt chỗ này đã hết hạn!';
+        //     floatingInfo.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+        // }
+    });
+</script>

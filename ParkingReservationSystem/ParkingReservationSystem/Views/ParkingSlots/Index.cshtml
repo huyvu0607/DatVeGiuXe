@@ -1,0 +1,182 @@
+﻿@model IEnumerable<ParkingReservationSystem.Models.ParkingSlot>
+@{
+    ViewData["Title"] = "Parking Slots Management";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <!-- Statistics Cards -->
+    <div class="stats-container">
+        <div class="stat-card stat-total">
+            <div class="stat-value" id="total-slots">@Model.Count()</div>
+            <div class="stat-label">Total Slots</div>
+        </div>
+        <div class="stat-card stat-available">
+            <div class="stat-value" id="available-slots">@Model.Count(s => s.IsAvailable)</div>
+            <div class="stat-label">Available</div>
+        </div>
+        <div class="stat-card stat-occupied">
+            <div class="stat-value" id="occupied-slots">@Model.Count(s => !s.IsAvailable)</div>
+            <div class="stat-label">Occupied</div>
+        </div>
+        <div class="stat-card stat-filtered">
+            <div class="stat-value" id="filtered-slots">@Model.Count()</div>
+            <div class="stat-label">Showing</div>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <div class="header-section">
+        <div class="header-content">
+            <div>
+                <h1 class="page-title">Parking Slots</h1>
+                <p class="page-subtitle">Manage and monitor your parking facility</p>
+            </div>
+            <a asp-action="Create" class="create-btn">Create New Slot</a>
+        </div>
+    </div>
+
+    <!-- Search and Filter Section -->
+    <div class="search-filter-section">
+        <div class="search-filter-container">
+            <!-- Search Box -->
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search by slot code..." class="search-input">
+                <button type="button" id="clear-search" class="clear-search-btn" title="Clear search">
+                    <span>×</span>
+                </button>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label for="floor-filter">Floor:</label>
+                    <select id="floor-filter" class="filter-select">
+                        <option value="">All Floors</option>
+                        @foreach (var floor in Model.Select(s => s.Floor).Distinct().OrderBy(f => f))
+                        {
+                            <option value="@floor">Floor @floor</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="status-filter">Status:</label>
+                    <select id="status-filter" class="filter-select">
+                        <option value="">All Status</option>
+                        <option value="available">Available</option>
+                        <option value="occupied">Occupied</option>
+                    </select>
+                </div>
+
+                <button type="button" id="reset-filters" class="reset-filters-btn">
+                    Reset Filters
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table Section -->
+    <div class="table-container">
+        @if (Model.Any())
+        {
+            <div class="table-header">
+                <div class="table-info">
+                    <span id="results-info">Showing @Model.Count() of @Model.Count() slots</span>
+                </div>
+                <div class="table-actions">
+                    <button type="button" id="export-btn" class="export-btn" title="Export to CSV">
+                        Export
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="table" id="parking-slots-table">
+                    <thead>
+                        <tr>
+                            <th class="sortable" data-column="slotCode">
+                                @Html.DisplayNameFor(model => model.SlotCode)
+                                <span class="sort-icon">↕</span>
+                            </th>
+                            <th class="sortable" data-column="status">
+                                @Html.DisplayNameFor(model => model.IsAvailable)
+                                <span class="sort-icon">↕</span>
+                            </th>
+                            <th class="sortable" data-column="floor">
+                                @Html.DisplayNameFor(model => model.Floor)
+                                <span class="sort-icon">↕</span>
+                            </th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="slots-tbody">
+                        @foreach (var item in Model)
+                        {
+                            <tr data-slot-id="@item.Id"
+                                data-slot-code="@item.SlotCode.ToLower()"
+                                data-floor="@item.Floor"
+                                data-status="@(item.IsAvailable ? "available" : "occupied")">
+                                <td>
+                                    <span class="slot-code">@Html.DisplayFor(modelItem => item.SlotCode)</span>
+                                </td>
+                                <td>
+                                    @if (item.IsAvailable)
+                                    {
+                                        <span class="status-badge status-available">Available</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="status-badge status-unavailable">Occupied</span>
+                                    }
+                                </td>
+                                <td>
+                                    <span class="floor-info">Floor @Html.DisplayFor(modelItem => item.Floor)</span>
+                                </td>
+                                <td>
+                                    <div class="actions">
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="action-btn btn-edit">Edit</a>
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="action-btn btn-details">Details</a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="action-btn btn-delete">Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- No Results Message -->
+            <div id="no-results" class="no-results" style="display: none;">
+                <div class="no-results-icon">🔍</div>
+                <h3>No slots found</h3>
+                <p>Try adjusting your search or filter criteria</p>
+                <button type="button" id="clear-all-filters" class="create-btn">Clear All Filters</button>
+            </div>
+        }
+        else
+        {
+            <div class="empty-state">
+                <div class="empty-state-icon">🚗</div>
+                <h3>No parking slots found</h3>
+                <p>Start by creating your first parking slot</p>
+                <br>
+                <a asp-action="Create" class="create-btn">Create First Slot</a>
+            </div>
+        }
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/parking-slots.css" />
+}
+
+@section Scripts {
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.0/signalr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <!-- Custom JavaScript -->
+    <script src="~/js/parking-slots.js"></script>
+}

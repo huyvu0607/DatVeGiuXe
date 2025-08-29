@@ -1,189 +1,318 @@
 ﻿@model List<ParkingReservationSystem.ViewModels.ParkingSlotViewModel>
 
 @{
+    Layout = "_Layout";
     ViewData["Title"] = "Chọn chỗ giữ xe";
     var success = Context.Request.Query["success"];
 }
 
-<style>
-    .layout-container {
-        display: flex;
-        gap: 40px;
-    }
-
-    .slot-grid {
-        display: grid;
-        grid-template-columns: repeat(5, 80px);
-        gap: 15px;
-    }
-
-    .slot-box {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 80px;
-        height: 80px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: bold;
-        color: white;
-        user-select: none;
-        position: relative;
-        transition: 0.2s ease-in-out;
-        background-color: #f8f9fa;
-    }
-
-        .slot-box.available {
-            background-color: #28a745; /* xanh */
-        }
-
-        .slot-box.selected {
-            background-color: #fd7e14; /* màu cam đậm */
-            color: #fff;
-            border-color: #fd7e14;
-        }
-
-        .slot-box.occupied {
-            background-color: #6c757d; /* xám */
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-
-
-    .form-area {
-        width: 300px;
-    }
-</style>
-
-<h2 class="mb-4">Chọn chỗ giữ xe</h2>
-
-@if (!Model.Any())
-{
-    <p>Hiện không có chỗ nào.</p>
+@section Styles {
+    <link rel="stylesheet" href="~/css/parking-selection.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 }
-else
-{
-    <form method="post" asp-controller="Booking" asp-action="HoldMultiple">
-        <div class="layout-container">
-            <!-- Bên trái: hiển thị ô chỗ giữ xe -->
-            <div class="slot-grid">
-                @foreach (var slot in Model)
-                {
-                    var statusClass = slot.IsConfirmed ? "occupied" : (slot.IsSelected ? "selected" : "available");
+ @* @if (TempData["SuccessMessage"] != null)
+ {
+     <div class="toast-notifications" id="toastContainer">
+         <span>@TempData["SuccessMessage"]</span>
+         <button class="alert-close" type="button">
+             <i class="fas fa-times"></i>
+         </button>
+     </div>
+ } *@
 
-                    <label class="slot-box @statusClass">
-                        @if (!slot.IsConfirmed)
-                        {
-                            <input type="checkbox" name="selectedSlots" value="@slot.SlotCode" class="d-none" />
-                        }
-                        <span>@slot.SlotCode</span>
-                    </label>
-                }
-            </div>
-            <!-- Giữa: các chú thích màu -->
-            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px;">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <div style="width: 20px; height: 20px; background-color: #28a745; border-radius: 4px;"></div>
-                    <span>Chỗ còn trống</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <div style="width: 20px; height: 20px; background-color: #fd7e14; border-radius: 4px;"></div>
-                    <span>Đang chọn</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <div style="width: 20px; height: 20px; background-color: #6c757d; border-radius: 4px;"></div>
-                    <span>Đã được giữ</span>
-                </div>
-            </div>
-            <!-- Bên phải: thông tin khách hàng -->
-            <div class="form-area">
-                <input type="text" name="name" placeholder="Tên bạn" required class="form-control mb-2" />
-                @if (Context.Session.GetString("UserName") != null)
-                {
-                    <input type="hidden" name="email" value="@Context.Session.GetString("UserEmail")" />
-                }
-                else
-                {
-                    <input type="email" name="email" placeholder="Email" required class="form-control mb-2" />
-                }
-                <input type="text" name="phone" placeholder="Số điện thoại" required class="form-control mb-2" />
-
-                <button type="submit" class="btn btn-primary w-100">Giữ chỗ</button>
-            </div>
-
+<div class="parking-container animate__animated animate__fadeIn" style="position: relative; z-index:0">
+    <!-- Header Section -->
+    <div class="header-section animate__animated animate__fadeInUp">
+        <div class="header-content">
+            <h1 class="header-title">
+                <i class="fas fa-car me-3"></i>
+                Chọn chỗ giữ xe
+            </h1>
+            <p class="header-subtitle">Chọn vị trí phù hợp cho xe của bạn</p>
         </div>
-    </form>
-}
+        <div class="header-stats">
+            <div class="stat-card">
+                <div class="stat-number">@Model.Count(m => !m.IsConfirmed)</div>
+                <div class="stat-label">Chỗ trống</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">@Model.Count(m => m.IsConfirmed)</div>
+                <div class="stat-label">Đã sử dụng</div>
+            </div>
+        </div>
+    </div>
 
+    @if (!Model.Any())
+    {
+        <div class="empty-state">
+            <i class="fas fa-car-crash empty-icon"></i>
+            <h3>Không có chỗ đỗ xe</h3>
+            <p>Hiện tại không có chỗ đỗ xe nào khả dụng.</p>
+        </div>
+    }
+    else
+    {
+        <form method="post" asp-controller="Booking" asp-action="HoldMultiple" id="parkingForm">
+            <div class="main-layout animate__animated animate__fadeInUp">
+                <!-- Floor Navigation -->
+                <div class="floor-navigation">
+                    <h3 class="nav-title">
+                        <i class="fas fa-layer-group me-2"></i>
+                        Chọn tầng
+                    </h3>
+                    <div class="floor-buttons">
+                        @foreach (var floor in Model.Select(m => m.Floor).Distinct().OrderBy(f => f))
+                        {
+                            <button type="button" class="floor-btn" data-floor="@floor">
+                                <i class="fas fa-building me-2"></i>
+                                <span>Tầng @floor</span>
+                                <div class="floor-count">
+                                    @Model.Count(m => m.Floor == floor && !m.IsConfirmed)/@Model.Count(m => m.Floor == floor)
+                                </div>
+                            </button>
+                        }
+                    </div>
+                </div>
 
+                <!-- Parking Grid -->
+                <div class="parking-grid-section">
+                    <div class="grid-header">
+                        <h3 class="grid-title">Sơ đồ bãi đỗ xe</h3>
+                        <div class="selected-count">
+                            Đã chọn: <span id="selectedCount">0</span> chỗ
+                        </div>
+                    </div>
 
+                    <div class="parking-grid-container">
+                        <div class="parking-grid">
+                            @foreach (var slot in Model)
+                            {
+                                var statusClass = slot.IsConfirmed ? "occupied" : (slot.IsSelected ? "selected" : "available");
 
-<!-- Toast sau thanh toán -->
-@* Toast khi thanh toán thành công *@
+                                <div class="parking-slot @statusClass"
+                                     data-floor="@slot.Floor"
+                                     data-slot="@slot.SlotCode"
+                                     data-tooltip="@slot.SlotCode - Tầng @slot.Floor">
+                                    @if (!slot.IsConfirmed)
+                                    {
+                                        <input type="checkbox" name="selectedSlots" value="@slot.SlotCode" class="slot-checkbox" id="slot_@slot.SlotCode" />
+                                        <label for="slot_@slot.SlotCode" class="slot-label">
+                                            <div class="slot-code">@slot.SlotCode</div>
+                                            <div class="slot-status-icon">
+                                                <i class="fas fa-car"></i>
+                                            </div>
+                                        </label>
+                                    }
+                                    else
+                                    {
+                                        <div class="slot-occupied">
+                                            <div class="slot-code">@slot.SlotCode</div>
+                                            <div class="slot-status-icon">
+                                                <i class="fas fa-ban"></i>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Legend -->
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-color available"></div>
+                            <span>Chỗ trống</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color selected"></div>
+                            <span>Đang chọn</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color reserved"></div>
+                            <span>Đang được giữ</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color occupied"></div>
+                            <span>Đã sử dụng</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking Form -->
+                <div class="booking-form-section">
+                    <div class="form-card">
+                        <div class="form-header">
+                            <h3 class="form-title">
+                                <i class="fas fa-user-edit me-2"></i>
+                                Thông tin đặt chỗ
+                            </h3>
+                        </div>
+                        <div class="form-body">
+
+                            @if (Context.Session.GetString("UserName") != null)
+                            {
+                                <input type="hidden" name="name" value="@Context.Session.GetString("UserName")" />
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <i class="fas fa-user me-2"></i>
+                                        Họ và tên
+                                    </label>
+                                    <input type="text" class="form-input" value="@Context.Session.GetString("UserName")" disabled />
+                                    <small class="form-help">Đã đăng nhập với tài khoản này</small>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <i class="fas fa-user me-2"></i>
+                                        Họ và tên
+                                    </label>
+                                    <input type="text" name="name" class="form-input" placeholder="Nhập họ và tên" required />
+                                </div>
+                            }
+
+                            @* FIX: Sửa lỗi duplicate email field - chỉ giữ một field duy nhất *@
+                            @if (Context.Session.GetString("UserEmail") != null)
+                            {
+                                <input type="hidden" name="email" value="@Context.Session.GetString("UserEmail")" />
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <i class="fas fa-envelope me-2"></i>
+                                        Email
+                                    </label>
+                                    <input type="email" class="form-input" value="@Context.Session.GetString("UserEmail")" disabled />
+                                    <small class="form-help">Đã đăng nhập với tài khoản này</small>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <i class="fas fa-envelope me-2"></i>
+                                        Email
+                                    </label>
+                                    <input type="email" name="email" class="form-input" placeholder="Nhập địa chỉ email" required />
+                                </div>
+                            }
+
+                            @if (Context.Session.GetString("UserName") != null && !string.IsNullOrEmpty(Context.Session.GetString("UserPhone")))
+                            {
+                                <input type="hidden" name="phone" value="@Context.Session.GetString("UserPhone")" />
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <i class="fas fa-phone me-2"></i>
+                                        Số điện thoại
+                                    </label>
+                                    <input type="tel" class="form-input" value="@Context.Session.GetString("UserPhone")" disabled />
+                                    <small class="form-help">Đã đăng nhập với tài khoản này</small>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <i class="fas fa-phone me-2"></i>
+                                        Số điện thoại
+                                    </label>
+                                    <input type="tel" name="phone" class="form-input" placeholder="Nhập số điện thoại" required />
+                                </div>
+                            }
+
+                            <div class="selected-slots-preview" id="selectedSlotsPreview">
+                                <h4>Chỗ đã chọn:</h4>
+                                <div class="selected-slots-list" id="selectedSlotsList">
+                                    <p class="no-selection">Chưa chọn chỗ nào</p>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="submit-btn" id="submitBtn">
+                                <i class="fas fa-lock me-2"></i>
+                                Giữ chỗ ngay
+                                <div class="btn-loader"></div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
+</div>
+
+<!-- Toast Notifications Container -->
+<div class="toast-notifications" id="toastContainer"></div>
+
+<!-- Slot Taken Overlay -->
+<div class="slot-taken-overlay" id="slotTakenOverlay">
+    <div class="overlay-content">
+        <button class="overlay-close" onclick="closeSlotTakenOverlay()">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="overlay-icon">
+            <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <h2 class="overlay-title">Chỗ đã được đặt!</h2>
+        <div class="overlay-message" id="overlayMessage"></div>
+        <div class="overlay-actions">
+            <button class="btn-understand" onclick="closeSlotTakenOverlay()">
+                Tôi đã hiểu
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Success Toast -->
 @if (success == "True")
 {
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
-        <div id="myToast" class="toast bg-success text-white" role="alert" aria-live="assertive" aria-atomic="true">
+        <div id="successToast" class="toast bg-success text-white" role="alert">
             <div class="d-flex">
                 <div class="toast-body">
-                    ✅ Đã thanh toán thành công!
+                    <i class="fas fa-check-circle me-2"></i>
+                    Đã thanh toán thành công!
                 </div>
                 <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
             </div>
         </div>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const toastEl = document.getElementById('myToast');
-            if (toastEl) {
-                const toast = new bootstrap.Toast(toastEl);
-                toast.show();
-                setTimeout(() => toast.hide(), 5000);
-            }
-        });
-    </script>
 }
 
-<!-- Script xử lý checkbox chọn slot -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const slotBoxes = document.querySelectorAll(".slot-box input[type='checkbox']");
-        slotBoxes.forEach(function (checkbox) {
-            checkbox.addEventListener("change", function () {
-                const label = checkbox.closest(".slot-box");
-                if (checkbox.checked) {
-                    label.classList.add("selected");
-                } else {
-                    label.classList.remove("selected");
-                }
-            });
-        });
-    });
-</script>
-
-<!-- Toast cảnh báo nếu chưa chọn slot (màu cam) -->
+<!-- Warning Toast -->
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
-    <div id="warnToast" class="toast bg-warning text-dark" role="alert" aria-live="assertive" aria-atomic="true">
+    <div id="warningToast" class="toast bg-warning text-dark" role="alert">
         <div class="d-flex">
             <div class="toast-body">
-                ⚠️ Vui lòng chọn ít nhất một chỗ trước khi thanh toán!
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                Vui lòng chọn ít nhất một chỗ trước khi đặt!
             </div>
             <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
         </div>
     </div>
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const form = document.querySelector("form");
-        form.addEventListener("submit", function (e) {
-            const selected = document.querySelectorAll("input[name='selectedSlots']:checked");
-            if (selected.length === 0) {
-                e.preventDefault();
-                const warnToast = new bootstrap.Toast(document.getElementById('warnToast'));
-                warnToast.show();
-            }
-        });
-    });
-</script>
+@section Scripts {
+    <!-- SignalR -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.0/signalr.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="~/js/parking-signalr.js"></script>
+    <script src="~/js/parking-selection.js"></script>
+
+    
+    @if (success == "True")
+    {
+        <script>
+             
+            document.addEventListener("DOMContentLoaded", function () {
+                const toast = document.getElementById('successToast');
+                if (toast && typeof bootstrap !== 'undefined') {
+                    const bsToast = new bootstrap.Toast(toast);
+                    bsToast.show();
+                    setTimeout(() => bsToast.hide(), 5000);
+                }
+            });
+        </script>
+
+    }
+}
+

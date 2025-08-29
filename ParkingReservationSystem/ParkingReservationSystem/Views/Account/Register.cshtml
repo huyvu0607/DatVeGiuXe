@@ -1,66 +1,203 @@
-﻿@model ParkingReservationSystem.Models.User
+﻿@model ParkingReservationSystem.ViewModels.RegisterViewModel
 @{
     ViewData["Title"] = "Đăng ký tài khoản";
 }
 
-<style>
-    .register-container {
-        max-width: 450px;
-        margin: 80px auto;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        background-color: #ffffff;
-    }
+@section Styles {
+    <link rel="stylesheet" href="~/css/auth-styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+}
 
-    .register-title {
-        font-weight: bold;
-        color: #007bff;
-        margin-bottom: 25px;
-        text-align: center;
-    }
+<!-- Metadata for JavaScript -->
+@if (ViewBag.RedirectToLogin != null && (bool)ViewBag.RedirectToLogin)
+{
+    <meta name="redirect-to-login" content="true" />
+}
 
-    .form-label {
-        font-weight: 500;
-    }
-
-    .btn-primary {
-        width: 100%;
-        padding: 10px;
-        font-weight: bold;
-    }
-
-    .login-link {
-        display: block;
-        text-align: center;
-        margin-top: 15px;
-    }
-</style>
-
-<div class="register-container">
-    <h2 class="register-title">Tạo tài khoản mới</h2>
-
-    <form asp-action="Register" method="post">
-        <div class="mb-3">
-            <label asp-for="Name" class="form-label">Họ tên</label>
-            <input asp-for="Name" class="form-control" required placeholder="Nhập họ tên" />
+<div class="auth-wrapper">
+    <div class="auth-container">
+        <!-- Header Section -->
+        <div class="auth-header">
+            <div class="auth-icon">
+                <i class="fas fa-user-plus"></i>
+            </div>
+            <h1 class="auth-title">Đăng ký</h1>
+            <p class="auth-subtitle">Tạo tài khoản mới để bắt đầu sử dụng hệ thống đặt chỗ xe</p>
         </div>
 
-        <div class="mb-3">
-            <label asp-for="Email" class="form-label">Email</label>
-            <input asp-for="Email" class="form-control" required placeholder="Nhập email" />
+        <!-- Hidden elements for JavaScript error handling -->
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="validation-summary-errors" style="display: none;">
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <span>@error.ErrorMessage</span>
+                }
+            </div>
+        }
+        <!-- Error Alert -->
+        @if (ViewBag.Error != null)
+        {
+            <div class="auth-alert alert-danger">
+                <i class="fas fa-exclamation-circle"></i>
+                <span>@ViewBag.Error</span>
+                <button class="alert-close" type="button">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        }
+
+        <!-- Success Alert -->
+        @if (ViewBag.Success != null)
+        {
+            <div class="auth-alert alert-success">
+                <i class="fas fa-check-circle"></i>
+                <span>@ViewBag.Success</span>
+                <button class="alert-close" type="button">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        }
+        <!-- Register Form -->
+        <form asp-action="Register" method="post" class="auth-form">
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <label asp-for="Name" class="form-label">
+                    <i class="fas fa-user"></i>
+                    Họ và tên
+                </label>
+                <div class="input-wrapper">
+                    <input asp-for="Name"
+                           type="text"
+                           class="form-input"
+                           required
+                           placeholder="Nhập họ và tên đầy đủ"
+                           autocomplete="name" />
+                </div>
+                <span asp-validation-for="Name" class="text-danger field-validation-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email" class="form-label">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </label>
+                <div class="input-wrapper">
+                    <input asp-for="Email"
+                           type="email"
+                           class="form-input"
+                           required
+                           placeholder="Nhập địa chỉ email"
+                           autocomplete="email" />
+                </div>
+                <span asp-validation-for="Email" class="text-danger field-validation-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">
+                    <i class="fas fa-lock"></i>
+                    Mật khẩu
+                </label>
+                <div class="input-wrapper">
+                    <input id="password"
+                           name="password"
+                           type="password"
+                           class="form-input"
+                           required
+                           placeholder="Tạo mật khẩu mạnh (ít nhất 6 ký tự)"
+                           autocomplete="new-password" />
+                </div>
+                <span class="text-danger field-validation-error" data-valmsg-for="password" data-valmsg-replace="true"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword" class="form-label">
+                    <i class="fas fa-lock"></i>
+                    Xác nhận mật khẩu
+                </label>
+                <div class="input-wrapper">
+                    <input id="confirmPassword"
+                           name="confirmPassword"
+                           type="password"
+                           class="form-input"
+                           required
+                           placeholder="Nhập lại mật khẩu để xác nhận"
+                           autocomplete="new-password" />
+                </div>
+                <span class="text-danger field-validation-error" data-valmsg-for="confirmPassword" data-valmsg-replace="true"></span>
+            </div>
+
+            <button type="submit" class="auth-button">
+                <span class="button-text">
+                    <i class="fas fa-user-plus"></i>
+                    Tạo tài khoản
+                </span>
+                <div class="button-loader"></div>
+            </button>
+        </form>
+
+        <!-- Footer -->
+        <div class="auth-footer">
+            <p class="auth-link-text">Đã có tài khoản?</p>
+            <a asp-action="Login" class="auth-link">
+                Đăng nhập ngay
+                <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
-
-        <div class="mb-3">
-            <label class="form-label">Mật khẩu</label>
-            <input name="password" type="password" class="form-control" required placeholder="Tạo mật khẩu" />
-        </div>
-
-        <button type="submit" class="btn btn-primary">Đăng ký</button>
-    </form>
-
-    <p class="login-link">
-        Đã có tài khoản? <a asp-action="Login">Đăng nhập</a>
-    </p>
-
+    </div>
 </div>
+
+@section Scripts {
+    <script src="~/js/auth-scripts.js"></script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        // Handle server-side errors immediately
+        document.addEventListener('DOMContentLoaded', function () {
+            // Method 1: Using JSON serialization (Recommended)
+        @if (ViewBag.Error != null)
+        {
+            <text>
+                        const errorMessage = @Html.Raw(Json.Serialize(ViewBag.Error.ToString()));
+                                                    setTimeout(() => {
+                                                        if (window.authManager) {
+                            window.authManager.showLoginError(errorMessage);
+                                                        }
+                                                    }, 100);
+            </text>
+        }
+
+        @if (ViewBag.Success != null)
+        {
+            <text>
+                        const successMessage = @Html.Raw(Json.Serialize(ViewBag.Success.ToString()));
+                                                    setTimeout(() => {
+                                                        if (window.authManager) {
+                            window.authManager.showSuccess(successMessage);
+                                                        }
+                                                    }, 100);
+            </text>
+        }
+                                });
+
+        // Alternative Method 2: Using data attributes
+        window.addEventListener('load', function () {
+            const authContainer = document.querySelector('.auth-container');
+            if (authContainer) {
+                const errorMsg = authContainer.dataset.error;
+                const successMsg = authContainer.dataset.success;
+
+                if (errorMsg && window.authManager) {
+                    window.authManager.showLoginError(errorMsg);
+                }
+
+                if (successMsg && window.authManager) {
+                    window.authManager.showSuccess(successMsg);
+                }
+            }
+        });
+    </script>
+}

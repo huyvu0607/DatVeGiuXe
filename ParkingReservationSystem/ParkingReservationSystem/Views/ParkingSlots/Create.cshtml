@@ -1,0 +1,1255 @@
+﻿@model ParkingReservationSystem.Models.ParkingSlot
+@{
+    ViewData["Title"] = "Tạo chỗ đỗ xe mới";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid px-4 py-4">
+    <!-- Modern Header Section -->
+    <div class="row align-items-center mb-5">
+        <div class="col">
+            <div class="header-content">
+                <div class="d-flex align-items-center">
+                    <div class="icon-wrapper me-4">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div style="margin-left: 15px">
+                        <h1 class="page-title mb-1">Tạo chỗ đỗ xe mới</h1>
+                        <p class="page-subtitle mb-0">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Thêm một chỗ đỗ xe mới vào hệ thống quản lý bãi đậu
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-auto">
+            <div class="action-buttons d-flex gap-2">
+                <a asp-action="Index" class="btn btn-outline-secondary btn-modern">
+                    <i class="fas fa-arrow-left me-2"></i>Quay lại danh sách
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modern Form Card -->
+    <div class="row justify-content-center">
+        <div class="col-xl-7 col-lg-9">
+            <div class="main-card">
+                <!-- Card Header -->
+                <div class="card-header-modern">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <div class="header-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <div>
+                                <h4 class="header-title mb-0">Thông tin chỗ đỗ xe</h4>
+                                <small class="header-subtitle">Vui lòng điền đầy đủ thông tin bên dưới</small>
+                            </div>
+                        </div>
+                        <div class="header-badge">
+                            <span class="badge badge-success">
+                                <i class="fas fa-plus me-1"></i>Tạo mới
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card Body -->
+                <div class="card-body-modern p-5">
+                    <form asp-action="Create" id="createForm" class="modern-form">
+                        <!-- Validation Summary -->
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger-modern mb-4" role="alert">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-exclamation-triangle me-3"></i>
+                                <div>
+                                    <strong>Có lỗi xảy ra!</strong>
+                                    <p class="mb-0">Vui lòng kiểm tra lại thông tin đã nhập</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form Fields -->
+                        <div class="row g-4 mb-4">
+                            <!-- Slot Code -->
+                            <div class="col-md-6">
+                                <div class="form-group-modern">
+                                    <label asp-for="SlotCode" class="form-label-modern">
+                                        <i class="fas fa-barcode me-2 text-primary"></i>
+                                        Mã chỗ đỗ xe
+                                        <span class="required-asterisk">*</span>
+                                    </label>
+                                    <div class="input-wrapper">
+                                        <input asp-for="SlotCode" 
+                                               class="form-control-modern" 
+                                               placeholder="VD: A1, B2, C3..."
+                                               id="slotCodeInput"
+                                               autocomplete="off" />
+                                        <div class="input-icon">
+                                            <i class="fas fa-parking"></i>
+                                        </div>
+                                    </div>
+                                    <span asp-validation-for="SlotCode" class="validation-message"></span>
+                                    <small class="form-text">Mã chỗ đỗ xe phải là duy nhất trong hệ thống</small>
+                                </div>
+                            </div>
+
+                            <!-- Floor -->
+                            <div class="col-md-6">
+                                <div class="form-group-modern">
+                                    <label asp-for="Floor" class="form-label-modern">
+                                        <i class="fas fa-layer-group me-2 text-info"></i>
+                                        Tầng
+                                        <span class="required-asterisk">*</span>
+                                    </label>
+                                    <div class="select-wrapper">
+                                        <select asp-for="Floor" class="form-select-modern" id="floorSelect">
+                                            <option value="" disabled selected>Chọn tầng</option>
+                                            <option value="1">Tầng 1 (Tầng trệt)</option>
+                                            <option value="2">Tầng 2</option>
+                                            <option value="3">Tầng 3</option>
+                                            <option value="4">Tầng 4</option>
+                                            <option value="5">Tầng 5</option>
+                                            <option value="B1">Tầng hầm B1</option>
+                                            <option value="B2">Tầng hầm B2</option>
+                                        </select>
+                                        <div class="select-icon">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </div>
+                                    </div>
+                                    <span asp-validation-for="Floor" class="validation-message"></span>
+                                    <small class="form-text">Chọn tầng mà chỗ đỗ xe được đặt</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Status Info Cards -->
+                        <div class="row g-4 mb-5">
+                            <div class="col-md-6">
+                                <div class="info-card-modern info-primary">
+                                    <div class="d-flex align-items-start">
+                                        <div class="info-icon">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="info-title">Trạng thái mặc định</h6>
+                                            <p class="info-text mb-0">Chỗ đỗ xe mới sẽ được tạo với trạng thái "Có sẵn" và sẵn sàng để đặt chỗ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-card-modern info-success">
+                                    <div class="d-flex align-items-start">
+                                        <div class="info-icon">
+                                            <i class="fas fa-lightbulb"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="info-title">Gợi ý thông minh</h6>
+                                            <p class="info-text mb-0">Hệ thống sẽ tự động gợi ý mã chỗ đỗ xe khi bạn chọn tầng</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="form-actions">
+                            <div class="d-flex gap-3 justify-content-between" >
+                                <a asp-action="Index" class="btn btn-secondary-modern">
+                                    <i class="fas fa-times me-2"></i>Hủy bỏ
+                                </a>
+                                <button type="submit" class="btn btn-primary-modern" id="submitBtn">
+                                    <i class="fas fa-plus me-2"></i>
+                                    <span class="btn-text">Tạo chỗ đỗ xe</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modern Styles -->
+<style>
+    :root {
+        --primary-color: #3b82f6;
+        --primary-hover: #2563eb;
+        --primary-light: #eff6ff;
+        --success-color: #10b981;
+        --success-hover: #059669;
+        --success-light: #ecfdf5;
+        --danger-color: #ef4444;
+        --danger-light: #fef2f2;
+        --warning-color: #f59e0b;
+        --warning-light: #fffbeb;
+        --info-color: #06b6d4;
+        --info-light: #f0f9ff;
+        --secondary-color: #64748b;
+        --secondary-hover: #475569;
+        --secondary-light: #f8fafc;
+        --text-primary: #0f172a;
+        --text-secondary: #64748b;
+        --text-muted: #94a3b8;
+        --border-color: #e2e8f0;
+        --border-hover: #cbd5e1;
+        --bg-white: #ffffff;
+        --bg-gray-50: #f8fafc;
+        --bg-gray-100: #f1f5f9;
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        --border-radius: 12px;
+        --border-radius-lg: 16px;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background: var(--bg-white);
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        color: var(--text-primary);
+        line-height: 1.6;
+        font-size: 14px;
+    }
+
+    .container-fluid {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    /* Header Styles */
+    .header-content {
+        padding: 0;
+    }
+
+    .icon-wrapper {
+        width: 64px;
+        height: 64px;
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+        border-radius: var(--border-radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: white;
+        box-shadow: var(--shadow-lg);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .icon-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        animation: shine 2s infinite;
+    }
+
+    .page-title {
+        font-size: 2.25rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin: 0;
+        letter-spacing: -0.025em;
+    }
+
+    .page-subtitle {
+        color: var(--text-secondary);
+        font-size: 1rem;
+        font-weight: 500;
+        margin: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .btn-outline-secondary.btn-modern {
+        background: var(--bg-white);
+        border: 2px solid var(--border-color);
+        color: var(--text-secondary);
+        border-radius: var(--border-radius);
+        padding: 12px 24px;
+        font-weight: 600;
+        transition: var(--transition);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .btn-outline-secondary.btn-modern:hover {
+        background: var(--secondary-light);
+        border-color: var(--secondary-color);
+        color: var(--secondary-hover);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow);
+    }
+
+    /* Card Styles */
+    .main-card {
+        background: var(--bg-white);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--shadow-xl);
+        overflow: hidden;
+        position: relative;
+        animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-header-modern {
+        background: linear-gradient(135deg, var(--bg-gray-50) 0%, var(--bg-white) 100%);
+        border-bottom: 1px solid var(--border-color);
+        padding: 2rem;
+    }
+
+    .header-icon {
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, var(--success-color), var(--success-hover));
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        font-size: 20px;
+        color: white;
+        box-shadow: var(--shadow);
+    }
+
+    .header-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0;
+    }
+
+    .header-subtitle {
+        color: var(--text-secondary);
+        font-weight: 500;
+        margin-top: 0.25rem;
+    }
+
+    .header-badge .badge {
+        background: var(--success-light);
+        color: var(--success-color);
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.875rem;
+        border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .card-body-modern {
+        background: var(--bg-white);
+    }
+
+    /* Form Styles */
+    .form-group-modern {
+        margin-bottom: 0;
+    }
+
+    .form-label-modern {
+        display: block;
+        margin-bottom: 0.75rem;
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+    }
+
+    .required-asterisk {
+        color: var(--danger-color);
+        margin-left: 0.25rem;
+        font-weight: 700;
+    }
+
+    .input-wrapper,
+    .select-wrapper {
+        position: relative;
+    }
+
+    .form-control-modern,
+    .form-select-modern {
+        width: 100%;
+        padding: 16px 50px 16px 20px;
+        background: var(--bg-white);
+        border: 2px solid var(--border-color);
+        border-radius: var(--border-radius);
+        color: var(--text-primary);
+        font-size: 1rem;
+        font-weight: 500;
+        transition: var(--transition);
+        box-shadow: var(--shadow-sm);
+        outline: none;
+    }
+
+    .form-control-modern:focus,
+    .form-select-modern:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), var(--shadow);
+        transform: translateY(-1px);
+    }
+
+    .form-control-modern::placeholder {
+        color: var(--text-muted);
+        font-style: italic;
+        font-weight: 400;
+    }
+
+    .input-icon,
+    .select-icon {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+        pointer-events: none;
+        transition: var(--transition-fast);
+    }
+
+    .form-control-modern:focus + .input-icon,
+    .form-select-modern:focus + .select-icon {
+        color: var(--primary-color);
+    }
+
+    .form-text {
+        display: block;
+        margin-top: 0.5rem;
+        color: var(--text-muted);
+        font-size: 0.875rem;
+        font-weight: 400;
+    }
+
+    .validation-message {
+        display: block;
+        color: var(--danger-color);
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+        font-weight: 500;
+        padding: 0.5rem 0.75rem;
+        background: var(--danger-light);
+        border-radius: 8px;
+        border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+
+    /* Alert Styles */
+    .alert-danger-modern {
+        background: var(--danger-light);
+        border: 1px solid rgba(239, 68, 68, 0.2);
+        border-radius: var(--border-radius);
+        color: var(--danger-color);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .alert-danger-modern strong {
+        color: var(--danger-color);
+        font-weight: 700;
+    }
+
+    /* Info Cards */
+    .info-card-modern {
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+        transition: var(--transition);
+        border: 1px solid;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .info-card-modern:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .info-primary {
+        background: var(--primary-light);
+        border-color: rgba(59, 130, 246, 0.2);
+    }
+
+    .info-success {
+        background: var(--success-light);
+        border-color: rgba(16, 185, 129, 0.2);
+    }
+
+    .info-card-modern .info-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        font-size: 18px;
+        color: white;
+        flex-shrink: 0;
+    }
+
+    .info-primary .info-icon {
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    }
+
+    .info-success .info-icon {
+        background: linear-gradient(135deg, var(--success-color), var(--success-hover));
+    }
+
+    .info-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+    }
+
+    .info-text {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        line-height: 1.5;
+    }
+
+    /* Button Styles */
+    .form-actions {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .btn-primary-modern {
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+        border: none;
+        border-radius: var(--border-radius);
+        padding: 16px 32px;
+        font-weight: 700;
+        color: white;
+        font-size: 1rem;
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        min-width: 180px;
+    }
+
+    .btn-primary-modern:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+        background: linear-gradient(135deg, var(--primary-hover), #1d4ed8);
+    }
+
+    .btn-primary-modern:active {
+        transform: translateY(0);
+    }
+
+    .btn-secondary-modern {
+        background: var(--bg-white);
+        border: 2px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 14px 32px;
+        font-weight: 600;
+        color: var(--text-secondary);
+        font-size: 1rem;
+        transition: var(--transition);
+        box-shadow: var(--shadow-sm);
+        min-width: 140px;
+    }
+
+    .btn-secondary-modern:hover {
+        background: var(--secondary-light);
+        border-color: var(--secondary-color);
+        color: var(--secondary-hover);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow);
+    }
+
+    .btn-secondary-modern:active {
+        transform: translateY(0);
+    }
+
+    /* Loading States */
+    .btn-loading {
+        position: relative;
+        pointer-events: none;
+        opacity: 0.8;
+    }
+
+    .btn-loading .btn-text {
+        opacity: 0;
+    }
+
+    .btn-loading::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        margin: -10px 0 0 -10px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 1s linear infinite;
+    }
+
+    /* Animations */
+    @@keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @@keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    @@keyframes shine {
+        0% { left: -100%; }
+        100% { left: 100%; }
+    }
+
+    /* Success States */
+    .form-control-modern.success,
+    .form-select-modern.success {
+        border-color: var(--success-color);
+        background: rgba(16, 185, 129, 0.05);
+    }
+
+    .form-control-modern.success + .input-icon,
+    .form-select-modern.success + .select-icon {
+        color: var(--success-color);
+    }
+
+    /* Ripple Effect */
+    .ripple {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ripple::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+
+    .ripple:active::before {
+        width: 300px;
+        height: 300px;
+    }
+
+    /* Responsive Design */
+    @@media (max-width: 768px) {
+        .container-fluid {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .page-title {
+            font-size: 1.75rem;
+        }
+        
+        .icon-wrapper {
+            width: 56px;
+            height: 56px;
+            font-size: 20px;
+        }
+        
+        .card-header-modern,
+        .card-body-modern {
+            padding: 1.5rem;
+        }
+        
+        .form-actions .d-flex {
+            flex-direction: column-reverse;
+            gap: 1rem;
+        }
+        
+        .btn-primary-modern,
+        .btn-secondary-modern {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .row.g-4 {
+            margin-bottom: 2rem;
+        }
+
+        .header-content .d-flex {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .icon-wrapper {
+            margin-bottom: 1rem;
+            margin-right: 0;
+        }
+
+        .action-buttons {
+            margin-top: 1rem;
+            justify-content: center;
+        }
+    }
+
+    @@media (max-width: 576px) {
+        .col-xl-7 {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .main-card {
+            margin-left: -15px;
+            margin-right: -15px;
+            border-radius: 0;
+            border-left: none;
+            border-right: none;
+        }
+
+        .form-control-modern,
+        .form-select-modern {
+            font-size: 16px; /* Prevents zoom on iOS */
+        }
+    }
+
+    /* Focus states for accessibility */
+    .btn-modern:focus,
+    .form-control-modern:focus,
+    .form-select-modern:focus {
+        outline: 2px solid var(--primary-color);
+        outline-offset: 2px;
+    }
+
+    /* Dark mode support */
+    @@media (prefers-color-scheme: dark) {
+        :root {
+            --bg-white: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+        }
+    }
+
+    /* High contrast mode support */
+    @@media (prefers-contrast: high) {
+        .form-control-modern,
+        .form-select-modern {
+            border-width: 3px;
+        }
+        
+        .btn-primary-modern,
+        .btn-secondary-modern {
+            border-width: 3px;
+        }
+    }
+
+    /* Reduced motion support */
+    @@media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+</style>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('createForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const floorSelect = document.getElementById('floorSelect');
+            const slotCodeInput = document.getElementById('slotCodeInput');
+
+            // Auto-generate slot code suggestion with improved logic
+            floorSelect.addEventListener('change', function() {
+                if (this.value && !slotCodeInput.value.trim()) {
+                    const floorValue = this.value;
+                    const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+                    const randomLetter = letters[Math.floor(Math.random() * letters.length)];
+                    const randomNumber = Math.floor(Math.random() * 50) + 1;
+                    
+                    let suggestedCode;
+                    if (floorValue.startsWith('B')) {
+                        suggestedCode = `${floorValue}${randomLetter}${randomNumber}`;
+                    } else {
+                        suggestedCode = `${randomLetter}${floorValue}${randomNumber.toString().padStart(2, '0')}`;
+                    }
+                    
+                    // Smooth animation for auto-fill
+                    slotCodeInput.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                    slotCodeInput.value = suggestedCode;
+                    slotCodeInput.classList.add('success');
+                    
+                    // Show success animation
+                    slotCodeInput.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        slotCodeInput.style.transform = 'scale(1)';
+                    }, 300);
+                    
+                    // Show notification
+                    showNotification('Đã tự động tạo mã chỗ đỗ xe: ' + suggestedCode, 'success');
+                    
+                    setTimeout(() => {
+                        slotCodeInput.classList.remove('success');
+                    }, 3000);
+                }
+            });
+
+            // Enhanced form submission with loading state
+            form.addEventListener('submit', function(e) {
+                const btnText = submitBtn.querySelector('.btn-text');
+                const originalText = btnText.textContent;
+                
+                btnText.textContent = 'Đang tạo...';
+                submitBtn.classList.add('btn-loading', 'ripple');
+                submitBtn.disabled = true;
+                
+                // Re-enable if validation fails (after a short delay)
+                setTimeout(() => {
+                    const hasErrors = form.querySelector('.validation-message:not(:empty)') || 
+                                    form.querySelector('.field-validation-error:not(:empty)');
+                    if (hasErrors) {
+                        btnText.textContent = originalText;
+                        submitBtn.classList.remove('btn-loading', 'ripple');
+                        submitBtn.disabled = false;
+                        showNotification('Có lỗi xảy ra, vui lòng kiểm tra lại!', 'error');
+                    }
+                }, 100);
+            });
+
+            // Enhanced input animations and validation
+            const inputs = document.querySelectorAll('.form-control-modern, .form-select-modern');
+            inputs.forEach(input => {
+                // Focus animation
+                input.addEventListener('focus', function() {
+                    this.closest('.form-group-modern').style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = '0 8px 25px rgba(59, 130, 246, 0.15), 0 0 0 3px rgba(59, 130, 246, 0.1)';
+                });
+                
+                // Blur animation
+                input.addEventListener('blur', function() {
+                    this.closest('.form-group-modern').style.transform = 'translateY(0)';
+                    this.style.boxShadow = '';
+                });
+
+                // Real-time validation styling
+                input.addEventListener('input', function() {
+                    if (this.value.trim()) {
+                        this.classList.add('success');
+                        this.classList.remove('error');
+                    } else {
+                        this.classList.remove('success', 'error');
+                    }
+                    
+                    // Specific validation for slot code
+                    if (this.id === 'slotCodeInput') {
+                        validateSlotCode(this);
+                    }
+                });
+
+                // Change event for select
+                input.addEventListener('change', function() {
+                    if (this.value) {
+                        this.classList.add('success');
+                        this.classList.remove('error');
+                    }
+                });
+            });
+
+            // Slot code validation function
+            function validateSlotCode(input) {
+                const value = input.value.trim().toUpperCase();
+                const pattern = /^[A-Z]+[0-9]+$/;
+                
+                if (value && !pattern.test(value)) {
+                    input.classList.add('error');
+                    input.classList.remove('success');
+                } else if (value) {
+                    input.classList.remove('error');
+                    input.classList.add('success');
+                }
+            }
+
+            // Add ripple effect to buttons
+            const buttons = document.querySelectorAll('.btn-primary-modern, .btn-secondary-modern');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255,255,255,0.4);
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        left: ${x}px;
+                        top: ${y}px;
+                        width: ${size}px;
+                        height: ${size}px;
+                        pointer-events: none;
+                    `;
+                    
+                    this.appendChild(ripple);
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+
+            // Notification system
+            function showNotification(message, type = 'info', duration = 4000) {
+                // Remove existing notifications
+                const existingNotifications = document.querySelectorAll('.notification');
+                existingNotifications.forEach(n => n.remove());
+
+                const notification = document.createElement('div');
+                notification.className = `notification notification-${type}`;
+                
+                const icons = {
+                    success: 'fas fa-check-circle',
+                    error: 'fas fa-exclamation-circle',
+                    warning: 'fas fa-exclamation-triangle',
+                    info: 'fas fa-info-circle'
+                };
+
+                notification.innerHTML = `
+                    <div class="notification-content">
+                        <i class="${icons[type]} me-2"></i>
+                        <span>${message}</span>
+                        <button class="notification-close" onclick="this.parentElement.parentElement.remove()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="notification-progress"></div>
+                `;
+
+                document.body.appendChild(notification);
+
+                // Auto remove after duration
+                setTimeout(() => {
+                    if (notification.parentElement) {
+                        notification.style.transform = 'translateX(100%)';
+                        setTimeout(() => notification.remove(), 300);
+                    }
+                }, duration);
+
+                // Animate progress bar
+                const progressBar = notification.querySelector('.notification-progress');
+                setTimeout(() => {
+                    progressBar.style.width = '0%';
+                }, 100);
+            }
+
+            // Keyboard navigation enhancement
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && e.ctrlKey) {
+                    e.preventDefault();
+                    if (!submitBtn.disabled) {
+                        form.submit();
+                    }
+                }
+            });
+
+            // Auto-focus first input
+            setTimeout(() => {
+                slotCodeInput.focus();
+            }, 300);
+
+            // Add floating labels effect
+            inputs.forEach(input => {
+                const wrapper = input.closest('.input-wrapper') || input.closest('.select-wrapper');
+                if (wrapper) {
+                    const label = wrapper.parentElement.querySelector('.form-label-modern');
+                    
+                    function updateFloatingLabel() {
+                        if (input.value || input === document.activeElement) {
+                            label.classList.add('floating');
+                        } else {
+                            label.classList.remove('floating');
+                        }
+                    }
+
+                    input.addEventListener('focus', updateFloatingLabel);
+                    input.addEventListener('blur', updateFloatingLabel);
+                    input.addEventListener('input', updateFloatingLabel);
+                    
+                    // Initial check
+                    updateFloatingLabel();
+                }
+            });
+
+            // Add CSS animation for ripple
+            const style = document.createElement('style');
+            style.textContent = `
+                @@keyframes ripple {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
+
+                .notification {
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    min-width: 300px;
+                    max-width: 500px;
+                    background: white;
+                    border-radius: 12px;
+                    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+                    z-index: 9999;
+                    transform: translateX(100%);
+                    animation: slideInRight 0.3s ease-out forwards;
+                    overflow: hidden;
+                    border-left: 4px solid;
+                }
+
+                .notification-success {
+                    border-left-color: var(--success-color);
+                }
+
+                .notification-error {
+                    border-left-color: var(--danger-color);
+                }
+
+                .notification-warning {
+                    border-left-color: var(--warning-color);
+                }
+
+                .notification-info {
+                    border-left-color: var(--info-color);
+                }
+
+                .notification-content {
+                    padding: 16px 20px;
+                    display: flex;
+                    align-items: center;
+                    color: var(--text-primary);
+                    font-weight: 500;
+                    position: relative;
+                }
+
+                .notification-close {
+                    background: none;
+                    border: none;
+                    color: var(--text-muted);
+                    cursor: pointer;
+                    padding: 4px;
+                    border-radius: 4px;
+                    margin-left: auto;
+                    transition: all 0.2s;
+                }
+
+                .notification-close:hover {
+                    background: var(--bg-gray-100);
+                    color: var(--text-primary);
+                }
+
+                .notification-progress {
+                    height: 3px;
+                    background: var(--success-color);
+                    width: 100%;
+                    transition: width 4s linear;
+                }
+
+                .notification-error .notification-progress {
+                    background: var(--danger-color);
+                }
+
+                .notification-warning .notification-progress {
+                    background: var(--warning-color);
+                }
+
+                .notification-info .notification-progress {
+                    background: var(--info-color);
+                }
+
+                @@keyframes slideInRight {
+                    to {
+                        transform: translateX(0);
+                    }
+                }
+
+                .form-control-modern.error,
+                .form-select-modern.error {
+                    border-color: var(--danger-color);
+                    background: rgba(239, 68, 68, 0.05);
+                    animation: shake 0.5s ease-in-out;
+                }
+
+                .form-control-modern.error + .input-icon,
+                .form-select-modern.error + .select-icon {
+                    color: var(--danger-color);
+                }
+
+                @@keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                    20%, 40%, 60%, 80% { transform: translateX(5px); }
+                }
+
+                .form-label-modern.floating {
+                    transform: translateY(-8px) scale(0.9);
+                    color: var(--primary-color);
+                }
+
+                .form-label-modern {
+                    transition: all 0.2s ease;
+                    transform-origin: left center;
+                }
+
+                /* Custom scrollbar for better UX */
+                ::-webkit-scrollbar {
+                    width: 8px;
+                }
+
+                ::-webkit-scrollbar-track {
+                    background: var(--bg-gray-100);
+                    border-radius: 4px;
+                }
+
+                ::-webkit-scrollbar-thumb {
+                    background: var(--border-color);
+                    border-radius: 4px;
+                }
+
+                ::-webkit-scrollbar-thumb:hover {
+                    background: var(--border-hover);
+                }
+
+                /* Print styles */
+                @@media print {
+                    .btn-modern,
+                    .action-buttons,
+                    .notification {
+                        display: none !important;
+                    }
+                    
+                    .main-card {
+                        box-shadow: none !important;
+                        border: 1px solid #ccc !important;
+                    }
+                    
+                    body {
+                        background: white !important;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Initialize tooltips if needed
+            const tooltipElements = document.querySelectorAll('[title]');
+            tooltipElements.forEach(element => {
+                element.addEventListener('mouseenter', function(e) {
+                    if (this.title) {
+                        const tooltip = document.createElement('div');
+                        tooltip.className = 'custom-tooltip';
+                        tooltip.textContent = this.title;
+                        tooltip.style.cssText = `
+                            position: absolute;
+                            background: rgba(0, 0, 0, 0.8);
+                            color: white;
+                            padding: 8px 12px;
+                            border-radius: 6px;
+                            font-size: 12px;
+                            z-index: 10000;
+                            pointer-events: none;
+                            white-space: nowrap;
+                        `;
+                        
+                        document.body.appendChild(tooltip);
+                        
+                        const rect = this.getBoundingClientRect();
+                        tooltip.style.left = rect.left + rect.width / 2 - tooltip.offsetWidth / 2 + 'px';
+                        tooltip.style.top = rect.top - tooltip.offsetHeight - 8 + 'px';
+                        
+                        this.addEventListener('mouseleave', () => {
+                            tooltip.remove();
+                        }, { once: true });
+                        
+                        // Hide browser default tooltip
+                        this.setAttribute('data-original-title', this.title);
+                        this.removeAttribute('title');
+                    }
+                });
+                
+                element.addEventListener('mouseleave', function() {
+                    if (this.getAttribute('data-original-title')) {
+                        this.title = this.getAttribute('data-original-title');
+                        this.removeAttribute('data-original-title');
+                    }
+                });
+            });
+
+            // Performance optimization - debounce input events
+            function debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+
+            // Apply debouncing to input validation
+            const debouncedValidation = debounce(function(input) {
+                validateSlotCode(input);
+            }, 300);
+
+            slotCodeInput.addEventListener('input', function() {
+                debouncedValidation(this);
+            });
+
+            // Add form dirty checking
+            let formIsDirty = false;
+            inputs.forEach(input => {
+                input.addEventListener('input', () => {
+                    formIsDirty = true;
+                });
+                input.addEventListener('change', () => {
+                    formIsDirty = true;
+                });
+            });
+
+            // Warn user before leaving if form is dirty
+            window.addEventListener('beforeunload', function(e) {
+                if (formIsDirty && !form.submitted) {
+                    e.preventDefault();
+                    e.returnValue = '';
+                    return '';
+                }
+            });
+
+            // Mark form as submitted to avoid warning
+            form.addEventListener('submit', function() {
+                form.submitted = true;
+            });
+
+            console.log('Parking Slot Create Form initialized successfully');
+        });
+    </script>
+}

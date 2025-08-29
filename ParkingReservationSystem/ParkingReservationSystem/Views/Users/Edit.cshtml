@@ -1,0 +1,1883 @@
+﻿@model ParkingReservationSystem.ViewModels.User.EditUserViewModel
+@{
+    ViewData["Title"] = "Chỉnh Sửa Người Dùng";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid px-4 py-3">
+    <!-- Dramatic Header -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="edit-header position-relative overflow-hidden rounded-4 shadow-2xl">
+                <div class="edit-bg"></div>
+                <div class="edit-particles"></div>
+                <div class="edit-content position-relative z-3 p-5 text-white">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap">
+                        <div class="d-flex align-items-center mb-3 mb-md-0">
+                            <div class="edit-icon-container me-4">
+                                <div class="edit-icon">
+                                    <i class="fas fa-user-edit fa-4x"></i>
+                                </div>
+                                <div class="edit-pulse"></div>
+                            </div>
+                            <div>
+                                <h1 class="display-4 fw-bold mb-2 text-shadow">
+                                    <i class="fas fa-edit me-3"></i>Chỉnh Sửa Người Dùng
+                                </h1>
+                                <p class="fs-4 mb-0 opacity-90 fw-semibold">Cập nhật thông tin hệ thống</p>
+                            </div>
+                        </div>
+                        <nav aria-label="breadcrumb">
+                            <ol class="glass-breadcrumb-edit mb-0">
+                                <li class="breadcrumb-item">
+                                    <a asp-action="Index" class="text-white text-decoration-none fw-semibold">
+                                        <i class="fas fa-users me-2"></i>Người Dùng
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item active text-white fw-bold" aria-current="page">
+                                    <i class="fas fa-edit me-2"></i>Chỉnh Sửa
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-8">
+            <!-- Success Alert -->
+            <div class="success-alert mb-5">
+                <div class="alert-container">
+                    <div class="alert-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <div class="alert-content">
+                        <h4 class="alert-title">✏️ CHỈNH SỬA THÔNG TIN NGƯỜI DÙNG</h4>
+                        <p class="alert-message">
+                            Cập nhật thông tin cần thiết và <strong>LƯU THAY ĐỔI</strong> để áp dụng vào hệ thống.
+                        </p>
+                    </div>
+                    <div class="alert-animation"></div>
+                </div>
+            </div>
+
+            <!-- Edit User Card -->
+            <div class="edit-card-container">
+                <div class="glass-card-edit rounded-4 overflow-hidden shadow-2xl">
+                    <!-- Card Header -->
+                    <div class="card-header-edit position-relative p-4">
+                        <div class="header-edit-bg"></div>
+                        <div class="position-relative z-3 d-flex align-items-center text-white">
+                            <div class="header-icon-edit me-3">
+                                <i class="fas fa-user-edit fa-2x"></i>
+                            </div>
+                            <div>
+                                <h3 class="mb-1 fw-bold">Cập Nhật Thông Tin</h3>
+                                <p class="mb-0 opacity-90">Chỉnh sửa thông tin người dùng trong hệ thống</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Section -->
+                    <div class="form-section p-5">
+                        <form asp-action="Edit" id="editUserForm" novalidate>
+                            <input type="hidden" asp-for="Id" />
+                            <input type="hidden" asp-for="CurrentPasswordHash" />
+                            
+                            <div asp-validation-summary="ModelOnly" class="alert alert-danger d-none validation-summary" role="alert">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                <strong>Vui lòng kiểm tra lại thông tin:</strong>
+                            </div>
+
+                            <!-- Current User Preview -->
+                            <div class="current-user-preview mb-5">
+                                <h5 class="section-title-edit mb-4">
+                                    <i class="fas fa-user-circle me-3"></i>Thông Tin Hiện Tại
+                                </h5>
+                                <div class="user-preview-card">
+                                    <div class="user-avatar-preview">
+                                        <div class="avatar-bg-preview">
+                                            <i class="fas fa-user fa-3x"></i>
+                                        </div>
+                                        <div class="edit-overlay">
+                                            <i class="fas fa-edit"></i>
+                                        </div>
+                                    </div>
+                                    <div class="user-info-preview">
+                                        <h4 class="current-name">@Model?.Name</h4>
+                                        <p class="current-email">
+                                            <i class="fas fa-envelope me-2"></i>@Model?.Email
+                                        </p>
+                                        <div class="current-role">
+                                            <span class="role-badge-preview">
+                                                <i class="fas fa-user-tag me-2"></i>@Model?.Role
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Form Fields Grid -->
+                            <div class="form-fields-section">
+                                <h5 class="section-title-edit mb-4">
+                                    <i class="fas fa-edit me-3"></i>Chỉnh Sửa Thông Tin
+                                </h5>
+                                
+                                <div class="row g-4">
+                                    <!-- User ID Display -->
+                                    <div class="col-12">
+                                        <div class="form-field-card">
+                                            <div class="field-icon">
+                                                <i class="fas fa-hashtag"></i>
+                                            </div>
+                                            <div class="field-content">
+                                                <label class="field-label">ID Người Dùng</label>
+                                                <input type="text" class="form-control-modern readonly" value="#@Model?.Id" readonly />
+                                                <div class="field-helper">Mã định danh duy nhất trong hệ thống</div>
+                                            </div>
+                                            <div class="field-status readonly">
+                                                <i class="fas fa-lock"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Name Field -->
+                                    <div class="col-md-6">
+                                        <div class="form-field-card">
+                                            <div class="field-icon">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <div class="field-content">
+                                                <label asp-for="Name" class="field-label required">
+                                                    Họ và Tên <span class="text-danger">*</span>
+                                                </label>
+                                                <input asp-for="Name" class="form-control-modern" 
+                                                       placeholder="Nhập họ và tên đầy đủ..." />
+                                                <span asp-validation-for="Name" class="field-error"></span>
+                                                <div class="field-helper">Tên hiển thị trong hệ thống</div>
+                                            </div>
+                                            <div class="field-status editable">
+                                                <i class="fas fa-edit"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Email Field with Real-time Validation -->
+                                    <div class="col-md-6">
+                                        <div class="form-field-card" id="email-field-card">
+                                            <div class="field-icon">
+                                                <i class="fas fa-envelope"></i>
+                                            </div>
+                                            <div class="field-content">
+                                                <label asp-for="Email" class="field-label required">
+                                                    Địa Chỉ Email <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="email-input-group">
+                                                    <input asp-for="Email" type="email" class="form-control-modern" 
+                                                           placeholder="example@email.com" id="emailField" />
+                                                    <div class="email-check-status" id="emailCheckStatus">
+                                                        <i class="fas fa-spinner fa-spin" style="display: none;"></i>
+                                                        <i class="fas fa-check-circle text-success" style="display: none;"></i>
+                                                        <i class="fas fa-times-circle text-danger" style="display: none;"></i>
+                                                    </div>
+                                                </div>
+                                                <span asp-validation-for="Email" class="field-error"></span>
+                                                <div id="email-realtime-error" class="field-error" style="display: none;">
+                                                    <i class="fas fa-exclamation-triangle me-2"></i>
+                                                    <span>Email này đã có người sử dụng rồi!</span>
+                                                </div>
+                                                <div id="email-success-message" class="field-success" style="display: none;">
+                                                    <i class="fas fa-check-circle me-2"></i>
+                                                    <span>Email này có thể sử dụng</span>
+                                                </div>
+                                                <div class="field-helper">Email đăng nhập vào hệ thống</div>
+                                            </div>
+                                            <div class="field-status editable">
+                                                <i class="fas fa-edit"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Password Field -->
+                                    <div class="col-md-6">
+                                        <div class="form-field-card">
+                                            <div class="field-icon">
+                                                <i class="fas fa-lock"></i>
+                                            </div>
+                                            <div class="field-content">
+                                                <label asp-for="Password" class="field-label">
+                                                    Mật Khẩu Mới 
+                                                    <span class="text-warning small">(Tùy chọn)</span>
+                                                </label>
+                                                <div class="password-input-group">
+                                                    <input asp-for="Password" type="password" class="form-control-modern" 
+                                                           placeholder="Để trống nếu không thay đổi..." 
+                                                           data-val="false" id="passwordField" />
+                                                    <button type="button" class="password-toggle" id="togglePassword">
+                                                        <i class="fas fa-eye" id="eyeIcon"></i>
+                                                    </button>
+                                                </div>
+                                                <div id="password-validation-error" class="field-error" style="display: none;"></div>
+                                                <div class="field-helper">Để trống nếu không muốn thay đổi mật khẩu</div>
+                                            </div>
+                                            <div class="field-status optional">
+                                                <i class="fas fa-question-circle"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Role Field -->
+                                    <div class="col-md-6">
+                                        <div class="form-field-card">
+                                            <div class="field-icon">
+                                                <i class="fas fa-user-tag"></i>
+                                            </div>
+                                            <div class="field-content">
+                                                <label asp-for="Role" class="field-label required">
+                                                    Vai Trò <span class="text-danger">*</span>
+                                                </label>
+                                                <select asp-for="Role" class="form-select-modern">
+                                                    <option value="">-- Chọn vai trò --</option>
+                                                    <option value="Admin">Quản trị viên</option>
+                                                    <option value="User">Người dùng</option>
+                                                </select>
+                                                <span asp-validation-for="Role" class="field-error"></span>
+                                                <div class="field-helper">Quyền truy cập trong hệ thống</div>
+                                            </div>
+                                            <div class="field-status editable">
+                                                <i class="fas fa-edit"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Important Notes Section -->
+                            <div class="notes-section mt-5">
+                                <h5 class="notes-title mb-4">
+                                    <i class="fas fa-info-circle me-3"></i>Lưu Ý Quan Trọng
+                                </h5>
+                                
+                                <div class="notes-grid">
+                                    <div class="note-item">
+                                        <div class="note-icon">
+                                            <i class="fas fa-envelope-open-text"></i>
+                                        </div>
+                                        <div class="note-content">
+                                            <h6>Thay đổi Email</h6>
+                                            <p>Có thể ảnh hưởng đến việc đăng nhập</p>
+                                        </div>
+                                        <div class="note-severity info">
+                                            <span>THÔNG TIN</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="note-item">
+                                        <div class="note-icon">
+                                            <i class="fas fa-key"></i>
+                                        </div>
+                                        <div class="note-content">
+                                            <h6>Mật khẩu</h6>
+                                            <p>Để trống nếu không muốn thay đổi</p>
+                                        </div>
+                                        <div class="note-severity warning">
+                                            <span>CHÚ Ý</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="note-item">
+                                        <div class="note-icon">
+                                            <i class="fas fa-shield-alt"></i>
+                                        </div>
+                                        <div class="note-content">
+                                            <h6>Thay đổi vai trò</h6>
+                                            <p>Ảnh hưởng đến quyền truy cập</p>
+                                        </div>
+                                        <div class="note-severity important">
+                                            <span>QUAN TRỌNG</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="note-item">
+                                        <div class="note-icon">
+                                            <i class="fas fa-bolt"></i>
+                                        </div>
+                                        <div class="note-content">
+                                            <h6>Hiệu lực</h6>
+                                            <p>Thay đổi có hiệu lực ngay lập tức</p>
+                                        </div>
+                                        <div class="note-severity success">
+                                            <span>NGAY LẬP TỨC</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Form Actions -->
+                            <div class="form-actions mt-5 p-4 border-top">
+                                <div class="d-flex gap-3 justify-content-end flex-wrap">
+                                    <a asp-action="Index" class="btn-modern-secondary">
+                                        <div class="btn-icon">
+                                            <i class="fas fa-arrow-left"></i>
+                                        </div>
+                                        <span>Quay Lại Danh Sách</span>
+                                    </a>
+                                    
+                                    <a asp-action="Details" asp-route-id="@Model?.Id" class="btn-modern-info">
+                                        <div class="btn-icon">
+                                            <i class="fas fa-eye"></i>
+                                        </div>
+                                        <span>Xem Chi Tiết</span>
+                                    </a>
+                                    
+                                    <button type="submit" class="btn-modern-success" id="submitBtn">
+                                        <div class="btn-content">
+                                            <div class="btn-icon">
+                                                <i class="fas fa-save"></i>
+                                            </div>
+                                            <span>LƯU THAY ĐỔI</span>
+                                        </div>
+                                        <div class="btn-loader">
+                                            <div class="spinner"></div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <style>
+        :root {
+            --edit-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --success-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            --warning-gradient: linear-gradient(135deg, #fdbb2d 0%, #22c1c3 100%);
+            --info-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        /* Header Styling */
+        .edit-header {
+            background: var(--edit-gradient);
+            position: relative;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+        }
+
+        .edit-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><defs><pattern id="edit-pattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="3" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></pattern></defs><rect width="100%" height="100%" fill="url(%23edit-pattern)"/></svg>');
+            animation: editFloat 15s ease-in-out infinite;
+        }
+
+        .edit-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="edit-particles" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.2)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23edit-particles)"/></svg>');
+            animation: particleEditFloat 25s linear infinite;
+        }
+
+        @@keyframes editFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+
+        @@keyframes particleEditFloat {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-20px); }
+        }
+
+        .edit-icon-container {
+            position: relative;
+        }
+
+        .edit-icon {
+            animation: editIconFloat 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+        }
+
+        @@keyframes editIconFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(5deg); }
+        }
+
+        .edit-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: editPulse 3s ease-in-out infinite;
+        }
+
+        @@keyframes editPulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+        }
+
+        .glass-breadcrumb-edit {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            padding: 12px 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Success Alert */
+        .success-alert {
+            animation: alertSlideIn 0.8s ease-out;
+        }
+
+        .alert-container {
+            background: var(--success-gradient);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(17, 153, 142, 0.4);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .alert-icon {
+            position: absolute;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.9);
+            animation: editAlertPulse 2s ease-in-out infinite;
+        }
+
+        @@keyframes editAlertPulse {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-50%) scale(1.1); }
+        }
+
+        .alert-content {
+            margin-left: 6rem;
+            color: white;
+        }
+
+        .alert-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .alert-message {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .alert-animation {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: alertShimmer 4s ease-in-out infinite;
+        }
+
+        @@keyframes alertShimmer {
+            0% { transform: translateX(-150px); }
+            100% { transform: translateX(150px); }
+        }
+
+        /* Edit Card */
+        .edit-card-container {
+            animation: slideInUp 1s ease-out;
+        }
+
+        .glass-card-edit {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.15);
+        }
+
+        .card-header-edit {
+            background: var(--edit-gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-edit-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" fill="rgba(255,255,255,0.1)"></path></svg>') repeat-x;
+            animation: headerEditWave 10s ease-in-out infinite;
+        }
+
+        @@keyframes headerEditWave {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-20px); }
+        }
+
+        .header-icon-edit {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: headerEditIconFloat 4s ease-in-out infinite;
+        }
+
+        @@keyframes headerEditIconFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(-5deg); }
+        }
+
+        /* Current User Preview */
+        .section-title-edit {
+            color: #495057;
+            font-weight: 700;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .user-preview-card {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            position: relative;
+            animation: userPreviewFloat 4s ease-in-out infinite;
+        }
+
+        @@keyframes userPreviewFloat {
+            0%, 100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+            50% { box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3); }
+        }
+
+        .user-avatar-preview {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            flex-shrink: 0;
+        }
+
+        .avatar-bg-preview {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--info-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.4);
+        }
+
+        .edit-overlay {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 35px;
+            height: 35px;
+            background: var(--success-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            border: 3px solid white;
+            animation: editOverlayPulse 2s ease-in-out infinite;
+        }
+
+        @@keyframes editOverlayPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .current-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #495057;
+            margin-bottom: 0.5rem;
+        }
+
+        .current-email {
+            font-size: 1.1rem;
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+
+        .role-badge-preview {
+            padding: 8px 16px;
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            border: 2px solid #667eea;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Form Fields */
+        .form-field-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .form-field-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.4);
+        }
+
+        .field-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--edit-gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .field-label {
+            font-size: 0.95rem;
+            color: #495057;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .field-label.required::after {
+            content: " *";
+            color: #dc3545;
+        }
+
+        .form-control-modern,
+        .form-select-modern {
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .form-control-modern:focus,
+        .form-select-modern:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+            outline: 0;
+            background: white;
+        }
+
+        .form-control-modern.readonly {
+            background: rgba(248, 249, 250, 0.8);
+            cursor: not-allowed;
+        }
+
+        /* Email Input Group */
+        .email-input-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .email-check-status {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+        }
+
+        .email-check-status i {
+            font-size: 1.2rem;
+        }
+
+        .password-input-group {
+            position: relative;
+            display: flex;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: none;
+            color: #6c757d;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        .password-toggle:hover {
+            color: #495057;
+        }
+
+        .field-error {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: block;
+            animation: errorShake 0.5s ease-out;
+        }
+
+        .field-success {
+            color: #28a745;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: block;
+            animation: successFadeIn 0.5s ease-out;
+        }
+
+        @@keyframes errorShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        @@keyframes successFadeIn {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .field-helper {
+            color: #6c757d;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+        }
+
+        .field-status {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .field-status.readonly {
+            background: rgba(108, 117, 125, 0.1);
+            color: #6c757d;
+        }
+
+        .field-status.editable {
+            background: rgba(17, 153, 142, 0.1);
+            color: #11998e;
+            animation: editableStatusPulse 2s ease-in-out infinite;
+        }
+
+        .field-status.optional {
+            background: rgba(255, 193, 7, 0.1);
+            color: #ffc107;
+        }
+
+        @@keyframes editableStatusPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Email Field States */
+        .email-field-checking .field-icon {
+            background: var(--info-gradient) !important;
+            animation: checkingPulse 1.5s ease-in-out infinite;
+        }
+
+        .email-field-valid .field-icon {
+            background: var(--success-gradient) !important;
+            animation: validPulse 0.5s ease-out;
+        }
+
+        .email-field-invalid .field-icon {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%) !important;
+            animation: invalidShake 0.5s ease-out;
+        }
+
+        @@keyframes checkingPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @@keyframes validPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @@keyframes invalidShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-3px); }
+            75% { transform: translateX(3px); }
+        }
+
+        /* Notes Section */
+        .notes-title {
+            color: #495057;
+            font-weight: 700;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .note-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border-left: 4px solid #17a2b8;
+            position: relative;
+            transition: all 0.3s ease;
+            animation: noteSlideIn 0.8s ease-out;
+        }
+
+        .note-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(23, 162, 184, 0.2);
+        }
+
+        @@keyframes noteSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .note-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--info-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            animation: noteIconFloat 3s ease-in-out infinite;
+        }
+
+        @@keyframes noteIconFloat {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(5deg) scale(1.05); }
+        }
+
+        .note-content h6 {
+            color: #495057;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .note-content p {
+            color: #6c757d;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .note-severity {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .note-severity.info {
+            background: rgba(23, 162, 184, 0.2);
+            color: #17a2b8;
+            border: 1px solid #17a2b8;
+        }
+
+        .note-severity.warning {
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+            border: 1px solid #ffc107;
+        }
+
+        .note-severity.important {
+            background: rgba(220, 53, 69, 0.2);
+            color: #dc3545;
+            border: 1px solid #dc3545;
+            animation: importantBlink 2s ease-in-out infinite;
+        }
+
+        .note-severity.success {
+            background: rgba(40, 167, 69, 0.2);
+            color: #28a745;
+            border: 1px solid #28a745;
+        }
+
+        @@keyframes importantBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Modern Buttons */
+        .btn-modern-secondary,
+        .btn-modern-info,
+        .btn-modern-success {
+            position: relative;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .btn-modern-secondary {
+            background: rgba(108, 117, 125, 0.1);
+            color: #6c757d;
+            border: 2px solid #6c757d;
+        }
+
+        .btn-modern-secondary:hover {
+            background: #6c757d;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(108, 117, 125, 0.4);
+        }
+
+        .btn-modern-info {
+            background: var(--info-gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+        }
+
+        .btn-modern-info:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.6);
+            color: white;
+        }
+
+        .btn-modern-success {
+            background: var(--success-gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(17, 153, 142, 0.4);
+            position: relative;
+        }
+
+        .btn-modern-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(17, 153, 142, 0.6);
+            color: white;
+            animation: successGlow 1s ease-in-out infinite;
+        }
+
+        .btn-modern-success:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+            animation: none;
+        }
+
+        @@keyframes successGlow {
+            0%, 100% { box-shadow: 0 8px 25px rgba(17, 153, 142, 0.6); }
+            50% { box-shadow: 0 12px 35px rgba(17, 153, 142, 0.8); }
+        }
+
+        .btn-modern-success.loading .btn-content {
+            opacity: 0;
+        }
+
+        .btn-modern-success.loading .btn-loader {
+            opacity: 1;
+        }
+
+        .btn-content {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @@keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .btn-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Validation Summary */
+        .validation-summary {
+            background: rgba(248, 215, 218, 0.9);
+            border: 2px solid #dc3545;
+            border-radius: 15px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            animation: validationSlideIn 0.5s ease-out;
+        }
+
+        @@keyframes validationSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @@media (max-width: 768px) {
+            .edit-content {
+                padding: 2rem !important;
+            }
+
+            .edit-content .d-flex {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .alert-content {
+                margin-left: 0;
+                text-align: center;
+            }
+
+            .alert-icon {
+                position: relative;
+                left: auto;
+                top: auto;
+                transform: none;
+                margin-bottom: 1rem;
+            }
+
+            .user-preview-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .form-field-card {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .field-status {
+                position: relative;
+                top: auto;
+                right: auto;
+                align-self: flex-start;
+            }
+
+            .form-actions {
+                padding: 1rem !important;
+            }
+
+            .form-actions .d-flex {
+                flex-direction: column !important;
+                gap: 1rem !important;
+            }
+
+            .btn-modern-secondary,
+            .btn-modern-info,
+            .btn-modern-success {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .notes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @@keyframes alertSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @@keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 40px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+    </style>
+
+    <script>
+       $(document).ready(function () {
+    // Email validation variables
+    let emailCheckTimeout;
+    let isEmailValid = true; // Bắt đầu với true vì email ban đầu là hợp lệ
+    const originalEmail = '@Model?.Email';
+    const userId = @Model?.Id;
+
+    console.log('Original Email:', originalEmail, 'User ID:', userId); // Debug
+
+    // Toggle password visibility
+    $('#togglePassword').on('click', function () {
+        const passwordField = $('#passwordField');
+        const eyeIcon = $('#eyeIcon');
+
+        if (passwordField.attr('type') === 'password') {
+            passwordField.attr('type', 'text');
+            eyeIcon.removeClass('fa-eye').addClass('fa-eye-slash');
+        } else {
+            passwordField.attr('type', 'password');
+            eyeIcon.removeClass('fa-eye-slash').addClass('fa-eye');
+        }
+    });
+
+    // Real-time email validation
+    $('#emailField').on('input', function () {
+        const email = $(this).val().trim();
+        const emailFieldCard = $('#email-field-card');
+        const emailCheckStatus = $('#emailCheckStatus');
+        const emailRealtimeError = $('#email-realtime-error');
+        const emailSuccessMessage = $('#email-success-message');
+
+        console.log('Email input changed:', email); // Debug
+
+        // Clear previous timeout
+        if (emailCheckTimeout) {
+            clearTimeout(emailCheckTimeout);
+        }
+
+        // Hide all status messages
+        emailRealtimeError.hide();
+        emailSuccessMessage.hide();
+        emailCheckStatus.find('i').hide();
+
+        // Remove all email field states
+        emailFieldCard.removeClass('email-field-checking email-field-valid email-field-invalid');
+
+        // Nếu email rỗng hoặc giống email ban đầu
+        if (email === '' || email === originalEmail) {
+            isEmailValid = true;
+            updateSubmitButton();
+            console.log('Email is empty or same as original - Valid'); // Debug
+            return;
+        }
+
+        // Basic email validation
+        const emailRegex = /^[^\s@@]+@@[^\s@@]+\.[^\s@@]+$/;
+        if (!emailRegex.test(email)) {
+            emailFieldCard.addClass('email-field-invalid');
+            emailCheckStatus.find('.fa-times-circle').show();
+            emailRealtimeError.find('span').text('Định dạng email không hợp lệ!');
+            emailRealtimeError.show();
+            isEmailValid = false;
+            updateSubmitButton();
+            console.log('Email format invalid'); // Debug
+            return;
+        }
+
+        // Show loading state
+        emailFieldCard.addClass('email-field-checking');
+        emailCheckStatus.find('.fa-spinner').show();
+        console.log('Checking email...'); // Debug
+
+        // Debounced API call
+        emailCheckTimeout = setTimeout(function () {
+            checkEmailExists(email);
+        }, 800);
+    });
+
+    function checkEmailExists(email) {
+        console.log('Making AJAX request for email:', email); // Debug
+        
+        $.ajax({
+            url: '@Url.Action("CheckEmailExists", "Users")',
+            method: 'GET',
+            data: {
+                email: email,
+                userId: userId
+            },
+            success: function (response) {
+                console.log('AJAX response:', response); // Debug
+                
+                const emailFieldCard = $('#email-field-card');
+                const emailCheckStatus = $('#emailCheckStatus');
+                const emailRealtimeError = $('#email-realtime-error');
+                const emailSuccessMessage = $('#email-success-message');
+
+                // Remove checking state
+                emailFieldCard.removeClass('email-field-checking');
+                emailCheckStatus.find('.fa-spinner').hide();
+
+                if (response.exists === true) {
+                    // Email exists - invalid
+                    emailFieldCard.addClass('email-field-invalid');
+                    emailCheckStatus.find('.fa-times-circle').show();
+                    emailRealtimeError.find('span').text('Email này đã có người sử dụng rồi!');
+                    emailRealtimeError.show();
+                    isEmailValid = false;
+                    console.log('Email exists - Invalid'); // Debug
+                } else {
+                    // Email is available - valid
+                    emailFieldCard.addClass('email-field-valid');
+                    emailCheckStatus.find('.fa-check-circle').show();
+                    emailSuccessMessage.show();
+                    isEmailValid = true;
+                    console.log('Email available - Valid'); // Debug
+                }
+
+                updateSubmitButton();
+            },
+            error: function (xhr, status, error) {
+                console.error('AJAX Error:', error, 'Status:', status, 'Response:', xhr.responseText);
+                
+                const emailFieldCard = $('#email-field-card');
+                const emailCheckStatus = $('#emailCheckStatus');
+                const emailRealtimeError = $('#email-realtime-error');
+
+                emailFieldCard.removeClass('email-field-checking');
+                emailCheckStatus.find('.fa-spinner').hide();
+                
+                // Trong trường hợp lỗi, hiển thị cảnh báo nhưng vẫn cho phép submit
+                emailRealtimeError.find('span').text('Không thể kiểm tra email. Vui lòng kiểm tra kết nối.');
+                emailRealtimeError.show();
+                
+                isEmailValid = true; // Cho phép submit khi có lỗi network
+                updateSubmitButton();
+            }
+        });
+    }
+
+    function updateSubmitButton() {
+        const submitBtn = $('#submitBtn');
+        console.log('Updating submit button, isEmailValid:', isEmailValid); // Debug
+        
+        if (!isEmailValid) {
+            submitBtn.prop('disabled', true).addClass('btn-disabled');
+            console.log('Submit button disabled'); // Debug
+        } else {
+            submitBtn.prop('disabled', false).removeClass('btn-disabled');
+            console.log('Submit button enabled'); // Debug
+        }
+    }
+
+    // Enhanced form submission with loading state
+    $('#editUserForm').on('submit', function (e) {
+        console.log('Form submitting, isEmailValid:', isEmailValid); // Debug
+        
+        // Check email validity before submit
+        if (!isEmailValid) {
+            e.preventDefault();
+            showNotification('Vui lòng kiểm tra lại email!', 'error');
+            return false;
+        }
+
+        const submitBtn = $('#submitBtn');
+
+        // Show loading state
+        submitBtn.addClass('loading').prop('disabled', true);
+
+        // Auto re-enable after timeout (in case of validation errors)
+        setTimeout(function () {
+            if (submitBtn.hasClass('loading')) {
+                submitBtn.removeClass('loading').prop('disabled', false);
+            }
+        }, 10000); // Tăng thời gian timeout
+    });
+
+    // Confirmation for role change with beautiful popup
+    $('select[name="Role"]').on('change', function () {
+        const originalValue = $(this).data('original-value') || this.defaultValue;
+        const newValue = this.value;
+        const selectElement = this;
+
+        console.log('Role changed from', originalValue, 'to', newValue); // Debug
+
+        if (newValue !== originalValue && newValue !== '') {
+            const roleName = newValue === 'Admin' ? 'Quản trị viên' : 'Người dùng';
+            const originalRoleName = originalValue === 'Admin' ? 'Quản trị viên' : 'Người dùng';
+
+            showRoleChangeConfirmation(originalRoleName, roleName, function (confirmed) {
+                if (!confirmed) {
+                    selectElement.value = originalValue;
+                }
+            });
+        }
+    });
+
+    // Beautiful role change confirmation popup
+    function showRoleChangeConfirmation(fromRole, toRole, callback) {
+        const popup = $(`
+            <div class="role-change-overlay" id="roleChangeOverlay" style="
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                backdrop-filter: blur(5px);
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            ">
+                <div class="role-change-popup" style="
+                    background: white;
+                    border-radius: 20px;
+                    padding: 2rem;
+                    max-width: 500px;
+                    width: 90%;
+                    max-height: 90vh;
+                    overflow-y: auto;
+                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                    transform: translateY(-20px);
+                    transition: all 0.3s ease;
+                ">
+                    <!-- Card Header -->
+                    <div class="role-popup-header" style="text-align: center; margin-bottom: 2rem;">
+                        <div class="role-popup-icon" style="
+                            width: 80px;
+                            height: 80px;
+                            background: var(--warning-gradient);
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin: 0 auto 1rem;
+                            color: white;
+                            font-size: 2rem;
+                        ">
+                            <i class="fas fa-user-cog"></i>
+                        </div>
+                        <h3 class="role-popup-title" style="
+                            color: #495057;
+                            font-weight: 700;
+                            margin-bottom: 0.5rem;
+                        ">Xác Nhận Thay Đổi Vai Trò</h3>
+                        <p class="role-popup-subtitle" style="
+                            color: #6c757d;
+                            margin: 0;
+                        ">Điều này sẽ ảnh hưởng đến quyền truy cập của người dùng</p>
+                    </div>
+
+                    <!-- Role Change Content -->
+                    <div class="role-change-content">
+                        <div class="role-transition" style="
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 2rem;
+                            margin-bottom: 2rem;
+                            flex-wrap: wrap;
+                        ">
+                            <div class="role-from" style="text-align: center;">
+                                <div class="role-badge from" style="
+                                    background: rgba(108, 117, 125, 0.1);
+                                    color: #6c757d;
+                                    border: 2px solid #6c757d;
+                                    padding: 10px 20px;
+                                    border-radius: 25px;
+                                    font-weight: 600;
+                                    margin-bottom: 0.5rem;
+                                ">${fromRole}</div>
+                                <span class="role-label" style="
+                                    font-size: 0.9rem;
+                                    color: #6c757d;
+                                ">Vai trò hiện tại</span>
+                            </div>
+
+                            <div class="role-arrow" style="color: #667eea; font-size: 1.5rem;">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+
+                            <div class="role-to" style="text-align: center;">
+                                <div class="role-badge to" style="
+                                    background: var(--success-gradient);
+                                    color: white;
+                                    border: none;
+                                    padding: 10px 20px;
+                                    border-radius: 25px;
+                                    font-weight: 600;
+                                    margin-bottom: 0.5rem;
+                                ">${toRole}</div>
+                                <span class="role-label" style="
+                                    font-size: 0.9rem;
+                                    color: #6c757d;
+                                ">Vai trò mới</span>
+                            </div>
+                        </div>
+
+                        <!-- Warnings -->
+                        <div class="role-warnings" style="
+                            background: rgba(255, 193, 7, 0.1);
+                            border-radius: 15px;
+                            padding: 1.5rem;
+                            margin-bottom: 2rem;
+                        ">
+                            <div class="warning-item" style="
+                                display: flex;
+                                align-items: center;
+                                gap: 1rem;
+                                margin-bottom: 1rem;
+                            ">
+                                <div class="warning-icon" style="
+                                    width: 40px;
+                                    height: 40px;
+                                    background: var(--warning-gradient);
+                                    border-radius: 50%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    color: white;
+                                ">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="warning-text">
+                                    <h6 style="margin: 0 0 0.25rem 0; color: #495057;">Quyền truy cập</h6>
+                                    <p style="margin: 0; color: #6c757d; font-size: 0.9rem;">Thay đổi quyền hạn trong hệ thống</p>
+                                </div>
+                            </div>
+
+                            <div class="warning-item" style="
+                                display: flex;
+                                align-items: center;
+                                gap: 1rem;
+                                margin-bottom: 1rem;
+                            ">
+                                <div class="warning-icon" style="
+                                    width: 40px;
+                                    height: 40px;
+                                    background: var(--info-gradient);
+                                    border-radius: 50%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    color: white;
+                                ">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="warning-text">
+                                    <h6 style="margin: 0 0 0.25rem 0; color: #495057;">Hiệu lực ngay</h6>
+                                    <p style="margin: 0; color: #6c757d; font-size: 0.9rem;">Thay đổi áp dụng ngay lập tức</p>
+                                </div>
+                            </div>
+
+                            <div class="warning-item" style="
+                                display: flex;
+                                align-items: center;
+                                gap: 1rem;
+                            ">
+                                <div class="warning-icon" style="
+                                    width: 40px;
+                                    height: 40px;
+                                    background: rgba(220, 53, 69, 1);
+                                    border-radius: 50%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    color: white;
+                                ">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                </div>
+                                <div class="warning-text">
+                                    <h6 style="margin: 0 0 0.25rem 0; color: #495057;">Có thể cần đăng nhập lại</h6>
+                                    <p style="margin: 0; color: #6c757d; font-size: 0.9rem;">Để cập nhật quyền mới</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="role-popup-actions" style="
+                        display: flex;
+                        gap: 1rem;
+                        justify-content: end;
+                        flex-wrap: wrap;
+                    ">
+                        <button class="btn-popup-cancel" id="btnRoleCancel" style="
+                            padding: 12px 24px;
+                            border: 2px solid #6c757d;
+                            background: transparent;
+                            color: #6c757d;
+                            border-radius: 25px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            display: flex;
+                            align-items: center;
+                            gap: 0.5rem;
+                        ">
+                            <i class="fas fa-times"></i>
+                            Hủy Bỏ
+                        </button>
+                        <button class="btn-popup-confirm" id="btnRoleConfirm" style="
+                            padding: 12px 24px;
+                            border: none;
+                            background: var(--success-gradient);
+                            color: white;
+                            border-radius: 25px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            display: flex;
+                            align-items: center;
+                            gap: 0.5rem;
+                            box-shadow: 0 4px 15px rgba(17, 153, 142, 0.4);
+                        ">
+                            <i class="fas fa-check"></i>
+                            Xác Nhận Thay Đổi
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `);
+
+        $('body').append(popup);
+
+        // Animate popup in
+        setTimeout(() => {
+            popup.css('opacity', '1');
+            popup.find('.role-change-popup').css('transform', 'translateY(0)');
+        }, 50);
+
+        // Handle actions
+        $('#btnRoleCancel').on('click', function () {
+            hideRoleChangePopup(popup, false, callback);
+        });
+
+        $('#btnRoleConfirm').on('click', function () {
+            hideRoleChangePopup(popup, true, callback);
+        });
+
+        // Close on overlay click
+        popup.on('click', function (e) {
+            if (e.target === this) {
+                hideRoleChangePopup(popup, false, callback);
+            }
+        });
+
+        // Close on escape key
+        $(document).on('keydown.rolePopup', function (e) {
+            if (e.key === 'Escape') {
+                hideRoleChangePopup(popup, false, callback);
+            }
+        });
+
+        // Hover effects
+        $('#btnRoleCancel').hover(
+            function() {
+                $(this).css({
+                    'background': '#6c757d',
+                    'color': 'white',
+                    'transform': 'translateY(-2px)'
+                });
+            },
+            function() {
+                $(this).css({
+                    'background': 'transparent',
+                    'color': '#6c757d',
+                    'transform': 'translateY(0)'
+                });
+            }
+        );
+
+        $('#btnRoleConfirm').hover(
+            function() {
+                $(this).css({
+                    'transform': 'translateY(-2px)',
+                    'box-shadow': '0 8px 25px rgba(17, 153, 142, 0.6)'
+                });
+            },
+            function() {
+                $(this).css({
+                    'transform': 'translateY(0)',
+                    'box-shadow': '0 4px 15px rgba(17, 153, 142, 0.4)'
+                });
+            }
+        );
+    }
+
+    function hideRoleChangePopup(popup, confirmed, callback) {
+        popup.css('opacity', '0');
+        popup.find('.role-change-popup').css('transform', 'translateY(-20px)');
+        $(document).off('keydown.rolePopup');
+
+        setTimeout(() => {
+            popup.remove();
+            if (callback) callback(confirmed);
+        }, 300);
+    }
+
+    // Store original role value
+    const roleSelect = $('select[name="Role"]');
+    roleSelect.data('original-value', roleSelect.val());
+
+    // Add floating animation to form fields
+    $('.form-field-card').each(function (index) {
+        $(this).css({
+            'animation-delay': (index * 0.1) + 's'
+        });
+    });
+
+    // Add staggered animations to note items
+    $('.note-item').each(function (index) {
+        $(this).css({
+            'animation-delay': (index * 0.2) + 's'
+        });
+    });
+
+    // Enhanced field focus effects
+    $('.form-control-modern, .form-select-modern').on('focus', function () {
+        $(this).closest('.form-field-card').addClass('field-focused');
+    }).on('blur', function () {
+        $(this).closest('.form-field-card').removeClass('field-focused');
+    });
+
+    // Real-time validation feedback
+    $('.form-control-modern').on('input', function () {
+        const field = $(this);
+        const fieldCard = field.closest('.form-field-card');
+        const value = field.val().trim();
+
+        if (value.length > 0) {
+            fieldCard.addClass('field-has-value');
+        } else {
+            fieldCard.removeClass('field-has-value');
+        }
+    });
+
+    // Form change detection
+    let formChanged = false;
+    $('.form-control-modern, .form-select-modern').on('change input', function () {
+        formChanged = true;
+        updateSaveButtonState();
+        console.log('Form changed detected'); // Debug
+    });
+
+    function updateSaveButtonState() {
+        const submitBtn = $('#submitBtn');
+        if (formChanged) {
+            submitBtn.addClass('btn-has-changes');
+        } else {
+            submitBtn.removeClass('btn-has-changes');
+        }
+    }
+
+    // Warn before leaving with unsaved changes
+    $(window).on('beforeunload', function (e) {
+        if (formChanged) {
+            const message = 'Bạn có thay đổi chưa được lưu. Bạn có chắc chắn muốn rời khỏi trang này không?';
+            e.returnValue = message;
+            return message;
+        }
+    });
+
+    // Remove warning when form is submitted
+    $('#editUserForm').on('submit', function () {
+        formChanged = false;
+        $(window).off('beforeunload');
+    });
+
+    // Auto-resize text areas if any
+    $('textarea').on('input', function () {
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight + 'px';
+    });
+
+    // Notification function
+    function showNotification(message, type = 'success') {
+        const iconClass = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-triangle';
+        const bgClass = type === 'success' ? 'var(--success-gradient)' : 'linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%)';
+
+        const notification = $(`
+            <div class="notification notification-${type}" style="
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 9999;
+                background: ${bgClass};
+                color: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                transform: translateX(400px);
+                transition: all 0.3s ease;
+                max-width: 350px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            ">
+                <div class="notification-icon">
+                    <i class="fas ${iconClass}"></i>
+                </div>
+                <div class="notification-message" style="flex: 1;">${message}</div>
+                <button class="notification-close" onclick="$(this).closest('.notification').remove()" style="
+                    background: none;
+                    border: none;
+                    color: white;
+                    cursor: pointer;
+                    padding: 5px;
+                ">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        `);
+
+        $('body').append(notification);
+
+        setTimeout(() => {
+            notification.css('transform', 'translateX(0)');
+        }, 100);
+
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            notification.css('transform', 'translateX(400px)');
+            setTimeout(() => notification.remove(), 300);
+        }, 5000);
+    }
+
+    // Form validation on page load
+    const currentEmail = $('#emailField').val();
+    if (currentEmail && currentEmail !== originalEmail) {
+        $('#emailField').trigger('input');
+    }
+
+    // Additional CSS for field states
+    const additionalCSS = `
+        <style>
+        .field-focused {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3) !important;
+            border-color: rgba(102, 126, 234, 0.5) !important;
+        }
+        
+        .field-has-value .field-icon {
+            background: var(--success-gradient) !important;
+        }
+        
+        .btn-has-changes {
+            animation: btnChangesPulse 2s ease-in-out infinite !important;
+        }
+        
+        @@keyframes btnChangesPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .btn-disabled {
+            opacity: 0.5 !important;
+            cursor: not-allowed !important;
+            transform: none !important;
+        }
+        
+        .btn-disabled:hover {
+            transform: none !important;
+            box-shadow: none !important;
+        }
+        </style>
+    `;
+    
+    $('head').append(additionalCSS);
+    
+    console.log('JavaScript initialized successfully'); // Debug
+});
+       </script>
+}
+                    

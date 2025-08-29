@@ -1,0 +1,1029 @@
+﻿
+@model IEnumerable<ParkingReservationSystem.ViewModels.GroupedReservationViewModel>
+@{
+    ViewData["Title"] = "Quản Lý Giao Dịch";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section Styles {
+    @Html.AntiForgeryToken()
+    <link href="~/css/Admin/transactions.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+
+    <style>
+        .bulk-actions {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    animation: slideUp 0.3s ease-out;
+    min-width: 600px;
+}
+
+@@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.bulk-actions-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.selected-count {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.bulk-buttons {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.bulk-buttons .btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.bulk-buttons .btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.bulk-buttons .btn i {
+    margin-right: 0.5rem;
+}
+
+/* Responsive design cho mobile */
+@@media (max-width: 768px) {
+    .bulk-actions {
+        min-width: 90%;
+        left: 5%;
+        right: 5%;
+        transform: none;
+        padding: 0.75rem 1rem;
+    }
+    
+    .bulk-actions-content {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+    }
+    
+    .bulk-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .bulk-buttons .btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .bulk-buttons .btn span {
+        display: none;
+    }
+}
+
+/* Hiệu ứng pulse cho số lượng đã chọn */
+.selected-count {
+    animation: pulse 2s infinite;
+}
+
+@@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+        /* Expanded/Collapsed Row Styles */
+        .group-row {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+            .group-row:hover {
+                background-color: #f8f9fa;
+                border-left-color: #007bff;
+            }
+
+            .group-row.expanded {
+                background-color: #e3f2fd;
+                border-left-color: #2196f3;
+            }
+
+        .expand-icon {
+            transition: transform 0.3s ease;
+            display: inline-block;
+            width: 16px;
+            text-align: center;
+        }
+
+            .expand-icon.expanded {
+                transform: rotate(90deg);
+            }
+
+        .detail-row {
+            background-color: #f9f9f9;
+            border-left: 4px solid #e0e0e0;
+            animation: slideDown 0.3s ease-out;
+        }
+
+            .detail-row:first-child {
+                border-top: none;
+            }
+
+        @@keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slot-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .slot-badge-group {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .group-stats {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            font-size: 0.875rem;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .stat-number {
+            font-weight: 600;
+            color: #1976d2;
+        }
+
+        /* Grid View Styles */
+        .grid-view {
+            padding: 1.5rem;
+            display: none;
+        }
+
+        .transaction-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            height: 100%;
+        }
+
+            .transaction-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            }
+
+            .transaction-card .card-header {
+                background: #f9fafb;
+                border-bottom: 1px solid #e5e7eb;
+                padding: 1rem 1.25rem;
+            }
+
+        .customer-info-grid {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .transaction-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding: 1rem 1.25rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+            .detail-item i {
+                width: 16px;
+                text-align: center;
+            }
+
+        .status-section {
+            text-align: center;
+            padding-top: 0.75rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .card-footer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            padding: 0.75rem 1.25rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .status-expired {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .stats-card-danger::before {
+            background: linear-gradient(90deg, #dc2626, #ef4444);
+        }
+
+        .stats-card-danger .stats-icon {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        /* Calendar Styles */
+        .calendar-section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .calendar-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .calendar-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .calendar-nav {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+            .calendar-nav button {
+                background: rgba(255, 255, 255, 0.2);
+                border: none;
+                color: white;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.2s;
+            }
+
+                .calendar-nav button:hover {
+                    background: rgba(255, 255, 255, 0.3);
+                    transform: scale(1.05);
+                }
+
+        .calendar-body {
+            padding: 1rem;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: #e5e7eb;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .calendar-day-header {
+            background: #f3f4f6;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .calendar-day {
+            background: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+            .calendar-day:hover {
+                background: #f8fafc;
+            }
+
+            .calendar-day.other-month {
+                color: #d1d5db;
+                background: #fafafa;
+            }
+
+            .calendar-day.today {
+                background: #dbeafe;
+                color: #1d4ed8;
+                font-weight: 600;
+            }
+
+            .calendar-day.selected {
+                background: #3b82f6;
+                color: white;
+            }
+
+                .calendar-day.selected:hover {
+                    background: #2563eb;
+                }
+
+            .calendar-day.has-transactions {
+                background: #f0f9ff;
+                border: 2px solid #3b82f6;
+            }
+
+                .calendar-day.has-transactions.selected {
+                    background: #1d4ed8;
+                }
+
+        .transaction-count {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            background: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .calendar-day.selected .transaction-count {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .calendar-actions {
+            padding: 1rem 1.5rem;
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .selected-date-info {
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .calendar-clear-btn {
+            background: #6b7280;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            transition: background 0.2s;
+        }
+
+            .calendar-clear-btn:hover {
+                background: #4b5563;
+            }
+
+        /* Responsive adjustments */
+        @@media (max-width: 768px) {
+            .group-stats {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .slot-badges {
+                max-height: 60px;
+                overflow-y: auto;
+            }
+
+            .calendar-grid {
+                gap: 0;
+            }
+
+            .calendar-day {
+                min-height: 40px;
+                padding: 0.5rem 0.25rem;
+                font-size: 0.875rem;
+            }
+
+            .calendar-day-header {
+                padding: 0.5rem 0.25rem;
+                font-size: 0.75rem;
+            }
+
+            .transaction-count {
+                width: 15px;
+                height: 15px;
+                font-size: 0.6rem;
+            }
+        }
+
+        .notification-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            pointer-events: none;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .enhanced-notification {
+            pointer-events: auto;
+        }
+
+            .enhanced-notification .btn-close:hover {
+                opacity: 1 !important;
+                background: rgba(0, 0, 0, 0.1) !important;
+                transform: scale(1.1) !important;
+            }
+    </style>
+}
+
+<!-- Page Header -->
+<div class="page-header animate__animated animate__fadeInDown">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="header-content">
+                    <div class="breadcrumb-nav">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active">Giao Dịch</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <h1 class="page-title">
+                        <i class="fas fa-credit-card"></i>
+                        Quản Lý Giao Dịch
+                    </h1>
+                    <p class="page-subtitle">Theo dõi và quản lý các giao dịch đặt chỗ của hệ thống</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-end">
+                <div class="header-actions">
+                    <button class="btn btn-light btn-icon me-2" data-bs-toggle="tooltip" title="Làm mới">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                    <a asp-action="Create" class="btn btn-primary btn-create">
+                        <i class="fas fa-plus"></i>
+                        <span>Tạo Giao Dịch</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid px-4">
+    <!-- Statistics Dashboard -->
+    <div class="stats-section animate__animated animate__fadeInUp">
+        <div class="row g-4 mb-4">
+            <div class="col-xl-3 col-md-6">
+                <div class="stats-card stats-card-primary">
+                    <div class="stats-card-body">
+                        <div class="stats-content">
+                            <div class="stats-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stats-info">
+                                <h3 class="stats-number" data-count="@Model.Count()">0</h3>
+                                <p class="stats-label">Tổng Số Giao Dịch</p>
+                                <span class="stats-change positive">
+                                    <i class="fas fa-arrow-up"></i> +12%
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="stats-card stats-card-success">
+                    <div class="stats-card-body">
+                        <div class="stats-content">
+                            <div class="stats-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stats-info">
+                                <h3 class="stats-number" data-count="@Model.Sum(g => g.ConfirmedSlots)">0</h3>
+                                <p class="stats-label">Slot Đã Xác Nhận</p>
+                                <span class="stats-change positive">
+                                    <i class="fas fa-arrow-up"></i> +8%
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="stats-card stats-card-warning">
+                    <div class="stats-card-body">
+                        <div class="stats-content">
+                            <div class="stats-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stats-info">
+                                <h3 class="stats-number" data-count="@Model.Sum(g => g.PendingSlots)">0</h3>
+                                <p class="stats-label">Slot Chờ Xác Nhận</p>
+                                <span class="stats-change negative">
+                                    <i class="fas fa-arrow-down"></i> -3%
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="stats-card stats-card-danger">
+                    <div class="stats-card-body">
+                        <div class="stats-content">
+                            <div class="stats-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="stats-info">
+                                <h3 class="stats-number" data-count="@Model.Sum(g => g.ExpiredSlots)">0</h3>
+                                <p class="stats-label">Slot Đã Hết Hạn</p>
+                                <span class="stats-change negative">
+                                    <i class="fas fa-arrow-up"></i> +5%
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calendar Filter Section -->
+    <div class="calendar-section animate__animated animate__fadeInUp animate__delay-0.3s">
+        <div class="calendar-header">
+            <h5 class="calendar-title">
+                <i class="fas fa-calendar-alt me-2"></i>
+                Lọc Theo Ngày
+            </h5>
+            <div class="calendar-nav">
+                <button type="button" id="prevMonth">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <span id="currentMonth"></span>
+                <button type="button" id="nextMonth">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+        <div class="calendar-body">
+            <div class="calendar-grid" id="calendarGrid">
+                <!-- Calendar will be generated by JavaScript -->
+            </div>
+        </div>
+        <div class="calendar-actions">
+            <div class="selected-date-info" id="selectedDateInfo">
+                Chọn một ngày để xem giao dịch
+            </div>
+            <button type="button" class="calendar-clear-btn" id="clearDateFilter">
+                <i class="fas fa-times me-1"></i>
+                Bỏ chọn
+            </button>
+        </div>
+    </div>
+
+    <!-- Advanced Filters -->
+    <div class="filter-section animate__animated animate__fadeInUp animate__delay-0.5s">
+        <div class="filter-card">
+            <div class="filter-header">
+                <h5 class="filter-title">
+                    <i class="fas fa-filter"></i>
+                    Bộ Lọc Nâng Cao
+                </h5>
+                <button class="btn btn-link btn-sm" id="toggleFilters">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+            </div>
+            <div class="filter-body" id="filterBody">
+                <form id="filterForm">
+                    <div class="row g-3">
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Tìm kiếm</label>
+                                <div class="search-box">
+                                    <input type="text" id="searchInput" class="form-control"
+                                           placeholder="Tên, email, số điện thoại...">
+                                    <i class="fas fa-search search-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Trạng thái</label>
+                                <select class="form-select" id="statusFilter">
+                                    <option value="">Tất cả trạng thái</option>
+                                    <option value="confirmed">Đã xác nhận</option>
+                                    <option value="pending">Chờ xác nhận</option>
+                                    <option value="expired">Đã hết hạn</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Từ ngày</label>
+                                <div class="date-picker-wrapper">
+                                    <input type="text" class="form-control datepicker" id="fromDate"
+                                           placeholder="dd/mm/yyyy" readonly>
+                                    <i class="fas fa-calendar-alt date-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Đến ngày</label>
+                                <div class="date-picker-wrapper">
+                                    <input type="text" class="form-control datepicker" id="toDate"
+                                           placeholder="dd/mm/yyyy" readonly>
+                                    <i class="fas fa-calendar-alt date-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3">
+                            <div class="form-group">
+                                <label class="form-label">&nbsp;</label>
+                                <button type="button" class="btn btn-primary w-100" id="applyFiltersBtn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-actions">
+                        <button type="button" class="btn btn-outline-secondary btn-sm" id="clearFiltersBtn">
+                            <i class="fas fa-times"></i>
+                            Xóa lọc
+                        </button>
+                        <div class="ms-auto">
+                            <button type="button" class="btn btn-success btn-sm" id="exportExcelBtn">
+                                <i class="fas fa-file-excel"></i>
+                                Xuất Excel
+                            </button>
+                            <button type="button" class="btn btn-info btn-sm" id="exportPdfBtn">
+                                <i class="fas fa-file-pdf"></i>
+                                Xuất PDF
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Table and Grid View -->
+    <div class="table-section animate__animated animate__fadeInUp animate__delay-0.5s">
+        <div class="table-card">
+            <div class="table-header">
+                <div class="table-title">
+                    <h5 class="mb-0">Danh Sách Giao Dịch Nhóm</h5>
+                </div>
+                <div class="table-actions">
+                    <button class="btn btn-outline-primary btn-sm" data-view="table" title="Chế độ bảng">
+                        <i class="fas fa-table"></i>
+                    </button>
+                    <button class="btn btn-outline-primary btn-sm" data-view="grid" title="Chế độ lưới">
+                        <i class="fas fa-th"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Table View -->
+            <div class="table-responsive" id="tableView">
+                <table class="table table-hover" id="transactionsTable">
+                    <thead class="table-header-custom">
+                        <tr>
+                            <th width="5%" style="text-align: center; vertical-align: middle;">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="selectAll">
+                                </div>
+                            </th>
+                            <th width="22%">
+                                <div class="th-content sortable" data-sort="name">
+                                    <i class="fas fa-user me-2"></i>Khách hàng
+                                    <i class="fas fa-sort sort-icon"></i>
+                                </div>
+                            </th>
+                            <th width="20%">
+                                <div class="th-content sortable" data-sort="email">
+                                    <i class="fas fa-envelope me-2"></i>Email
+                                    <i class="fas fa-sort sort-icon"></i>
+                                </div>
+                            </th>
+                            <th width="12%">
+                                <div class="th-content sortable" data-sort="phone">
+                                    <i class="fas fa-phone me-2"></i>Điện thoại
+                                    <i class="fas fa-sort sort-icon"></i>
+                                </div>
+                            </th>
+                            <th width="15%">
+                                <div class="th-content">
+                                    <i class="fas fa-parking me-2"></i>Vị trí đặt
+                                </div>
+                            </th>
+                            <th width="12%">
+                                <div class="th-content sortable" data-sort="reservedAt">
+                                    <i class="fas fa-calendar me-2"></i>Ngày đặt
+                                    <i class="fas fa-sort sort-icon"></i>
+                                </div>
+                            </th>
+                            <th width="10%">
+                                <div class="th-content">
+                                    <i class="fas fa-info-circle me-2"></i>Trạng thái
+                                </div>
+                            </th>
+                            <th width="4%">
+                                <div class="th-content">
+                                    <i class="fas fa-expand-arrows-alt me-2"></i>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        @foreach (var group in Model.OrderByDescending(g => g.ReservedAt))
+                        {
+                           
+                                // Tạo GroupId duy nhất
+                                var groupId = $"{group.UserId}_{group.ReservedAt.Date.Ticks}_{group.ReservedAt.TimeOfDay.Ticks}";
+                            
+                            <tr class="group-row table-row" data-group-id="group-@groupId" data-date="@group.ReservedAt.ToString("yyyy-MM-dd")">
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input group-checkbox row-checkbox" type="checkbox" value="@groupId">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="customer-info">
+                                        <div class="customer-avatar">
+                                            @{
+                                                var initials = group.Name?.Split(' ').Select(n => n.FirstOrDefault()).Take(2);
+                                                var avatarText = string.Join("", initials ?? new[] { 'U', 'N' });
+                                            }
+                                            <span>@avatarText</span>
+                                        </div>
+                                        <div class="customer-details">
+                                            <div class="customer-name">@Html.DisplayFor(modelItem => group.Name)</div>
+                                            <div class="customer-id">ID: @group.UserId</div>
+                                            <div class="group-stats">
+                                                <span class="stat-item">
+                                                    <i class="fas fa-layer-group"></i>
+                                                    <span class="stat-number">@group.TotalSlots</span> slot
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="email-info">
+                                        <span>@Html.DisplayFor(modelItem => group.Email)</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="phone-info">
+                                        <span>@Html.DisplayFor(modelItem => group.Phone)</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="slot-badges">
+                                        @foreach (var slotCode in group.SlotCodes.Take(3))
+                                        {
+                                            <span class="slot-badge-group">@slotCode</span>
+                                        }
+                                        @if (group.SlotCodes.Count > 3)
+                                        {
+                                            <span class="slot-badge-group">+@(group.SlotCodes.Count - 3)</span>
+                                        }
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="date-info">
+                                        <div class="date">@group.ReservedAt.ToString("dd/MM/yyyy")</div>
+                                        <div class="time">@group.ReservedAt.ToString("HH:mm")</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge @group.StatusClass">
+                                        <i class="fas @group.StatusIcon"></i>
+                                        <span>@group.StatusDisplay</span>
+                                    </span>
+                                </td>
+                                <td>
+                                    <i class="fas fa-chevron-right expand-icon" aria-hidden="true"></i>
+                                </td>
+                            </tr>
+                            @foreach (var reservation in group.Reservations)
+                            {
+                                <tr class="detail-row" data-parent="group-@groupId" style="display: none;">
+                                    <td></td>
+                                    <td colspan="2">
+                                        <div class="ms-4">
+                                            <div class="customer-id">ID: @reservation.Id.ToString("000")</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="slot-badge">@Html.DisplayFor(modelItem => reservation.ParkingSlot.SlotCode)</span>
+                                    </td>
+                                    <td>
+                                        <div class="date-info">
+                                            <div class="date">@(reservation.ExpiresAt?.ToString("dd/MM/yyyy") ?? "")</div>
+                                            <div class="time">@(reservation.ExpiresAt?.ToString("HH:mm") ?? "")</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        @if (reservation.IsConfirmed)
+                                        {
+                                            <span class="status-badge status-confirmed">
+                                                <i class="fas fa-check-circle"></i>
+                                                <span>Đã xác nhận</span>
+                                            </span>
+                                        }
+                                        else if (reservation.ExpiresAt < DateTime.Now)
+                                        {
+                                            <span class="status-badge status-expired">
+                                                <i class="fas fa-times-circle"></i>
+                                                <span>Đã hết hạn</span>
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="status-badge status-pending">
+                                                <i class="fas fa-clock"></i>
+                                                <span>Chờ xác nhận</span>
+                                            </span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <div class="btn-group">
+                                                <a asp-action="Details" asp-route-id="@reservation.Id"
+                                                   class="btn btn-action btn-view"
+                                                   data-bs-toggle="tooltip" title="Xem chi tiết">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a asp-action="Edit" asp-route-id="@reservation.Id"
+                                                   class="btn btn-action btn-edit"
+                                                   data-bs-toggle="tooltip" title="Chỉnh sửa">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a asp-action="Delete" asp-route-id="@reservation.Id"
+                                                   class="btn btn-action btn-delete"
+                                                   data-bs-toggle="tooltip" title="Xóa">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Grid View -->
+            <div class="grid-view" id="gridView">
+                <div class="row g-4" id="gridContainer">
+                    <!-- Grid items will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-section mt-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="pagination-info">
+                        Hiển thị <span id="showingStart">1</span> đến <span id="showingEnd">10</span> của <span id="totalEntries">0</span> mục
+                    </div>
+                </div>
+                <div class="col-md-6 text-end">
+                    <div class="pagination-controls">
+                        <select class="form-select d-inline-block w-auto" id="pageSizeSelect">
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                        <ul class="pagination mb-0 ms-2" id="paginationContainer">
+                            <!-- Pagination will be generated by JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bulk Actions -->
+    <div class="bulk-actions" id="bulkActions" style="display: none;">
+        <div class="bulk-actions-content">
+            <div class="selected-count">
+                <i class="fas fa-check-circle text-success me-2"></i>
+                <span id="selectedCount">0</span> mục đã chọn
+            </div>
+            <div class="bulk-buttons">
+                <button class="btn btn-outline-success btn-sm" id="bulkConfirmBtn"
+                        data-bs-toggle="tooltip" title="Xác nhận các giao dịch đã chọn và gửi email thông báo">
+                    <i class="fas fa-check"></i>
+                    <span>Xác nhận</span>
+                </button>
+                <button class="btn btn-outline-info btn-sm" id="bulkSendEmailBtn"
+                        data-bs-toggle="tooltip" title="Gửi email thông báo cho các giao dịch đã xác nhận">
+                    <i class="fas fa-envelope"></i>
+                    <span>Gửi Email</span>
+                </button>
+                <button class="btn btn-outline-warning btn-sm" id="bulkExportBtn"
+                        data-bs-toggle="tooltip" title="Xuất dữ liệu các mục đã chọn">
+                    <i class="fas fa-download"></i>
+                    <span>Xuất dữ liệu</span>
+                </button>
+                <button class="btn btn-outline-danger btn-sm" id="bulkDeleteBtn"
+                        data-bs-toggle="tooltip" title="Xóa các mục đã chọn">
+                    <i class="fas fa-trash"></i>
+                    <span>Xóa</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Loading Overlay -->
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner">
+        <div class="spinner-border text-primary" role="status">
+        </div>
+        <p class="loading-text">Đang xử lý...</p>
+    </div>
+</div>
+<!-- Notification Container -->
+<div id="notificationContainer" class="notification-container"></div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.vi.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/Admin/transactions.js"></script>
+}

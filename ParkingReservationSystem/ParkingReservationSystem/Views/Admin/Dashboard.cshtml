@@ -69,7 +69,488 @@
         vertical-align: middle;
     }
 
+    .detail-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
 
+    .detail-modal-content {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        max-width: 500px;
+        width: 90%;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        position: relative;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
+    .detail-modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #f8f9fa;
+    }
+
+    .modal-close {
+        background: #e74c3c;
+        border: none;
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+        .modal-close:hover {
+            background: #c0392b;
+            transform: scale(1.1);
+        }
+
+    .slot-detail-item {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 10px;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+        .slot-detail-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .slot-detail-item.confirmed {
+            border-left: 4px solid #28a745;
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+        }
+
+        .slot-detail-item.pending {
+            border-left: 4px solid #ffc107;
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+        }
+
+    .slot-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .slot-code-large {
+        font-size: 18px;
+        font-weight: bold;
+        color: #2d3748;
+    }
+
+    .slot-location {
+        font-size: 14px;
+        color: #6c757d;
+        margin-top: 5px;
+    }
+
+    .slot-status-badge {
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: bold;
+        color: white;
+    }
+
+        .slot-status-badge.confirmed {
+            background: #28a745;
+        }
+
+        .slot-status-badge.pending {
+            background: #ffc107;
+            color: #212529;
+        }
+
+    .view-detail-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        padding: 5px 12px;
+        border-radius: 15px;
+        font-size: 11px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+    }
+
+        .view-detail-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+        }
+
+</style>
+
+<div class="dashboard-container">
+    <div class="container" style="    min-width: -webkit-fill-available;">
+        <div class="dashboard-header">
+            <h2>🎯 Admin Dashboard</h2>
+            <p>Tổng quan hệ thống quản lý đặt chỗ - Cập nhật: <span id="lastUpdate">@DateTime.Now.ToString("dd/MM/yyyy HH:mm")</span></p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 animate-fade-in">
+                <div class="stats-card primary" style="height: auto">
+                    <div class="card-header">
+                        <div class="card-icon">👥</div>
+                        <div class="card-content">
+                            <div class="card-title">Tổng người dùng</div>
+                            <div class="card-value" id="totalUsers">@ViewData["TotalUsers"]</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-change @(Convert.ToDouble(ViewData["UserGrowth"]) >= 0 ? "positive" : "negative")">
+                            @(Convert.ToDouble(ViewData["UserGrowth"]) >= 0 ? "↗️" : "↘️") @Math.Abs(Convert.ToDouble(ViewData["UserGrowth"])).ToString("F1")% tuần này
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 animate-fade-in">
+                <div class="stats-card success" style="height: auto">
+                    <div class="card-header">
+                        <div class="card-icon">📋</div>
+                        <div class="card-content">
+                            <div class="card-title">Tổng lượt đặt chỗ</div>
+                            <div class="card-value" id="totalReservations">@ViewData["TotalReservations"]</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-change @(Convert.ToDouble(ViewData["ReservationGrowth"]) >= 0 ? "positive" : "negative")">
+                            @(Convert.ToDouble(ViewData["ReservationGrowth"]) >= 0 ? "↗️" : "↘️") @Math.Abs(Convert.ToDouble(ViewData["ReservationGrowth"])).ToString("F1")% tuần này
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 animate-fade-in">
+                <div class="stats-card warning" style="height: auto">
+                    <div class="card-header">
+                        <div class="card-icon">✅</div>
+                        <div class="card-content">
+                            <div class="card-title">Đã xác nhận</div>
+                            <div class="card-value" id="confirmedReservations">@ViewData["ConfirmedReservations"]</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-change @(Convert.ToDouble(ViewData["ConfirmedGrowth"]) >= 0 ? "positive" : "negative")">
+                            @(Convert.ToDouble(ViewData["ConfirmedGrowth"]) >= 0 ? "↗️" : "↘️") @Math.Abs(Convert.ToDouble(ViewData["ConfirmedGrowth"])).ToString("F1")% tuần này
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 animate-fade-in">
+                <div class="stats-card info" style="height: auto">
+                    <div class="card-header">
+                        <div class="card-icon">🎯</div>
+                        <div class="card-content">
+                            <div class="card-title">Chỗ còn trống</div>
+                            <div class="card-value" id="availableSlots">@ViewData["AvailableSlots"]</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-change positive">
+                            ⚡ Sẵn sàng phục vụ
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions Section -->
+        <div class="quick-actions animate-fade-in">
+            <h4 style="margin-bottom: 1.5rem; color: #2d3748; font-weight: 700;">⚡ Thao tác nhanh</h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="#" class="action-btn">📊 Xem báo cáo chi tiết</a>
+                    <a href="#" class="action-btn">➕ Thêm người dùng mới</a>
+                    <a href="@Url.Action("ParkingSlots", "Admin")" class="action-btn">🚗 Quản lý chỗ đậu</a>
+                    <a href="@Url.Action("Account", "Admin")" class="action-btn">👤 Quản lý tài khoản</a>
+                    <a href="@Url.Action("Transactions", "Admin")" class="action-btn">💰 Lịch sử giao dịch</a>
+                    <a href="#" class="action-btn">📧 Gửi thông báo</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="row">
+            <div class="col-md-8">
+                <div class="chart-container animate-fade-in">
+                    <h4 style="margin-bottom: 1.5rem; color: #2d3748; font-weight: 700;">📈 Thống kê đặt chỗ 7 ngày qua</h4>
+                    <canvas id="reservationChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="chart-container animate-fade-in">
+                    <h4 style="margin-bottom: 1.5rem; color: #2d3748; font-weight: 700;">🥧 Phân bố trạng thái</h4>
+                    <canvas id="statusChart" width="200" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity with Enhanced Multi-Slot Support -->
+        <!-- Fixed Recent Activity Table Structure -->
+        <div class="chart-container animate-fade-in">
+            <h4 style="margin-bottom: 1.5rem; color: #2d3748; font-weight: 700;">🕒 5 Hoạt động gần đây</h4>
+
+            <!-- Responsive table wrapper -->
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Thời gian</th>
+                            <th scope="col">Người dùng</th>
+                            <th scope="col">Chi tiết</th>
+                            <th scope="col">Hành động</th>
+                            <th scope="col">Chỗ đậu</th>
+                            <th scope="col">Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (recentActivities.Any())
+                        {
+                            @foreach (var activity in recentActivities)
+                            {
+                                <tr>
+                                    <!-- Time Column - Fixed Width -->
+                                    <td>
+                                        <div class="time-display">
+                                            <div class="time-main">@activity.Time.ToString("HH:mm")</div>
+                                            <div class="time-date">@activity.Time.ToString("dd/MM")</div>
+                                        </div>
+                                    </td>
+
+                                    <!-- User Column - Fixed Width -->
+                                    <td>
+                                        <div class="user-info">
+                                            <div class="user-avatar">
+                                                @activity.UserName.FirstOrDefault().ToString().ToUpper()
+                                            </div>
+                                            <strong title="@activity.UserName">
+                                                @(activity.UserName.Length > 12 ? activity.UserName.Substring(0, 12) + "..." : activity.UserName)
+                                            </strong>
+                                        </div>
+                                    </td>
+
+                                    <!-- Detail Column - Fixed Width -->
+                                    <td>
+                                        <button class="view-detail-btn"
+                                                onclick="showSlotDetails(@activity.Time.Ticks, '@Html.Raw(Html.Encode(activity.UserName))')"
+                                                title="Xem chi tiết chỗ đậu">
+                                            👁️ Chi tiết
+                                        </button>
+                                    </td>
+
+                                    <!-- Action Column - Fixed Width -->
+                                    <td>
+                                        <span class="action-badge" title="@activity.Action">
+                                            @(activity.Action.Length > 15 ? activity.Action.Substring(0, 15) + "..." : activity.Action)
+                                        </span>
+                                    </td>
+
+                                    <!-- Parking Slots Column - Fixed Width -->
+                                    <td>
+                                        <div class="parking-slots-container">
+                                            @if (activity.SlotCodes != null && activity.SlotCodes.Any())
+                                            {
+                                                @* Hiển thị tối đa 3 slot để tránh tràn *@
+                                                @for (int i = 0; i < Math.Min(3, activity.SlotCodes.Count); i++)
+                                                {
+                                                    string colorClass = i switch
+                                                    {
+                                                        0 => "primary",
+                                                        1 => "success",
+                                                        _ => "warning"
+                                                    };
+                                                    <span class="parking-slot-chip @colorClass" title="Chỗ đậu @activity.SlotCodes[i]">
+                                                        @activity.SlotCodes[i]
+                                                    </span>
+                                                }
+                                                @if (activity.SlotCodes.Count > 3)
+                                                {
+                                                    <span class="slots-count-badge"
+                                                          title="Tổng cộng @activity.SlotCodes.Count chỗ đậu: @string.Join(", ", activity.SlotCodes)">
+                                                        +@(activity.SlotCodes.Count - 3)
+                                                    </span>
+                                                }
+                                            }
+                                            else if (!string.IsNullOrEmpty(activity.SlotCode))
+                                            {
+                                                <span class="parking-slot-chip primary" title="Chỗ đậu @activity.SlotCode">
+                                                    @activity.SlotCode
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="parking-slot-chip na">N/A</span>
+                                            }
+                                        </div>
+                                        @if (activity.SlotCodes != null && activity.SlotCodes.Count > 1)
+                                        {
+                                            <small class="text-muted d-block mt-1" style="font-size: 0.65rem;">
+                                                Tổng: @activity.SlotCodes.Count chỗ
+                                            </small>
+                                        }
+                                    </td>
+
+                                    <!-- Status Column - Fixed Width -->
+                                    <td>
+                                        @{
+                                            var statusConfig = activity.Status switch
+                                            {
+                                                "Đã xác nhận" => new { Class = "bg-success", Icon = "✅", Indicator = "status-success" },
+                                                "Chờ xác nhận" => new { Class = "bg-warning", Icon = "⏳", Indicator = "status-warning" },
+                                                "Một phần xác nhận" => new { Class = "bg-warning", Icon = "⚠️", Indicator = "status-partial" },
+                                                "Đã hủy" => new { Class = "bg-secondary", Icon = "⛔", Indicator = "status-secondary" },
+                                                "Hoàn thành" => new { Class = "bg-info", Icon = "🎉", Indicator = "status-info" },
+                                                _ => new { Class = "bg-danger", Icon = "❌", Indicator = "status-danger" }
+                                            };
+                                        }
+                                        <span class="badge @statusConfig.Class" title="@activity.Status">
+                                            <span class="status-indicator @statusConfig.Indicator"></span>
+                                            @statusConfig.Icon @activity.Status
+                                        </span>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="6" class="text-center text-muted py-4">
+                                    <div style="padding: 20px;">
+                                        <i class="fas fa-inbox" style="font-size: 2rem; margin-bottom: 10px; opacity: 0.5;"></i>
+                                        <p>Chưa có hoạt động nào</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detail Modal -->
+<div id="detailModal" class="detail-modal">
+    <div class="detail-modal-content">
+        <div class="detail-modal-header">
+            <h5>📍 Chi tiết chỗ đậu</h5>
+            <button class="modal-close" onclick="closeDetailModal()">&times;</button>
+        </div>
+        <div id="modalContent">
+            <!-- Content will be loaded here -->
+        </div>
+    </div>
+</div>
+
+<!-- Include Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.min.js"></script>
+
+<script>
+    // Pass data to JavaScript
+    window.weeklyData = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(weeklyStats.Select(s => s.Count).ToArray()));
+    window.weeklyLabels = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(weeklyStats.Select(s => s.DayName).ToArray()));
+    window.statusData = [@statusStats.Confirmed, @statusStats.Pending, @statusStats.Expired];
+
+    // Activity data for modal
+    window.activityData = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(recentActivities.Select(a => new
+        {
+            Time = a.Time.Ticks,
+            UserName = a.UserName,
+            SlotDetails = a.SlotDetails.Select(s => new
+            {
+                SlotCode = s.SlotCode,
+                Floor = s.Floor,
+                Area = s.Area,
+                IsConfirmed = s.IsConfirmed
+            })
+        })));
+
+    function showSlotDetails(timeTicks, userName) {
+        const activity = window.activityData.find(a => a.Time === timeTicks && a.UserName === userName);
+        if (!activity || !activity.SlotDetails) return;
+
+        let content = `
+                <div style="margin-bottom: 20px;">
+                    <h6>👤 Người dùng: <strong>${userName}</strong></h6>
+                    <p class="text-muted">📅 ${new Date(timeTicks / 10000 - 621355968000000000).toLocaleString('vi-VN')}</p>
+                </div>
+            `;
+
+        if (activity.SlotDetails.length === 0) {
+            content += '<p class="text-muted text-center">Không có thông tin chi tiết chỗ đậu</p>';
+        } else {
+            activity.SlotDetails.forEach(slot => {
+                const statusClass = slot.IsConfirmed ? 'confirmed' : 'pending';
+                const statusText = slot.IsConfirmed ? 'Đã xác nhận' : 'Chờ xác nhận';
+                const statusBadgeClass = slot.IsConfirmed ? 'confirmed' : 'pending';
+
+                content += `
+                        <div class="slot-detail-item ${statusClass}">
+                            <div class="slot-info">
+                                <div>
+                                    <div class="slot-code-large">🚗 ${slot.SlotCode}</div>
+                                    <div class="slot-location">
+                                        🏢 Tầng: <strong>${slot.Floor || 'N/A'}</strong> 
+                                    </div>
+                                </div>
+                                <span class="slot-status-badge ${statusBadgeClass}">
+                                    ${slot.IsConfirmed ? '✅' : '⏳'} ${statusText}
+                                </span>
+                            </div>
+                        </div>
+                    `;
+            });
+        }
+
+        document.getElementById('modalContent').innerHTML = content;
+        document.getElementById('detailModal').style.display = 'flex';
+    }
+
+    function closeDetailModal() {
+        document.getElementById('detailModal').style.display = 'none';
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('detailModal').addEventListener('click', function (e) {
+        if (e.target === this) {
+            closeDetailModal();
+        }
+    });
+
+    // Close modal with ESC key
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeDetailModal();
+        }
+    });
 </script>
 
 <script src="~/js/Admin/admin-dashboard.js"></script>

@@ -1,0 +1,1296 @@
+﻿@model ParkingReservationSystem.Models.User
+@{
+    ViewData["Title"] = "Chi Tiết Người Dùng";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid px-4 py-3">
+    <!-- Hero Header with 3D Effects -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="hero-header position-relative overflow-hidden rounded-4 shadow-2xl">
+                <div class="hero-bg"></div>
+                <div class="hero-pattern"></div>
+                <div class="hero-content position-relative z-3 p-5 text-white">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap">
+                        <div class="d-flex align-items-center mb-3 mb-md-0">
+                            <div class="user-avatar-3d me-4">
+                                <div class="avatar-inner">
+                                    <i class="fas fa-user fa-3x"></i>
+                                </div>
+                                <div class="avatar-ring"></div>
+                            </div>
+                            <div>
+                                <h1 class="display-5 fw-bold mb-2 text-shadow">Chi Tiết Người Dùng</h1>
+                                <p class="fs-5 mb-0 opacity-90">Xem thông tin chi tiết và quyền truy cập</p>
+                            </div>
+                        </div>
+                        <nav aria-label="breadcrumb">
+                            <ol class="glass-breadcrumb mb-0">
+                                 @* <li class="breadcrumb-item">
+                                     <a href="#" class="text-white text-decoration-none fw-semibold">
+                                         <i class="fas fa-home me-2"></i>Dashboard
+                                     </a>
+                                 </li> *@
+                                <li class="breadcrumb-item">
+                                    <a asp-action="Index" class="text-white text-decoration-none fw-semibold">
+                                        <i class="fas fa-users me-2"></i>Người Dùng
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item active text-white fw-bold" aria-current="page">
+                                    <i class="fas fa-eye me-2"></i>Chi Tiết
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-8">
+            <!-- Main Profile Card -->
+            <div class="profile-card-container mb-5">
+                <div class="glass-card-3d rounded-4 overflow-hidden">
+                    <!-- Profile Header -->
+                    <div class="profile-header position-relative">
+                        <div class="header-gradient"></div>
+                        <div class="header-wave"></div>
+                        <div class="profile-info position-relative z-3 p-4 text-white">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="profile-avatar-large">
+                                        <div class="avatar-background @(Model?.Role == "Admin" ? "admin-gradient" : "user-gradient")">
+                                            <i class="fas @(Model?.Role == "Admin" ? "fa-crown" : "fa-user") fa-3x"></i>
+                                        </div>
+                                        <div class="avatar-status">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="profile-details">
+                                        <h2 class="profile-name mb-2">@Html.DisplayFor(model => model.Name)</h2>
+                                        <p class="profile-email mb-3">
+                                            <i class="fas fa-envelope me-2"></i>@Html.DisplayFor(model => model.Email)
+                                        </p>
+                                        <div class="profile-badges">
+                                            <span class="badge-modern @(Model?.Role == "Admin" ? "badge-admin" : "badge-user")">
+                                                <i class="fas @(Model?.Role == "Admin" ? "fa-crown" : "fa-user") me-2"></i>
+                                                @(Model?.Role == "Admin" ? "Quản trị viên" : "Người dùng")
+                                            </span>
+                                            <span class="badge-modern badge-id">
+                                                <i class="fas fa-hashtag me-2"></i>ID: @Model?.Id
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Details -->
+                    <div class="profile-body p-5">
+                        <h5 class="section-title mb-4">
+                            <i class="fas fa-info-circle me-3"></i>Thông Tin Chi Tiết
+                        </h5>
+
+                        <div class="row g-4">
+                            <!-- ID Card -->
+                            <div class="col-md-6">
+                                <div class="info-card">
+                                    <div class="info-icon id-icon">
+                                        <i class="fas fa-hashtag"></i>
+                                    </div>
+                                    <div class="info-content">
+                                        <div class="info-label">ID Người Dùng</div>
+                                        <div class="info-value">@Html.DisplayFor(model => model.Id)</div>
+                                    </div>
+                                    <div class="info-decoration"></div>
+                                </div>
+                            </div>
+
+                            <!-- Name Card -->
+                            <div class="col-md-6">
+                                <div class="info-card">
+                                    <div class="info-icon name-icon">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="info-content">
+                                        <div class="info-label">Họ và Tên</div>
+                                        <div class="info-value">@Html.DisplayFor(model => model.Name)</div>
+                                    </div>
+                                    <div class="info-decoration"></div>
+                                </div>
+                            </div>
+
+                            <!-- Email Card -->
+                            <div class="col-md-6">
+                                <div class="info-card">
+                                    <div class="info-icon email-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="info-content">
+                                        <div class="info-label">Địa chỉ Email</div>
+                                        <div class="info-value">@Html.DisplayFor(model => model.Email)</div>
+                                    </div>
+                                    <div class="info-decoration"></div>
+                                </div>
+                            </div>
+
+                            <!-- Role Card -->
+                            <div class="col-md-6">
+                                <div class="info-card">
+                                    <div class="info-icon role-icon">
+                                        <i class="fas @(Model?.Role == "Admin" ? "fa-crown" : "fa-user-tag")"></i>
+                                    </div>
+                                    <div class="info-content">
+                                        <div class="info-label">Vai Trò</div>
+                                        <div class="info-value @(Model?.Role == "Admin" ? "text-danger" : "text-primary")">
+                                            @(Model?.Role == "Admin" ? "Quản trị viên" : "Người dùng")
+                                        </div>
+                                    </div>
+                                    <div class="info-decoration"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Security Status -->
+                        <div class="security-section mt-5">
+                            <h6 class="section-subtitle mb-3">
+                                <i class="fas fa-shield-alt me-2"></i>Trạng Thái Bảo Mật
+                            </h6>
+                            <div class="security-card">
+                                <div class="security-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="security-content">
+                                    <h6 class="security-title">Tài khoản được bảo mật</h6>
+                                    <p class="security-desc">Mật khẩu đã được mã hóa và bảo mật theo tiêu chuẩn cao</p>
+                                </div>
+                                <div class="security-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="card-footer-modern p-4">
+                        <div class="d-flex gap-3 justify-content-end flex-wrap">
+                            <a asp-action="Index" class="btn-modern btn-secondary">
+                                <div class="btn-icon">
+                                    <i class="fas fa-arrow-left"></i>
+                                </div>
+                                <span>Quay Lại</span>
+                            </a>
+                            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn-modern btn-warning">
+                                <div class="btn-icon">
+                                    <i class="fas fa-edit"></i>
+                                </div>
+                                <span>Chỉnh Sửa</span>
+                            </a>
+                            <button type="button" class="btn-modern btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                <div class="btn-icon">
+                                    <i class="fas fa-trash-alt"></i>
+                                </div>
+                                <span>Xóa</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Permissions Card -->
+            <div class="permissions-section">
+                <div class="glass-card-3d rounded-4 p-4">
+                    <h5 class="section-title mb-4">
+                        <i class="fas fa-key me-3"></i>Quyền Truy Cập & Chức Năng
+                    </h5>
+                    
+                    <div class="permissions-grid">
+                        @if (Model?.Role == "Admin")
+                        {
+                            <div class="permission-item granted">
+                                <div class="permission-icon">
+                                    <i class="fas fa-users-cog"></i>
+                                </div>
+                                <div class="permission-content">
+                                    <h6>Quản lý người dùng</h6>
+                                    <p>Tạo, chỉnh sửa, xóa tài khoản người dùng</p>
+                                </div>
+                                <div class="permission-status">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+
+                            <div class="permission-item granted">
+                                <div class="permission-icon">
+                                    <i class="fas fa-car"></i>
+                                </div>
+                                <div class="permission-content">
+                                    <h6>Quản lý bãi đỗ xe</h6>
+                                    <p>Quản lý toàn bộ hệ thống bãi đỗ xe</p>
+                                </div>
+                                <div class="permission-status">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+
+                            <div class="permission-item granted">
+                                <div class="permission-icon">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <div class="permission-content">
+                                    <h6>Xem báo cáo thống kê</h6>
+                                    <p>Truy cập tất cả báo cáo và thống kê</p>
+                                </div>
+                                <div class="permission-status">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+
+                            <div class="permission-item granted">
+                                <div class="permission-icon">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <div class="permission-content">
+                                    <h6>Quản lý đặt chỗ</h6>
+                                    <p>Xem và quản lý tất cả đặt chỗ</p>
+                                </div>
+                                <div class="permission-status">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="permission-item granted">
+                                <div class="permission-icon">
+                                    <i class="fas fa-parking"></i>
+                                </div>
+                                <div class="permission-content">
+                                    <h6>Đặt chỗ đỗ xe</h6>
+                                    <p>Đặt và quản lý chỗ đỗ xe cá nhân</p>
+                                </div>
+                                <div class="permission-status">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+
+                            <div class="permission-item granted">
+                                <div class="permission-icon">
+                                    <i class="fas fa-history"></i>
+                                </div>
+                                <div class="permission-content">
+                                    <h6>Xem lịch sử đặt chỗ</h6>
+                                    <p>Truy cập lịch sử đặt chỗ cá nhân</p>
+                                </div>
+                                <div class="permission-status">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+
+                            <div class="permission-item denied">
+                                <div class="permission-icon">
+                                    <i class="fas fa-users-cog"></i>
+                                </div>
+                                <div class="permission-content">
+                                    <h6>Quản lý người dùng</h6>
+                                    <p>Không có quyền truy cập</p>
+                                </div>
+                                <div class="permission-status">
+                                    <i class="fas fa-times-circle"></i>
+                                </div>
+                            </div>
+
+                            <div class="permission-item denied">
+                                <div class="permission-icon">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <div class="permission-content">
+                                    <h6>Xem báo cáo</h6>
+                                    <p>Không có quyền truy cập</p>
+                                </div>
+                                <div class="permission-status">
+                                    <i class="fas fa-times-circle"></i>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Enhanced Delete Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-modern">
+            <div class="modal-header modal-header-danger">
+                <div class="modal-icon-danger">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div>
+                    <h5 class="modal-title mb-1" id="deleteModalLabel">Xác Nhận Xóa</h5>
+                    <p class="modal-subtitle mb-0">Hành động này không thể hoàn tác</p>
+                </div>
+                <button type="button" class="btn-close-modern" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body modal-body-modern p-4">
+                <div class="text-center mb-4">
+                    <div class="modal-user-avatar">
+                        <i class="fas fa-user-times"></i>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h6 class="mb-3">Bạn có chắc chắn muốn xóa người dùng</h6>
+                    <div class="user-to-delete">
+                        <strong>@Model?.Name</strong>
+                        <small class="text-muted d-block">@Model?.Email</small>
+                    </div>
+                    <p class="text-muted small mt-3 mb-0">
+                        <i class="fas fa-exclamation-circle me-2"></i>
+                        Hành động này sẽ xóa tất cả dữ liệu liên quan và không thể hoàn tác.
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer modal-footer-modern">
+                <button type="button" class="btn-modern btn-secondary" data-bs-dismiss="modal">
+                    <div class="btn-icon">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <span>Hủy</span>
+                </button>
+                <a asp-action="Delete" asp-route-id="@Model?.Id" class="btn-modern btn-danger">
+                    <div class="btn-icon">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                    <span>Xác Nhận Xóa</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --success-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            --warning-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --danger-gradient: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%);
+            --admin-gradient: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            --user-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        /* Hero Header */
+        .hero-header {
+            background: var(--primary-gradient);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><defs><radialGradient id="grad1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(255,255,255,0.1)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><rect width="100%" height="100%" fill="url(%23grad1)"/></svg>');
+            animation: heroFloat 8s ease-in-out infinite;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23pattern)"/></svg>');
+            animation: patternMove 20s linear infinite;
+        }
+
+        @@keyframes heroFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @@keyframes patternMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-20px); }
+        }
+
+        .user-avatar-3d {
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+
+        .avatar-inner {
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            backdrop-filter: blur(10px);
+            animation: avatarFloat 3s ease-in-out infinite;
+        }
+
+        .avatar-ring {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: avatarRing 2s ease-in-out infinite;
+        }
+
+        @@keyframes avatarFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(5deg); }
+        }
+
+        @@keyframes avatarRing {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(180deg); }
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .glass-breadcrumb {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 12px 20px;
+        }
+
+        /* Profile Card */
+        .profile-card-container {
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .glass-card-3d {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 15px;
+        }
+
+        .glass-card-3d:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.15);
+        }
+
+        .profile-header {
+            background: var(--warning-gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .header-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" fill="rgba(255,255,255,0.1)"></path></svg>') repeat-x;
+            animation: waveMove 10s ease-in-out infinite;
+        }
+
+        @@keyframes waveMove {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-50px); }
+        }
+
+        .profile-avatar-large {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+
+        .avatar-background {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: avatarPulse 3s ease-in-out infinite;
+        }
+
+        .admin-gradient {
+            background: var(--danger-gradient);
+        }
+
+        .user-gradient {
+            background: var(--success-gradient);
+        }
+
+        @@keyframes avatarPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .avatar-status {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 25px;
+            height: 25px;
+            background: #28a745;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .profile-name {
+            font-size: 2rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-email {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .profile-badges {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .badge-modern {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .badge-admin {
+            background: rgba(220, 53, 69, 0.2);
+            color: #fff;
+        }
+
+        .badge-user {
+            background: rgba(40, 167, 69, 0.2);
+            color: #fff;
+        }
+
+        .badge-id {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        .badge-modern:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Section Titles */
+        .section-title {
+            color: #495057;
+            font-weight: 700;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-title i {
+            color: #667eea;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            color: #6c757d;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Info Cards */
+        .info-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            animation: cardSlideIn 0.6s ease-out;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        @@keyframes cardSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .id-icon {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .name-icon {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+        }
+
+        .email-icon {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+
+        .role-icon {
+            background: linear-gradient(135deg, #fc466b, #3f5efb);
+        }
+
+        .info-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .info-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-value {
+            font-size: 1.1rem;
+            color: #495057;
+            font-weight: 700;
+            word-break: break-word;
+        }
+
+        .info-decoration {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+        }
+
+        /* Security Section */
+        .security-section {
+            margin-top: 3rem;
+        }
+
+        .security-card {
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.1), rgba(56, 239, 125, 0.05));
+            border: 2px solid rgba(40, 167, 69, 0.2);
+            border-radius: 20px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .security-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+            animation: securityPulse 2s ease-in-out infinite;
+        }
+
+        @@keyframes securityPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }
+        }
+
+        .security-title {
+            color: #28a745;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .security-desc {
+            color: #6c757d;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .security-pulse {
+            position: absolute;
+            top: 50%;
+            right: 2rem;
+            width: 12px;
+            height: 12px;
+            background: #28a745;
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @@keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+
+        /* Modern Buttons */
+        .card-footer-modern {
+            background: rgba(248, 249, 250, 0.8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-modern {
+            position: relative;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .btn-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-modern:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary {
+            background: rgba(108, 117, 125, 0.1);
+            color: #6c757d;
+            border: 2px solid #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background: #6c757d;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(108, 117, 125, 0.4);
+        }
+
+        .btn-warning {
+            background: var(--warning-gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(240, 147, 251, 0.4);
+        }
+
+        .btn-warning:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(240, 147, 251, 0.6);
+            color: white;
+        }
+
+        .btn-danger {
+            background: var(--danger-gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(252, 70, 107, 0.4);
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(252, 70, 107, 0.6);
+            color: white;
+        }
+
+        .btn-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Permissions Section */
+        .permissions-section {
+            animation: slideInUp 1s ease-out 0.2s both;
+        }
+
+        .permissions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .permission-item {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .permission-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--success-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .permission-item.denied::before {
+            background: var(--danger-gradient);
+        }
+
+        .permission-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .permission-item:hover::before {
+            width: 100%;
+            opacity: 0.05;
+        }
+
+        .permission-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .permission-item.granted .permission-icon {
+            background: var(--success-gradient);
+        }
+
+        .permission-item.denied .permission-icon {
+            background: var(--danger-gradient);
+            opacity: 0.6;
+        }
+
+        .permission-content h6 {
+            margin-bottom: 0.25rem;
+            color: #495057;
+            font-weight: 700;
+        }
+
+        .permission-content p {
+            margin: 0;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .permission-status {
+            font-size: 1.5rem;
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+
+        .permission-item.granted .permission-status {
+            color: #28a745;
+            animation: checkBounce 2s ease-in-out infinite;
+        }
+
+        .permission-item.denied .permission-status {
+            color: #dc3545;
+            opacity: 0.6;
+        }
+
+        @@keyframes checkBounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Enhanced Modal */
+        .modal-modern .modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: none;
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .modal-header-danger {
+            background: var(--danger-gradient);
+            color: white;
+            border-radius: 25px 25px 0 0;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .modal-icon-danger {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            animation: modalIconPulse 2s ease-in-out infinite;
+        }
+
+        @@keyframes modalIconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .modal-subtitle {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .btn-close-modern {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-close-modern:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .modal-body-modern {
+            padding: 2rem;
+        }
+
+        .modal-user-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--danger-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+            animation: modalAvatarFloat 3s ease-in-out infinite;
+        }
+
+        @@keyframes modalAvatarFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .user-to-delete {
+            background: rgba(248, 249, 250, 0.8);
+            border-radius: 15px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #dc3545;
+        }
+
+        .modal-footer-modern {
+            padding: 1.5rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 0 0 25px 25px;
+            background: rgba(248, 249, 250, 0.5);
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        /* Animations */
+        @@keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 40px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        /* Responsive Design */
+        @@media (max-width: 768px) {
+            .hero-content {
+                padding: 2rem !important;
+            }
+
+            .hero-content .d-flex {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .profile-badges {
+                justify-content: center;
+            }
+
+            .card-footer-modern .d-flex {
+                flex-direction: column;
+                gap: 0.75rem !important;
+            }
+
+            .permissions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .permission-item {
+                padding: 1rem;
+            }
+
+            .modal-footer-modern {
+                flex-direction: column;
+            }
+        }
+
+        @@media (max-width: 576px) {
+            .profile-name {
+                font-size: 1.5rem;
+            }
+
+            .info-card {
+                padding: 1rem;
+            }
+
+            .btn-modern {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            // Add entrance animations with staggered delays
+            $('.info-card').each(function(index) {
+                $(this).css({
+                    'animation-delay': (index * 0.1) + 's'
+                });
+            });
+
+            $('.permission-item').each(function(index) {
+                $(this).css({
+                    'animation-delay': (index * 0.15) + 's'
+                });
+            });
+
+            // Add scroll-triggered animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all cards
+            document.querySelectorAll('.info-card, .permission-item, .security-card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Add button click effects
+            $('.btn-modern').on('click', function(e) {
+                const button = $(this);
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const ripple = $('<span class="button-ripple"></span>');
+                ripple.css({
+                    left: x + 'px',
+                    top: y + 'px'
+                });
+                
+                button.append(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+
+            // Auto-hide alerts
+            setTimeout(function() {
+                $('.alert').fadeOut('slow');
+            }, 5000);
+
+            // Add parallax effect to hero section
+            $(window).on('scroll', function() {
+                const scrollTop = $(this).scrollTop();
+                $('.hero-bg').css('transform', `translateY(${scrollTop * 0.5}px)`);
+                $('.hero-pattern').css('transform', `translateX(${-scrollTop * 0.3}px)`);
+            });
+
+            // Enhanced modal animations
+            $('#deleteModal').on('show.bs.modal', function() {
+                $(this).find('.modal-content').addClass('modal-enter');
+            });
+
+            $('#deleteModal').on('hidden.bs.modal', function() {
+                $(this).find('.modal-content').removeClass('modal-enter');
+            });
+        });
+
+        // Add additional CSS for animations
+        const additionalStyles = document.createElement('style');
+        additionalStyles.textContent = `
+            .animate-in {
+                animation: cardSlideIn 0.6s ease-out forwards;
+            }
+
+            .button-ripple {
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.4);
+                transform: scale(0);
+                animation: buttonRipple 0.6s linear;
+                pointer-events: none;
+            }
+
+            @@keyframes buttonRipple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+
+            .modal-enter {
+                animation: modalSlideIn 0.4s ease-out;
+            }
+
+            @@keyframes modalSlideIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-50px) scale(0.95);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+            }
+
+            /* Loading states */
+            .btn-modern.loading {
+                opacity: 0.7;
+                pointer-events: none;
+            }
+
+            .btn-modern.loading::after {
+                content: '';
+                position: absolute;
+                width: 16px;
+                height: 16px;
+                margin: auto;
+                border: 2px solid transparent;
+                border-top-color: currentColor;
+                border-radius: 50%;
+                animation: spin 1s ease infinite;
+            }
+
+            @@keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(additionalStyles);
+    </script>
+}

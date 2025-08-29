@@ -1,0 +1,1299 @@
+﻿@model ParkingReservationSystem.Models.User
+@{
+    ViewData["Title"] = "Xóa Người Dùng";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid px-4 py-3">
+    <!-- Dramatic Warning Header -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="danger-header position-relative overflow-hidden rounded-4 shadow-2xl">
+                <div class="danger-bg"></div>
+                <div class="warning-particles"></div>
+                <div class="danger-content position-relative z-3 p-5 text-white">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap">
+                        <div class="d-flex align-items-center mb-3 mb-md-0">
+                            <div class="warning-icon-container me-4">
+                                <div class="warning-icon">
+                                    <i class="fas fa-user-times fa-4x"></i>
+                                </div>
+                                <div class="warning-pulse"></div>
+                            </div>
+                            <div>
+                                <h1 class="display-4 fw-bold mb-2 text-shadow">
+                                    <i class="fas fa-exclamation-triangle me-3"></i>Xóa Người Dùng
+                                </h1>
+                                <p class="fs-4 mb-0 opacity-90 fw-semibold">Hành động không thể hoàn tác</p>
+                            </div>
+                        </div>
+                        <nav aria-label="breadcrumb">
+                            <ol class="glass-breadcrumb-danger mb-0">
+                                @* <li class="breadcrumb-item">
+                                    <a href="#" class="text-white text-decoration-none fw-semibold">
+                                        <i class="fas fa-home me-2"></i>Dashboard
+                                    </a>
+                                </li> *@
+                                <li class="breadcrumb-item">
+                                    <a asp-action="Index" class="text-white text-decoration-none fw-semibold">
+                                        <i class="fas fa-users me-2"></i>Người Dùng
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item active text-white fw-bold" aria-current="page">
+                                    <i class="fas fa-trash-alt me-2"></i>Xóa
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-8">
+            <!-- Critical Warning Alert -->
+            <div class="critical-alert mb-5">
+                <div class="alert-container">
+                    <div class="alert-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="alert-content">
+                        <h4 class="alert-title">⚠️ CẢNH BÁO NGHIÊM TRỌNG!</h4>
+                        <p class="alert-message">
+                            Bạn đang thực hiện hành động <strong>XÓA NGƯỜI DÙNG</strong>. 
+                            Điều này sẽ xóa vĩnh viễn tất cả dữ liệu và không thể khôi phục.
+                        </p>
+                    </div>
+                    <div class="alert-animation"></div>
+                </div>
+            </div>
+
+            <!-- User Deletion Card -->
+            <div class="deletion-card-container">
+                <div class="glass-card-danger rounded-4 overflow-hidden shadow-2xl">
+                    <!-- Card Header -->
+                    <div class="card-header-danger position-relative p-4">
+                        <div class="header-danger-bg"></div>
+                        <div class="position-relative z-3 d-flex align-items-center text-white">
+                            <div class="header-icon-danger me-3">
+                                <i class="fas fa-user-minus fa-2x"></i>
+                            </div>
+                            <div>
+                                <h3 class="mb-1 fw-bold">Người Dùng Sẽ Bị Xóa</h3>
+                                <p class="mb-0 opacity-90">Xem lại thông tin trước khi xác nhận</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- User Preview Section -->
+                    <div class="user-preview-section p-5">
+                        <div class="user-card-to-delete">
+                            <div class="user-avatar-delete">
+                                <div class="avatar-bg @(Model?.Role == "Admin" ? "admin-danger" : "user-danger")">
+                                    <i class="fas @(Model?.Role == "Admin" ? "fa-crown" : "fa-user") fa-3x"></i>
+                                </div>
+                                <div class="deletion-overlay">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                            </div>
+                            <div class="user-info-delete">
+                                <h2 class="user-name-delete">@Html.DisplayFor(model => model.Name)</h2>
+                                <p class="user-email-delete">
+                                    <i class="fas fa-envelope me-2"></i>@Html.DisplayFor(model => model.Email)
+                                </p>
+                                <div class="user-role-delete">
+                                    <span class="role-badge-delete @(Model?.Role == "Admin" ? "admin-role" : "user-role")">
+                                        <i class="fas @(Model?.Role == "Admin" ? "fa-crown" : "fa-user") me-2"></i>
+                                        @(Model?.Role == "Admin" ? "Quản trị viên" : "Người dùng")
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Information Grid -->
+                    <div class="details-section p-5 border-top">
+                        <h5 class="section-title-danger mb-4">
+                            <i class="fas fa-info-circle me-3"></i>Chi Tiết Sẽ Bị Xóa
+                        </h5>
+                        
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="detail-card-danger">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-hashtag"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">ID Người Dùng</div>
+                                        <div class="detail-value">#@Html.DisplayFor(model => model.Id)</div>
+                                    </div>
+                                    <div class="deletion-mark">
+                                        <i class="fas fa-times-circle"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="detail-card-danger">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Họ và Tên</div>
+                                        <div class="detail-value">@Html.DisplayFor(model => model.Name)</div>
+                                    </div>
+                                    <div class="deletion-mark">
+                                        <i class="fas fa-times-circle"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="detail-card-danger">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Địa chỉ Email</div>
+                                        <div class="detail-value">@Html.DisplayFor(model => model.Email)</div>
+                                    </div>
+                                    <div class="deletion-mark">
+                                        <i class="fas fa-times-circle"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="detail-card-danger">
+                                    <div class="detail-icon">
+                                        <i class="fas @(Model?.Role == "Admin" ? "fa-crown" : "fa-user-tag")"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Vai Trò</div>
+                                        <div class="detail-value">@(Model?.Role == "Admin" ? "Quản trị viên" : "Người dùng")</div>
+                                    </div>
+                                    <div class="deletion-mark">
+                                        <i class="fas fa-times-circle"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Consequences Section -->
+                    <div class="consequences-section p-5 border-top">
+                        <h5 class="consequences-title mb-4">
+                            <i class="fas fa-exclamation-triangle me-3"></i>Hậu Quả Của Việc Xóa
+                        </h5>
+                        
+                        <div class="consequences-grid">
+                            <div class="consequence-item">
+                                <div class="consequence-icon">
+                                    <i class="fas fa-user-slash"></i>
+                                </div>
+                                <div class="consequence-content">
+                                    <h6>Thông tin cá nhân</h6>
+                                    <p>Tất cả dữ liệu cá nhân sẽ bị xóa vĩnh viễn</p>
+                                </div>
+                                <div class="consequence-severity high">
+                                    <span>NGHIÊM TRỌNG</span>
+                                </div>
+                            </div>
+
+                            <div class="consequence-item">
+                                <div class="consequence-icon">
+                                    <i class="fas fa-history"></i>
+                                </div>
+                                <div class="consequence-content">
+                                    <h6>Lịch sử đặt chỗ</h6>
+                                    <p>Toàn bộ lịch sử giao dịch sẽ mất hoàn toàn</p>
+                                </div>
+                                <div class="consequence-severity high">
+                                    <span>NGHIÊM TRỌNG</span>
+                                </div>
+                            </div>
+
+                            <div class="consequence-item">
+                                <div class="consequence-icon">
+                                    <i class="fas fa-ban"></i>
+                                </div>
+                                <div class="consequence-content">
+                                    <h6>Truy cập hệ thống</h6>
+                                    <p>Không thể đăng nhập vào hệ thống nữa</p>
+                                </div>
+                                <div class="consequence-severity critical">
+                                    <span>CỰC KỲ NGHIÊM TRỌNG</span>
+                                </div>
+                            </div>
+
+                            <div class="consequence-item">
+                                <div class="consequence-icon">
+                                    <i class="fas fa-undo-alt"></i>
+                                </div>
+                                <div class="consequence-content">
+                                    <h6>Khả năng khôi phục</h6>
+                                    <p>KHÔNG THỂ khôi phục dữ liệu sau khi xóa</p>
+                                </div>
+                                <div class="consequence-severity critical">
+                                    <span>CỰC KỲ NGHIÊM TRỌNG</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Confirmation Section - Simplified -->
+                    <div class="confirmation-section p-5 border-top bg-danger bg-opacity-10">
+                        <div class="confirmation-header mb-4">
+                            <h5 class="text-danger fw-bold mb-3">
+                                <i class="fas fa-shield-alt me-2"></i>Xác Nhận An Toàn
+                            </h5>
+                            <p class="text-muted">Để tiếp tục, bạn phải xác nhận hiểu rõ hậu quả:</p>
+                        </div>
+
+                        <div class="confirmation-steps">
+                            <!-- Only Step 1: Understanding -->
+                            <div class="confirmation-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <div class="form-check">
+                                        <input class="form-check-input step-checkbox" type="checkbox" id="understandCheck">
+                                        <label class="form-check-label fw-semibold text-danger" for="understandCheck">
+                                            Tôi hiểu rằng hành động này sẽ xóa vĩnh viễn tất cả dữ liệu và không thể hoàn tác
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form Submission -->
+                        <form asp-action="Delete" id="deleteForm" class="mt-4">
+                            <input type="hidden" asp-for="Id" />
+                            
+                            <div class="form-actions d-flex gap-3 justify-content-end flex-wrap">
+                                <a asp-action="Index" class="btn-modern-secondary">
+                                    <div class="btn-icon">
+                                        <i class="fas fa-arrow-left"></i>
+                                    </div>
+                                    <span>Hủy và Quay Lại</span>
+                                </a>
+                                
+                                <a asp-action="Details" asp-route-id="@Model?.Id" class="btn-modern-info">
+                                    <div class="btn-icon">
+                                        <i class="fas fa-eye"></i>
+                                    </div>
+                                    <span>Xem Chi Tiết</span>
+                                </a>
+                                
+                                <button type="submit" class="btn-modern-danger" id="deleteBtn" disabled>
+                                    <div class="btn-content">
+                                        <div class="btn-icon">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </div>
+                                        <span>XÁC NHẬN XÓA</span>
+                                    </div>
+                                    <div class="btn-loader">
+                                        <div class="spinner"></div>
+                                    </div>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alternative Actions -->
+            <div class="alternatives-section mt-5">
+                <div class="glass-card-info rounded-4 p-4">
+                    <h5 class="alternatives-title mb-3">
+                        <i class="fas fa-lightbulb me-3"></i>Các Lựa Chọn Thay Thế
+                    </h5>
+                    <div class="alternatives-grid">
+                        <div class="alternative-item">
+                            <div class="alternative-icon">
+                                <i class="fas fa-user-lock"></i>
+                            </div>
+                            <div class="alternative-content">
+                                <h6>Vô hiệu hóa tài khoản</h6>
+                                <p>Tạm thời khóa tài khoản thay vì xóa vĩnh viễn</p>
+                            </div>
+                            <div class="alternative-action">
+                                <span class="badge bg-info">Khuyến nghị</span>
+                            </div>
+                        </div>
+
+                        <div class="alternative-item">
+                            <div class="alternative-icon">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <div class="alternative-content">
+                                <h6>Xuất dữ liệu</h6>
+                                <p>Sao lưu thông tin trước khi xóa để lưu trữ</p>
+                            </div>
+                            <div class="alternative-action">
+                                <span class="badge bg-warning">Quan trọng</span>
+                            </div>
+                        </div>
+
+                        <div class="alternative-item">
+                            <div class="alternative-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="alternative-content">
+                                <h6>Liên hệ người dùng</h6>
+                                <p>Thông báo trước khi thực hiện xóa tài khoản</p>
+                            </div>
+                            <div class="alternative-action">
+                                <span class="badge bg-success">Lịch sự</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <style>
+        :root {
+            --danger-gradient: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%);
+            --critical-gradient: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+            --warning-gradient: linear-gradient(135deg, #fdbb2d 0%, #22c1c3 100%);
+            --info-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        /* Dramatic Header */
+        .danger-header {
+            background: var(--danger-gradient);
+            position: relative;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+        }
+
+        .danger-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><defs><pattern id="danger-pattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M25,5 L45,25 L25,45 L5,25 Z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></pattern></defs><rect width="100%" height="100%" fill="url(%23danger-pattern)"/></svg>');
+            animation: dangerFloat 15s ease-in-out infinite;
+            border-radius: 15px;
+        }
+
+        .warning-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="particles" x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse"><circle cx="12.5" cy="12.5" r="1.5" fill="rgba(255,255,255,0.15)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23particles)"/></svg>');
+            animation: particleFloat 20s linear infinite;
+        }
+
+        @@keyframes dangerFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        @@keyframes particleFloat {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-25px); }
+        }
+
+        .warning-icon-container {
+            position: relative;
+        }
+
+        .warning-icon {
+            animation: warningShake 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+        }
+
+        @@keyframes warningShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px) rotate(-2deg); }
+            75% { transform: translateX(5px) rotate(2deg); }
+        }
+
+        .warning-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: dangerPulse 2s ease-in-out infinite;
+        }
+
+        @@keyframes dangerPulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+        }
+
+        .glass-breadcrumb-danger {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            padding: 12px 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Critical Alert */
+        .critical-alert {
+            animation: alertSlideIn 0.8s ease-out;
+        }
+
+        .alert-container {
+            background: var(--critical-gradient);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(255, 65, 108, 0.4);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .alert-icon {
+            position: absolute;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.9);
+            animation: alertIconPulse 1.5s ease-in-out infinite;
+        }
+
+        @@keyframes alertIconPulse {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-50%) scale(1.2); }
+        }
+
+        .alert-content {
+            margin-left: 6rem;
+            color: white;
+        }
+
+        .alert-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .alert-message {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .alert-animation {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: alertShimmer 3s ease-in-out infinite;
+        }
+
+        @@keyframes alertShimmer {
+            0% { transform: translateX(-150px); }
+            100% { transform: translateX(150px); }
+        }
+
+        /* Deletion Card */
+        .deletion-card-container {
+            animation: slideInUp 1s ease-out;
+        }
+
+        .glass-card-danger {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 65, 108, 0.3);
+            box-shadow: 0 25px 50px rgba(255, 65, 108, 0.15);
+            border-radius: 15px;
+        }
+
+        .card-header-danger {
+            background: var(--danger-gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-danger-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" fill="rgba(255,255,255,0.1)"></path></svg>') repeat-x;
+            animation: headerWave 8s ease-in-out infinite;
+        }
+
+        @@keyframes headerWave {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-30px); }
+        }
+
+        .header-icon-danger {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: headerIconFloat 3s ease-in-out infinite;
+        }
+
+        @@keyframes headerIconFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(10deg); }
+        }
+
+        /* User Preview */
+        .user-card-to-delete {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 3px solid rgba(255, 65, 108, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: userCardDanger 3s ease-in-out infinite;
+        }
+
+        @@keyframes userCardDanger {
+            0%, 100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+            50% { box-shadow: 0 15px 40px rgba(255, 65, 108, 0.3); }
+        }
+
+        .user-avatar-delete {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            flex-shrink: 0;
+        }
+
+        .avatar-bg {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: avatarDangerPulse 2s ease-in-out infinite;
+        }
+
+        .admin-danger {
+            background: var(--critical-gradient);
+        }
+
+        .user-danger {
+            background: var(--danger-gradient);
+        }
+
+        @@keyframes avatarDangerPulse {
+            0%, 100% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(0.95); filter: brightness(0.8); }
+        }
+
+        .deletion-overlay {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 50px;
+            height: 50px;
+            background: #dc3545;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            border: 4px solid white;
+            animation: deletionBlink 1s ease-in-out infinite;
+        }
+
+        @@keyframes deletionBlink {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+
+        .user-name-delete {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #495057;
+            margin-bottom: 0.5rem;
+            text-decoration: line-through;
+            text-decoration-color: #dc3545;
+            text-decoration-thickness: 3px;
+        }
+
+        .user-email-delete {
+            font-size: 1.2rem;
+            color: #6c757d;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .role-badge-delete {
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 2px solid;
+        }
+
+        .admin-role {
+            background: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .user-role {
+            background: rgba(255, 193, 7, 0.1);
+            color: #ffc107;
+            border-color: #ffc107;
+        }
+
+        /* Detail Cards */
+        .section-title-danger {
+            color: #dc3545;
+            font-weight: 700;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .detail-card-danger {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 2px solid rgba(220, 53, 69, 0.2);
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .detail-card-danger:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(220, 53, 69, 0.2);
+            border-color: rgba(220, 53, 69, 0.4);
+        }
+
+        .detail-card-danger .detail-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--danger-gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-value {
+            font-size: 1.1rem;
+            color: #495057;
+            font-weight: 700;
+        }
+
+        .deletion-mark {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: #dc3545;
+            font-size: 1.5rem;
+            animation: deletionMarkPulse 1.5s ease-in-out infinite;
+        }
+
+        @@keyframes deletionMarkPulse {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Consequences Section */
+        .consequences-title {
+            color: #dc3545;
+            font-weight: 700;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .consequences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .consequence-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border-left: 5px solid #dc3545;
+            position: relative;
+            transition: all 0.3s ease;
+            animation: consequenceSlideIn 0.8s ease-out;
+        }
+
+        .consequence-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(220, 53, 69, 0.2);
+        }
+
+        @@keyframes consequenceSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .consequence-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--critical-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            animation: consequenceIconSpin 4s ease-in-out infinite;
+        }
+
+        @@keyframes consequenceIconSpin {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(10deg); }
+        }
+
+        .consequence-content h6 {
+            color: #495057;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .consequence-content p {
+            color: #6c757d;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .consequence-severity {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .consequence-severity.high {
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+            border: 1px solid #ffc107;
+        }
+
+        .consequence-severity.critical {
+            background: rgba(220, 53, 69, 0.2);
+            color: #dc3545;
+            border: 1px solid #dc3545;
+            animation: severityBlink 2s ease-in-out infinite;
+        }
+
+        @@keyframes severityBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Confirmation Section */
+        .confirmation-section {
+            background: rgba(248, 215, 218, 0.3);
+            border-top: 3px solid rgba(220, 53, 69, 0.3);
+        }
+
+        .confirmation-header h5 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .confirmation-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .confirmation-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 2px solid rgba(220, 53, 69, 0.2);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .confirmation-step.completed {
+            border-color: rgba(40, 167, 69, 0.5);
+            background: rgba(212, 237, 218, 0.5);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--danger-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            animation: stepPulse 2s ease-in-out infinite;
+        }
+
+        @@keyframes stepPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .confirmation-step.completed .step-number {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            animation: none;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-checkbox {
+            transform: scale(1.2);
+            margin-right: 0.75rem;
+        }
+
+        /* Modern Buttons */
+        .btn-modern-secondary,
+        .btn-modern-info,
+        .btn-modern-danger {
+            position: relative;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .btn-modern-secondary {
+            background: rgba(108, 117, 125, 0.1);
+            color: #6c757d;
+            border: 2px solid #6c757d;
+        }
+
+        .btn-modern-secondary:hover {
+            background: #6c757d;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(108, 117, 125, 0.4);
+        }
+
+        .btn-modern-info {
+            background: var(--info-gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-modern-info:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+            color: white;
+        }
+
+        .btn-modern-danger {
+            background: var(--danger-gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(252, 70, 107, 0.4);
+            position: relative;
+        }
+
+        .btn-modern-danger:enabled:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(252, 70, 107, 0.6);
+            color: white;
+        }
+
+        .btn-modern-danger:disabled {
+            background: #6c757d;
+            box-shadow: none;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .btn-modern-danger.loading .btn-content {
+            opacity: 0;
+        }
+
+        .btn-modern-danger.loading .btn-loader {
+            opacity: 1;
+        }
+
+        .btn-content {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @@keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .btn-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Alternative Actions */
+        .alternatives-section {
+            animation: slideInUp 1.2s ease-out;
+        }
+
+        .glass-card-info {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.1);
+        }
+
+        .alternatives-title {
+            color: #495057;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .alternatives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .alternative-item {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-left: 4px solid #007bff;
+            transition: all 0.3s ease;
+        }
+
+        .alternative-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0, 123, 255, 0.15);
+        }
+
+        .alternative-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--info-gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .alternative-content h6 {
+            color: #495057;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .alternative-content p {
+            color: #6c757d;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .alternative-action {
+            margin-left: auto;
+        }
+
+        /* Responsive Design */
+        @@media (max-width: 768px) {
+            .danger-content {
+                padding: 2rem !important;
+            }
+
+            .danger-content .d-flex {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .alert-content {
+                margin-left: 0;
+                text-align: center;
+            }
+
+            .alert-icon {
+                position: relative;
+                left: auto;
+                top: auto;
+                transform: none;
+                margin-bottom: 1rem;
+            }
+
+            .user-card-to-delete {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .form-actions {
+                flex-direction: column !important;
+                gap: 1rem !important;
+            }
+
+            .btn-modern-secondary,
+            .btn-modern-info,
+            .btn-modern-danger {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .consequences-grid,
+            .alternatives-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @@keyframes alertSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @@keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 40px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        .animated-mark {
+            animation: markDanger 0.5s ease-in-out infinite;
+        }
+
+        @@keyframes markDanger {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.3) rotate(15deg); }
+        }
+
+        .danger-shake {
+            animation: dangerShake 0.5s ease-in-out !important;
+        }
+
+        @@keyframes dangerShake {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(-10px) rotate(-5deg); }
+            75% { transform: translateX(10px) rotate(5deg); }
+        }
+
+        .btn-danger-ready {
+            animation: dangerReady 1s ease-in-out infinite;
+        }
+
+        @@keyframes dangerReady {
+            0%, 100% { box-shadow: 0 4px 15px rgba(252, 70, 107, 0.4); }
+            50% { box-shadow: 0 8px 25px rgba(252, 70, 107, 0.8); }
+        }
+
+        .btn-disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            let stepComplete = false;
+
+            // Step 1: Understanding checkbox
+            $('#understandCheck').on('change', function() {
+                stepComplete = this.checked;
+                updateStepStatus(stepComplete);
+                checkFormCompletion();
+            });
+
+            // Update step visual status
+            function updateStepStatus(isComplete) {
+                const step = $('.confirmation-step');
+                if (isComplete) {
+                    step.addClass('completed');
+                } else {
+                    step.removeClass('completed');
+                }
+            }
+
+            // Check if step is completed
+            function checkFormCompletion() {
+                const deleteBtn = $('#deleteBtn');
+                
+                deleteBtn.prop('disabled', !stepComplete);
+                
+                if (stepComplete) {
+                    deleteBtn.removeClass('btn-disabled').addClass('btn-danger-ready');
+                } else {
+                    deleteBtn.removeClass('btn-danger-ready').addClass('btn-disabled');
+                }
+            }
+
+            // Enhanced form submission
+            $('#deleteForm').on('submit', function(e) {
+                e.preventDefault();
+                
+                if (!stepComplete) {
+                    alert('Vui lòng xác nhận hiểu rõ hậu quả trước khi tiếp tục!');
+                    return false;
+                }
+
+                // Final confirmation dialog
+                const finalConfirm = confirm(
+                    `🚨 XÁC NHẬN CUỐI CÙNG 🚨\n\n` +
+                    `Bạn sắp XÓA VĨNH VIỄN người dùng này.\n\n` +
+                    `Điều này sẽ:\n` +
+                    `• Xóa tất cả dữ liệu cá nhân\n` +
+                    `• Xóa lịch sử giao dịch\n` +
+                    `• Vô hiệu hóa hoàn toàn tài khoản\n` +
+                    `• KHÔNG THỂ KHÔI PHỤC\n\n` +
+                    `Bạn có CHẮC CHẮN muốn tiếp tục không?`
+                );
+
+                if (!finalConfirm) {
+                    return false;
+                }
+
+                // Show loading state
+                const deleteBtn = $('#deleteBtn');
+                deleteBtn.addClass('loading').prop('disabled', true);
+
+                // Add dramatic countdown
+                let countdown = 3;
+                const countdownInterval = setInterval(() => {
+                    deleteBtn.find('span').text(`Đang xóa trong ${countdown}...`);
+                    countdown--;
+                    
+                    if (countdown < 0) {
+                        clearInterval(countdownInterval);
+                        // Submit the form
+                        this.submit();
+                    }
+                }, 1000);
+            });
+
+            // Add staggered animations to consequence items
+            $('.consequence-item').each(function(index) {
+                $(this).css({
+                    'animation-delay': (index * 0.2) + 's'
+                });
+            });
+
+            // Add hover effects to detail cards
+            $('.detail-card-danger').on('mouseenter', function() {
+                $(this).find('.deletion-mark').addClass('animated-mark');
+            }).on('mouseleave', function() {
+                $(this).find('.deletion-mark').removeClass('animated-mark');
+            });
+
+            // Add dramatic shake to critical elements
+            setInterval(() => {
+                $('.warning-icon').addClass('danger-shake');
+                setTimeout(() => {
+                    $('.warning-icon').removeClass('danger-shake');
+                }, 500);
+            }, 5000);
+
+            // Auto-focus on checkbox
+            setTimeout(() => {
+                $('#understandCheck').focus();
+            }, 1000);
+        });
+    </script>
+}

@@ -4,15 +4,823 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ParkingReservationSystem</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/2951/2951045.png" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        /* Background */
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        
+        .pattern-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/symphony.png');
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        /* Enhanced Navbar */
+        .navbar-custom {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            padding: 16px 32px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            /* overflow: hidden; */
+
+        }
+
+       /*  .navbar-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .navbar-custom:hover::before {
+            left: 100%;
+        } */
+
+        .navbar-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        
+        /* Logo enhancements */
+        .logo-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .logo-img {
+            height: 42px;
+            width: auto;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .navbar-brand {
+            position: relative;
+            z-index: 2;
+        }
+
+        .navbar-brand:hover .logo-img {
+            transform: rotate(-10deg) scale(1.1);
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        .navbar-brand .brand-text {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            font-size: 1.4rem;
+            margin-left: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand:hover .brand-text {
+            transform: translateX(5px);
+        }
+
+        /* Navigation links */
+        .navbar-custom .nav-link {
+            position: relative;
+            padding: 12px 20px;
+            margin: 0 4px;
+            border-radius: 12px;
+            font-weight: 500;
+            color: #444 !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .navbar-custom .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            opacity: 0.1;
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .navbar-custom .nav-link:hover::before {
+            left: 0;
+        }
+
+        .navbar-custom .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .navbar-custom .nav-link:hover::after,
+        .navbar-custom .nav-link.active::after {
+            width: 60%;
+        }
+
+        .navbar-custom .nav-link:hover {
+             /* color: #667eea !important; */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+
+        }
+
+        .navbar-custom .nav-link.active {
+            color: #667eea !important;
+            font-weight: 700;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        /* User Profile Dropdown */
+        .user-profile-dropdown {
+            position: relative;
+        }
+
+        .user-profile-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 50px;
+            padding: 8px 20px;
+            color: white;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .user-profile-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .user-profile-btn:hover::before {
+            left: 100%;
+        }
+
+        .user-profile-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .dropdown-arrow {
+            transition: transform 0.3s ease;
+            font-size: 12px;
+        }
+
+        .user-profile-dropdown.show .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .user-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+            min-width: 300px;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px) scale(0.95);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 9999; /* Tăng lên 10001 */
+            pointer-events: none;
+        }
+
+        .user-profile-dropdown.show .user-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;   
+        }
+
+        .user-dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            right: 25px;
+            width: 16px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: none;
+            border-right: none;
+            transform: rotate(45deg);
+            backdrop-filter: blur(15px);
+        }
+
+        .user-info {
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+            margin-bottom: 15px;
+        }
+
+        .user-info h6 {
+                margin: 0 0 15px 0; /* Tăng margin bottom */
+                color: #333;
+                font-weight: 700;
+                font-size: 16px;
+                text-align: center;
+                padding-bottom: 10px;
+                border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .user-info p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .dropdown-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .dropdown-action-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            border: none;
+            background: transparent;
+            color: #444;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dropdown-action-btn:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            color: #667eea;
+            transform: translateX(5px);
+        }
+
+        .dropdown-action-btn.update-btn:hover {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(41, 128, 185, 0.1));
+            color: #3498db;
+        }
+
+        .dropdown-action-btn.logout-btn:hover {
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(192, 57, 43, 0.1));
+            color: #e74c3c;
+        }
+
+        /* User greeting and logout */
+        .user-greeting {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+            padding: 12px 16px;
+            position: relative;
+            margin-right: 15px;
+        }
+
+        .user-greeting::before {
+            content: '👋';
+            margin-right: 8px;
+            animation: wave 2s infinite;
+        }
+
+        @@keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(20deg); }
+            75% { transform: rotate(-20deg); }
+        }
+
+        /* Update Profile Modal */
+        .modal-custom {
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content-custom {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .modal-header-custom {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px 30px;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-header-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .modal-header-custom h5 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .modal-close-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .modal-close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .modal-body-custom {
+            padding: 30px;
+        }
+
+        .form-group-custom {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-label-custom {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-control-custom {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid rgba(102, 126, 234, 0.1);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            font-size: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: #333;
+        }
+
+        .form-control-custom:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .form-control-custom::placeholder {
+            color: #aaa;
+        }
+
+        .modal-footer-custom {
+            padding: 20px 30px;
+            border-top: 1px solid rgba(102, 126, 234, 0.1);
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+        }
+
+        .btn-custom {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary-custom {
+            background: rgba(108, 117, 125, 0.1);
+            color: #6c757d;
+            border: 2px solid rgba(108, 117, 125, 0.2);
+        }
+
+        .btn-secondary-custom:hover {
+            background: rgba(108, 117, 125, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Enhanced Footer */
+        .footer-custom {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 40px 0 20px;
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: -100px;
+        }
+
+        .footer-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #667eea, #764ba2, transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @@keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h5 {
+            color: #667eea;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-section h5::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .footer-links a::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 12px;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover::before {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .footer-links a:hover {
+            color: #667eea;
+            transform: translateX(10px);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #764ba2, #667eea);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-link:hover::before {
+            opacity: 1;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) rotate(360deg);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .social-link i {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            color: #aaa;
+        }
+
+        .footer-bottom a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom a:hover {
+            color: #764ba2;
+        }
+
+        .copyright {
+            font-size: 14px;
+        }
+
+        /* Responsive design */
+        @@media (max-width: 768px) {
+            .navbar-custom {
+                margin: 10px;
+                padding: 12px 20px;
+                border-radius: 15px;
+            }
+
+            .user-dropdown-menu {
+                right: 10px;
+                left: 10px;
+                min-width: auto;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+        }
+
+        /* Overlay */
+        .dropdown-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            /* Make sure it doesn't block dropdown content */
+            pointer-events: none;
+        }
+
+            .dropdown-overlay.show {
+                opacity: 1;
+                pointer-events: auto; /* Only allow pointer events when shown */
+            }
+
+            .user-details {
+    margin-top: 10px;
+}
+
+.user-detail-item {
+    margin: 8px 0;
+    color: #666;
+    font-size: 13px;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.4;
+}
+
+.user-detail-item i {
+    color: #667eea;
+    min-width: 16px;
+    margin-top: 2px;
+}
+
+.user-detail-item .phone-text,
+.user-detail-item .address-text {
+    word-break: break-all;
+    flex: 1;
+}
+
+
+/* Responsive cho mobile */
+@@media (max-width: 768px) {
+    .user-dropdown-menu {
+        min-width: 280px;
+        max-width: calc(100vw - 40px);
+    }
+    
+    .user-detail-item {
+        font-size: 12px;
+    }
+}
+/* Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 10000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+.preloader.show {
+    display: flex;
+    opacity: 1;
+}
+
+.preloader-content {
+    text-align: center;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+.preloader-content p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+    </style>
+
+    @RenderSection("Styles", required: false)
 </head>
 <body class="d-flex flex-column min-vh-100">
+    @{
+        var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+        var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+        var role = Context.Session.GetString("UserRole");
+        var userName = Context.Session.GetString("UserName");
+        var userEmail = Context.Session.GetString("UserEmail") ?? "user@example.com"; // Default email
+    }
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="spinner"></div>
+            <p>Đang tải...</p>
+        </div>
+    </div>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom mb-3">
+        <nav class="navbar navbar-expand-lg navbar-custom" style="position: relative;z-index: 2;">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">ParkingSystem</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <a class="navbar-brand d-flex align-items-center" asp-controller="Home" asp-action="Index">
+                    <div class="logo-container">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2951/2951045.png" alt="Logo" class="logo-img" />
+                        <span class="brand-text">ParkingSystem</span>
+                    </div>
+                </a>
+
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -20,37 +828,96 @@
                     <!-- Left side -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link @(currentController == "Home" && currentAction == "Index" ? "active" : "")"
+                               asp-controller="Home" asp-action="Index">
+                                <i class="fas fa-home me-1"></i>Home
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link @(currentController == "Home" && currentAction == "Privacy" ? "active" : "")"
+                               asp-controller="Home" asp-action="Privacy">
+                                <i class="fas fa-shield-alt me-1"></i>Privacy
+                            </a>
                         </li>
-                        @if (Context.Session.GetString("UserName") != null)
+                        @if (userName != null)
                         {
                             <li class="nav-item">
-                                <a class="nav-link" asp-controller="Reservation" asp-action="History">Lịch sử giao dịch</a>
+                                <a class="nav-link @(currentController == "Reservation" && currentAction == "History" ? "active" : "")"
+                                   asp-controller="Reservation" asp-action="History">
+                                    <i class="fas fa-history me-1"></i>Lịch sử giao dịch
+                                </a>
+                            </li>
+                        }
+                        @if (role == "Admin")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link @(currentController == "Admin" && currentAction == "Dashboard" ? "active" : "")"
+                                   asp-controller="Admin" asp-action="Dashboard">
+                                    <i class="fas fa-tachometer-alt me-1"></i>Quản trị
+                                </a>
                             </li>
                         }
                     </ul>
 
                     <!-- Right side -->
-                    <ul class="navbar-nav mb-2 mb-lg-0">
-                        @if (Context.Session.GetString("UserName") != null)
+                    <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
+                        @if (userName != null)
                         {
                             <li class="nav-item">
-                                <span class="nav-link">Xin chào, @Context.Session.GetString("UserName")</span>
+                                <span class="user-greeting">Xin chào</span>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-controller="Account" asp-action="Logout">Đăng xuất</a>
+                                <div class="user-profile-dropdown" id="userProfileDropdown">
+                                    <button class="user-profile-btn" type="button" onclick="toggleUserDropdown()">
+                                        <div class="user-avatar">
+                                            @(userName.Substring(0, 1).ToUpper())
+                                        </div>
+                                        <span>@userName</span>
+                                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                                    </button>
+
+                                    <div class="user-dropdown-menu">
+                                        <div class="user-info">
+                                            <h6 id="dropdown-user-name">@userName</h6>
+                                            <div class="user-details">
+                                                <p class="user-detail-item" id="dropdown-user-email">
+                                                    <i class="fas fa-envelope me-2"></i>@userEmail
+                                                </p>
+                                                <p class="user-detail-item" id="dropdown-user-phone">
+                                                    <i class="fas fa-phone me-2"></i><span class="phone-text">Chưa cập nhật</span>
+                                                </p>
+                                                <p class="user-detail-item" id="dropdown-user-address">
+                                                    <i class="fas fa-map-marker-alt me-2"></i><span class="address-text">Chưa cập nhật</span>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="dropdown-actions">
+                                            <button class="dropdown-action-btn update-btn" onclick="openUpdateProfileModal()">
+                                                <i class="fas fa-edit"></i>
+                                                <span>Cập nhật thông tin</span>
+                                            </button>
+                                            <a class="dropdown-action-btn logout-btn" asp-controller="Account" asp-action="Logout">
+                                                <i class="fas fa-sign-out-alt"></i>
+                                                <span>Đăng xuất</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </li>
                         }
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link" asp-controller="Account" asp-action="Login">Đăng nhập</a>
+                                <a class="nav-link" asp-controller="Account" asp-action="Login">
+                                    <i class="fas fa-sign-in-alt me-1"></i>Đăng nhập
+                                </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-controller="Account" asp-action="Register">Đăng ký</a>
+                                <a class="nav-link" asp-controller="Account" asp-action="Register">
+                                    <i class="fas fa-user-plus me-1"></i>Đăng ký
+                                </a>
                             </li>
                         }
                     </ul>
@@ -59,21 +926,446 @@
         </nav>
     </header>
 
+    <!-- Dropdown Overlay -->
+    <div class="dropdown-overlay" id="dropdownOverlay" onclick="closeUserDropdown()"></div>
+
+    <!-- Update Profile Modal -->
+    <div class="modal fade modal-custom" id="updateProfileModal" tabindex="-1" aria-labelledby="updateProfileModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-content-custom">
+                <div class="modal-header modal-header-custom">
+                    <h5 class="modal-title" id="updateProfileModalLabel">
+                        <i class="fas fa-user-edit me-2"></i>Cập nhật thông tin cá nhân
+                    </h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body modal-body-custom">
+                    <form id="updateProfileForm">
+                        @Html.AntiForgeryToken()
+                        <div class="form-group-custom">
+                            <label for="updateFullName" class="form-label-custom">
+                                <i class="fas fa-user me-2"></i>Họ và tên
+                            </label>
+                            <input type="text" class="form-control-custom" id="updateFullName" value="@userName" placeholder="Nhập họ và tên">
+                        </div>
+                        
+                        <div class="form-group-custom">
+                            <label for="updateEmail" class="form-label-custom">
+                                <i class="fas fa-envelope me-2"></i>Email
+                            </label>
+                            <input type="email" class="form-control-custom" id="updateEmail" value="@userEmail" placeholder="Nhập địa chỉ email">
+                        </div>
+                        
+                        <div class="form-group-custom">
+                            <label for="updatePhone" class="form-label-custom">
+                                <i class="fas fa-phone me-2"></i>Số điện thoại
+                            </label>
+                            <input type="tel" class="form-control-custom" id="updatePhone" placeholder="Nhập số điện thoại">
+                        </div>
+                        
+                        <div class="form-group-custom">
+                            <label for="updateAddress" class="form-label-custom">
+                                <i class="fas fa-map-marker-alt me-2"></i>Địa chỉ
+                            </label>
+                            <textarea class="form-control-custom" id="updateAddress" rows="3" placeholder="Nhập địa chỉ"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer modal-footer-custom">
+                    <button type="button" class="btn-custom btn-secondary-custom" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-2"></i>Hủy
+                    </button>
+                    <button type="button" class="btn-custom btn-primary-custom" onclick="updateProfile()">
+                        <i class="fas fa-save me-2"></i>Cập nhật
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pattern-bg"></div>
     <div class="container">
         <main role="main" class="pb-3">
-            @RenderBody()
+             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top text-muted text-center py-3 mt-auto">
+    <footer class="footer-custom">
         <div class="container">
-            &copy; 2025 - ParkingReservationSystem - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h5><i class="fas fa-car me-2"></i>ParkingSystem</h5>
+                    <p>Hệ thống đặt chỗ đỗ xe thông minh, tiện lợi và an toàn. Giải pháp hoàn hảo cho việc quản lý và đặt chỗ đỗ xe hiện đại.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h5><i class="fas fa-link me-2"></i>Liên kết nhanh</h5>
+                    <ul class="footer-links">
+                        <li><a asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                        <li><a asp-controller="Home" asp-action="Privacy">Chính sách bảo mật</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Câu hỏi thường gặp</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h5><i class="fas fa-cogs me-2"></i>Dịch vụ</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Đặt chỗ đỗ xe</a></li>
+                        <li><a href="#">Quản lý đỗ xe</a></li>
+                        <li><a href="#">Thanh toán online</a></li>
+                        <li><a href="#">Hỗ trợ 24/7</a></li>
+                        <li><a href="#">Ứng dụng mobile</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h5><i class="fas fa-phone me-2"></i>Thông tin liên hệ</h5>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt me-2"></i>123 Đường ABC, Quận XYZ, TP.HCM</p>
+                        <p><i class="fas fa-phone me-2"></i>+84 123 456 789</p>
+                        <p><i class="fas fa-envelope me-2"></i>info@parkingsystem.com</p>
+                        <p><i class="fas fa-clock me-2"></i>24/7 - Luôn sẵn sàng phục vụ</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 ParkingSystem. Tất cả quyền được bảo lưu. | 
+                    <a asp-controller="Home" asp-action="Privacy">Chính sách bảo mật</a> | 
+                    <a href="#">Điều khoản dịch vụ</a></p>
+                    <p class="mt-2">
+                        <i class="fas fa-heart text-danger"></i> 
+                        Được phát triển với tình yêu tại Việt Nam
+                    </p>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        // User Profile Dropdown Functions
+        let dropdownTimeout;
+
+        function toggleUserDropdown() {
+            const dropdown = document.getElementById('userProfileDropdown');
+            const overlay = document.getElementById('dropdownOverlay');
+            
+            clearTimeout(dropdownTimeout);
+            
+            if (dropdown.classList.contains('show')) {
+                closeUserDropdown();
+            } else {
+                openUserDropdown();
+            }
+        }
+
+        function openUserDropdown() {
+            const dropdown = document.getElementById('userProfileDropdown');
+            const overlay = document.getElementById('dropdownOverlay');
+            
+            dropdown.classList.add('show');
+            overlay.classList.add('show');
+            
+            // Add escape key listener
+            document.addEventListener('keydown', handleEscapeKey);
+        }
+
+        function closeUserDropdown() {
+            const dropdown = document.getElementById('userProfileDropdown');
+            const overlay = document.getElementById('dropdownOverlay');
+            
+            dropdown.classList.remove('show');
+            overlay.classList.remove('show');
+            
+            // Remove escape key listener
+            document.removeEventListener('keydown', handleEscapeKey);
+        }
+
+        function handleEscapeKey(event) {
+            if (event.key === 'Escape') {
+                closeUserDropdown();
+            }
+        }
+        function loadCurrentUserData() {
+            fetch('/Home/GetUserProfile')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Cập nhật form
+                        document.getElementById('updateFullName').value = data.user.name || '';
+                        document.getElementById('updateEmail').value = data.user.email || '';
+                        document.getElementById('updatePhone').value = data.user.phone || '';
+                        document.getElementById('updateAddress').value = data.user.address || '';
+
+                        // Cập nhật dropdown display
+                        updateDropdownDisplay(data.user);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading user data:', error);
+                });
+        }
+
+        // Open Update Profile Modal
+        function openUpdateProfileModal() {
+            closeUserDropdown();
+
+            // Load current user data
+            loadCurrentUserData();
+
+            setTimeout(() => {
+                const modal = new bootstrap.Modal(document.getElementById('updateProfileModal'));
+                modal.show();
+            }, 100);
+        }
+
+        // Update Profile Function
+        function updateProfile() {
+            const fullName = document.getElementById('updateFullName').value;
+            const email = document.getElementById('updateEmail').value;
+            const phone = document.getElementById('updatePhone').value;
+            const address = document.getElementById('updateAddress').value;
+
+            // Validate form
+            if (!fullName.trim()) {
+                showNotification('Vui lòng nhập họ và tên!', 'error');
+                return;
+            }
+
+            if (!email.trim() || !isValidEmail(email)) {
+                showNotification('Vui lòng nhập email hợp lệ!', 'error');
+                return;
+            }
+
+            // Show loading state
+            const updateBtn = document.querySelector('.btn-primary-custom');
+            const originalText = updateBtn.innerHTML;
+            updateBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Đang cập nhật...';
+            updateBtn.disabled = true;
+
+            // Lấy token từ form
+            const token = document.querySelector('input[name="__RequestVerificationToken"]')?.value;
+
+            // Tạo FormData
+            const formData = new FormData();
+            formData.append('FullName', fullName);
+            formData.append('Email', email);
+            formData.append('Phone', phone || '');
+            formData.append('Address', address || '');
+
+            if (token) {
+                formData.append('__RequestVerificationToken', token);
+            }
+
+            // Call API
+            fetch('/Home/UpdateProfile', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Reset button
+                    updateBtn.innerHTML = originalText;
+                    updateBtn.disabled = false;
+
+                    if (data.success) {
+                        // Lưu message vào sessionStorage
+                        sessionStorage.setItem('toastMessage', 'Cập nhật thông tin thành công!');
+                        sessionStorage.setItem('toastType', 'success');
+
+                        // Hiển thị preloader
+                        const preloader = document.getElementById('preloader');
+                        preloader.classList.add('show');
+
+                        // Reload trang
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 1000);
+                    } else {
+                        showNotification(data.message || 'Có lỗi xảy ra!', 'error');
+                        console.error('Server error:', data);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error updating profile:', error);
+                    // Reset button
+                    updateBtn.innerHTML = originalText;
+                    updateBtn.disabled = false;
+                    showNotification('Có lỗi xảy ra khi cập nhật!', 'error');
+                });
+        }
+
+        // Helper function to validate email
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@@]+@@[^\s@@]+\.[^\s@@]+$/;
+            return emailRegex.test(email);
+        }
+        // Hàm mới để cập nhật hiển thị dropdown
+        function updateDropdownDisplay(userData) {
+            // Cập nhật tên
+            const nameElement = document.getElementById('dropdown-user-name');
+            if (nameElement) nameElement.textContent = userData.name || 'Người dùng';
+
+            // Cập nhật email
+            const emailElement = document.querySelector('#dropdown-user-email');
+            if (emailElement) {
+                emailElement.innerHTML = `<i class="fas fa-envelope me-2"></i>${userData.email || 'Chưa cập nhật'}`;
+            }
+
+            // Cập nhật số điện thoại
+            const phoneElement = document.querySelector('#dropdown-user-phone .phone-text');
+            if (phoneElement) {
+                phoneElement.textContent = userData.phone || 'Chưa cập nhật';
+            }
+
+            // Cập nhật địa chỉ
+            const addressElement = document.querySelector('#dropdown-user-address .address-text');
+            if (addressElement) {
+                const address = userData.address || 'Chưa cập nhật';
+                // Cắt ngắn địa chỉ nếu quá dài
+                const shortAddress = address.length > 40 ? address.substring(0, 37) + '...' : address;
+                addressElement.textContent = shortAddress;
+                addressElement.title = address; // Hiển thị full text khi hover
+            }
+        }
+
+        // Update UI with new user data
+        function updateUIWithNewData(fullName, email, phone, address) {
+            // Cập nhật avatar và tên trong button
+            const userAvatar = document.querySelector('.user-avatar');
+            const userName = document.querySelector('.user-profile-btn span');
+
+            if (userAvatar) userAvatar.textContent = fullName.charAt(0).toUpperCase();
+            if (userName) userName.textContent = fullName;
+
+            // Cập nhật thông tin trong dropdown
+            const userData = {
+                name: fullName,
+                email: email,
+                phone: phone,
+                address: address
+            };
+            updateDropdownDisplay(userData);
+        }
+
+        // Show notification function
+        function showNotification(message, type = 'info') {
+            // Tìm hoặc tạo container
+            let container = document.querySelector('.toast-notifications');
+            if (!container) {
+                container = document.createElement('div');
+                container.className = 'toast-notifications';
+                document.body.appendChild(container);
+            }
+
+            // Tạo toast
+            const toast = document.createElement('div');
+            toast.className = `toast-notification ${type}`;
+            toast.innerHTML = `
+                <span class="toast-message">${message}</span>
+                <button class="toast-close" aria-label="Close">&times;</button>
+            `;
+
+            // Gắn sự kiện close
+            toast.querySelector('.toast-close').addEventListener('click', () => {
+                toast.remove();
+            });
+
+            // Thêm vào container
+            container.appendChild(toast);
+
+            // Auto remove sau 5s
+            setTimeout(() => {
+                if (toast.parentElement) {
+                    toast.style.animation = 'slideInRight 0.3s reverse forwards';
+                    setTimeout(() => toast.remove(), 300);
+                }
+            }, 5000);
+        }
+
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('userProfileDropdown');
+            const dropdownBtn = dropdown?.querySelector('.user-profile-btn');
+            
+            if (dropdown && dropdown.classList.contains('show')) {
+                if (!dropdown.contains(event.target)) {
+                    closeUserDropdown();
+                }
+            }
+        });
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @@keyframes slideInRight {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @@keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.addEventListener('DOMContentLoaded', function () {
+            // Gọi loadCurrentUserData
+            loadCurrentUserData();
+
+            // Kiểm tra xem có thông báo toast lưu lại không
+            const msg = sessionStorage.getItem('toastMessage');
+            const type = sessionStorage.getItem('toastType');
+
+            if (msg) {
+                showNotification(msg, type || 'success');
+                // Xóa để không hiện lại lần sau
+                sessionStorage.removeItem('toastMessage');
+                sessionStorage.removeItem('toastType');
+            }
+        });
+    </script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
