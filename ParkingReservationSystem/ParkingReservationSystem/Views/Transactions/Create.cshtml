@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 ﻿@model ParkingReservationSystem.ViewModels.MultipleReservationModel
-=======
-﻿@model ParkingReservationSystem.Models.Reservation
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 @{
     ViewData["Title"] = "Tạo đặt chỗ mới";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -10,10 +6,6 @@
 
 <style>
     .modern-card {
-<<<<<<< HEAD
-=======
-        /* background: linear-gradient(145deg, #ffffff, #f8f9fa); */
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         border-radius: 20px;
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
         border: none;
@@ -21,17 +13,10 @@
         transition: all 0.3s ease;
     }
 
-<<<<<<< HEAD
     .modern-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.1);
     }
-=======
-        .modern-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
     .card-header-modern {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -41,21 +26,6 @@
         overflow: hidden;
     }
 
-<<<<<<< HEAD
-=======
-
-
-    @@keyframes shimmer {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     .form-group-modern {
         margin-bottom: 2rem;
         position: relative;
@@ -71,19 +41,11 @@
         backdrop-filter: blur(10px);
     }
 
-<<<<<<< HEAD
     .form-control-modern:focus {
         border-color: #667eea;
         box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
         transform: translateY(-2px);
     }
-=======
-        .form-control-modern:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
-            transform: translateY(-2px);
-        }
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
     .form-label-modern {
         font-weight: 600;
@@ -108,7 +70,6 @@
         overflow: hidden;
     }
 
-<<<<<<< HEAD
     .btn-primary-modern::before {
         content: '';
         position: absolute;
@@ -128,27 +89,6 @@
         transform: translateY(-3px);
         box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
     }
-=======
-        .btn-primary-modern::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn-primary-modern:hover::before {
-            left: 100%;
-        }
-
-        .btn-primary-modern:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-        }
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
     .btn-secondary-modern {
         background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
@@ -161,21 +101,12 @@
         transition: all 0.3s ease;
     }
 
-<<<<<<< HEAD
     .btn-secondary-modern:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 20px rgba(108, 117, 125, 0.4);
         color: white;
         text-decoration: none;
     }
-=======
-        .btn-secondary-modern:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(108, 117, 125, 0.4);
-            color: white;
-            text-decoration: none;
-        }
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
     .checkbox-modern {
         position: relative;
@@ -188,7 +119,6 @@
         transition: all 0.3s ease;
     }
 
-<<<<<<< HEAD
     .checkbox-modern:hover {
         background: rgba(102, 126, 234, 0.1);
         border-color: rgba(102, 126, 234, 0.2);
@@ -200,19 +130,6 @@
         margin-right: 12px;
         accent-color: #667eea;
     }
-=======
-        .checkbox-modern:hover {
-            background: rgba(102, 126, 234, 0.1);
-            border-color: rgba(102, 126, 234, 0.2);
-        }
-
-        .checkbox-modern input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            margin-right: 12px;
-            accent-color: #667eea;
-        }
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
     .page-title {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -226,11 +143,7 @@
     }
 
     .container-modern {
-<<<<<<< HEAD
         max-width: 1000px;
-=======
-        max-width: 800px;
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         margin: 0 auto;
         padding: 2rem;
     }
@@ -260,7 +173,6 @@
         border-top: 2px solid #e9ecef;
     }
 
-<<<<<<< HEAD
     /* Parking slots styling with filters */
     .parking-section {
         background: rgba(255, 255, 255, 0.8);
@@ -559,14 +471,10 @@
         }
 
         @@media (max-width: 768px) {
-=======
-    @@media (max-width: 768px) {
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         .container-modern {
             padding: 1rem;
         }
 
-<<<<<<< HEAD
         .filters-container {
             flex-direction: column;
         }
@@ -575,8 +483,6 @@
             min-width: auto;
         }
 
-=======
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         .form-actions {
             flex-direction: column;
         }
@@ -586,7 +492,6 @@
             width: 100%;
             text-align: center;
         }
-<<<<<<< HEAD
 
         .stats-container {
             flex-direction: column;
@@ -610,8 +515,6 @@
         border-radius: 12px;
         padding: 1rem;
         margin-bottom: 1.5rem;
-=======
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     }
 </style>
 
@@ -620,7 +523,6 @@
         <i class="fas fa-plus-circle me-3"></i>Tạo đặt chỗ mới
     </h1>
 
-<<<<<<< HEAD
     @if (TempData["SuccessMessage"] != null)
     {
         <div class="alert alert-success">
@@ -637,14 +539,11 @@
         </div>
     }
 
-=======
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     <div class="modern-card">
         <div class="card-header-modern">
             <h4 class="mb-0">
                 <i class="fas fa-car me-2"></i>Thông tin đặt chỗ
             </h4>
-<<<<<<< HEAD
             <p class="mb-0 mt-2 opacity-75">Vui lòng điền đầy đủ thông tin để tạo đặt chỗ mới (có thể chọn nhiều chỗ đỗ)</p>
         </div>
 
@@ -791,63 +690,11 @@
                                 <i class="fas fa-envelope me-2"></i>Email
                             </label>
                             <input name="Email" id="emailInput" type="email" class="form-control form-control-modern" placeholder="Nhập địa chỉ email" required />
-=======
-            <p class="mb-0 mt-2 opacity-75">Vui lòng điền đầy đủ thông tin để tạo đặt chỗ mới</p>
-        </div>
-
-        <div class="card-body p-4">
-            <form asp-action="Create">
-                <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group-modern">
-                            <label asp-for="SlotCode" class="form-label-modern">
-                                <i class="fas fa-parking me-2"></i>Mã chỗ đỗ
-                            </label>
-                            <select asp-for="SlotCode" class="form-control form-control-modern" asp-items="ViewBag.SlotCode">
-                                <option value="">-- Chọn chỗ đỗ --</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group-modern">
-                            <label asp-for="UserId" class="form-label-modern">
-                                <i class="fas fa-user me-2"></i>Người dùng
-                            </label>
-                            <select asp-for="UserId" class="form-control form-control-modern" asp-items="ViewBag.UserId">
-                                <option value="">-- Chọn người dùng --</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group-modern">
-                            <label asp-for="Name" class="form-label-modern">
-                                <i class="fas fa-id-card me-2"></i>Họ tên
-                            </label>
-                            <input asp-for="Name" class="form-control form-control-modern" placeholder="Nhập họ tên đầy đủ" />
-                            <span asp-validation-for="Name" class="text-danger"></span>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group-modern">
-                            <label asp-for="Phone" class="form-label-modern">
-                                <i class="fas fa-phone me-2"></i>Số điện thoại
-                            </label>
-                            <input asp-for="Phone" class="form-control form-control-modern" placeholder="Nhập số điện thoại" />
-                            <span asp-validation-for="Phone" class="text-danger"></span>
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group-modern">
-<<<<<<< HEAD
                     <label class="form-label-modern">
                         <i class="fas fa-phone me-2"></i>Số điện thoại
                     </label>
@@ -874,34 +721,6 @@
  *@
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary-modern" id="createBtn">
-=======
-                    <label asp-for="Email" class="form-label-modern">
-                        <i class="fas fa-envelope me-2"></i>Email
-                    </label>
-                    <input asp-for="Email" class="form-control form-control-modern" placeholder="Nhập địa chỉ email" />
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
-
-                <div class="form-group-modern">
-                    <label asp-for="ExpiresAt" class="form-label-modern">
-                        <i class="fas fa-calendar-times me-2"></i>Thời gian hết hạn
-                    </label>
-                    <input asp-for="ExpiresAt" class="form-control form-control-modern" type="datetime-local" />
-                    <span asp-validation-for="ExpiresAt" class="text-danger"></span>
-                </div>
-
-                <div class="form-group-modern">
-                    <div class="checkbox-modern">
-                        <input class="form-check-input" asp-for="IsConfirmed" type="checkbox" />
-                        <label class="form-check-label" for="IsConfirmed">
-                            <i class="fas fa-check-circle me-2"></i>@Html.DisplayNameFor(model => model.IsConfirmed)
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-primary-modern">
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                         <i class="fas fa-save me-2"></i>Tạo đặt chỗ
                     </button>
                     <a asp-action="Index" class="btn btn-secondary-modern">
@@ -914,7 +733,6 @@
 </div>
 
 @section Scripts {
-<<<<<<< HEAD
     <script>
         class ReservationManager {
             constructor() {
@@ -1329,54 +1147,17 @@
             new ReservationManager();
 
             // Focus effects
-=======
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-
-    <script>
-        // Add some interactive effects
-        document.addEventListener('DOMContentLoaded', function() {
-            // Focus effects for form inputs
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             const inputs = document.querySelectorAll('.form-control-modern');
             inputs.forEach(input => {
                 input.addEventListener('focus', function() {
                     this.parentElement.style.transform = 'translateY(-2px)';
-<<<<<<< HEAD
                     this.parentElement.style.transition = 'transform 0.3s ease';
-=======
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                 });
 
                 input.addEventListener('blur', function() {
                     this.parentElement.style.transform = 'translateY(0)';
                 });
             });
-<<<<<<< HEAD
-=======
-
-            // Form validation enhancement
-            const form = document.querySelector('form');
-            form.addEventListener('submit', function(e) {
-                const requiredFields = form.querySelectorAll('[required]');
-                let isValid = true;
-
-                requiredFields.forEach(field => {
-                    if (!field.value.trim()) {
-                        isValid = false;
-                        field.style.borderColor = '#dc3545';
-                    } else {
-                        field.style.borderColor = '#28a745';
-                    }
-                });
-
-                if (!isValid) {
-                    e.preventDefault();
-                    alert('Vui lòng điền đầy đủ thông tin bắt buộc!');
-                }
-            });
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         });
     </script>
 }

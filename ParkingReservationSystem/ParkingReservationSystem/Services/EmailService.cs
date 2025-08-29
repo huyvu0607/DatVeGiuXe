@@ -315,9 +315,6 @@ namespace ParkingReservationSystem.Services
             await client.SendAsync(message);
             await client.DisconnectAsync(true);
         }
-<<<<<<< HEAD
 
-=======
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     }
 }

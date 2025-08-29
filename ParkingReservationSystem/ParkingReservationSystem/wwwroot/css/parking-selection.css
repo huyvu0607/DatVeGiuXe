@@ -39,7 +39,6 @@
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     padding: 2rem 1rem;
     border-radius: 20px;
-<<<<<<< HEAD
     position: relative;
     z-index: 1;
 }
@@ -47,10 +46,6 @@
 .main-layout.animate__animated.animate__fadeInUp {
     animation-delay: 0.1s; /* Trì hoãn hiệu ứng để tránh xung đột */
 }
-=======
-}
-
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 /* ===== HEADER SECTION ===== */
 .header-section {
     display: flex;

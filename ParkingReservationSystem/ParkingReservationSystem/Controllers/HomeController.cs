@@ -115,7 +115,7 @@ namespace ParkingReservationSystem.Controllers
 
             _context.SaveChanges();
         }
-
+      
         public IActionResult Index()
         {
             ClearExpiredReservations(); // Dọn dẹp các reservation hết hạn
@@ -128,7 +128,7 @@ namespace ParkingReservationSystem.Controllers
                 IsSelected = false, // mặc định chưa chọn
                 Floor = s.Floor //số tầng   
             }).ToList();
-
+            
             return View(viewModel);
         }
 
@@ -156,6 +156,6 @@ namespace ParkingReservationSystem.Controllers
             return View(history);
         }
 
-
+       
     }
 }

@@ -276,19 +276,12 @@ namespace ParkingReservationSystem.Controllers
                 HttpContext.Session.SetString("UserName", user.Name);
                 HttpContext.Session.SetString("UserEmail", user.Email);
                 HttpContext.Session.SetString("UserRole", user.Role);
-<<<<<<< HEAD
                 HttpContext.Session.SetString("UserPhone", user.Phone ?? "");
-=======
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
                 var claimsIdentity = new ClaimsIdentity(claims, "MyCookieAuth");
 
                 var authProperties = new AuthenticationProperties
-<<<<<<< HEAD
                 { 
-=======
-                {
->>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                     ExpiresUtc = DateTimeOffset.UtcNow.AddDays(30)
                 };
 
