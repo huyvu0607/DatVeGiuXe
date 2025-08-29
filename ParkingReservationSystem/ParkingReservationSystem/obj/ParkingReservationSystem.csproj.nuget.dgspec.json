@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LQQ\\OneDrive\\Máy tính\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ParkingReservationSystem.csproj": {}
+    "C:\\Users\\LQQ\\OneDrive\\Máy tính\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ParkingReservationSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LQQ\\OneDrive\\Máy tính\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ParkingReservationSystem.csproj": {
+    "C:\\Users\\LQQ\\OneDrive\\Máy tính\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ParkingReservationSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LQQ\\OneDrive\\Máy tính\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ParkingReservationSystem.csproj",
+        "projectUniqueName": "C:\\Users\\LQQ\\OneDrive\\Máy tính\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ParkingReservationSystem.csproj",
         "projectName": "ParkingReservationSystem",
-        "projectPath": "C:\\Users\\LQQ\\OneDrive\\Máy tính\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ParkingReservationSystem.csproj",
+        "projectPath": "C:\\Users\\LQQ\\OneDrive\\Máy tính\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ParkingReservationSystem.csproj",
         "packagesPath": "C:\\Users\\LQQ\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LQQ\\OneDrive\\Máy tính\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\obj\\",
+        "outputPath": "C:\\Users\\LQQ\\OneDrive\\Máy tính\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,217 +1,225 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\",
+  "WorkspaceRootPath": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\hubs\\parkinghub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\hubs\\parkinghub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\controllers\\admin\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\admin\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\controllers\\admin\\transactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\admin\\transactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\controllers\\admin\\parkingslotscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\admin\\parkingslotscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\controllers\\admin\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\admin\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\controllers\\admin\\transactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\admin\\transactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\controllers\\admin\\parkingslotscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\controllers\\admin\\parkingslotscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\hubs\\parkinghub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\hubs\\parkinghub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\models\\parkingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\models\\parkingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\models\\parkingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\models\\parkingslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\models\\parkingslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\models\\parkingslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\pages\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\pages\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\pages\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\services\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\services\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\services\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\services\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\services\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\services\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\multipledetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\multipledetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\multipledetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\reservationhistoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\reservationhistoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\reservationhistoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\serviceresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\serviceresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\serviceresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\parkingslotviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\parkingslotviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\parkingslotviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\testsocket\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\testsocket\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\testsocket\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\users\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\users\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\users\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\users\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\users\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\users\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\users\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\users\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\users\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\users\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\users\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\users\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\booking\\thanhtoannhieu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\booking\\thanhtoannhieu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\booking\\thanhtoannhieu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\booking\\thanhtoan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\booking\\thanhtoan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\booking\\thanhtoan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\reservation\\multipledetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\reservation\\multipledetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\reservation\\multipledetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\reservation\\history.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\reservation\\history.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\reservation\\history.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\reservation\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\reservation\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\reservation\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\admin\\transactions\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\admin\\transactions\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\admin\\transactions\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\admin\\transactions\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\admin\\transactions\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\admin\\transactions\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\admin\\transactions\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\admin\\transactions\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\admin\\transactions\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\admin\\transactions\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\admin\\transactions\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\admin\\transactions\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\admin\\transactions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\admin\\transactions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\admin\\transactions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\gitthub2\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|c:\\users\\lqq\\onedrive\\m\u00E1y t\u00EDnh\\new folder\\datvegiuxe\\parkingreservationsystem\\parkingreservationsystem\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{EFE12FEE-BEB6-49C2-8756-A8ECBCCB720B}|ParkingReservationSystem\\ParkingReservationSystem.csproj|solutionrelative:parkingreservationsystem\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
@@ -222,7 +230,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 214,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -250,24 +258,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ParkingHub.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Hubs\\ParkingHub.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Hubs\\ParkingHub.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Hubs\\ParkingHub.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Hubs\\ParkingHub.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-27T16:02:21.719Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "UsersController.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\Admin\\UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\Admin\\UsersController.cs",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\Admin\\UsersController.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\Admin\\UsersController.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\Admin\\UsersController.cs",
               "RelativeToolTip": "ParkingReservationSystem\\Controllers\\Admin\\UsersController.cs",
               "ViewState": "AgIAAK8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -276,11 +271,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "TransactionsController.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\Admin\\TransactionsController.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\Admin\\TransactionsController.cs",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\Admin\\TransactionsController.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\Admin\\TransactionsController.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\Admin\\TransactionsController.cs",
               "RelativeToolTip": "ParkingReservationSystem\\Controllers\\Admin\\TransactionsController.cs",
               "ViewState": "AgIAAJMBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -289,154 +284,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ParkingSlotsController.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\Admin\\ParkingSlotsController.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\Admin\\ParkingSlotsController.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\Admin\\ParkingSlotsController.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\Admin\\ParkingSlotsController.cs",
-              "ViewState": "AgIAAKQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-27T16:01:31.077Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\AdminController.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-27T16:00:35.636Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\User.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Models\\User.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\User.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T15:37:59.133Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ParkingDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ParkingDbContext.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Models\\ParkingDbContext.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ParkingDbContext.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Models\\ParkingDbContext.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAiwFIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T13:54:14.275Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ErrorViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ErrorViewModel.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Models\\ErrorViewModel.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ErrorViewModel.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Models\\ErrorViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T14:10:20.265Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BookingController.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\BookingController.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\BookingController.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\BookingController.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\BookingController.cs",
-              "ViewState": "AgIAAAEBAAAAAAAAAAAAACABAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T13:56:35.229Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T13:56:33.396Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ReservationController.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\ReservationController.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\ReservationController.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\ReservationController.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\ReservationController.cs",
-              "ViewState": "AgIAAA4CAAAAAAAAAAAuwEsCAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T16:10:52.674Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ParkingSlot.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ParkingSlot.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Models\\ParkingSlot.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ParkingSlot.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Models\\ParkingSlot.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T14:11:48.037Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Reservation.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\Reservation.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Models\\Reservation.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\Reservation.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Models\\Reservation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T13:58:25.034Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "_ValidationScriptsPartial.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Pages\\_ValidationScriptsPartial.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Pages\\_ValidationScriptsPartial.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Pages\\_ValidationScriptsPartial.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Pages\\_ValidationScriptsPartial.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-21T13:57:25.807Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\AccountController.cs",
               "RelativeToolTip": "ParkingReservationSystem\\Controllers\\AccountController.cs",
               "ViewState": "AgIAAHgBAAAAAAAAAAAAwJsBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -445,219 +297,379 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "EmailService.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\EmailService.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Services\\EmailService.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\EmailService.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Services\\EmailService.cs",
+              "DocumentIndex": 3,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\AdminController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-27T15:57:44.206Z",
+              "WhenOpened": "2025-08-27T16:00:35.636Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BookingController.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\BookingController.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\BookingController.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\BookingController.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\BookingController.cs",
+              "ViewState": "AgIAAAEBAAAAAAAAAAAAACABAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T13:56:35.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T13:56:33.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ReservationController.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\ReservationController.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\ReservationController.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\ReservationController.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\ReservationController.cs",
+              "ViewState": "AgIAAA4CAAAAAAAAAAAuwEsCAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T16:10:52.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ParkingSlotsController.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\Admin\\ParkingSlotsController.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Controllers\\Admin\\ParkingSlotsController.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Controllers\\Admin\\ParkingSlotsController.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Controllers\\Admin\\ParkingSlotsController.cs",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T16:01:31.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "ParkingReservationSystem\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-08-29T15:50:29.894Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Properties\\launchSettings.json",
+              "RelativeToolTip": "ParkingReservationSystem\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-29T15:48:25.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ParkingHub.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Hubs\\ParkingHub.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Hubs\\ParkingHub.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Hubs\\ParkingHub.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Hubs\\ParkingHub.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAywBgAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T16:02:21.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\User.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\User.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T15:37:59.133Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ParkingDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ParkingDbContext.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Models\\ParkingDbContext.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ParkingDbContext.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Models\\ParkingDbContext.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAiwFIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T13:54:14.275Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T14:10:20.265Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ParkingSlot.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ParkingSlot.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Models\\ParkingSlot.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\ParkingSlot.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Models\\ParkingSlot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T14:11:48.037Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Reservation.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\Reservation.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Models\\Reservation.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Models\\Reservation.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Models\\Reservation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T13:58:25.034Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 16,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Services\\UserService.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\UserService.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Services\\UserService.cs",
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Pages\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Pages\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Pages\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Pages\\_ValidationScriptsPartial.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-27T15:57:49.419Z",
-              "EditorCaption": ""
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-21T13:57:25.807Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "ReservationService.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\ReservationService.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Services\\ReservationService.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\ReservationService.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Services\\ReservationService.cs",
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Services\\EmailService.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\EmailService.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Services\\EmailService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-27T15:57:48.168Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-27T15:57:44.206Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 18,
-              "Title": "IUserService.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\IUserService.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Services\\IUserService.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\IUserService.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\Services\\IUserService.cs",
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\UserService.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Services\\UserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-27T15:57:46.891Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-27T15:57:49.419Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
+              "Title": "ReservationService.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\ReservationService.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Services\\ReservationService.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\ReservationService.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Services\\ReservationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T15:57:48.168Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\IUserService.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Services\\IUserService.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\IUserService.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\Services\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T15:57:46.891Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
               "Title": "IEmailService.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\IEmailService.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\IEmailService.cs",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Services\\IEmailService.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\IEmailService.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Services\\IEmailService.cs",
               "RelativeToolTip": "ParkingReservationSystem\\Services\\IEmailService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-27T15:57:45.61Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-27T15:57:45.61Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "ParkingSlotViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ParkingSlotViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ParkingSlotViewModel.cs",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\ParkingSlotViewModel.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ParkingSlotViewModel.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ParkingSlotViewModel.cs",
               "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\ParkingSlotViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T19:14:24.852Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\TestSocket\\Index.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\TestSocket\\Index.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\TestSocket\\Index.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\TestSocket\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-27T15:56:07.928Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T19:14:24.852Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 27,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Index.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Users\\Index.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Index.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\Users\\Index.cshtml",
-              "ViewState": "AgIAAOgAAAAAAAAAAAAAABwBAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-25T15:25:04.195Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "ServiceResult.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ServiceResult.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\ServiceResult.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ServiceResult.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\ServiceResult.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\TestSocket\\Index.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\TestSocket\\Index.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\TestSocket\\Index.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\TestSocket\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T15:21:53.23Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "ReservationHistoryViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ReservationHistoryViewModel.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\ReservationHistoryViewModel.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ReservationHistoryViewModel.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\ReservationHistoryViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABrAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T16:10:02.816Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "RegisterViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\RegisterViewModel.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\RegisterViewModel.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\RegisterViewModel.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\RegisterViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T15:47:05.628Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "MultipleDetailViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\MultipleDetailViewModel.cs",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\MultipleDetailViewModel.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\MultipleDetailViewModel.cs",
-              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\MultipleDetailViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-21T13:56:53.504Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Edit.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Users\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Edit.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\Users\\Edit.cshtml",
-              "ViewState": "AgIAAKwAAAAAAAAAAAAswN0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-25T15:25:00.172Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-27T15:56:07.928Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 29,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Details.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Users\\Details.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Details.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\Users\\Details.cshtml",
-              "ViewState": "AgIAANUAAAAAAAAAAAAAAP0AAAABAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Index.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Users\\Index.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Index.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Users\\Index.cshtml",
+              "ViewState": "AgIAAOgAAAAAAAAAAAAAABwBAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-25T15:24:55.14Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-25T15:25:04.195Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ServiceResult.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ServiceResult.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\ServiceResult.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ServiceResult.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\ServiceResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T15:21:53.23Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ReservationHistoryViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ReservationHistoryViewModel.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\ReservationHistoryViewModel.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\ReservationHistoryViewModel.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\ReservationHistoryViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABrAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T16:10:02.816Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "RegisterViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\RegisterViewModel.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\RegisterViewModel.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\RegisterViewModel.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\RegisterViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T15:47:05.628Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "MultipleDetailViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\MultipleDetailViewModel.cs",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\MultipleDetailViewModel.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\MultipleDetailViewModel.cs",
+              "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\MultipleDetailViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T13:56:53.504Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 30,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Delete.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Users\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Delete.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\Users\\Delete.cshtml",
-              "ViewState": "AgIAANEAAAAAAAAAAAAswAABAAABAAAAAAAAAA==",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Edit.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Users\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Edit.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Users\\Edit.cshtml",
+              "ViewState": "AgIAAKwAAAAAAAAAAAAswN0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-25T15:24:50.265Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-25T15:25:00.172Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 31,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Create.cshtml",
-              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Users\\Create.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Create.cshtml",
-              "RelativeToolTip": "ParkingReservationSystem\\Views\\Users\\Create.cshtml",
-              "ViewState": "AgIAAEEBAAAAAAAAAAAswHABAAABAAAAAAAAAA==",
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Details.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Users\\Details.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Details.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Users\\Details.cshtml",
+              "ViewState": "AgIAANUAAAAAAAAAAAAAAP0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-25T15:24:44.024Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-25T15:24:55.14Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Delete.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Users\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Delete.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Users\\Delete.cshtml",
+              "ViewState": "AgIAANEAAAAAAAAAAAAswAABAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-25T15:24:50.265Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 33,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Create.cshtml",
+              "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Users\\Create.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Users\\Create.cshtml",
+              "RelativeToolTip": "ParkingReservationSystem\\Views\\Users\\Create.cshtml",
+              "ViewState": "AgIAAEEBAAAAAAAAAAAswHABAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-25T15:24:44.024Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
               "Title": "ThanhToanNhieu.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Booking\\ThanhToanNhieu.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Booking\\ThanhToanNhieu.cshtml",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Booking\\ThanhToanNhieu.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Booking\\ThanhToanNhieu.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Booking\\ThanhToanNhieu.cshtml",
               "RelativeToolTip": "ParkingReservationSystem\\Views\\Booking\\ThanhToanNhieu.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQFAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -665,11 +677,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 36,
               "Title": "ThanhToan.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Booking\\ThanhToan.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Booking\\ThanhToan.cshtml",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Booking\\ThanhToan.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Booking\\ThanhToan.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Booking\\ThanhToan.cshtml",
               "RelativeToolTip": "ParkingReservationSystem\\Views\\Booking\\ThanhToan.cshtml",
               "ViewState": "AgIAAKsEAAAAAAAAAIBJwOgEAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -677,24 +689,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "_ViewImports.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\_ViewImports.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\_ViewImports.cshtml",
               "RelativeToolTip": "ParkingReservationSystem\\Views\\_ViewImports.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-23T14:11:40.331Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T14:11:40.331Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "_ViewStart.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\_ViewStart.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\_ViewStart.cshtml",
               "RelativeToolTip": "ParkingReservationSystem\\Views\\_ViewStart.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -702,11 +713,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 39,
               "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Reservation\\Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Reservation\\Details.cshtml",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Reservation\\Details.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Reservation\\Details.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Reservation\\Details.cshtml",
               "RelativeToolTip": "ParkingReservationSystem\\Views\\Reservation\\Details.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -714,11 +725,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 37,
               "Title": "MultipleDetail.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Reservation\\MultipleDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Reservation\\MultipleDetail.cshtml",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Reservation\\MultipleDetail.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Reservation\\MultipleDetail.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Reservation\\MultipleDetail.cshtml",
               "RelativeToolTip": "ParkingReservationSystem\\Views\\Reservation\\MultipleDetail.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -726,11 +737,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 40,
               "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Create.cshtml",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Create.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Create.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Create.cshtml",
               "RelativeToolTip": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Create.cshtml",
               "ViewState": "AgIAAAsAAAAAAAAAAAAqwBsAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -738,11 +749,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 38,
               "Title": "History.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Reservation\\History.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Reservation\\History.cshtml",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Reservation\\History.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Reservation\\History.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Reservation\\History.cshtml",
               "RelativeToolTip": "ParkingReservationSystem\\Views\\Reservation\\History.cshtml",
               "ViewState": "AgIAAHkAAAAAAAAAAAAswN4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -750,11 +761,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 41,
               "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Delete.cshtml",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Delete.cshtml",
               "RelativeToolTip": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Delete.cshtml",
               "ViewState": "AgIAAAkAAAAAAAAAAIBJwCcAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -762,11 +773,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 42,
               "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Details.cshtml",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Details.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Details.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Details.cshtml",
               "RelativeToolTip": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Details.cshtml",
               "ViewState": "AgIAABoAAAAAAAAAAADwvzIAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -774,11 +785,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 43,
               "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Edit.cshtml",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Edit.cshtml",
               "RelativeToolTip": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Edit.cshtml",
               "ViewState": "AgIAAA4AAAAAAAAAAAAwwCIAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -786,11 +797,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 45,
               "Title": "Dashboard.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Dashboard.cshtml",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Admin\\Dashboard.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Dashboard.cshtml",
               "RelativeToolTip": "ParkingReservationSystem\\Views\\Admin\\Dashboard.cshtml",
               "ViewState": "AgIAAAwAAAAAAAAAAIBJwEcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -798,11 +809,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 44,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Index.cshtml",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Index.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Index.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Admin\\Transactions\\Index.cshtml",
               "RelativeToolTip": "ParkingReservationSystem\\Views\\Admin\\Transactions\\Index.cshtml",
               "ViewState": "AgIAACQAAAAAAAAAAIBJwCwAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -810,11 +821,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 47,
               "Title": "LoginViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\LoginViewModel.cs",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\ViewModels\\LoginViewModel.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\ViewModels\\LoginViewModel.cs",
               "RelativeToolTip": "ParkingReservationSystem\\ViewModels\\LoginViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -822,11 +833,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 48,
               "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Account\\Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Account\\Register.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Account\\Register.cshtml",
               "RelativeToolTip": "ParkingReservationSystem\\Views\\Account\\Register.cshtml",
               "ViewState": "AgIAACEAAAAAAAAAAIBJwDMAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -834,11 +845,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 46,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Program.cs",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Program.cs",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Program.cs",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Program.cs",
               "RelativeToolTip": "ParkingReservationSystem\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -846,11 +857,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 49,
               "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Account\\Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Account\\Login.cshtml",
               "RelativeToolTip": "ParkingReservationSystem\\Views\\Account\\Login.cshtml",
               "ViewState": "AgIAACEAAAAAAAAAAIBJwDwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -858,11 +869,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 50,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Home\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "ParkingReservationSystem\\Views\\Home\\Index.cshtml",
               "ViewState": "AgIAAFUAAAAAAAAAAAAgwE4AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -870,11 +881,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 51,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -882,11 +893,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 52,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\appsettings.json",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\appsettings.json",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\appsettings.json",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\appsettings.json",
               "RelativeToolTip": "ParkingReservationSystem\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -894,11 +905,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 53,
               "Title": "Privacy.cshtml",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Home\\Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Home\\Privacy.cshtml",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Home\\Privacy.cshtml",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Home\\Privacy.cshtml",
               "RelativeToolTip": "ParkingReservationSystem\\Views\\Home\\Privacy.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -906,11 +917,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 54,
               "Title": "_Layout.cshtml.css",
-              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml.css",
+              "DocumentMoniker": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml.css",
               "RelativeDocumentMoniker": "ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml.css",
-              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\GITTHUB2\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml.css",
+              "ToolTip": "C:\\Users\\LQQ\\OneDrive\\M\u00E1y t\u00EDnh\\New folder\\DatVeGiuXe\\ParkingReservationSystem\\ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml.css",
               "RelativeToolTip": "ParkingReservationSystem\\Views\\Shared\\_Layout.cshtml.css",
               "ViewState": "AgIAACQAAAAAAAAAAAAUwDEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
