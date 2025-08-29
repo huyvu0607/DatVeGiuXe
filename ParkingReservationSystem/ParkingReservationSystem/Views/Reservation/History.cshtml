@@ -1,109 +1,560 @@
 ﻿@model List<ParkingReservationSystem.ViewModels.ReservationHistoryViewModel>
+
 @{
     ViewData["Title"] = "Lịch sử giao dịch";
+    var success = Context.Request.Query["success"];
+
+    // Nhóm các đặt chỗ cách nhau dưới 60 phút
+    var groups = new List<List<ParkingReservationSystem.ViewModels.ReservationHistoryViewModel>>();
+    var tempGroup = new List<ParkingReservationSystem.ViewModels.ReservationHistoryViewModel>();
+    var lastTime = DateTime.MinValue;
+    var threshold = TimeSpan.FromMinutes(60);
+
+    var sorted = Model.OrderBy(x => x.ReservedAt).ToList();
+
+    foreach (var item in sorted)
+    {
+        if (lastTime != DateTime.MinValue && (item.ReservedAt - lastTime) > threshold)
+        {
+            if (tempGroup.Any())
+                groups.Add(new List<ParkingReservationSystem.ViewModels.ReservationHistoryViewModel>(tempGroup));
+
+            tempGroup.Clear();
+        }
+
+        tempGroup.Add(item);
+        lastTime = item.ReservedAt;
+    }
+
+    if (tempGroup.Any())
+        groups.Add(tempGroup);
+
+    // Sắp xếp từng nhóm theo thời gian đặt mới → cũ
+    for (int i = 0; i < groups.Count; i++)
+    {
+        groups[i] = groups[i].OrderByDescending(x => x.ReservedAt).ToList();
+    }
 }
 
-<div class="container py-5">
-    <div class="card shadow">
-        <div class="card-header bg-primary text-white">
-            <h2 class="h4 mb-0"><i class="fas fa-history me-2"></i>Lịch sử giao dịch</h2>
+@section Styles {
+    <link rel="stylesheet" href="~/css/history.css" />
+    <style>
+        /* Selection toolbar styles - Improved version */
+        .selection-toolbar {
+            position: fixed;
+            bottom: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 25px;
+            padding: 25px 35px;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: 1050; /* Higher than Bootstrap modals */
+            min-width: 450px;
+            max-width: 90vw;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+            .selection-toolbar.show {
+                bottom: 30px;
+                transform: translateX(-50%) translateY(0) scale(1);
+                animation: slideUpBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            }
+
+        @@keyframes slideUpBounce {
+            0% {
+                transform: translateX(-50%) translateY(100px) scale(0.8);
+                opacity: 0;
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-10px) scale(1.05);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(-50%) translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .toolbar-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .selected-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: white;
+        }
+
+        .selected-count {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+            .selected-count:hover {
+                background: rgba(255, 255, 255, 0.25);
+                transform: translateY(-2px);
+            }
+
+        .selected-slots {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            max-width: 250px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .toolbar-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .toolbar-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+            .toolbar-btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+                transition: left 0.5s ease;
+            }
+
+            .toolbar-btn:hover::before {
+                left: 100%;
+            }
+
+        .btn-payment {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+        }
+
+            .btn-payment:hover {
+                background: linear-gradient(135deg, #218838 0%, #1bb58f 100%);
+                transform: translateY(-3px);
+                box-shadow: 0 8px 25px rgba(40, 167, 69, 0.5);
+            }
+
+        .btn-cancel {
+            background: linear-gradient(135deg, #dc3545 0%, #e83e8c 100%);
+            color: white;
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+        }
+
+            .btn-cancel:hover {
+                background: linear-gradient(135deg, #c82333 0%, #d91a72 100%);
+                transform: translateY(-3px);
+                box-shadow: 0 8px 25px rgba(220, 53, 69, 0.5);
+            }
+
+        .btn-clear {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+        }
+
+            .btn-clear:hover {
+                background: rgba(255, 255, 255, 0.3);
+                transform: translateY(-3px);
+                box-shadow: 0 8px 25px rgba(108, 117, 125, 0.4);
+            }
+
+        .toolbar-btn:active {
+            transform: translateY(-1px);
+            transition: all 0.1s ease;
+        }
+        /* Checkbox styles - Enhanced */
+        .reservation-checkbox {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            accent-color: #667eea;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .reservation-checkbox:checked {
+                transform: scale(1.1);
+            }
+
+        .checkbox-cell {
+            width: 60px;
+            text-align: center;
+        }
+
+        body {
+            position: relative;
+        }
+
+        .selection-toolbar {
+            /* Ensure it's above other fixed elements but not blocking content */
+            z-index: 1050;
+        }
+
+            .selection-toolbar.show {
+                animation: float 3s ease-in-out infinite;
+            }
+
+        tr:has(.reservation-checkbox:checked) {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-left: 4px solid #667eea;
+            transition: background 0.3s ease, border 0.3s ease;
+        }
+
+        .toolbar-btn:hover {
+            animation: pulse 0.6s ease-in-out;
+        }
+
+        @@keyframes pulse {
+            0% {
+                transform: translateY(-3px) scale(1);
+            }
+
+            50% {
+                transform: translateY(-3px) scale(1.05);
+            }
+
+            100% {
+                transform: translateY(-3px) scale(1);
+            }
+        }
+
+        /* Mobile responsive improvements */
+        @@media (max-width: 768px) {
+            .selection-toolbar {
+                min-width: 95%;
+                padding: 20px 25px;
+                border-radius: 20px;
+                bottom: -120px;
+            }
+
+                .selection-toolbar.show {
+                    bottom: 15px;
+                }
+
+            .toolbar-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .selected-info {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+
+            .selected-slots {
+                max-width: 100%;
+            }
+
+            .toolbar-actions {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .toolbar-btn {
+                padding: 12px 20px;
+                font-size: 0.85rem;
+                min-width: 120px;
+            }
+            /* Adjust bottom padding for mobile */
+            .history-container {
+                padding-bottom: 140px;
+            }
+        }
+
+        @@media (max-width: 480px) {
+            .selection-toolbar {
+                min-width: 98%;
+                margin: 0 1%;
+                padding: 18px 20px;
+            }
+
+            .toolbar-btn {
+                padding: 10px 16px;
+                font-size: 0.8rem;
+                min-width: 100px;
+            }
+        }
+
+
+        @@keyframes float {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0px);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+    </style>
+}
+
+<div class="history-container">
+    <!-- Header Section -->
+    <div class="header-section">
+        <div class="header-content">
+            <h1 class="header-title">
+                <i class="fas fa-history me-3"></i>
+                Lịch sử giao dịch
+            </h1>
+            <p class="header-subtitle">Theo dõi tất cả các giao dịch đặt chỗ xe của bạn</p>
+
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-number">@Model.Count()</div>
+                    <div class="stat-label">Tổng giao dịch</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">@Model.Count(x => x.IsConfirmed)</div>
+                    <div class="stat-label">Đã thanh toán</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">@Model.Count(x => !x.IsConfirmed)</div>
+                    <div class="stat-label">Chờ thanh toán</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">@groups.Count</div>
+                    <div class="stat-label">Đợt đặt chỗ</div>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <div class="card-body">
-            @if (!Model.Any())
+    <!-- Content Section -->
+    <div class="content-section">
+        @if (!Model.Any())
+        {
+            <div class="empty-state">
+                <i class="fas fa-car-crash empty-icon"></i>
+                <h3>Chưa có giao dịch nào</h3>
+                <p>Bạn chưa có giao dịch đặt chỗ xe nào. <a href="@Url.Action("Index", "Home")" class="text-decoration-none">Đặt chỗ ngay!</a></p>
+            </div>
+        }
+        else
+        {
+            @for (int i = groups.Count - 1, order = groups.Count; i >= 0; i--, order--)
             {
-                <div class="text-center py-5">
-                    <i class="fas fa-calendar-times fa-3x text-muted mb-3"></i>
-                    <h4 class="text-muted">Bạn chưa có giao dịch nào</h4>
-                    <p class="text-muted">Khi bạn đặt chỗ đỗ xe, lịch sử sẽ hiển thị tại đây</p>
-                    <a href="@Url.Action("Index", "Home")" class="btn btn-primary mt-3">
-                        <i class="fas fa-parking me-2"></i>Đặt chỗ ngay
-                    </a>
-                </div>
-            }
-            else
-            {
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead class="table-light">
-                            <tr>
-                                <th class="ps-4"><i class="fas fa-barcode me-2"></i>Mã chỗ</th>
-                                <th><i class="fas fa-clock me-2"></i>Thời gian đặt</th>
-                                <th><i class="fas fa-hourglass-end me-2"></i>Hết hạn</th>
-                                <th><i class="fas fa-info-circle me-2"></i>Trạng thái</th>
-                                <th class="text-center"><i class="fas fa-eye me-2"></i>Chi tiết</th>
-                            </tr>
-                        </thead>
+                var group = groups[i];
+                var groupTime = group.First().ReservedAt;
 
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr class="align-middle">
-                                    <td class="ps-4 fw-bold">@item.SlotCode</td>
-                                    <td>@item.ReservedAt.ToString("HH:mm dd/MM/yyyy")</td>
-                                    <td>
-                                        @if (item.ExpiresAt.HasValue)
-                                        {
-                                            @item.ExpiresAt.Value.ToString("HH:mm dd/MM/yyyy")
-                                        }
-                                        else
-                                        {
-                                            <span class="text-muted">Không có</span>
-                                        }
-                                    </td>
-                                    <td class="text-end pe-4">
-                                        @if (item.IsConfirmed)
-                                        {
-                                            <span class="badge rounded-pill bg-success py-2 px-3">
-                                                <i class="fas fa-check-circle me-1"></i> Đã thanh toán
-                                            </span>
-                                        }
-                                        else
-                                        {
-                                            <a class="badge rounded-pill bg-warning text-dark py-2 px-3 text-decoration-none hover-grow"
-                                               href="@Url.Action("ThanhToan", "Booking", new { id = item.Id })">
-                                                <i class="fas fa-exclamation-circle me-1"></i> Chưa thanh toán
-                                            </a>
-                                        }
-                                    </td>
-                                    <td class="text-center">
-
-                                        <a href="@Url.Action("Details", "Reservation", new { id = item.Id })"
-                                           class="btn btn-sm btn-outline-info">
-                                            <i class="fas fa-eye me-1"></i>Xem
-                                        </a>
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-
-                    </table>
-                </div>
-
-                <div class="d-flex justify-content-between align-items-center mt-4">
-                    <div class="text-muted">
-                        Hiển thị <strong>@Model.Count</strong> giao dịch gần nhất
+                <div class="booking-group fade-in">
+                    <div class="group-header">
+                        <div class="group-title">
+                            <i class="fas fa-layer-group"></i>
+                            Đợt đặt chỗ #@order
+                        </div>
+                        <div class="group-meta">
+                            <div>
+                                <i class="fas fa-clock me-1"></i>
+                                @groupTime.ToString("HH:mm - dd/MM/yyyy")
+                            </div>
+                            <div class="slots-count">
+                                <i class="fas fa-car me-1"></i>
+                                @group.Count chỗ
+                            </div>
+                        </div>
                     </div>
-                    <a href="@Url.Action("Index", "Home")" class="btn btn-outline-primary">
-                        <i class="fas fa-plus me-2"></i>Đặt chỗ mới
-                    </a>
+
+                    <div class="table-responsive">
+                        <table class="booking-table table table-hover align-middle">
+                            <thead>
+                                <tr>
+                                    <th class="checkbox-cell">Chọn</th>
+                                    <th><i class="fas fa-parking me-1"></i>Mã chỗ</th>
+                                    <th><i class="fas fa-clock me-1"></i>Thời gian đặt</th>
+                                    <th><i class="fas fa-hourglass-end me-1"></i>Hết hạn</th>
+                                    <th><i class="fas fa-info-circle me-1"></i>Trạng thái</th>
+                                    <th><i class="fas fa-cogs me-1"></i>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    var subGroups = group
+                                    .GroupBy(x => x.ReservedAt)
+                                    .OrderByDescending(g => g.Key)
+                                    .ToList();
+                                }
+
+                                @for (int j = 0; j < subGroups.Count; j++)
+                                {
+                                    var subGroup = subGroups[j];
+
+                                    @foreach (var item in subGroup)
+                                    {
+                                        <tr>
+                                            <td class="checkbox-cell">
+                                                @if (!item.IsConfirmed)
+                                                {
+                                                    <input type="checkbox" class="reservation-checkbox form-check-input"
+                                                           data-reservation-id="@item.Id"
+                                                           data-slot-code="@item.SlotCode"
+                                                           data-is-confirmed="@item.IsConfirmed.ToString().ToLower()">
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">-</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <div class="slot-code">@item.SlotCode</div>
+                                            </td>
+                                            <td>
+                                                <div class="time-info">
+                                                    <div>@item.ReservedAt.ToString("HH:mm")</div>
+                                                    <small class="text-muted">@item.ReservedAt.ToString("dd/MM/yyyy")</small>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                @if (item.ExpiresAt.HasValue)
+                                                {
+                                                    <div class="time-info @(item.ExpiresAt < DateTime.Now ? "expired-time" : "")">
+                                                        <div>@item.ExpiresAt.Value.ToString("HH:mm")</div>
+                                                        <small>@item.ExpiresAt.Value.ToString("dd/MM/yyyy")</small>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">-</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (item.IsConfirmed)
+                                                {
+                                                    <span class="status-badge status-confirmed">
+                                                        <i class="fas fa-check-circle me-1"></i>
+                                                        Đã thanh toán
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <a class="status-badge status-pending"
+                                                       href="@Url.Action("ThanhToan", "Booking", new { id = item.Id })">
+                                                        <i class="fas fa-exclamation-circle me-1"></i>
+                                                        Chưa thanh toán
+                                                    </a>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (item.IsConfirmed)
+                                                {
+                                                    <a class="action-btn"
+                                                       href="@Url.Action("Details", "Reservation", new { id = item.Id })">
+                                                        <i class="fas fa-eye"></i>
+                                                        Chi tiết
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">-</span>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+
+                                    @if (j < subGroups.Count - 1)
+                                    {
+                                        <tr><td colspan="6" style="background: linear-gradient(135deg, #FFFFFF	 0%, #DDDDDD 100%);"><hr class="section-divider"></td></tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             }
+        }
+    </div>
+</div>
+
+<!-- Selection Toolbar -->
+<div class="selection-toolbar" id="selectionToolbar">
+    <div class="toolbar-content">
+        <div class="selected-info">
+            <div class="selected-count">
+                <i class="fas fa-check me-1"></i>
+                <span id="selectedCount">0</span> đã chọn
+            </div>
+            <div class="selected-slots" id="selectedSlots">
+                Chưa có chỗ nào được chọn
+            </div>
+        </div>
+        <div class="toolbar-actions">
+            <button class="toolbar-btn btn-payment" id="paymentBtn">
+                <i class="fas fa-credit-card me-1"></i>
+                Thanh toán
+            </button>
+            <button class="toolbar-btn btn-cancel" id="cancelBtn">
+                <i class="fas fa-times me-1"></i>
+                Hủy
+            </button>
+            <button class="toolbar-btn btn-clear" id="clearBtn">
+                <i class="fas fa-eraser me-1"></i>
+                Bỏ chọn
+            </button>
         </div>
     </div>
 </div>
 
-<style>
-    .hover-grow {
-        transition: all 0.2s ease-in-out;
-    }
-    .hover-grow:hover {
-        transform: scale(1.05);
-    }
-    .table-hover tbody tr:hover {
-        background-color: rgba(13, 110, 253, 0.05);
-    }
-    .badge {
-        font-weight: 500;
-    }
-</style>
+<!-- Success Toast -->
+@if (success == "True")
+{
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+        <div id="successToast" class="toast success-toast text-white" role="alert">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="fas fa-check-circle me-2"></i>
+                    Thanh toán thành công! Cảm ơn bạn đã sử dụng dịch vụ.
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <!-- SignalR -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.0/signalr.min.js"></script>
+    <script src="~/js/history.js"></script>
+    <script src="~/js/selection.js"></script>
+    @*<script src="~/js/parking-signalr-client.js"></script>*@
+
+}
