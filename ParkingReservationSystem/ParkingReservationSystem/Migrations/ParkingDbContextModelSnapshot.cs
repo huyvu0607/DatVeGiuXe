@@ -108,9 +108,12 @@ namespace ParkingReservationSystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+<<<<<<< HEAD
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
+=======
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -130,9 +133,12 @@ namespace ParkingReservationSystem.Migrations
                     b.Property<DateTime?>("PasswordResetTokenExpiry")
                         .HasColumnType("datetime2");
 
+<<<<<<< HEAD
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
+=======
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                     b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

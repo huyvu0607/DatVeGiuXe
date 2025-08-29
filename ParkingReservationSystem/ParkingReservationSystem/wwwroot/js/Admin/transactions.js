@@ -1,6 +1,11 @@
 ﻿/**
+<<<<<<< HEAD
  * TRANSACTIONS MANAGEMENT JAVASCRIPT - VERSION WITH CALENDAR FILTER
  * Enhanced functionality with calendar date picker, transaction filtering, expand/collapse, and performance monitoring
+=======
+ * TRANSACTIONS MANAGEMENT JAVASCRIPT - UPDATED VERSION
+ * Enhanced functionality with corrected filters and grid view
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
  */
 
 class TransactionsManager {
@@ -14,6 +19,7 @@ class TransactionsManager {
             search: '',
             status: '',
             fromDate: '',
+<<<<<<< HEAD
             toDate: '',
             selectedDate: null
         };
@@ -27,6 +33,14 @@ class TransactionsManager {
             selectedDate: null,
             transactionDates: new Map()
         };
+=======
+            toDate: ''
+        };
+        this.selectedItems = new Set();
+        this.tableData = [];
+        this.originalTableData = [];
+        this.currentView = 'table'; // 'table' or 'grid'
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         this.init();
     }
@@ -40,6 +54,7 @@ class TransactionsManager {
         this.setupTableSorting();
         this.setupBulkActions();
         this.setupColumnToggle();
+<<<<<<< HEAD
         this.initializeCalendar();
         this.setupExpandCollapse();
         this.setupActionButtons();
@@ -306,12 +321,20 @@ class TransactionsManager {
     }
 
     setupColumnToggle() {
+=======
+        console.log('TransactionsManager initialized successfully');
+    }
+
+    setupColumnToggle() {
+        // Lắng nghe sự kiện change cho các checkbox trong dropdown
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         document.addEventListener('change', (e) => {
             if (e.target.type === 'checkbox' && e.target.dataset.column) {
                 this.toggleColumn(e.target.dataset.column, e.target.checked);
             }
         });
 
+<<<<<<< HEAD
         const style = document.createElement('style');
         style.textContent = `
             .column-toggle-menu { min-width: 160px; }
@@ -320,10 +343,38 @@ class TransactionsManager {
             .column-toggle-menu label:hover { background-color: #f8f9fa; }
             .column-toggle-menu input[type="checkbox"] { margin-right: 8px; margin-top: 0; }
         `;
+=======
+        // Thêm style cho dropdown menu
+        const style = document.createElement('style');
+        style.textContent = `
+        .column-toggle-menu {
+            min-width: 160px;
+        }
+        .column-toggle-menu li {
+            padding: 0;
+        }
+        .column-toggle-menu label {
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            margin: 0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .column-toggle-menu label:hover {
+            background-color: #f8f9fa;
+        }
+        .column-toggle-menu input[type="checkbox"] {
+            margin-right: 8px;
+            margin-top: 0;
+        }
+    `;
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         document.head.appendChild(style);
     }
 
     toggleColumn(columnName, show) {
+<<<<<<< HEAD
         const columnMap = {
             'customer': 1,
             'email': 2,
@@ -331,16 +382,35 @@ class TransactionsManager {
             'reserved': 4,
             'expires': 5,
             'status': 6
+=======
+        // Map column names to actual column indices (0-based, bỏ qua cột checkbox đầu tiên)
+        const columnMap = {
+            'customer': 1,    // Khách hàng
+            'email': 2,       // Email  
+            'phone': 3,       // Điện thoại
+            'reserved': 4,    // Ngày đặt
+            'expires': 5,     // Hết hạn
+            'status': 6       // Trạng thái
+            // Cột vị trí (7) và thao tác (8) không có trong dropdown nên không cần ẩn
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         };
 
         const columnIndex = columnMap[columnName];
         if (columnIndex === undefined) return;
 
+<<<<<<< HEAD
+=======
+        // Ẩn/hiện header
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         const headerCells = document.querySelectorAll(`#transactionsTable thead th:nth-child(${columnIndex + 1})`);
         headerCells.forEach(cell => {
             cell.style.display = show ? '' : 'none';
         });
 
+<<<<<<< HEAD
+=======
+        // Ẩn/hiện body cells
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         const bodyCells = document.querySelectorAll(`#transactionsTable tbody td:nth-child(${columnIndex + 1})`);
         bodyCells.forEach(cell => {
             cell.style.display = show ? '' : 'none';
@@ -348,11 +418,19 @@ class TransactionsManager {
     }
 
     setupEventListeners() {
+<<<<<<< HEAD
         document.getElementById('toggleFilters')?.addEventListener('click', this.toggleFilters.bind(this));
+=======
+        // Filter toggle
+        document.getElementById('toggleFilters')?.addEventListener('click', this.toggleFilters.bind(this));
+
+        // Search input with debounce
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         const searchInput = document.getElementById('searchInput');
         if (searchInput) {
             searchInput.addEventListener('input', this.debounce(this.handleSearch.bind(this), 300));
         }
+<<<<<<< HEAD
         document.getElementById('statusFilter')?.addEventListener('change', this.handleStatusFilter.bind(this));
         document.getElementById('applyFiltersBtn')?.addEventListener('click', this.applyFilters.bind(this));
         document.getElementById('clearFiltersBtn')?.addEventListener('click', this.clearFilters.bind(this));
@@ -382,6 +460,50 @@ class TransactionsManager {
             });
         }
 
+=======
+
+        // Filter controls
+        document.getElementById('statusFilter')?.addEventListener('change', this.handleStatusFilter.bind(this));
+        document.getElementById('applyFiltersBtn')?.addEventListener('click', this.applyFilters.bind(this));
+        document.getElementById('clearFiltersBtn')?.addEventListener('click', this.clearFilters.bind(this));
+
+        // Export buttons
+        document.getElementById('exportExcelBtn')?.addEventListener('click', this.exportToExcel.bind(this));
+        document.getElementById('exportPdfBtn')?.addEventListener('click', this.exportToPDF.bind(this));
+
+        // Page size selector
+        document.getElementById('pageSizeSelect')?.addEventListener('change', this.handlePageSizeChange.bind(this));
+
+        // Select all checkbox
+        document.getElementById('selectAll')?.addEventListener('change', this.handleSelectAll.bind(this));
+
+        // View toggle
+        document.querySelectorAll('[data-view]').forEach(btn => {
+            btn.addEventListener('click', this.toggleView.bind(this));
+        });
+
+        // Bulk action buttons
+        document.getElementById('bulkConfirmBtn')?.addEventListener('click', this.handleBulkConfirm.bind(this));
+        document.getElementById('bulkExportBtn')?.addEventListener('click', this.handleBulkExport.bind(this));
+        document.getElementById('bulkDeleteBtn')?.addEventListener('click', this.handleBulkDelete.bind(this));
+
+        // Row checkboxes delegation
+        document.addEventListener('change', (e) => {
+            if (e.target.classList.contains('row-checkbox')) {
+                this.handleRowSelection(e.target);
+            }
+        });
+
+        // Action button delegations
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.btn-delete')) {
+                e.preventDefault();
+                this.confirmDelete(e.target.closest('.btn-delete'));
+            }
+        });
+
+        // Window resize handler
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         window.addEventListener('resize', this.debounce(this.handleResize.bind(this), 150));
     }
 
@@ -401,13 +523,24 @@ class TransactionsManager {
 
     initializeTooltips() {
         if (typeof bootstrap !== 'undefined') {
+<<<<<<< HEAD
             const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
             tooltipTriggerList.forEach(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+=======
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(tooltipTriggerEl => {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         }
     }
 
     animateStatsNumbers() {
         const statsNumbers = document.querySelectorAll('.stats-number[data-count]');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -415,7 +548,11 @@ class TransactionsManager {
                     observer.unobserve(entry.target);
                 }
             });
+<<<<<<< HEAD
         }, { threshold: 0.5 });
+=======
+        });
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         statsNumbers.forEach(number => observer.observe(number));
     }
@@ -428,27 +565,65 @@ class TransactionsManager {
         const animate = (currentTime) => {
             const elapsed = currentTime - start;
             const progress = Math.min(elapsed / duration, 1);
+<<<<<<< HEAD
             const current = Math.floor(progress * target);
             element.textContent = current.toLocaleString();
             if (progress < 1) requestAnimationFrame(animate);
         };
+=======
+
+            // Easing function
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            const current = Math.floor(easeOut * target);
+
+            element.textContent = this.formatNumber(current);
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            }
+        };
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         requestAnimationFrame(animate);
     }
 
     formatNumber(num) {
+<<<<<<< HEAD
         if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
         if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+=======
+        if (num >= 1000000) {
+            return (num / 1000000).toFixed(1) + 'M';
+        } else if (num >= 1000) {
+            return (num / 1000).toFixed(1) + 'K';
+        }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         return num.toLocaleString();
     }
 
     toggleFilters() {
         const filterBody = document.getElementById('filterBody');
         const toggleBtn = document.getElementById('toggleFilters');
+<<<<<<< HEAD
         if (filterBody && toggleBtn) {
             const isCollapsed = filterBody.classList.contains('collapsed');
             filterBody.classList.toggle('collapsed');
             const icon = toggleBtn.querySelector('i');
             icon.className = isCollapsed ? 'fas fa-chevron-up' : 'fas fa-chevron-down';
+=======
+
+        if (filterBody && toggleBtn) {
+            const isCollapsed = filterBody.classList.contains('collapsed');
+
+            filterBody.classList.toggle('collapsed');
+            const icon = toggleBtn.querySelector('i');
+
+            if (isCollapsed) {
+                icon.className = 'fas fa-chevron-up';
+            } else {
+                icon.className = 'fas fa-chevron-down';
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         }
     }
 
@@ -465,13 +640,27 @@ class TransactionsManager {
     handleDateFilter(input) {
         const id = input.id;
         const value = input.value;
+<<<<<<< HEAD
         if (id === 'fromDate') this.filters.fromDate = value;
         else if (id === 'toDate') this.filters.toDate = value;
+=======
+
+        if (id === 'fromDate') {
+            this.filters.fromDate = value;
+        } else if (id === 'toDate') {
+            this.filters.toDate = value;
+        }
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         this.filterAndPaginate();
     }
 
     applyFilters() {
         this.showLoading('Đang áp dụng bộ lọc...');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         setTimeout(() => {
             this.filterAndPaginate();
             this.hideLoading();
@@ -480,21 +669,38 @@ class TransactionsManager {
     }
 
     clearFilters() {
+<<<<<<< HEAD
+=======
+        // Reset all filter inputs
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         document.getElementById('searchInput').value = '';
         document.getElementById('statusFilter').value = '';
         document.getElementById('fromDate').value = '';
         document.getElementById('toDate').value = '';
+<<<<<<< HEAD
         this.filters = { search: '', status: '', fromDate: '', toDate: '', selectedDate: null };
         this.calendar.selectedDate = null;
         this.renderCalendar();
         const selectedDateInfo = document.getElementById('selectedDateInfo');
         if (selectedDateInfo) selectedDateInfo.textContent = 'Chọn một ngày để xem giao dịch';
+=======
+
+        // Reset filter object
+        this.filters = {
+            search: '',
+            status: '',
+            fromDate: '',
+            toDate: ''
+        };
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         this.currentPage = 1;
         this.filterAndPaginate();
         this.showNotification('Đã xóa tất cả bộ lọc', 'info');
     }
 
     loadTableDataFromDOM() {
+<<<<<<< HEAD
         this.tableBody = document.getElementById('tableBody');
         if (!this.tableBody) return;
 
@@ -542,10 +748,58 @@ class TransactionsManager {
         const slotCodes = Array.from(row.querySelectorAll('.slot-badge-group')).map(b => b.textContent);
         const reservedDateText = row.querySelector('.date-info .date')?.textContent || '';
         const reservedTimeText = row.querySelector('.date-info .time')?.textContent || '';
+=======
+        const tableRows = document.querySelectorAll('#tableBody .table-row');
+        const gridItems = document.querySelectorAll('#gridContainer .grid-item');
+        this.tableData = [];
+        this.originalTableData = [];
+
+        // Load from table rows if available
+        if (tableRows.length > 0) {
+            tableRows.forEach(row => {
+                const data = this.extractDataFromRow(row);
+                this.tableData.push(data);
+                this.originalTableData.push({ ...data });
+            });
+        } else if (gridItems.length > 0) {
+            // Load from grid items if table is not visible
+            gridItems.forEach(item => {
+                const data = this.extractDataFromGridItem(item);
+                this.tableData.push(data);
+                this.originalTableData.push({ ...data });
+            });
+        }
+
+        // Sort by ReservedAt descending (newest first)
+        this.tableData.sort((a, b) => b.reservedAt - a.reservedAt);
+        this.originalTableData.sort((a, b) => b.reservedAt - a.reservedAt);
+
+        this.totalItems = this.tableData.length;
+        this.updatePagination();
+        this.filterAndPaginate();
+    }
+
+    extractDataFromRow(row) {
+        const id = parseInt(row.dataset.id);
+        const customerName = row.querySelector('.customer-name')?.textContent || '';
+        const customerId = row.querySelector('.customer-id')?.textContent || '';
+        const email = row.querySelector('.email-info span')?.textContent || '';
+        const phone = row.querySelector('.phone-info span')?.textContent || '';
+
+        // Parse dates
+        const dateElements = row.querySelectorAll('.date-info');
+        const reservedDateText = dateElements[0]?.querySelector('.date')?.textContent || '';
+        const reservedTimeText = dateElements[0]?.querySelector('.time')?.textContent || '';
+        const expiresDateText = dateElements[1]?.querySelector('.date')?.textContent || '';
+        const expiresTimeText = dateElements[1]?.querySelector('.time')?.textContent || '';
+
+        // Parse status
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         const statusElement = row.querySelector('.status-badge');
         const isConfirmed = statusElement?.classList.contains('status-confirmed') || false;
         const isExpired = statusElement?.classList.contains('status-expired') || false;
 
+<<<<<<< HEAD
         const reservedAt = this.parseDateTime(reservedDateText, reservedTimeText);
 
         return {
@@ -585,6 +839,56 @@ class TransactionsManager {
             isExpired: isExpired,
             slotCode: slotCode,
             isGroup: false
+=======
+        // Parse slot code
+        const slotCode = row.querySelector('.slot-badge')?.textContent || '';
+
+        const reservedAt = this.parseDateTime(reservedDateText, reservedTimeText);
+        const expiresAt = this.parseDateTime(expiresDateText, expiresTimeText);
+
+        return {
+            id: id,
+            name: customerName,
+            customerId: customerId,
+            email: email,
+            phone: phone,
+            reservedAt: reservedAt,
+            expiresAt: expiresAt,
+            isConfirmed: isConfirmed,
+            isExpired: isExpired,
+            slotCode: slotCode
+        };
+    }
+
+    extractDataFromGridItem(item) {
+        const id = parseInt(item.dataset.id);
+        const customerName = item.querySelector('.customer-name')?.textContent || '';
+        const email = item.querySelector('.detail-item:nth-child(1) span')?.textContent || '';
+        const phone = item.querySelector('.detail-item:nth-child(2) span')?.textContent || '';
+
+        // Parse dates from detail items
+        const dateTimeTexts = item.querySelectorAll('.detail-item span');
+        const reservedDateTime = dateTimeTexts[2]?.textContent || '';
+        const expiresDateTime = dateTimeTexts[3]?.textContent || '';
+
+        // Parse status
+        const statusElement = item.querySelector('.status-badge');
+        const isConfirmed = statusElement?.classList.contains('status-confirmed') || false;
+        const isExpired = statusElement?.classList.contains('status-expired') || false;
+
+        const slotCode = item.querySelector('.slot-badge')?.textContent || '';
+
+        return {
+            id: id,
+            name: customerName,
+            email: email,
+            phone: phone,
+            reservedAt: this.parseDateTimeString(reservedDateTime),
+            expiresAt: this.parseDateTimeString(expiresDateTime),
+            isConfirmed: isConfirmed,
+            isExpired: isExpired,
+            slotCode: slotCode
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         };
     }
 
@@ -592,12 +896,20 @@ class TransactionsManager {
         try {
             const dateParts = dateStr.split('/');
             const timeParts = timeStr.split(':');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             if (dateParts.length === 3 && timeParts.length === 2) {
                 const day = parseInt(dateParts[0]);
                 const month = parseInt(dateParts[1]) - 1;
                 const year = parseInt(dateParts[2]);
                 const hours = parseInt(timeParts[0]);
                 const minutes = parseInt(timeParts[1]);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                 return new Date(year, month, day, hours, minutes);
             }
         } catch (error) {
@@ -606,10 +918,27 @@ class TransactionsManager {
         return new Date();
     }
 
+<<<<<<< HEAD
     filterAndPaginate() {
         let filteredData = [...this.tableData];
 
         // Apply all filters
+=======
+    parseDateTimeString(dateTimeStr) {
+        try {
+            const [dateStr, timeStr] = dateTimeStr.split(' ');
+            return this.parseDateTime(dateStr, timeStr);
+        } catch (error) {
+            console.warn('Error parsing datetime string:', dateTimeStr, error);
+            return new Date();
+        }
+    }
+
+    filterAndPaginate() {
+        let filteredData = [...this.tableData];
+
+        // Apply filters
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         if (this.filters.search) {
             filteredData = filteredData.filter(item =>
                 item.name.toLowerCase().includes(this.filters.search) ||
@@ -622,12 +951,19 @@ class TransactionsManager {
             if (this.filters.status === 'confirmed') {
                 filteredData = filteredData.filter(item => item.isConfirmed);
             } else if (this.filters.status === 'pending') {
+<<<<<<< HEAD
                 filteredData = filteredData.filter(item => !item.isConfirmed && (item.expiresAt > new Date() || !item.expiresAt));
             } else if (this.filters.status === 'expired') {
+=======
+                filteredData = filteredData.filter(item => !item.isConfirmed && item.expiresAt > new Date());
+            } else if (this.filters.status === 'expired') {
+                // Expired: not confirmed AND expiration date has passed
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                 filteredData = filteredData.filter(item => !item.isConfirmed && item.expiresAt < new Date());
             }
         }
 
+<<<<<<< HEAD
         if (this.filters.selectedDate) {
             const selectedDateKey = this.formatDateKey(this.filters.selectedDate);
             filteredData = filteredData.filter(item => {
@@ -636,6 +972,8 @@ class TransactionsManager {
             });
         }
 
+=======
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         if (this.filters.fromDate) {
             const fromDate = this.parseDate(this.filters.fromDate);
             filteredData = filteredData.filter(item => item.reservedAt >= fromDate);
@@ -646,6 +984,7 @@ class TransactionsManager {
             filteredData = filteredData.filter(item => item.reservedAt <= toDate);
         }
 
+<<<<<<< HEAD
         // QUAN TRỌNG: Chỉ lấy group-row để tính pagination
         const groupOnlyData = filteredData.filter(item => item.isGroup);
 
@@ -653,25 +992,46 @@ class TransactionsManager {
             groupOnlyData.sort((a, b) => {
                 let aVal = a[this.currentSort.column];
                 let bVal = b[this.currentSort.column];
+=======
+        // Apply sorting
+        if (this.currentSort.column) {
+            filteredData.sort((a, b) => {
+                let aVal = a[this.currentSort.column];
+                let bVal = b[this.currentSort.column];
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                 if (typeof aVal === 'string') {
                     aVal = aVal.toLowerCase();
                     bVal = bVal.toLowerCase();
                 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                 let result = aVal < bVal ? -1 : aVal > bVal ? 1 : 0;
                 return this.currentSort.direction === 'desc' ? -result : result;
             });
         } else {
+<<<<<<< HEAD
             groupOnlyData.sort((a, b) => b.reservedAt - a.reservedAt);
         }
 
         // Cập nhật thông tin pagination dựa trên group-row
         this.totalItems = groupOnlyData.length;
+=======
+            // Default sort: newest first
+            filteredData.sort((a, b) => b.reservedAt - a.reservedAt);
+        }
+
+        this.totalItems = filteredData.length;
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         this.totalPages = Math.ceil(this.totalItems / this.pageSize);
 
         if (this.currentPage > this.totalPages && this.totalPages > 0) {
             this.currentPage = this.totalPages;
         }
 
+<<<<<<< HEAD
         // Pagination cho group-row
         const startIndex = (this.currentPage - 1) * this.pageSize;
         const endIndex = startIndex + this.pageSize;
@@ -685,6 +1045,12 @@ class TransactionsManager {
 
         // Combine group và detail cho trang hiện tại
         this.currentPageData = [...currentPageGroups, ...currentPageDetails];
+=======
+        // Apply pagination
+        const startIndex = (this.currentPage - 1) * this.pageSize;
+        const endIndex = startIndex + this.pageSize;
+        this.currentPageData = filteredData.slice(startIndex, endIndex);
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         this.renderCurrentView();
         this.updatePagination();
@@ -692,20 +1058,36 @@ class TransactionsManager {
     }
 
     renderCurrentView() {
+<<<<<<< HEAD
         if (this.currentView === 'table') this.renderTable();
         else this.renderGrid();
+=======
+        if (this.currentView === 'table') {
+            this.renderTable();
+        } else {
+            this.renderGrid();
+        }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     }
 
     setupTableSorting() {
         document.querySelectorAll('.sortable').forEach(header => {
             header.addEventListener('click', () => {
                 const column = header.dataset.sort;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                 if (this.currentSort.column === column) {
                     this.currentSort.direction = this.currentSort.direction === 'asc' ? 'desc' : 'asc';
                 } else {
                     this.currentSort.column = column;
                     this.currentSort.direction = 'asc';
                 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                 this.updateSortIcons();
                 this.filterAndPaginate();
             });
@@ -716,6 +1098,10 @@ class TransactionsManager {
         document.querySelectorAll('.sortable').forEach(header => {
             const icon = header.querySelector('.sort-icon');
             header.classList.remove('sorted');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             if (header.dataset.sort === this.currentSort.column) {
                 header.classList.add('sorted');
                 icon.className = this.currentSort.direction === 'asc' ?
@@ -732,6 +1118,7 @@ class TransactionsManager {
 
         if (this.currentPageData.length === 0) {
             tbody.innerHTML = `
+<<<<<<< HEAD
             <tr>
                 <td colspan="8" class="text-center py-5">
                     <div class="empty-state">
@@ -791,6 +1178,23 @@ class TransactionsManager {
                 }
             });
         }
+=======
+                <tr>
+                    <td colspan="9" class="text-center py-5">
+                        <div class="empty-state">
+                            <i class="fas fa-search fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">Không tìm thấy dữ liệu</h5>
+                            <p class="text-muted">Thử điều chỉnh bộ lọc của bạn</p>
+                        </div>
+                    </td>
+                </tr>
+            `;
+            return;
+        }
+
+        tbody.innerHTML = this.currentPageData.map(item => this.renderTableRow(item)).join('');
+        this.setupRowAnimations();
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     }
 
     renderGrid() {
@@ -799,6 +1203,7 @@ class TransactionsManager {
 
         if (this.currentPageData.length === 0) {
             gridContainer.innerHTML = `
+<<<<<<< HEAD
             <div class="col-12 text-center py-5">
                 <div class="empty-state">
                     <i class="fas fa-search fa-3x text-muted mb-3"></i>
@@ -813,11 +1218,26 @@ class TransactionsManager {
         // Chỉ lấy group-row để hiển thị trong grid
         const groupData = this.currentPageData.filter(item => item.isGroup);
         gridContainer.innerHTML = groupData.map(item => this.renderGridItem(item)).join('');
+=======
+                <div class="col-12 text-center py-5">
+                    <div class="empty-state">
+                        <i class="fas fa-search fa-3x text-muted mb-3"></i>
+                        <h5 class="text-muted">Không tìm thấy dữ liệu</h5>
+                        <p class="text-muted">Thử điều chỉnh bộ lọc của bạn</p>
+                    </div>
+                </div>
+            `;
+            return;
+        }
+
+        gridContainer.innerHTML = this.currentPageData.map(item => this.renderGridItem(item)).join('');
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         this.setupRowAnimations();
     }
 
     renderTableRow(item) {
         const initials = item.name.split(' ').map(n => n[0]).slice(0, 2).join('');
+<<<<<<< HEAD
         let statusClass, statusIcon, statusText;
 
         if (item.isConfirmed) {
@@ -952,6 +1372,9 @@ class TransactionsManager {
 
     renderGridItem(item) {
         const initials = item.name.split(' ').map(n => n[0]).slice(0, 2).join('');
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         let statusClass, statusIcon, statusText;
         if (item.isConfirmed) {
             statusClass = 'status-confirmed';
@@ -968,7 +1391,116 @@ class TransactionsManager {
         }
 
         return `
+<<<<<<< HEAD
             <div class="col-xl-4 col-lg-6 col-md-12 grid-item" data-id="${item.id}" data-date="${this.formatDateKey(item.reservedAt)}">
+=======
+            <tr class="table-row animate-fade-in" data-id="${item.id}">
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input row-checkbox" type="checkbox" value="${item.id}">
+                    </div>
+                </td>
+                <td>
+                    <div class="customer-info">
+                        <div class="customer-avatar">
+                            <span>${initials}</span>
+                        </div>
+                        <div class="customer-details">
+                            <div class="customer-name">${item.name}</div>
+                            <div class="customer-id">ID: #${item.id.toString().padStart(3, '0')}</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="email-info">
+                        <span>${item.email}</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="phone-info">
+                        <span>${item.phone}</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="date-info">
+                        <div class="date">${this.formatDate(item.reservedAt)}</div>
+                        <div class="time">${this.formatTime(item.reservedAt)}</div>
+                    </div>
+                </td>
+                <td>
+                    <div class="date-info">
+                        <div class="date">${this.formatDate(item.expiresAt)}</div>
+                        <div class="time">${this.formatTime(item.expiresAt)}</div>
+                    </div>
+                </td>
+                <td>
+                    <span class="status-badge ${statusClass}">
+                        <i class="fas ${statusIcon}"></i>
+                        <span>${statusText}</span>
+                    </span>
+                </td>
+                <td>
+                    <div class="slot-info">
+                        <span class="slot-badge">${item.slotCode}</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="action-buttons">
+                        <div class="btn-group">
+                            <a href="/Transactions/Details/${item.id}" 
+                               class="btn btn-action btn-view" 
+                               data-bs-toggle="tooltip" title="Xem chi tiết">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="/Transactions/Edit/${item.id}" 
+                               class="btn btn-action btn-edit"
+                               data-bs-toggle="tooltip" title="Chỉnh sửa">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="/Transactions/Delete/${item.id}" 
+                               class="btn btn-action btn-delete"
+                               data-bs-toggle="tooltip" title="Xóa">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </div>
+                        <div class="dropdown">
+                            <button class="btn btn-action btn-more" data-bs-toggle="dropdown">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> In hóa đơn</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-paper-plane"></i> Gửi email</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-ban"></i> Hủy đặt chỗ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        `;
+    }
+
+    renderGridItem(item) {
+        const initials = item.name.split(' ').map(n => n[0]).slice(0, 2).join('');
+
+        let statusClass, statusIcon, statusText;
+        if (item.isConfirmed) {
+            statusClass = 'status-confirmed';
+            statusIcon = 'fa-check-circle';
+            statusText = 'Đã xác nhận';
+        } else if (item.expiresAt < new Date()) {
+            statusClass = 'status-expired';
+            statusIcon = 'fa-times-circle';
+            statusText = 'Đã hết hạn';
+        } else {
+            statusClass = 'status-pending';
+            statusIcon = 'fa-clock';
+            statusText = 'Chờ xác nhận';
+        }
+
+        return `
+            <div class="col-xl-4 col-lg-6 col-md-12 grid-item animate-fade-in" data-id="${item.id}">
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                 <div class="card transaction-card">
                     <div class="card-header">
                         <div class="d-flex align-items-center justify-content-between">
@@ -988,12 +1520,37 @@ class TransactionsManager {
                     </div>
                     <div class="card-body">
                         <div class="transaction-details">
+<<<<<<< HEAD
                             <div class="detail-item"><i class="fas fa-envelope text-muted"></i><span>${item.email}</span></div>
                             <div class="detail-item"><i class="fas fa-phone text-muted"></i><span>${item.phone}</span></div>
                             <div class="detail-item"><i class="fas fa-calendar text-muted"></i><span>${this.formatDate(item.reservedAt)} ${this.formatTime(item.reservedAt)}</span></div>
                             <div class="detail-item"><i class="fas fa-calendar-times text-muted"></i><span>${this.formatDate(item.expiresAt)} ${this.formatTime(item.expiresAt)}</span></div>
                             <div class="detail-item"><i class="fas fa-parking text-muted"></i><span class="slot-badge">${item.slotCode}</span></div>
                         </div>
+=======
+                            <div class="detail-item">
+                                <i class="fas fa-envelope text-muted"></i>
+                                <span>${item.email}</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-phone text-muted"></i>
+                                <span>${item.phone}</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-calendar text-muted"></i>
+                                <span>${this.formatDate(item.reservedAt)} ${this.formatTime(item.reservedAt)}</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-calendar-times text-muted"></i>
+                                <span>${this.formatDate(item.expiresAt)} ${this.formatTime(item.expiresAt)}</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-parking text-muted"></i>
+                                <span class="slot-badge">${item.slotCode}</span>
+                            </div>
+                        </div>
+                        
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                         <div class="status-section mt-3">
                             <span class="status-badge ${statusClass}">
                                 <i class="fas ${statusIcon}"></i>
@@ -1003,9 +1560,38 @@ class TransactionsManager {
                     </div>
                     <div class="card-footer">
                         <div class="action-buttons justify-content-center">
+<<<<<<< HEAD
                             <a href="/Transactions/Details/${item.id}" class="btn btn-action btn-view" data-bs-toggle="tooltip" title="Xem chi tiết"><i class="fas fa-eye"></i></a>
                             <a href="/Transactions/Edit/${item.id}" class="btn btn-action btn-edit" data-bs-toggle="tooltip" title="Chỉnh sửa"><i class="fas fa-edit"></i></a>
                             <a href="/Transactions/Delete/${item.id}" class="btn btn-action btn-delete" data-bs-toggle="tooltip" title="Xóa"><i class="fas fa-trash"></i></a>
+=======
+                            <a href="/Transactions/Details/${item.id}"
+                               class="btn btn-action btn-view"
+                               data-bs-toggle="tooltip" title="Xem chi tiết">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="/Transactions/Edit/${item.id}"
+                               class="btn btn-action btn-edit"
+                               data-bs-toggle="tooltip" title="Chỉnh sửa">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="/Transactions/Delete/${item.id}"
+                               class="btn btn-action btn-delete"
+                               data-bs-toggle="tooltip" title="Xóa">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                            <div class="dropdown">
+                                <button class="btn btn-action btn-more" data-bs-toggle="dropdown">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> In hóa đơn</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fas fa-paper-plane"></i> Gửi email</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-ban"></i> Hủy đặt chỗ</a></li>
+                                </ul>
+                            </div>
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                         </div>
                     </div>
                 </div>
@@ -1015,16 +1601,29 @@ class TransactionsManager {
 
     setupRowAnimations() {
         const rows = this.currentView === 'table' ?
+<<<<<<< HEAD
             document.querySelectorAll('.table-row, .detail-row') :
             document.querySelectorAll('.grid-item');
         rows.forEach((row, index) => {
             row.style.animationDelay = `${index * 50}ms`;
         });
+=======
+            document.querySelectorAll('.table-row') :
+            document.querySelectorAll('.grid-item');
+
+        rows.forEach((row, index) => {
+            setTimeout(() => {
+                row.style.animationDelay = `${index * 50}ms`;
+            }, 0);
+        });
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         this.initializeTooltips();
     }
 
     toggleView(event) {
         const viewType = event.currentTarget.dataset.view;
+<<<<<<< HEAD
         document.querySelectorAll('[data-view]').forEach(btn => btn.classList.remove('active'));
         event.currentTarget.classList.add('active');
         const tableView = document.getElementById('tableView');
@@ -1032,6 +1631,29 @@ class TransactionsManager {
         this.currentView = viewType;
         tableView.style.display = viewType === 'table' ? 'block' : 'none';
         gridView.style.display = viewType === 'grid' ? 'block' : 'none';
+=======
+        const buttons = document.querySelectorAll('[data-view]');
+
+        // Update active button
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+
+        // Switch views
+        const tableView = document.getElementById('tableView');
+        const gridView = document.getElementById('gridView');
+
+        if (viewType === 'table') {
+            this.currentView = 'table';
+            tableView.style.display = 'block';
+            gridView.style.display = 'none';
+        } else {
+            this.currentView = 'grid';
+            tableView.style.display = 'none';
+            gridView.style.display = 'block';
+        }
+
+        // Re-render current view
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         this.renderCurrentView();
         this.showNotification(`Đã chuyển sang chế độ xem ${viewType === 'table' ? 'bảng' : 'lưới'}`, 'info');
     }
@@ -1041,12 +1663,27 @@ class TransactionsManager {
         if (!container) return;
 
         let html = '';
+<<<<<<< HEAD
         html += `<li class="page-item ${this.currentPage === 1 ? 'disabled' : ''}"><a class="page-link" href="#" onclick="transactionsManager.goToPage(${this.currentPage - 1})"><i class="fas fa-chevron-left"></i></a></li>`;
 
+=======
+
+        // Previous button
+        html += `
+            <li class="page-item ${this.currentPage === 1 ? 'disabled' : ''}">
+                <a class="page-link" href="#" onclick="transactionsManager.goToPage(${this.currentPage - 1})">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+            </li>
+        `;
+
+        // Page numbers
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         const maxVisiblePages = 5;
         let startPage = Math.max(1, this.currentPage - Math.floor(maxVisiblePages / 2));
         let endPage = Math.min(this.totalPages, startPage + maxVisiblePages - 1);
 
+<<<<<<< HEAD
         if (endPage - startPage < maxVisiblePages - 1) startPage = Math.max(1, endPage - maxVisiblePages + 1);
         if (startPage > 1) {
             html += `<li class="page-item"><a class="page-link" href="#" onclick="transactionsManager.goToPage(1)">1</a></li>`;
@@ -1063,11 +1700,49 @@ class TransactionsManager {
         }
 
         html += `<li class="page-item ${this.currentPage === this.totalPages ? 'disabled' : ''}"><a class="page-link" href="#" onclick="transactionsManager.goToPage(${this.currentPage + 1})"><i class="fas fa-chevron-right"></i></a></li>`;
+=======
+        if (endPage - startPage < maxVisiblePages - 1) {
+            startPage = Math.max(1, endPage - maxVisiblePages + 1);
+        }
+
+        if (startPage > 1) {
+            html += `<li class="page-item"><a class="page-link" href="#" onclick="transactionsManager.goToPage(1)">1</a></li>`;
+            if (startPage > 2) {
+                html += `<li class="page-item disabled"><span class="page-link">...</span></li>`;
+            }
+        }
+
+        for (let i = startPage; i <= endPage; i++) {
+            html += `
+                <li class="page-item ${i === this.currentPage ? 'active' : ''}">
+                    <a class="page-link" href="#" onclick="transactionsManager.goToPage(${i})">${i}</a>
+                </li>
+            `;
+        }
+
+        if (endPage < this.totalPages) {
+            if (endPage < this.totalPages - 1) {
+                html += `<li class="page-item disabled"><span class="page-link">...</span></li>`;
+            }
+            html += `<li class="page-item"><a class="page-link" href="#" onclick="transactionsManager.goToPage(${this.totalPages})">${this.totalPages}</a></li>`;
+        }
+
+        // Next button
+        html += `
+            <li class="page-item ${this.currentPage === this.totalPages ? 'disabled' : ''}">
+                <a class="page-link" href="#" onclick="transactionsManager.goToPage(${this.currentPage + 1})">
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </li>
+        `;
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         container.innerHTML = html;
     }
 
     goToPage(page) {
         if (page < 1 || page > this.totalPages || page === this.currentPage) return;
+<<<<<<< HEAD
         this.currentPage = page;
         this.filterAndPaginate();
         document.querySelector('.table-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1084,6 +1759,30 @@ class TransactionsManager {
         document.getElementById('showingStart').textContent = startEntry;
         document.getElementById('showingEnd').textContent = endEntry;
         document.getElementById('totalEntries').textContent = this.totalItems;
+=======
+
+        this.currentPage = page;
+        this.filterAndPaginate();
+
+        // Smooth scroll to table
+        document.querySelector('.table-section')?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+
+    updatePaginationInfo() {
+        const startEntry = (this.currentPage - 1) * this.pageSize + 1;
+        const endEntry = Math.min(this.currentPage * this.pageSize, this.totalItems);
+
+        const startElement = document.getElementById('showingStart');
+        const endElement = document.getElementById('showingEnd');
+        const totalElement = document.getElementById('totalEntries');
+
+        if (startElement) startElement.textContent = startEntry;
+        if (endElement) endElement.textContent = endEntry;
+        if (totalElement) totalElement.textContent = this.totalItems;
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     }
 
     handlePageSizeChange(event) {
@@ -1104,15 +1803,29 @@ class TransactionsManager {
         const checkboxes = document.querySelectorAll('.row-checkbox');
         checkboxes.forEach(checkbox => {
             checkbox.checked = event.target.checked;
+<<<<<<< HEAD
             if (event.target.checked) this.selectedItems.add(checkbox.value);
             else this.selectedItems.delete(checkbox.value);
+=======
+            if (event.target.checked) {
+                this.selectedItems.add(checkbox.value);
+            } else {
+                this.selectedItems.delete(checkbox.value);
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         });
         this.updateBulkActions();
     }
 
     handleRowSelection(checkbox) {
+<<<<<<< HEAD
         if (checkbox.checked) this.selectedItems.add(checkbox.value);
         else {
+=======
+        if (checkbox.checked) {
+            this.selectedItems.add(checkbox.value);
+        } else {
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             this.selectedItems.delete(checkbox.value);
             document.getElementById('selectAll').checked = false;
         }
@@ -1122,6 +1835,10 @@ class TransactionsManager {
     updateBulkActions() {
         const bulkActions = document.getElementById('bulkActions');
         const selectedCount = document.getElementById('selectedCount');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         if (this.selectedItems.size > 0) {
             bulkActions.style.display = 'block';
             selectedCount.textContent = this.selectedItems.size;
@@ -1131,6 +1848,7 @@ class TransactionsManager {
     }
 
     handleBulkConfirm() {
+<<<<<<< HEAD
         if (this.selectedItems.size === 0) {
             this.showNotification('Vui lòng chọn ít nhất một giao dịch để xác nhận', 'warning');
             return;
@@ -1170,20 +1888,42 @@ class TransactionsManager {
             () => {
                 console.log('Sending GroupIds to backend:', selectedGroupIds);
                 this.performBulkConfirm(selectedGroupIds);
+=======
+        if (this.selectedItems.size === 0) return;
+
+        this.showConfirmDialog(
+            'Xác nhận giao dịch',
+            `Bạn có chắc muốn xác nhận ${this.selectedItems.size} giao dịch đã chọn?`,
+            () => {
+                this.performBulkConfirm();
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             }
         );
     }
 
+<<<<<<< HEAD
     async performBulkConfirm(groupIds) {
         try {
             this.showLoading('Đang xử lý xác nhận giao dịch...');
 
             const token = document.querySelector('input[name="__RequestVerificationToken"]')?.value || '';
+=======
+    async performBulkConfirm() {
+        try {
+            this.showLoading('Đang xử lý...');
+
+            const selectedIds = Array.from(this.selectedItems).map(id => parseInt(id));
+
+            // Get anti-forgery token
+            const token = document.querySelector('input[name="__RequestVerificationToken"]')?.value ||
+                document.querySelector('meta[name="RequestVerificationToken"]')?.content;
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
             const response = await fetch('/Transactions/BulkConfirm', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+<<<<<<< HEAD
                     'RequestVerificationToken': token
                 },
                 body: JSON.stringify(groupIds)
@@ -1396,13 +2136,63 @@ class TransactionsManager {
 
         this.originalTableData.forEach(item => {
             if (!item.isGroup && confirmedGroupIds.includes(item.customerId)) {
+=======
+                    'RequestVerificationToken': token || ''
+                },
+                body: JSON.stringify(selectedIds)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                // Cập nhật trạng thái các item trong bộ nhớ local
+                this.updateLocalItemsStatus(result.confirmedIds);
+
+                // Clear selection và refresh view
+                this.selectedItems.clear();
+                this.updateBulkActions();
+                this.filterAndPaginate();
+
+                this.hideLoading();
+                this.showNotification(result.message, 'success');
+            } else {
+                this.hideLoading();
+                this.showNotification(result.message || 'Có lỗi xảy ra', 'error');
+            }
+        } catch (error) {
+            console.error('Error in bulk confirm:', error);
+            this.hideLoading();
+            this.showNotification('Có lỗi xảy ra khi xác nhận giao dịch', 'error');
+        }
+
+    }
+
+
+    updateLocalItemsStatus(confirmedIds) {
+        // Cập nhật trạng thái trong tableData
+        this.tableData.forEach(item => {
+            if (confirmedIds.includes(item.id)) {
+                item.isConfirmed = true;
+            }
+        });
+
+        // Cập nhật trạng thái trong originalTableData
+        this.originalTableData.forEach(item => {
+            if (confirmedIds.includes(item.id)) {
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                 item.isConfirmed = true;
             }
         });
     }
+<<<<<<< HEAD
 
     handleBulkExport() {
         if (this.selectedItems.size === 0) return;
+=======
+    handleBulkExport() {
+        if (this.selectedItems.size === 0) return;
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         this.showLoading('Đang xuất dữ liệu...');
         setTimeout(() => {
             this.exportSelectedItems();
@@ -1412,6 +2202,7 @@ class TransactionsManager {
     }
 
     handleBulkDelete() {
+<<<<<<< HEAD
         if (this.selectedItems.size === 0) {
             this.showNotification('Vui lòng chọn ít nhất một giao dịch để xóa', 'warning');
             return;
@@ -1436,10 +2227,27 @@ class TransactionsManager {
             () => {
                 console.log('Sending GroupIds to backend for delete:', selectedGroupIds);
                 this.performBulkDelete(selectedGroupIds);
+=======
+        if (this.selectedItems.size === 0) return;
+
+        this.showConfirmDialog(
+            'Xóa giao dịch',
+            `Bạn có chắc muốn xóa ${this.selectedItems.size} giao dịch đã chọn? Hành động này không thể hoàn tác.`,
+            () => {
+                this.showLoading('Đang xóa...');
+                setTimeout(() => {
+                    this.selectedItems.clear();
+                    this.updateBulkActions();
+                    this.loadTableDataFromDOM();
+                    this.hideLoading();
+                    this.showNotification('Đã xóa thành công', 'success');
+                }, 1500);
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             },
             'danger'
         );
     }
+<<<<<<< HEAD
     async performBulkDelete(groupIds) {
         try {
             this.showLoading('Đang xóa...');
@@ -1501,6 +2309,12 @@ class TransactionsManager {
 
     exportToExcel() {
         this.showLoading('Đang tạo file Excel...');
+=======
+
+    exportToExcel() {
+        this.showLoading('Đang tạo file Excel...');
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         setTimeout(() => {
             const csvContent = this.generateCSVContent(this.currentPageData);
             this.downloadFile(csvContent, 'transactions.csv', 'text/csv');
@@ -1511,6 +2325,10 @@ class TransactionsManager {
 
     exportToPDF() {
         this.showLoading('Đang tạo file PDF...');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         setTimeout(() => {
             const htmlContent = this.generateHTMLReport(this.currentPageData);
             this.downloadFile(htmlContent, 'transactions.html', 'text/html');
@@ -1520,7 +2338,13 @@ class TransactionsManager {
     }
 
     exportSelectedItems() {
+<<<<<<< HEAD
         const selectedData = this.tableData.filter(item => this.selectedItems.has(item.id.toString()));
+=======
+        const selectedData = this.tableData.filter(item =>
+            this.selectedItems.has(item.id.toString())
+        );
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         const csvContent = this.generateCSVContent(selectedData);
         this.downloadFile(csvContent, 'selected_transactions.csv', 'text/csv');
     }
@@ -1533,6 +2357,7 @@ class TransactionsManager {
             item.email,
             item.phone,
             this.formatDate(item.reservedAt),
+<<<<<<< HEAD
             item.expiresAt ? this.formatDate(item.expiresAt) : '',
             item.isConfirmed ? 'Đã xác nhận' : (item.expiresAt < new Date() ? 'Đã hết hạn' : 'Chờ xác nhận'),
             item.slotCode
@@ -1543,10 +2368,25 @@ class TransactionsManager {
         return 'data:text/csv;charset=utf-8,\ufeff' + encodeURIComponent(csvContent);
     }
 
+=======
+            this.formatDate(item.expiresAt),
+            item.isConfirmed ? 'Đã xác nhận' : (item.expiresAt < new Date() ? 'Đã hết hạn' : 'Chờ xác nhận'),
+            item.slotCode
+        ]);
+
+        const csvContent = [headers, ...rows]
+            .map(row => row.map(field => `"${field}"`).join(','))
+            .join('\n');
+
+        return 'data:text/csv;charset=utf-8,\ufeff' + encodeURIComponent(csvContent);
+    }
+    
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     generateHTMLReport(data) {
         const html = `
             <!DOCTYPE html>
             <html>
+<<<<<<< HEAD
             <head><meta charset="UTF-8"><title>Báo cáo giao dịch</title>
             <style>body { font-family: Arial, sans-serif; } table { width: 100%; border-collapse: collapse; } th, td { padding: 8px; border: 1px solid #ddd; text-align: left; } th { background-color: #f2f2f2; }</style>
             </head>
@@ -1554,6 +2394,53 @@ class TransactionsManager {
             <table><thead><tr><th>ID</th><th>Tên</th><th>Email</th><th>Điện thoại</th><th>Ngày đặt</th><th>Hết hạn</th><th>Trạng thái</th><th>Vị trí</th></tr></thead>
             <tbody>${data.map(item => `<tr><td>${item.id}</td><td>${item.name}</td><td>${item.email}</td><td>${item.phone}</td><td>${this.formatDate(item.reservedAt)}</td><td>${item.expiresAt ? this.formatDate(item.expiresAt) : ''}</td><td>${item.isConfirmed ? 'Đã xác nhận' : (item.expiresAt < new Date() ? 'Đã hết hạn' : 'Chờ xác nhận')}</td><td>${item.slotCode}</td></tr>`).join('')}</tbody></table></body></html>
         `;
+=======
+            <head>
+                <meta charset="UTF-8">
+                <title>Báo cáo giao dịch</title>
+                <style>
+                    body { font-family: Arial, sans-serif; }
+                    table { width: 100%; border-collapse: collapse; }
+                    th, td { padding: 8px; border: 1px solid #ddd; text-align: left; }
+                    th { background-color: #f2f2f2; }
+                </style>
+            </head>
+            <body>
+                <h1>Báo cáo Giao dịch</h1>
+                <p>Ngày tạo: ${new Date().toLocaleDateString('vi-VN')}</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên</th>
+                            <th>Email</th>
+                            <th>Điện thoại</th>
+                            <th>Ngày đặt</th>
+                            <th>Hết hạn</th>
+                            <th>Trạng thái</th>
+                            <th>Vị trí</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${data.map(item => `
+                            <tr>
+                                <td>${item.id}</td>
+                                <td>${item.name}</td>
+                                <td>${item.email}</td>
+                                <td>${item.phone}</td>
+                                <td>${this.formatDate(item.reservedAt)}</td>
+                                <td>${this.formatDate(item.expiresAt)}</td>
+                                <td>${item.isConfirmed ? 'Đã xác nhận' : (item.expiresAt < new Date() ? 'Đã hết hạn' : 'Chờ xác nhận')}</td>
+                                <td>${item.slotCode}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            </body>
+            </html>
+        `;
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         return 'data:text/html;charset=utf-8,' + encodeURIComponent(html);
     }
 
@@ -1568,6 +2455,7 @@ class TransactionsManager {
 
     confirmDelete(deleteButton) {
         const href = deleteButton.href;
+<<<<<<< HEAD
         const row = deleteButton.closest('tr');
         const itemId = href.split('/').pop();
 
@@ -1584,6 +2472,16 @@ class TransactionsManager {
                 setTimeout(() => {
                     window.location.href = href;
                 }, 1000);
+=======
+        const row = deleteButton.closest('tr, .grid-item');
+        const customerName = row.querySelector('.customer-name').textContent;
+
+        this.showConfirmDialog(
+            'Xác nhận xóa',
+            `Bạn có chắc muốn xóa giao dịch của ${customerName}? Hành động này không thể hoàn tác.`,
+            () => {
+                window.location.href = href;
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             },
             'danger'
         );
@@ -1593,6 +2491,7 @@ class TransactionsManager {
         const confirmModal = document.createElement('div');
         confirmModal.className = 'modal fade';
         confirmModal.innerHTML = `
+<<<<<<< HEAD
             <div class="modal-dialog"><div class="modal-content">
             <div class="modal-header"><h5 class="modal-title">${title}</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
             <div class="modal-body"><p>${message}</p></div>
@@ -1602,23 +2501,63 @@ class TransactionsManager {
         document.body.appendChild(confirmModal);
         const modal = new bootstrap.Modal(confirmModal);
         modal.show();
+=======
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">${title}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>${message}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-${type}" id="confirmAction">
+                            ${type === 'danger' ? 'Xóa' : 'Xác nhận'}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(confirmModal);
+
+        const modal = new bootstrap.Modal(confirmModal);
+        modal.show();
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         confirmModal.querySelector('#confirmAction').addEventListener('click', () => {
             modal.hide();
             onConfirm();
         });
+<<<<<<< HEAD
         confirmModal.addEventListener('hidden.bs.modal', () => document.body.removeChild(confirmModal));
+=======
+
+        confirmModal.addEventListener('hidden.bs.modal', () => {
+            document.body.removeChild(confirmModal);
+        });
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     }
 
     showLoading(message = 'Đang tải...') {
         const overlay = document.getElementById('loadingOverlay');
+<<<<<<< HEAD
         if (overlay) {
             overlay.querySelector('.loading-text').textContent = message;
             overlay.style.display = 'flex';
         }
+=======
+        const text = overlay.querySelector('.loading-text');
+        if (text) text.textContent = message;
+        overlay.style.display = 'flex';
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     }
 
     hideLoading() {
         const overlay = document.getElementById('loadingOverlay');
+<<<<<<< HEAD
         if (overlay) overlay.style.display = 'none';
     }
 
@@ -1812,15 +2751,72 @@ class TransactionsManager {
         return function executedFunction(...args) {
             clearTimeout(timeout);
             timeout = setTimeout(() => func(...args), wait);
+=======
+        overlay.style.display = 'none';
+    }
+
+    showNotification(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+        notification.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+        notification.innerHTML = `
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    document.body.removeChild(notification);
+                }
+            }, 150);
+        }, 3000);
+    }
+
+    handleResize() {
+        const isMobile = window.innerWidth < 768;
+
+        if (isMobile) {
+            this.pageSize = Math.min(this.pageSize, 10);
+        }
+    }
+
+    // Utility functions
+    debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         };
     }
 
     formatDate(date) {
+<<<<<<< HEAD
         return date ? date.toLocaleDateString('vi-VN') : '';
     }
 
     formatTime(date) {
         return date ? date.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) : '';
+=======
+        if (!date || !(date instanceof Date)) return '';
+        return date.toLocaleDateString('vi-VN');
+    }
+
+    formatTime(date) {
+        if (!date || !(date instanceof Date)) return '';
+        return date.toLocaleTimeString('vi-VN', {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     }
 
     parseDate(dateString) {
@@ -1829,6 +2825,7 @@ class TransactionsManager {
     }
 }
 
+<<<<<<< HEAD
 document.addEventListener('DOMContentLoaded', () => {
     window.transactionsManager = new TransactionsManager();
 });
@@ -1836,6 +2833,22 @@ document.addEventListener('DOMContentLoaded', () => {
 class PerformanceMonitor {
     constructor() {
         this.metrics = { loadTime: 0, renderTime: 0, searchTime: 0, sortTime: 0 };
+=======
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    window.transactionsManager = new TransactionsManager();
+});
+
+// Performance monitoring
+class PerformanceMonitor {
+    constructor() {
+        this.metrics = {
+            loadTime: 0,
+            renderTime: 0,
+            searchTime: 0,
+            sortTime: 0
+        };
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         this.startTime = performance.now();
     }
 
@@ -1851,27 +2864,117 @@ class PerformanceMonitor {
 
     endTimer(operation) {
         if (this.timers && this.timers[operation]) {
+<<<<<<< HEAD
             this.metrics[operation + 'Time'] = performance.now() - this.timers[operation];
             console.log(`${operation} completed in ${this.metrics[operation + 'Time'].toFixed(2)}ms`);
+=======
+            const duration = performance.now() - this.timers[operation];
+            this.metrics[operation + 'Time'] = duration;
+            console.log(`${operation} completed in ${duration.toFixed(2)}ms`);
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             delete this.timers[operation];
         }
     }
 
+<<<<<<< HEAD
     getMetrics() { return { ...this.metrics }; }
 }
 
 window.performanceMonitor = new PerformanceMonitor();
 
+=======
+    getMetrics() {
+        return { ...this.metrics };
+    }
+    async performBulkConfirm() {
+        try {
+            this.showLoading('Đang xử lý...');
+
+            const selectedIds = Array.from(this.selectedItems).map(id => parseInt(id));
+
+            // Get anti-forgery token
+            const token = document.querySelector('input[name="__RequestVerificationToken"]')?.value ||
+                document.querySelector('meta[name="RequestVerificationToken"]')?.content;
+
+            const response = await fetch('/Transactions/BulkConfirm', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': token || ''
+                },
+                body: JSON.stringify(selectedIds)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                // Cập nhật trạng thái các item trong bộ nhớ local
+                this.updateLocalItemsStatus(result.confirmedIds);
+
+                // Clear selection và refresh view
+                this.selectedItems.clear();
+                this.updateBulkActions();
+                this.filterAndPaginate();
+
+                this.hideLoading();
+                this.showNotification(result.message, 'success');
+            } else {
+                this.hideLoading();
+                this.showNotification(result.message || 'Có lỗi xảy ra', 'error');
+            }
+        } catch (error) {
+            console.error('Error in bulk confirm:', error);
+            this.hideLoading();
+            this.showNotification('Có lỗi xảy ra khi xác nhận giao dịch', 'error');
+        }
+    }
+
+    // Thêm hàm mới này vào cuối class TransactionsManager (trước dấu đóng ngoặc cuối cùng)
+    updateLocalItemsStatus(confirmedIds) {
+        // Cập nhật trạng thái trong tableData
+        this.tableData.forEach(item => {
+            if (confirmedIds.includes(item.id)) {
+                item.isConfirmed = true;
+            }
+        });
+
+        // Cập nhật trạng thái trong originalTableData
+        this.originalTableData.forEach(item => {
+            if (confirmedIds.includes(item.id)) {
+                item.isConfirmed = true;
+            }
+        });
+    }
+}
+
+// Initialize performance monitoring
+window.performanceMonitor = new PerformanceMonitor();
+
+// Clean up on page unload
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 window.addEventListener('beforeunload', () => {
     if (window.transactionsManager) {
         // Cleanup logic here
     }
 });
 
+<<<<<<< HEAD
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
             .then(registration => console.log('SW registered: ', registration))
             .catch(registrationError => console.log('SW registration failed: ', registrationError));
+=======
+// Service Worker registration for caching (if available)
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('SW registered: ', registration);
+            })
+            .catch(registrationError => {
+                console.log('SW registration failed: ', registrationError);
+            });
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     });
 }

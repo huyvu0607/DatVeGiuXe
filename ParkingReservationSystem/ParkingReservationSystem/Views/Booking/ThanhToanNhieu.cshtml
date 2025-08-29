@@ -101,7 +101,1291 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 
+=======
+                @model List<ParkingReservationSystem.Models.Reservation>
+@{
+    ViewData["Title"] = "Thanh toán nhiều chỗ";
+}
+
+<div class="payment-container">
+    <div class="payment-card">
+        <div class="payment-header">
+            <h4><i class="fas fa-credit-card me-3"></i>Xác nhận thanh toán giữ chỗ</h4>
+            <div class="header-icon">
+                <i class="fas fa-car"></i>
+            </div>
+        </div>
+        
+        <div class="payment-body">
+            <form method="post" asp-action="ConfirmMultiple" id="paymentForm">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="info-card">
+                            <div class="info-label">
+                                <i class="fas fa-map-marker-alt me-2"></i>Mã chỗ
+                            </div>
+                            <div class="slot-codes">
+                                @foreach (var code in Model.Select(res => res.SlotCode))
+                                {
+                                    <span class="slot-code">@code</span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                        <div class="info-card">
+                            <div class="info-label">
+                                <i class="fas fa-building me-2"></i>Tầng
+                            </div>
+                            <div class="floor-codes">
+                                @foreach (var floor in Model.Select(res => res.ParkingSlot.Floor).Distinct())
+                                {
+                                    <span class="floor-code">Tầng @floor</span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <div class="info-label">
+                                <i class="fas fa-user me-2"></i>Tên người đặt
+                            </div>
+                            <div class="info-value">@Model[0].Name</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <div class="info-label">
+                                <i class="fas fa-envelope me-2"></i>Email
+                            </div>
+                            <div class="info-value">@Model[0].Email</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="countdown-section mb-4" id="countdownSection">
+                    <div class="info-label">
+                        <i class="fas fa-clock me-2"></i>Thời gian còn lại
+                    </div>
+                    <div class="countdown-timer" id="countdownTimer">--:--</div>
+                    <div class="countdown-label">Hãy hoàn tất thanh toán trước khi hết thời gian</div>
+                    <div class="expires-time">Giữ chỗ đến: @(Model[0].ExpiresAt?.ToString("HH:mm:ss") ?? "Chưa có")</div>
+                </div>
+
+                <!-- Loading Section (Hidden initially) -->
+                <div class="loading-section mb-4" id="loadingSection" style="display: none;">
+                    <div class="loading-content">
+                        <div class="loading-spinner">
+                            <div class="spinner"></div>
+                        </div>
+                        <div class="loading-text" id="loadingText">Đang xử lý thanh toán...</div>
+                        <div class="loading-progress">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Section (Hidden initially) -->
+                <div class="success-section mb-4" id="successSection" style="display: none;">
+                    <div class="success-content">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="success-text">Thanh toán thành công!</div>
+                        <div class="success-message">Email xác nhận đã được gửi đến @Model[0].Email</div>
+                        <div class="redirect-info" id="redirectInfo" style="display: none;">
+                            <div class="redirect-text">
+                                <i class="fas fa-external-link-alt me-2"></i>
+                                Đang chuyển hướng đến trang chi tiết trong <span id="redirectTimer">2</span> giây...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                @* Truyền toàn bộ danh sách ID *@
+                @foreach (var reservation in Model)
+                {
+                    <input type="hidden" name="reservationIds" value="@reservation.Id" />
+                }
+                
+                <div class="action-buttons" id="actionButtons">
+                    <button type="submit" class="btn-confirm" id="confirmBtn">
+                        <i class="fas fa-check-circle me-2"></i>
+                        Xác nhận thanh toán
+                    </button>
+                    <button type="button" class="btn-cancel" id="cancelBtn" onclick="cancelReservations()">
+                        <i class="fas fa-times-circle me-2"></i>
+                        Huỷ đặt chỗ
+                    </button>
+                </div>
+
+                <!-- Success Buttons (Hidden initially) -->
+                
+                @if(!(User.IsInRole("User") || User.IsInRole("Admin")))
+                {
+                    <div class="success-buttons" id="successButtons" style="display: none;">
+                        <div class="d-flex justify-content-center gap-4 mt-3">
+                            <a href="@Url.Action("MultipleDetail", "Reservation", new { ids = string.Join(",", Model.Select(res => res.SlotCode)), success = true })" class="btn-detail">
+                                <i class="fas fa-eye me-2"></i>
+                                Xem chi tiết
+                            </a>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="success-buttons" id="successButtons" style="display: none;">
+                        <div class="d-flex justify-content-center gap-4 mt-3">
+
+                            <a href="@Url.Action("Index", "Home")" class="btn-home">
+                                <i class="fas fa-home me-2"></i>
+                                Quay lại trang chủ
+                            </a>
+                            <a href="@Url.Action("MultipleDetail", "Reservation", new { ids = string.Join(",", Model.Select(res => res.SlotCode)), success = true })" class="btn-detail">
+                                <i class="fas fa-eye me-2"></i>
+                                Xem chi tiết
+                            </a>
+                        </div>
+                    </div>
+                }
+            </form>
+        </div>
+    </div>
+</div>
+
+@* Container cho toast notifications *@
+<div class="toast-container"></div>
+
+@section Scripts {
+    <!-- SignalR JavaScript Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.0/signalr.min.js"></script>
+
+    <script>
+        // Tạo kết nối SignalR
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/parkingHub")
+            .build();
+
+        // Khởi tạo kết nối
+        connection.start().then(function () {
+            console.log("SignalR Connected on Payment page");
+            connection.invoke("JoinParkingGroup");
+        }).catch(function (err) {
+            console.error("SignalR connection error:", err.toString());
+        });
+
+        // Xử lý khi có chỗ được đặt bởi người khác
+        connection.on("SlotReserved", function (slotCode, customerName) {
+            showNotification(`Chỗ ${slotCode} vừa được ${customerName} đặt`, 'warning');
+        });
+
+        connection.on("SlotConfirmed", function (slotCode, customerName) {
+            showNotification(`Chỗ ${slotCode} đã được ${customerName} xác nhận`, 'success');
+        });
+
+        connection.on("SlotReleased", function (slotCode) {
+            showNotification(`Chỗ ${slotCode} đã được giải phóng`, 'info');
+        });
+
+        connection.on("SlotCancelled", function (slotCode, customerName) {
+            showNotification(`Chỗ ${slotCode} đã được ${customerName} hủy bỏ`, 'info');
+        });
+
+        connection.on("MultipleSlotsReserved", function (slotCodes, customerName) {
+            showNotification(`${customerName} vừa đặt ${slotCodes.length} chỗ: ${slotCodes.join(', ')}`, 'warning');
+        });
+
+        connection.on("MultipleSlotsConfirmed", function (slotCodes, customerName) {
+            showNotification(`${slotCodes.length} chỗ đã được ${customerName} xác nhận: ${slotCodes.join(', ')}`, 'success');
+        });
+
+        connection.on("MultipleSlotsReleased", function (slotCodes) {
+            showNotification(`${slotCodes.length} chỗ đã được giải phóng: ${slotCodes.join(', ')}`, 'info');
+        });
+
+        connection.on("MultipleSlotsCancel", function (slotCodes, customerName) {
+            showNotification(`${customerName} đã hủy ${slotCodes.length} chỗ: ${slotCodes.join(', ')}`, 'info');
+        });
+
+        function cancelReservations() {
+            if (confirm('Bạn có chắc muốn huỷ các đặt chỗ này không?')) {
+                const reservationIds = Array.from(document.querySelectorAll('input[name="reservationIds"]'))
+                    .map(input => input.value);
+                
+                const slotCodes = '@string.Join(",", Model.Select(res => res.SlotCode))'.split(',');
+                const customerName = '@Model[0].Name';
+
+                showNotification('Đang hủy đặt chỗ...', 'info');
+
+                connection.invoke("NotifyMultipleSlotsCancel", slotCodes, customerName)
+                    .then(function() {
+                        const form = document.createElement('form');
+                        form.method = 'POST';
+                        form.action = '@Url.Action("CancelMultipleReservation", "Reservation")';
+                        
+                        reservationIds.forEach(id => {
+                            const input = document.createElement('input');
+                            input.type = 'hidden';
+                            input.name = 'reservationIds';
+                            input.value = id;
+                            form.appendChild(input);
+                        });
+
+                        document.body.appendChild(form);
+                        form.submit();
+                    })
+                    .catch(function(err) {
+                        console.error('Error notifying cancel:', err);
+                        window.location.href = '@Url.Action("CancelMultipleReservation", "Reservation")' + 
+                            '?reservationIds=' + reservationIds.join('&reservationIds=');
+                    });
+            }
+        }
+
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `toast toast-${type}`;
+            notification.innerHTML = `
+                <div class="toast-content">
+                    <span class="toast-message">${message}</span>
+                    <button class="toast-close" onclick="this.parentElement.parentElement.remove()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            `;
+
+            const toastContainer = document.querySelector('.toast-container');
+            toastContainer.appendChild(notification);
+
+            setTimeout(function () {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        window.addEventListener('beforeunload', function () {
+            connection.invoke("LeaveParkingGroup");
+            connection.stop();
+        });
+
+        // Countdown functionality
+        const expiresAt = new Date('@Model[0].ExpiresAt?.ToString("yyyy-MM-ddTHH:mm:ss")');
+        let countdownInterval;
+
+        function updateCountdown() {
+            const now = new Date();
+            const timeLeft = expiresAt - now;
+
+            if (timeLeft <= 0) {
+                showNotification('Đã hết thời gian giữ chỗ! Trang sẽ được làm mới.', 'error');
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+                return;
+            }
+
+            const minutes = Math.floor(timeLeft / 60000);
+            const seconds = Math.floor((timeLeft % 60000) / 1000);
+
+            const countdownElement = document.getElementById('countdownTimer');
+            if (countdownElement) {
+                countdownElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+
+            if (timeLeft <= 120000 && timeLeft > 119000) {
+                showNotification('Còn 2 phút để hoàn tất thanh toán!', 'warning');
+            }
+
+            if (timeLeft <= 30000 && timeLeft > 29000) {
+                showNotification('Còn 30 giây để hoàn tất thanh toán!', 'error');
+            }
+        }
+
+        countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Enhanced form submission with loading states
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            
+            // Hide countdown and action buttons
+            document.getElementById('countdownSection').style.display = 'none';
+            document.getElementById('actionButtons').style.display = 'none';
+            
+            // Show loading section
+            document.getElementById('loadingSection').style.display = 'block';
+            
+            // Clear countdown interval
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+            
+            // Start loading animation
+            startLoadingProgress();
+            
+            // Submit form after showing loading
+            setTimeout(() => {
+                e.target.submit();
+            }, 500);
+        });
+
+        function startLoadingProgress() {
+            const loadingText = document.getElementById('loadingText');
+            const progressBar = document.getElementById('progressBar');
+            let progress = 0;
+            let step = 0;
+            
+            const messages = [
+                'Đang xử lý thanh toán...',
+                'Đang xác nhận thông tin...',
+                'Đang tạo mã QR...',
+                'Đang gửi email xác nhận...',
+                'Hoàn tất xử lý...'
+            ];
+
+            const progressInterval = setInterval(() => {
+                progress += Math.random() * 15 + 5; // Random progress between 5-20%
+                if (progress > 100) progress = 100;
+                
+                progressBar.style.width = progress + '%';
+                
+                // Change message every 20% progress
+                const messageIndex = Math.floor(progress / 20);
+                if (messageIndex < messages.length && messageIndex !== step) {
+                    step = messageIndex;
+                    loadingText.textContent = messages[messageIndex];
+                }
+                
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                    // Note: In real implementation, this would be triggered by server response
+                    // For now, it's just a simulation
+                }
+            }, 300);
+        }
+
+        // Function to show success state and auto redirect
+        function showSuccessState() {
+            document.getElementById('loadingSection').style.display = 'none';
+            document.getElementById('successSection').style.display = 'block';
+            document.getElementById('successButtons').style.display = 'block';
+            
+            // Show redirect info after success animation completes
+            setTimeout(() => {
+                document.getElementById('redirectInfo').style.display = 'block';
+                startRedirectCountdown();
+            }, 800);
+        }
+
+        // Auto redirect countdown function
+        function startRedirectCountdown() {
+            let timeLeft = 2;
+            const redirectTimer = document.getElementById('redirectTimer');
+            
+            const redirectInterval = setInterval(() => {
+                timeLeft--;
+                redirectTimer.textContent = timeLeft;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(redirectInterval);
+                    // Redirect to detail page
+                    const detailUrl = '@Url.Action("MultipleDetail", "Reservation", new { ids = string.Join(",", Model.Select(res => res.SlotCode)), success = true })';
+                    window.location.href = detailUrl;
+                }
+            }, 1000);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.payment-card').style.animation = 'slideUp 0.6s ease-out';
+        });
+
+        // Check if coming from successful payment (you can set this via TempData or ViewBag)
+        @if(ViewBag.PaymentSuccess == true)
+        {
+            <text>
+            // Hide initial sections and show success immediately
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('countdownSection').style.display = 'none';
+                document.getElementById('actionButtons').style.display = 'none';
+                showSuccessState();
+            });
+            </text>
+        }
+    </script>
+
+    <style>
+        /* Modern Payment Interface Styles */
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .payment-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .payment-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15), 
+                        0 0 0 1px rgba(255, 255, 255, 0.1);
+            border: none;
+            overflow: hidden;
+            position: relative;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .payment-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+        }
+
+        .payment-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 35px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .payment-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .payment-header h4 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-icon {
+            font-size: 2.8rem;
+            opacity: 0.8;
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: pulse 2s infinite;
+        }
+
+        .payment-body {
+            padding: 45px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
+            border-radius: 18px;
+            padding: 28px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.18);
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .info-value {
+            font-size: 1.15rem;
+            color: #2d3748;
+            font-weight: 500;
+        }
+
+        .slot-codes, .floor-codes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .slot-code {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.35);
+            animation: slideIn 0.6s ease-out;
+            transition: all 0.3s ease;
+        }
+
+        .slot-code:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.45);
+        }
+
+        .floor-code {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 6px 16px rgba(240, 147, 251, 0.35);
+            animation: slideIn 0.6s ease-out 0.1s both;
+            transition: all 0.3s ease;
+        }
+
+        .floor-code:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(240, 147, 251, 0.45);
+        }
+
+        .countdown-section {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .countdown-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .countdown-timer {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2d3748;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+            animation: pulse 1.2s infinite;
+            position: relative;
+            z-index: 2;
+            margin: 10px 0;
+        }
+
+        .countdown-label {
+            font-size: 1.1rem;
+            color: #4a5568;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 8px;
+        }
+
+        .expires-time {
+            font-size: 0.95rem;
+            color: #6c757d;
+            position: relative;
+            z-index: 2;
+            font-weight: 500;
+        }
+
+        /* Loading Section Styles */
+        .loading-section {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .loading-spinner {
+            margin-bottom: 20px;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-left: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        .loading-text {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .loading-progress {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            height: 8px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            background: white;
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+
+        /* Success Section Styles */
+        .success-section {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .success-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 20px;
+            animation: bounceIn 0.8s ease-out;
+        }
+
+        .success-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .success-message {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+
+        /* Redirect Info Styles */
+        .redirect-info {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .redirect-text {
+            font-size: 1.1rem;
+            color: white;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        #redirectTimer {
+            color: #ffeaa7;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            animation: pulse 1s infinite;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        .btn-confirm {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            border: none;
+            color: white;
+            padding: 18px 36px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 1.15rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            flex: 1;
+            cursor: pointer;
+        }
+
+        .btn-confirm:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 40px rgba(0, 184, 148, 0.4);
+            color: white;
+        }
+
+        .btn-confirm::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            transition: left 0.6s;
+        }
+
+        .btn-confirm:hover::before {
+            left: 100%;
+        }
+
+        .btn-cancel {
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+            border: none;
+            color: white;
+            padding: 18px 36px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 1.15rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            flex: 1;
+            cursor: pointer;
+        }
+
+        .btn-cancel:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 40px rgba(253, 121, 168, 0.4);
+            color: white;
+        }
+
+        .btn-cancel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            transition: left 0.6s;
+        }
+
+        .btn-cancel:hover::before {
+            left: 100%;
+        }
+
+        /* Success Buttons - Updated Layout */
+        .success-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 35px;
+            justify-content: space-between;
+        }
+
+        .btn-detail {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 18px 36px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 1.15rem;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(116, 185, 255, 0.25);
+        }
+
+        .btn-detail:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 40px rgba(116, 185, 255, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-detail::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            transition: left 0.6s;
+        }
+
+        .btn-detail:hover::before {
+            left: 100%;
+        }
+
+        .btn-detail:active {
+            transform: translateY(-1px);
+            box-shadow: 0 12px 30px rgba(116, 185, 255, 0.35);
+        }
+
+        .btn-home {
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+            color: white;
+            padding: 18px 36px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 1.15rem;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(108, 92, 231, 0.25);
+        }
+
+        .btn-home:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 40px rgba(108, 92, 231, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            transition: left 0.6s;
+        }
+
+        .btn-home:hover::before {
+            left: 100%;
+        }
+
+        .btn-home:active {
+            transform: translateY(-1px);
+            box-shadow: 0 12px 30px rgba(108, 92, 231, 0.35);
+        }
+
+        /* Toast Notifications */
+        .toast-container {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            z-index: 9999;
+            max-width: 420px;
+        }
+
+        .toast {
+            margin-bottom: 15px;
+            padding: 22px;
+            border-radius: 18px;
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            animation: slideInRight 0.5s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toast::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+        }
+
+        .toast-success {
+            background: rgba(0, 184, 148, 0.95);
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 184, 148, 0.3);
+        }
+
+        .toast-success::before {
+            background: #00b894;
+        }
+
+        .toast-warning {
+            background: rgba(253, 203, 110, 0.95);
+            color: #2d3748;
+            box-shadow: 0 10px 30px rgba(253, 203, 110, 0.3);
+        }
+
+        .toast-warning::before {
+            background: #fdcb6e;
+        }
+
+        .toast-error {
+            background: rgba(232, 67, 147, 0.95);
+            color: white;
+            box-shadow: 0 10px 30px rgba(232, 67, 147, 0.3);
+        }
+
+        .toast-error::before {
+            background: #e84393;
+        }
+
+        .toast-info {
+            background: rgba(116, 185, 255, 0.95);
+            color: white;
+            box-shadow: 0 10px 30px rgba(116, 185, 255, 0.3);
+        }
+
+        .toast-info::before {
+            background: #74b9ff;
+        }
+
+        .toast-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .toast-message {
+            flex-grow: 1;
+            font-weight: 500;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .toast-close {
+            background: rgba(255, 255, 255, 0.25);
+            border: none;
+            color: currentColor;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            margin-left: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .toast-close:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: rotate(90deg);
+        }
+
+        /* Animations */
+        @@keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @@keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @@keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @@keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @@keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.85;
+                transform: scale(1.03);
+            }
+        }
+
+        @@keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(180deg);
+            }
+        }
+
+        @@keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @@keyframes modalSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @@keyframes bounce {
+            0%, 20%, 53%, 80%, 100% {
+                transform: translateY(0);
+            }
+
+            40%, 43% {
+                transform: translateY(-20px);
+            }
+
+            70% {
+                transform: translateY(-10px);
+            }
+
+            90% {
+                transform: translateY(-4px);
+            }
+        }
+
+        @@keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+
+            70% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @@keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive Design */
+        @@media (max-width: 768px) {
+            .payment-container {
+                margin: 20px auto;
+                padding: 0 15px;
+            }
+
+            .payment-body {
+                padding: 25px;
+            }
+
+            .payment-header {
+                padding: 25px;
+            }
+
+            .payment-header h4 {
+                font-size: 1.5rem;
+            }
+
+            .header-icon {
+                font-size: 2rem;
+                right: 25px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .success-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn-detail,
+            .btn-home {
+                width: 100%;
+                flex: none;
+            }
+
+            .countdown-timer {
+                font-size: 2.2rem;
+            }
+
+            .toast-container {
+                right: 15px;
+                left: 15px;
+                max-width: none;
+            }
+
+            .modern-modal {
+                margin: 20px;
+                padding: 0;
+            }
+
+            .modal-body {
+                padding: 30px 25px;
+            }
+
+            .modal-footer {
+                flex-direction: column;
+                padding: 20px 25px 30px;
+            }
+
+            .modern-btn {
+                min-width: auto;
+                width: 100%;
+            }
+
+            .redirect-text {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+
+        @@media (max-width: 576px) {
+            .slot-codes, .floor-codes {
+                justify-content: center;
+            }
+
+            .info-card {
+                padding: 20px;
+            }
+
+            .countdown-section {
+                padding: 20px;
+            }
+
+            .loading-section {
+                padding: 30px 20px;
+            }
+
+            .success-section {
+                padding: 30px 20px;
+            }
+
+            .btn-detail,
+            .btn-home {
+                padding: 16px 28px;
+                font-size: 1.1rem;
+            }
+
+            .modal-icon {
+                font-size: 3rem;
+            }
+
+            .modal-body h3 {
+                font-size: 1.5rem;
+            }
+
+            .redirect-info {
+                padding: 15px;
+            }
+
+            .redirect-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+}
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                 @* Truyền toàn bộ danh sách ID *@
                 @foreach (var reservation in Model)
                 {

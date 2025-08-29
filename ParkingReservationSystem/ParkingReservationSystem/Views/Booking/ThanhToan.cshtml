@@ -12,7 +12,11 @@
                 <i class="fas fa-car"></i>
             </div>
         </div>
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         <div class="payment-body">
             <form asp-action="Confirm" method="post" id="paymentForm">
                 <div class="row">
@@ -26,7 +30,11 @@
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                     
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                     <div class="col-md-6 mb-3">
                         <div class="info-card">
                             <div class="info-label">
@@ -38,7 +46,11 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <div class="info-card">
@@ -55,6 +67,7 @@
                             </div>
                             <div class="info-value">@Model.Email</div>
                         </div>
+<<<<<<< HEAD
                     </div>
                 </div>
                 
@@ -80,6 +93,33 @@
                     </div>
                 </div>
 
+=======
+                    </div>
+                </div>
+
+                <div class="countdown-section mb-4" id="countdownSection">
+                    <div class="info-label">
+                        <i class="fas fa-clock me-2"></i>Thời gian còn lại
+                    </div>
+                    <div class="countdown-timer" id="countdownTimer">--:--</div>
+                    <div class="countdown-label">Hãy hoàn tất thanh toán trước khi hết thời gian</div>
+                    <div class="expires-time">Giữ chỗ đến: @(Model.ExpiresAt?.ToString("HH:mm:ss") ?? "Chưa có")</div>
+                </div>
+
+                <!-- Loading Section (Hidden initially) -->
+                <div class="loading-section mb-4" id="loadingSection" style="display: none;">
+                    <div class="loading-content">
+                        <div class="loading-spinner">
+                            <div class="spinner"></div>
+                        </div>
+                        <div class="loading-text" id="loadingText">Đang xử lý thanh toán...</div>
+                        <div class="loading-progress">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+                    </div>
+                </div>
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                 <!-- Success Section (Hidden initially) -->
                 <div class="success-section mb-4" id="successSection" style="display: none;">
                     <div class="success-content">
@@ -89,6 +129,7 @@
                         <div class="success-text">Thanh toán thành công!</div>
                         <div class="success-message">Email xác nhận đã được gửi đến @Model.Email</div>
                     </div>
+<<<<<<< HEAD
                 </div>
                 
                 <input type="hidden" name="reservationId" value="@Model.Id" />
@@ -104,6 +145,23 @@
                     </a>
                 </div>
 
+=======
+                </div>
+
+                <input type="hidden" name="reservationId" value="@Model.Id" />
+
+                <div class="action-buttons" id="actionButtons">
+                    <button type="submit" class="btn-confirm">
+                        <i class="fas fa-check-circle me-2"></i>
+                        Thanh toán (Giả lập)
+                    </button>
+                    <a asp-controller="Reservation" asp-action="History" class="btn-secondary">
+                        <i class="fas fa-arrow-left me-2"></i>
+                        Quay lại lịch sử
+                    </a>
+                </div>
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                 <!-- Success Buttons (Hidden initially) -->
                 <div class="success-buttons" id="successButtons" style="display: none;">
                     <a href="@Url.Action("History", "Reservation")" class="btn-home">
@@ -307,6 +365,7 @@
         // Enhanced form submission với loading states
         document.getElementById('paymentForm').addEventListener('submit', function(e) {
             e.preventDefault(); // Prevent default form submission
+<<<<<<< HEAD
             
             // Hide countdown and action buttons
             document.getElementById('countdownSection').style.display = 'none';
@@ -315,14 +374,31 @@
             // Show loading section
             document.getElementById('loadingSection').style.display = 'block';
             
+=======
+
+            // Hide countdown and action buttons
+            document.getElementById('countdownSection').style.display = 'none';
+            document.getElementById('actionButtons').style.display = 'none';
+
+            // Show loading section
+            document.getElementById('loadingSection').style.display = 'block';
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             // Clear countdown interval
             if (countdownInterval) {
                 clearInterval(countdownInterval);
             }
+<<<<<<< HEAD
             
             // Start loading animation
             startLoadingProgress();
             
+=======
+
+            // Start loading animation
+            startLoadingProgress();
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             // Submit form after showing loading
             setTimeout(() => {
                 e.target.submit();
@@ -334,7 +410,11 @@
             const progressBar = document.getElementById('progressBar');
             let progress = 0;
             let step = 0;
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             const messages = [
                 'Đang xử lý thanh toán...',
                 'Đang xác nhận thông tin...',
@@ -346,16 +426,26 @@
             const progressInterval = setInterval(() => {
                 progress += Math.random() * 15 + 5; // Random progress between 5-20%
                 if (progress > 100) progress = 100;
+<<<<<<< HEAD
                 
                 progressBar.style.width = progress + '%';
                 
+=======
+
+                progressBar.style.width = progress + '%';
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                 // Change message every 20% progress
                 const messageIndex = Math.floor(progress / 20);
                 if (messageIndex < messages.length && messageIndex !== step) {
                     step = messageIndex;
                     loadingText.textContent = messages[messageIndex];
                 }
+<<<<<<< HEAD
                 
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                 if (progress >= 100) {
                     clearInterval(progressInterval);
                     // Note: In real implementation, this would be triggered by server response
@@ -383,6 +473,7 @@
         });
 
         // Check if coming from successful payment (you can set this via TempData or ViewBag)
+<<<<<<< HEAD
         @if(ViewBag.PaymentSuccess == true)
         {
             <text>
@@ -393,6 +484,18 @@
                 showSuccessState();
             });
             </text>
+=======
+        @if (ViewBag.PaymentSuccess == true)
+        {
+                <text>
+                // Hide initial sections and show success immediately
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.getElementById('countdownSection').style.display = 'none';
+                    document.getElementById('actionButtons').style.display = 'none';
+                    showSuccessState();
+                });
+                </text>
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         }
     </script>
 
@@ -415,13 +518,18 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             border-radius: 24px;
+<<<<<<< HEAD
             box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15), 
                         0 0 0 1px rgba(255, 255, 255, 0.1);
+=======
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1);
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             border: none;
             overflow: hidden;
             position: relative;
         }
 
+<<<<<<< HEAD
         .payment-card::before {
             content: '';
             position: absolute;
@@ -431,6 +539,17 @@
             height: 6px;
             background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
         }
+=======
+            .payment-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 6px;
+                background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         .payment-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -440,6 +559,7 @@
             overflow: hidden;
         }
 
+<<<<<<< HEAD
         .payment-header::before {
             content: '';
             position: absolute;
@@ -458,6 +578,26 @@
             position: relative;
             z-index: 2;
         }
+=======
+            .payment-header::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                right: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+                animation: float 6s ease-in-out infinite;
+            }
+
+            .payment-header h4 {
+                font-size: 1.9rem;
+                font-weight: 700;
+                margin: 0;
+                position: relative;
+                z-index: 2;
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         .header-icon {
             font-size: 2.8rem;
@@ -483,10 +623,17 @@
             transition: all 0.4s ease;
         }
 
+<<<<<<< HEAD
         .info-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(102, 126, 234, 0.18);
         }
+=======
+            .info-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 15px 40px rgba(102, 126, 234, 0.18);
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         .info-label {
             font-weight: 600;
@@ -522,10 +669,17 @@
             transition: all 0.3s ease;
         }
 
+<<<<<<< HEAD
         .slot-code:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(102, 126, 234, 0.45);
         }
+=======
+            .slot-code:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(102, 126, 234, 0.45);
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         .floor-code {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
@@ -539,10 +693,17 @@
             transition: all 0.3s ease;
         }
 
+<<<<<<< HEAD
         .floor-code:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(240, 147, 251, 0.45);
         }
+=======
+            .floor-code:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(240, 147, 251, 0.45);
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         .countdown-section {
             background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
@@ -554,6 +715,7 @@
             margin-bottom: 30px;
         }
 
+<<<<<<< HEAD
         .countdown-section::before {
             content: '';
             position: absolute;
@@ -564,6 +726,18 @@
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
             animation: shimmer 3s infinite;
         }
+=======
+            .countdown-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+                animation: shimmer 3s infinite;
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         .countdown-timer {
             font-size: 3rem;
@@ -708,17 +882,26 @@
             color: white;
         }
 
+<<<<<<< HEAD
         .btn-confirm:hover {
             transform: translateY(-3px);
             box-shadow: 0 18px 40px rgba(0, 184, 148, 0.4);
             color: white;
         }
+=======
+            .btn-confirm:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 18px 40px rgba(0, 184, 148, 0.4);
+                color: white;
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         .btn-secondary {
             background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
             color: white;
         }
 
+<<<<<<< HEAD
         .btn-secondary:hover {
             transform: translateY(-3px);
             box-shadow: 0 18px 40px rgba(108, 117, 125, 0.4);
@@ -740,6 +923,29 @@
         .btn-confirm:hover::before, .btn-secondary:hover::before {
             left: 100%;
         }
+=======
+            .btn-secondary:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 18px 40px rgba(108, 117, 125, 0.4);
+                color: white;
+                text-decoration: none;
+            }
+
+            .btn-confirm::before, .btn-secondary::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+                transition: left 0.6s;
+            }
+
+            .btn-confirm:hover::before, .btn-secondary:hover::before {
+                left: 100%;
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         /* Success Buttons */
         .success-buttons {
@@ -765,6 +971,7 @@
             min-width: 200px;
         }
 
+<<<<<<< HEAD
         .btn-home:hover {
             transform: translateY(-3px);
             box-shadow: 0 18px 40px rgba(108, 92, 231, 0.4);
@@ -786,6 +993,29 @@
         .btn-home:hover::before {
             left: 100%;
         }
+=======
+            .btn-home:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 18px 40px rgba(108, 92, 231, 0.4);
+                color: white;
+                text-decoration: none;
+            }
+
+            .btn-home::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+                transition: left 0.6s;
+            }
+
+            .btn-home:hover::before {
+                left: 100%;
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         /* Modern Modal Styles */
         .modern-modal-overlay {
@@ -823,6 +1053,7 @@
             position: relative;
         }
 
+<<<<<<< HEAD
         .modal-header::before {
             content: '';
             position: absolute;
@@ -833,6 +1064,18 @@
             background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
             animation: float 4s ease-in-out infinite;
         }
+=======
+            .modal-header::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                right: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+                animation: float 4s ease-in-out infinite;
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         .modal-icon {
             font-size: 4rem;
@@ -846,6 +1089,7 @@
             padding: 40px;
         }
 
+<<<<<<< HEAD
         .modal-body h3 {
             color: #2c3e50;
             font-size: 2rem;
@@ -859,6 +1103,21 @@
             line-height: 1.6;
             margin-bottom: 20px;
         }
+=======
+            .modal-body h3 {
+                color: #2c3e50;
+                font-size: 2rem;
+                margin-bottom: 15px;
+                font-weight: 700;
+            }
+
+            .modal-body p {
+                color: #5a6c7d;
+                font-size: 1.1rem;
+                line-height: 1.6;
+                margin-bottom: 20px;
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         .taken-slot-display {
             background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
@@ -908,10 +1167,17 @@
             box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
         }
 
+<<<<<<< HEAD
         .modern-btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 12px 35px rgba(0, 123, 255, 0.4);
         }
+=======
+            .modern-btn-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 12px 35px rgba(0, 123, 255, 0.4);
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         .modern-btn-secondary {
             background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
@@ -919,10 +1185,17 @@
             box-shadow: 0 8px 25px rgba(108, 117, 125, 0.3);
         }
 
+<<<<<<< HEAD
         .modern-btn-secondary:hover {
             transform: translateY(-2px);
             box-shadow: 0 12px 35px rgba(108, 117, 125, 0.4);
         }
+=======
+            .modern-btn-secondary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 12px 35px rgba(108, 117, 125, 0.4);
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         /* Enhanced Toast Notifications */
         .toast-container {
@@ -944,6 +1217,7 @@
             overflow: hidden;
         }
 
+<<<<<<< HEAD
         .toast::before {
             content: '';
             position: absolute;
@@ -952,6 +1226,16 @@
             width: 5px;
             height: 100%;
         }
+=======
+            .toast::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 5px;
+                height: 100%;
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         .toast-success {
             background: rgba(0, 184, 148, 0.95);
@@ -959,9 +1243,15 @@
             box-shadow: 0 10px 30px rgba(0, 184, 148, 0.3);
         }
 
+<<<<<<< HEAD
         .toast-success::before {
             background: #00b894;
         }
+=======
+            .toast-success::before {
+                background: #00b894;
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         .toast-warning {
             background: rgba(253, 203, 110, 0.95);
@@ -969,9 +1259,15 @@
             box-shadow: 0 10px 30px rgba(253, 203, 110, 0.3);
         }
 
+<<<<<<< HEAD
         .toast-warning::before {
             background: #fdcb6e;
         }
+=======
+            .toast-warning::before {
+                background: #fdcb6e;
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         .toast-error {
             background: rgba(232, 67, 147, 0.95);
@@ -979,9 +1275,15 @@
             box-shadow: 0 10px 30px rgba(232, 67, 147, 0.3);
         }
 
+<<<<<<< HEAD
         .toast-error::before {
             background: #e84393;
         }
+=======
+            .toast-error::before {
+                background: #e84393;
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         .toast-info {
             background: rgba(116, 185, 255, 0.95);
@@ -989,9 +1291,15 @@
             box-shadow: 0 10px 30px rgba(116, 185, 255, 0.3);
         }
 
+<<<<<<< HEAD
         .toast-info::before {
             background: #74b9ff;
         }
+=======
+            .toast-info::before {
+                background: #74b9ff;
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         .toast-content {
             display: flex;
@@ -1021,10 +1329,17 @@
             transition: all 0.3s ease;
         }
 
+<<<<<<< HEAD
         .toast-close:hover {
             background: rgba(255, 255, 255, 0.35);
             transform: rotate(90deg);
         }
+=======
+            .toast-close:hover {
+                background: rgba(255, 255, 255, 0.35);
+                transform: rotate(90deg);
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         /* Animations */
         @@keyframes slideUp {
@@ -1032,6 +1347,10 @@
                 opacity: 0;
                 transform: translateY(60px);
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1043,6 +1362,10 @@
                 opacity: 0;
                 transform: translateX(-30px);
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -1054,6 +1377,10 @@
                 transform: translateX(100%);
                 opacity: 0;
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             to {
                 transform: translateX(0);
                 opacity: 1;
@@ -1061,12 +1388,22 @@
         }
 
         @@keyframes pulse {
+<<<<<<< HEAD
             0%, 100% { 
                 opacity: 1; 
                 transform: scale(1);
             }
             50% { 
                 opacity: 0.85; 
+=======
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.85;
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                 transform: scale(1.03);
             }
         }
@@ -1075,6 +1412,10 @@
             0%, 100% {
                 transform: translateY(0) rotate(0deg);
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             50% {
                 transform: translateY(-12px) rotate(180deg);
             }
@@ -1084,6 +1425,10 @@
             0% {
                 left: -100%;
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             100% {
                 left: 100%;
             }
@@ -1093,6 +1438,10 @@
             from {
                 opacity: 0;
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             to {
                 opacity: 1;
             }
@@ -1103,6 +1452,10 @@
                 opacity: 0;
                 transform: translateY(50px) scale(0.9);
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             to {
                 opacity: 1;
                 transform: translateY(0) scale(1);
@@ -1113,12 +1466,24 @@
             0%, 20%, 53%, 80%, 100% {
                 transform: translateY(0);
             }
+<<<<<<< HEAD
             40%, 43% {
                 transform: translateY(-20px);
             }
             70% {
                 transform: translateY(-10px);
             }
+=======
+
+            40%, 43% {
+                transform: translateY(-20px);
+            }
+
+            70% {
+                transform: translateY(-10px);
+            }
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             90% {
                 transform: translateY(-4px);
             }
@@ -1129,13 +1494,25 @@
                 opacity: 0;
                 transform: scale(0.3);
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             50% {
                 opacity: 1;
                 transform: scale(1.05);
             }
+<<<<<<< HEAD
             70% {
                 transform: scale(0.9);
             }
+=======
+
+            70% {
+                transform: scale(0.9);
+            }
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             100% {
                 opacity: 1;
                 transform: scale(1);
@@ -1143,8 +1520,18 @@
         }
 
         @@keyframes spin {
+<<<<<<< HEAD
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+=======
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
         }
 
         /* Responsive Design */
@@ -1153,6 +1540,7 @@
                 margin: 20px auto;
                 padding: 0 15px;
             }
+<<<<<<< HEAD
             
             .payment-body {
                 padding: 25px;
@@ -1166,20 +1554,47 @@
                 font-size: 1.5rem;
             }
             
+=======
+
+            .payment-body {
+                padding: 25px;
+            }
+
+            .payment-header {
+                padding: 25px;
+            }
+
+                .payment-header h4 {
+                    font-size: 1.5rem;
+                }
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             .header-icon {
                 font-size: 2rem;
                 right: 25px;
             }
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             .action-buttons {
                 flex-direction: column;
                 gap: 15px;
             }
+<<<<<<< HEAD
             
             .countdown-timer {
                 font-size: 2.2rem;
             }
             
+=======
+
+            .countdown-timer {
+                font-size: 2.2rem;
+            }
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             .toast-container {
                 right: 15px;
                 left: 15px;
@@ -1210,11 +1625,19 @@
             .slot-codes, .floor-codes {
                 justify-content: center;
             }
+<<<<<<< HEAD
             
             .info-card {
                 padding: 20px;
             }
             
+=======
+
+            .info-card {
+                padding: 20px;
+            }
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             .countdown-section {
                 padding: 20px;
             }

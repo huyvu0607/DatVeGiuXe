@@ -17,9 +17,12 @@ public partial class User
 
     public string Role { get; set; } = "User";
 
+<<<<<<< HEAD
     public string? Phone { get; set; }
     public string? Address { get; set; }
 
+=======
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     public virtual ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
 
     public string? PasswordResetToken { get; set; }

@@ -213,6 +213,7 @@ namespace ParkingReservationSystem.Controllers.Admin
         }
 
         // GET: Users/Edit/5
+<<<<<<< HEAD
 public async Task<IActionResult> Edit(int? id)
 {
     if (id == null)
@@ -408,6 +409,149 @@ public async Task<IActionResult> Edit(int id, EditUserViewModel model)
 }
 
 // Helper method để kiểm tra user exists
+=======
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var currentUser = await GetCurrentUserAsync();
+            if (currentUser == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            // Kiểm tra quyền chỉnh sửa
+            if (!CanModifyUser(user, currentUser))
+            {
+                TempData["ErrorMessage"] = "Bạn không có quyền chỉnh sửa tài khoản này.";
+                TempData["AlertType"] = "error";
+                return RedirectToAction("Index");
+            }
+
+            // Map User to EditUserViewModel
+            var model = new EditUserViewModel
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Email = user.Email,
+                Role = user.Role,
+                CurrentPasswordHash = user.PasswordHash // Lưu mật khẩu cũ
+            };
+
+            return View(model);
+        }
+
+        // POST: Users/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, EditUserViewModel model)
+        {
+            if (id != model.Id)
+            {
+                return NotFound();
+            }
+
+            // Kiểm tra user tồn tại và quyền chỉnh sửa
+            var existingUser = await _context.Users.FindAsync(id);
+            if (existingUser == null)
+            {
+                return NotFound();
+            }
+
+            var currentUser = await GetCurrentUserAsync();
+            if (currentUser == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            if (!CanModifyUser(existingUser, currentUser))
+            {
+                TempData["ErrorMessage"] = "Bạn không có quyền chỉnh sửa tài khoản này.";
+                TempData["AlertType"] = "error";
+                return RedirectToAction("Index");
+            }
+
+            // Xóa validation cho Password nếu để trống (không đổi mật khẩu)
+            if (string.IsNullOrWhiteSpace(model.Password))
+            {
+                ModelState.Remove("Password");
+                ModelState.Remove("ConfirmPassword");
+            }
+            else
+            {
+                // Validate mật khẩu mới nếu có nhập
+                if (model.Password.Length < 8)
+                    ModelState.AddModelError("Password", "Mật khẩu phải có ít nhất 8 ký tự.");
+                if (!model.Password.Any(char.IsUpper))
+                    ModelState.AddModelError("Password", "Mật khẩu phải chứa ít nhất một chữ hoa.");
+                if (!model.Password.Any(char.IsLower))
+                    ModelState.AddModelError("Password", "Mật khẩu phải chứa ít nhất một chữ thường.");
+                if (!model.Password.Any(char.IsDigit))
+                    ModelState.AddModelError("Password", "Mật khẩu phải chứa ít nhất một số.");
+            }
+
+            // Check if email already exists for other users
+            var emailExists = await _context.Users
+                .FirstOrDefaultAsync(u => u.Email == model.Email && u.Id != model.Id);
+            if (emailExists != null)
+            {
+                ModelState.AddModelError("Email", "Email này đã được sử dụng bởi người dùng khác.");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            try
+            {
+                // Tạo user object để update
+                var user = new User
+                {
+                    Id = model.Id,
+                    Name = model.Name.Trim(),
+                    Email = model.Email.Trim().ToLower(),
+                    Role = model.Role,
+                    // Nếu có mật khẩu mới thì hash, không thì dùng mật khẩu cũ
+                    PasswordHash = !string.IsNullOrWhiteSpace(model.Password)
+                        ? ComputeSha256Hash(model.Password)
+                        : model.CurrentPasswordHash
+                };
+
+                _context.Update(user);
+                await _context.SaveChangesAsync();
+
+                TempData["SuccessMessage"] = $"Thông tin người dùng '{user.Name}' đã được cập nhật thành công!";
+                TempData["AlertType"] = "success";
+                return RedirectToAction(nameof(Index));
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!UserExists(model.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Có lỗi xảy ra khi cập nhật người dùng. Vui lòng thử lại.");
+                return View(model);
+            }
+        }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
         // GET: Users/Delete/5
         public async Task<IActionResult> Delete(int? id)

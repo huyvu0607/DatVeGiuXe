@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<<<<<<< HEAD
 <div class="container-fluid px-4 py-3">
     <!-- Hero Header with 3D Effects -->
     <div class="row mb-5">
@@ -44,11 +45,32 @@
                         </nav>
                     </div>
                 </div>
+=======
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <!-- Header Section -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 class="text-primary mb-1">
+                        <i class="fas fa-user me-2"></i>Chi Tiết Người Dùng
+                    </h2>
+                    <p class="text-muted mb-0">Xem thông tin chi tiết của người dùng</p>
+                </div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a asp-action="Index" class="text-decoration-none">Người Dùng</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Chi Tiết</li>
+                    </ol>
+                </nav>
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             </div>
         </div>
     </div>
 
     <div class="row justify-content-center">
+<<<<<<< HEAD
         <div class="col-lg-10 col-xl-8">
             <!-- Main Profile Card -->
             <div class="profile-card-container mb-5">
@@ -170,11 +192,126 @@
                                     <p class="security-desc">Mật khẩu đã được mã hóa và bảo mật theo tiêu chuẩn cao</p>
                                 </div>
                                 <div class="security-pulse"></div>
+=======
+        <div class="col-lg-8 col-xl-6">
+            <!-- User Info Card -->
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-info text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-id-card me-2"></i>Thông Tin Người Dùng
+                        </h5>
+                        <span class="badge bg-light text-dark">
+                            ID: @Model?.Id
+                        </span>
+                    </div>
+                </div>
+
+                <div class="card-body p-0">
+                    <!-- User Avatar & Basic Info -->
+                    <div class="bg-light p-4 border-bottom">
+                        <div class="d-flex align-items-center">
+                            <div class="me-3">
+                                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center"
+                                     style="width: 60px; height: 60px;">
+                                    <i class="fas fa-user fa-2x text-white"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="mb-1 text-dark">@Html.DisplayFor(model => model.Name)</h4>
+                                <p class="mb-1 text-muted">
+                                    <i class="fas fa-envelope me-1"></i>@Html.DisplayFor(model => model.Email)
+                                </p>
+                                <span class="badge @(Model?.Role == "Admin" ? "bg-danger" : "bg-success")">
+                                    <i class="fas @(Model?.Role == "Admin" ? "fa-crown" : "fa-user") me-1"></i>
+                                    @(Model?.Role == "Admin" ? "Quản trị viên" : "Người dùng")
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Information -->
+                    <div class="p-4">
+                        <h6 class="text-primary mb-3">
+                            <i class="fas fa-info-circle me-2"></i>Thông Tin Chi Tiết
+                        </h6>
+
+                        <div class="row g-3">
+                            <!-- ID -->
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center p-3 bg-light rounded">
+                                    <div class="me-3">
+                                        <i class="fas fa-hashtag text-primary fa-lg"></i>
+                                    </div>
+                                    <div>
+                                        <small class="text-muted d-block">ID Người Dùng</small>
+                                        <strong class="text-dark">@Html.DisplayFor(model => model.Id)</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Name -->
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center p-3 bg-light rounded">
+                                    <div class="me-3">
+                                        <i class="fas fa-user text-success fa-lg"></i>
+                                    </div>
+                                    <div>
+                                        <small class="text-muted d-block">Họ và Tên</small>
+                                        <strong class="text-dark">@Html.DisplayFor(model => model.Name)</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center p-3 bg-light rounded">
+                                    <div class="me-3">
+                                        <i class="fas fa-envelope text-info fa-lg"></i>
+                                    </div>
+                                    <div>
+                                        <small class="text-muted d-block">Email</small>
+                                        <strong class="text-dark">@Html.DisplayFor(model => model.Email)</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Role -->
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center p-3 bg-light rounded">
+                                    <div class="me-3">
+                                        <i class="fas @(Model?.Role == "Admin" ? "fa-crown text-danger" : "fa-user-tag text-warning") fa-lg"></i>
+                                    </div>
+                                    <div>
+                                        <small class="text-muted d-block">Vai Trò</small>
+                                        <strong class="text-dark">
+                                            @(Model?.Role == "Admin" ? "Quản trị viên" : "Người dùng")
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Password Status -->
+                            <div class="col-12">
+                                <div class="d-flex align-items-center p-3 bg-light rounded">
+                                    <div class="me-3">
+                                        <i class="fas fa-shield-alt text-secondary fa-lg"></i>
+                                    </div>
+                                    <div>
+                                        <small class="text-muted d-block">Trạng Thái Bảo Mật</small>
+                                        <strong class="text-success">
+                                            <i class="fas fa-check-circle me-1"></i>
+                                            Mật khẩu đã được mã hóa và bảo mật
+                                        </strong>
+                                    </div>
+                                </div>
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                             </div>
                         </div>
                     </div>
 
                     <!-- Action Buttons -->
+<<<<<<< HEAD
                     <div class="card-footer-modern p-4">
                         <div class="d-flex gap-3 justify-content-end flex-wrap">
                             <a asp-action="Index" class="btn-modern btn-secondary">
@@ -194,6 +331,18 @@
                                     <i class="fas fa-trash-alt"></i>
                                 </div>
                                 <span>Xóa</span>
+=======
+                    <div class="card-footer bg-white border-top">
+                        <div class="d-flex gap-2 justify-content-end">
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="fas fa-arrow-left me-2"></i>Quay Lại Danh Sách
+                            </a>
+                            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning text-white">
+                                <i class="fas fa-edit me-2"></i>Chỉnh Sửa
+                            </a>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                <i class="fas fa-trash-alt me-2"></i>Xóa
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                             </button>
                         </div>
                     </div>
@@ -201,6 +350,7 @@
             </div>
 
             <!-- Permissions Card -->
+<<<<<<< HEAD
             <div class="permissions-section">
                 <div class="glass-card-3d rounded-4 p-4">
                     <h5 class="section-title mb-4">
@@ -317,12 +467,54 @@
                             </div>
                         }
                     </div>
+=======
+            <div class="card mt-4 border-0 bg-light">
+                <div class="card-body">
+                    <h6 class="text-primary mb-3">
+                        <i class="fas fa-key me-2"></i>Quyền Truy Cập
+                    </h6>
+                    @if (Model?.Role == "Admin")
+                    {
+                        <div class="row g-2">
+                            <div class="col-sm-6">
+                                <small class="text-success"><i class="fas fa-check me-1"></i>Quản lý người dùng</small>
+                            </div>
+                            <div class="col-sm-6">
+                                <small class="text-success"><i class="fas fa-check me-1"></i>Quản lý bãi đỗ xe</small>
+                            </div>
+                            <div class="col-sm-6">
+                                <small class="text-success"><i class="fas fa-check me-1"></i>Xem báo cáo thống kê</small>
+                            </div>
+                            <div class="col-sm-6">
+                                <small class="text-success"><i class="fas fa-check me-1"></i>Quản lý đặt chỗ</small>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="row g-2">
+                            <div class="col-sm-6">
+                                <small class="text-success"><i class="fas fa-check me-1"></i>Đặt chỗ đỗ xe</small>
+                            </div>
+                            <div class="col-sm-6">
+                                <small class="text-success"><i class="fas fa-check me-1"></i>Xem lịch sử đặt chỗ</small>
+                            </div>
+                            <div class="col-sm-6">
+                                <small class="text-muted"><i class="fas fa-times me-1"></i>Quản lý người dùng</small>
+                            </div>
+                            <div class="col-sm-6">
+                                <small class="text-muted"><i class="fas fa-times me-1"></i>Xem báo cáo</small>
+                            </div>
+                        </div>
+                    }
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<<<<<<< HEAD
 <!-- Enhanced Delete Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -369,6 +561,34 @@
                         <i class="fas fa-trash-alt"></i>
                     </div>
                     <span>Xác Nhận Xóa</span>
+=======
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="deleteModalLabel">
+                    <i class="fas fa-exclamation-triangle me-2"></i>Xác Nhận Xóa
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center mb-3">
+                    <i class="fas fa-user-times text-danger fa-3x"></i>
+                </div>
+                <p class="text-center">Bạn có chắc chắn muốn xóa người dùng <strong>@Model?.Name</strong> không?</p>
+                <p class="text-center text-muted small">
+                    <i class="fas fa-exclamation-circle me-1"></i>
+                    Hành động này không thể hoàn tác và sẽ xóa tất cả dữ liệu liên quan.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-2"></i>Hủy
+                </button>
+                <a asp-action="Delete" asp-route-id="@Model?.Id" class="btn btn-danger">
+                    <i class="fas fa-trash-alt me-2"></i>Xác Nhận Xóa
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                 </a>
             </div>
         </div>
@@ -376,6 +596,7 @@
 </div>
 
 @section Scripts {
+<<<<<<< HEAD
     <style>
         :root {
             --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -1292,5 +1513,18 @@
             }
         `;
         document.head.appendChild(additionalStyles);
+=======
+    <script>
+        // Auto-hide alerts after 5 seconds
+        setTimeout(function() {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(function(alert) {
+                alert.classList.add('fade');
+                setTimeout(function() {
+                    alert.remove();
+                }, 500);
+            });
+        }, 5000);
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     </script>
 }

@@ -1,5 +1,6 @@
 ﻿// wwwroot/js/parking-slots.js
 
+<<<<<<< HEAD
 // Global variables
 let allSlots = [];
 let filteredSlots = [];
@@ -312,23 +313,47 @@ function debounce(func, wait) {
 
 // SignalR Hub initialization
 function initializeParkingHub() {
+=======
+// Initialize SignalR connection when DOM is ready
+document.addEventListener('DOMContentLoaded', function () {
+    initializeParkingHub();
+});
+
+function initializeParkingHub() {
+    // Create SignalR connection
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     const connection = new signalR.HubConnectionBuilder()
         .withUrl("/parkingHub")
         .configureLogging(signalR.LogLevel.Information)
         .build();
 
+<<<<<<< HEAD
+=======
+    // Handle slot updates
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     connection.on("ReceiveSlotUpdate", function (action, slot) {
         handleSlotUpdate(action, slot);
     });
 
+<<<<<<< HEAD
     startConnection(connection);
 
+=======
+    // Start connection with retry logic
+    startConnection(connection);
+
+    // Handle connection errors
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     connection.onclose(function (error) {
         console.warn('SignalR connection closed. Attempting to reconnect...', error);
         setTimeout(() => startConnection(connection), 5000);
     });
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 function startConnection(connection) {
     connection.start()
         .then(function () {
@@ -338,6 +363,11 @@ function startConnection(connection) {
         .catch(function (err) {
             console.error('❌ SignalR connection error:', err.toString());
             showNotification('⚠️ Real-time updates unavailable', 'warning');
+<<<<<<< HEAD
+=======
+
+            // Retry connection after 10 seconds
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             setTimeout(() => startConnection(connection), 10000);
         });
 }
@@ -351,8 +381,15 @@ function handleSlotUpdate(action, slot) {
         config.duration
     );
 
+<<<<<<< HEAD
     updateSlotInTable(action, slot);
 
+=======
+    // Update the UI if needed
+    updateSlotInTable(action, slot);
+
+    // Optional: Auto-refresh after updates
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     if (shouldAutoRefresh(action)) {
         setTimeout(() => {
             location.reload();
@@ -362,12 +399,37 @@ function handleSlotUpdate(action, slot) {
 
 function getNotificationConfig(action) {
     const configs = {
+<<<<<<< HEAD
         'created': { icon: '✨', type: 'success', duration: 4000 },
         'updated': { icon: '🔄', type: 'warning', duration: 4000 },
         'deleted': { icon: '❌', type: 'error', duration: 4000 }
     };
 
     return configs[action.toLowerCase()] || { icon: '📝', type: 'info', duration: 3000 };
+=======
+        'created': {
+            icon: '✨',
+            type: 'success',
+            duration: 4000
+        },
+        'updated': {
+            icon: '🔄',
+            type: 'warning',
+            duration: 4000
+        },
+        'deleted': {
+            icon: '❌',
+            type: 'error',
+            duration: 4000
+        }
+    };
+
+    return configs[action.toLowerCase()] || {
+        icon: '📝',
+        type: 'info',
+        duration: 3000
+    };
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 }
 
 function showNotification(message, type = 'info', duration = 3000) {
@@ -394,6 +456,10 @@ function showNotification(message, type = 'info', duration = 3000) {
             boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)"
         },
         onClick: function () {
+<<<<<<< HEAD
+=======
+            // Optional: Handle notification click
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             console.log('Notification clicked');
         }
     }).showToast();
@@ -406,35 +472,53 @@ function updateSlotInTable(action, slot) {
 
     switch (action.toLowerCase()) {
         case 'created':
+<<<<<<< HEAD
             setTimeout(() => location.reload(), 1000);
+=======
+            // Reload page for new slots
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             break;
         case 'updated':
             if (row) {
                 updateRowData(row, slot);
+<<<<<<< HEAD
                 // Refresh the filtered data
                 loadSlotData();
                 applyFilters();
+=======
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             }
             break;
         case 'deleted':
             if (row) {
                 animateRowRemoval(row);
+<<<<<<< HEAD
                 // Update data arrays
                 allSlots = allSlots.filter(s => s.id !== slot.id);
                 filteredSlots = filteredSlots.filter(s => s.id !== slot.id);
                 updateStatistics();
                 updateResultsInfo();
+=======
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
             }
             break;
     }
 }
 
 function updateRowData(row, slot) {
+<<<<<<< HEAD
+=======
+    // Update slot code
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     const slotCodeCell = row.querySelector('.slot-code');
     if (slotCodeCell) {
         slotCodeCell.textContent = slot.slotCode;
     }
 
+<<<<<<< HEAD
+=======
+    // Update availability status
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     const statusCell = row.querySelector('.status-badge');
     if (statusCell) {
         statusCell.className = slot.isAvailable ?
@@ -443,16 +527,23 @@ function updateRowData(row, slot) {
         statusCell.textContent = slot.isAvailable ? 'Available' : 'Occupied';
     }
 
+<<<<<<< HEAD
+=======
+    // Update floor info
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     const floorCell = row.querySelector('.floor-info');
     if (floorCell) {
         floorCell.textContent = `Floor ${slot.floor}`;
     }
 
+<<<<<<< HEAD
     // Update data attributes
     row.dataset.slotCode = slot.slotCode.toLowerCase();
     row.dataset.floor = slot.floor;
     row.dataset.status = slot.isAvailable ? 'available' : 'occupied';
 
+=======
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     // Add update animation
     row.style.backgroundColor = 'rgba(245, 158, 11, 0.1)';
     setTimeout(() => {
@@ -467,18 +558,56 @@ function animateRowRemoval(row) {
 
     setTimeout(() => {
         row.remove();
+<<<<<<< HEAD
+=======
+        updateStatistics();
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     }, 300);
 }
 
 function shouldAutoRefresh(action) {
+<<<<<<< HEAD
     return ['created'].includes(action.toLowerCase());
 }
 
 // Additional utility functions
+=======
+    // Auto-refresh for create/delete actions
+    return ['created', 'deleted'].includes(action.toLowerCase());
+}
+
+function updateStatistics() {
+    // Update statistics cards if they exist
+    const totalCard = document.querySelector('.stat-total .stat-value');
+    const availableCard = document.querySelector('.stat-available .stat-value');
+    const occupiedCard = document.querySelector('.stat-occupied .stat-value');
+
+    if (totalCard && availableCard && occupiedCard) {
+        const rows = document.querySelectorAll('tbody tr');
+        const total = rows.length;
+        let available = 0;
+
+        rows.forEach(row => {
+            const statusBadge = row.querySelector('.status-available');
+            if (statusBadge) available++;
+        });
+
+        totalCard.textContent = total;
+        availableCard.textContent = available;
+        occupiedCard.textContent = total - available;
+    }
+}
+
+// Utility functions
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 function addSmoothScrollBehavior() {
     document.documentElement.style.scrollBehavior = 'smooth';
 }
 
+<<<<<<< HEAD
+=======
+// Initialize smooth scrolling
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 addSmoothScrollBehavior();
 
 // Add loading states for buttons
@@ -493,6 +622,10 @@ function addLoadingState(button) {
     button.textContent = 'Loading...';
     button.disabled = true;
 
+<<<<<<< HEAD
+=======
+    // Remove loading state after 2 seconds (or when page navigates)
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     setTimeout(() => {
         if (button) {
             button.textContent = originalText;
@@ -507,6 +640,7 @@ window.addEventListener('error', function (e) {
     showNotification('❌ Something went wrong. Please try again.', 'error');
 });
 
+<<<<<<< HEAD
 // Enhanced console logging
 console.log('🚗 Parking Slots Management System loaded');
 console.log('📡 SignalR integration initialized');
@@ -514,3 +648,9 @@ console.log('🎨 UI enhancements loaded');
 console.log('🔍 Search and Filter functionality loaded');
 console.log('🔢 Sorting functionality loaded');
 console.log('📄 Export functionality loaded');
+=======
+// Enhanced console logging for debugging
+console.log('🚗 Parking Slots Management System loaded');
+console.log('📡 SignalR integration initialized');
+console.log('🎨 UI enhancements loaded');
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd

@@ -485,6 +485,7 @@ class ParkingSignalR {
     }
 
 
+<<<<<<< HEAD
     /**
      * Ensure all available slots have proper event listeners
         //Thêm function kiểm tra và khôi phục event listeners cho tất cả slots
@@ -511,6 +512,34 @@ class ParkingSignalR {
     /**
      * Helper function to reattach event listeners to restored slots
     */
+=======
+/**
+ * Ensure all available slots have proper event listeners
+    //Thêm function kiểm tra và khôi phục event listeners cho tất cả slots
+ */
+ensureAllSlotsHaveEventListeners() {
+    document.querySelectorAll('.parking-slot.available input[type="checkbox"]').forEach(checkbox => {
+        const slotElement = checkbox.closest('.parking-slot');
+        const slotCode = slotElement.getAttribute('data-slot');
+
+        // Kiểm tra xem checkbox có event listener chưa
+        const hasListener = checkbox.onchange || checkbox.onclick;
+
+        if (!hasListener) {
+            checkbox.addEventListener('change', (e) => {
+                if (window.parkingSelection && window.parkingSelection.handleSlotSelection) {
+                    window.parkingSelection.handleSlotSelection(e.target);
+                }
+            });
+
+            console.log(`Added missing event listener for slot: ${slotCode}`);
+        }
+    });
+}
+    /**
+ * Helper function to reattach event listeners to restored slots
+*/
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     attachSlotEventListeners(slotElement) {
         const checkbox = slotElement.querySelector('input[type="checkbox"]');
         if (checkbox && window.parkingSelection) {
@@ -530,8 +559,13 @@ class ParkingSignalR {
     }
 
     /**
+<<<<<<< HEAD
     * Helper function to update stats display
     */
+=======
+* Helper function to update stats display
+*/
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     updateStatsDisplay() {
         // Update available/occupied counts in header
         const allSlots = document.querySelectorAll('.parking-slot');
@@ -551,7 +585,11 @@ class ParkingSignalR {
             if (floor) {
                 const floorSlots = document.querySelectorAll(`[data-floor="${floor}"]`);
                 const floorAvailable = document.querySelectorAll(`[data-floor="${floor}"].available`).length;
+<<<<<<< HEAD
                 const floorTotal = floorSlots.length-1;
+=======
+                const floorTotal = floorSlots.length;
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
 
                 const countElement = btn.querySelector('.floor-count');
                 if (countElement) {
@@ -632,6 +670,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+<<<<<<< HEAD
 // Add CSS for slot update animation - FIX: Sử dụng tên biến unique
 (function () {
     // Kiểm tra xem style đã được thêm chưa để tránh duplicate
@@ -651,3 +690,18 @@ document.addEventListener('DOMContentLoaded', function () {
         document.head.appendChild(parkingSignalRStyles);
     }
 })();
+=======
+// Add CSS for slot update animation
+const style = document.createElement('style');
+style.textContent = `
+    .parking-slot.slot-updated {
+        animation: slotUpdatePulse 1s ease-in-out;
+    }
+    
+    @keyframes slotUpdatePulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(79, 70, 229, 0.3); }
+    }
+`;
+document.head.appendChild(style);
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd

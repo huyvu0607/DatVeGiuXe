@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<<<<<<< HEAD
 <div class="container-fluid px-4 py-3">
     <!-- Animated Header with Glassmorphism -->
     <div class="row mb-5">
@@ -33,6 +34,32 @@
                                 <li class="breadcrumb-item active text-white fw-bold" aria-current="page">
                                     <i class="fas fa-plus me-2"></i>Tạo Mới
                                 </li>
+=======
+<div class="container-fluid">
+    <!-- Header Section with Enhanced Design -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card border-0 bg-gradient-primary text-white shadow-sm">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-box bg-white bg-opacity-20 rounded-3 p-3 me-3">
+                                <i class="fas fa-user-plus fa-2x text-white"></i>
+                            </div>
+                            <div>
+                                <h2 class="mb-1 fw-bold">Tạo Người Dùng Mới</h2>
+                                <p class="mb-0 opacity-75">Thêm người dùng mới vào hệ thống quản lý bãi đỗ xe</p>
+                            </div>
+                        </div>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb mb-0 bg-transparent">
+                                <li class="breadcrumb-item">
+                                    <a asp-action="Index" class="text-white text-decoration-none opacity-75">
+                                        <i class="fas fa-users me-1"></i>Người Dùng
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item active text-white" aria-current="page">Tạo Mới</li>
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                             </ol>
                         </nav>
                     </div>
@@ -42,6 +69,7 @@
     </div>
 
     <div class="row justify-content-center">
+<<<<<<< HEAD
         <div class="col-lg-10 col-xl-8">
             <!-- Enhanced Form Card with Glass Effect -->
             <div class="form-container">
@@ -249,6 +277,181 @@
                                             <span>Vai trò xác định quyền truy cập hệ thống</span>
                                         </div>
                                     </div>
+=======
+        <div class="col-lg-8 col-xl-7">
+            <!-- Main Form Card -->
+            <div class="card shadow border-0 overflow-hidden">
+                <!-- Card Header with Gradient -->
+                <div class="card-header bg-gradient-info text-white border-0 py-4">
+                    <div class="d-flex align-items-center">
+                        <div class="icon-box bg-white bg-opacity-20 rounded-circle p-2 me-3">
+                            <i class="fas fa-info-circle fa-lg"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-1 fw-bold">Thông Tin Người Dùng</h5>
+                            <small class="opacity-75">Vui lòng điền đầy đủ thông tin bên dưới</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body p-4">
+                    <!-- Success Alert (Hidden by default) -->
+                    <div id="successAlert" class="alert alert-success alert-dismissible fade d-none" role="alert">
+                        <i class="fas fa-check-circle me-2"></i>
+                        <strong>Thành công!</strong> Người dùng đã được tạo thành công.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+
+                    <form asp-action="Create" method="post" id="createUserForm" novalidate>
+                        @Html.AntiForgeryToken()
+
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger alert-dismissible fade @(ViewData.ModelState.IsValid ? "d-none" : "show")" role="alert">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            <strong>Vui lòng kiểm tra lại thông tin:</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+
+                        <div class="row">
+                            <!-- Name Field -->
+                            <div class="col-md-6">
+                                <div class="form-floating mb-4">
+                                    <input asp-for="Name" class="form-control form-control-lg"
+                                           placeholder="Nhập họ và tên đầy đủ" id="nameInput" />
+                                    <label for="nameInput" class="form-label">
+                                        <i class="fas fa-user text-primary me-2"></i>Họ và Tên
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <span asp-validation-for="Name" class="text-danger small mt-1"></span>
+                                </div>
+                            </div>
+
+                            <!-- Email Field -->
+                            <div class="col-md-6">
+                                <div class="form-floating mb-4">
+                                    <input asp-for="Email" type="email" class="form-control form-control-lg"
+                                           placeholder="example@email.com" id="emailInput" />
+                                    <label for="emailInput" class="form-label">
+                                        <i class="fas fa-envelope text-primary me-2"></i>Email
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <span asp-validation-for="Email" class="text-danger small mt-1"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Password Field -->
+                        <div class="form-floating mb-3">
+                            <input asp-for="Password" type="password" class="form-control form-control-lg"
+                                   placeholder="Nhập mật khẩu" id="passwordField" />
+                            <label for="passwordField" class="form-label">
+                                <i class="fas fa-lock text-primary me-2"></i>Mật Khẩu
+                                <span class="text-danger">*</span>
+                            </label>
+                            <button class="btn btn-outline-secondary position-absolute end-0 top-50 translate-middle-y me-3"
+                                    type="button" id="togglePassword" style="z-index: 5;">
+                                <i class="fas fa-eye" id="eyeIcon"></i>
+                            </button>
+                        </div>
+
+                        <!-- Password Requirements -->
+                        <div class="mb-4">
+                            <div class="card bg-light border-0">
+                                <div class="card-body py-3">
+                                    <h6 class="text-muted mb-2">
+                                        <i class="fas fa-shield-alt me-2"></i>Yêu cầu mật khẩu:
+                                    </h6>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <small class="text-muted d-block" id="length-req">
+                                                <i class="fas fa-circle text-secondary me-2" style="font-size: 0.5rem;"></i>
+                                                Ít nhất 8 ký tự
+                                            </small>
+                                            <small class="text-muted d-block" id="upper-req">
+                                                <i class="fas fa-circle text-secondary me-2" style="font-size: 0.5rem;"></i>
+                                                Có chữ hoa (A-Z)
+                                            </small>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <small class="text-muted d-block" id="lower-req">
+                                                <i class="fas fa-circle text-secondary me-2" style="font-size: 0.5rem;"></i>
+                                                Có chữ thường (a-z)
+                                            </small>
+                                            <small class="text-muted d-block" id="number-req">
+                                                <i class="fas fa-circle text-secondary me-2" style="font-size: 0.5rem;"></i>
+                                                Có số (0-9)
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <span asp-validation-for="Password" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Role Field -->
+                        <div class="form-floating mb-4">
+                            <select asp-for="Role" class="form-select form-select-lg" id="roleSelect">
+                                <option value="">-- Chọn vai trò --</option>
+                                <option value="Admin">Quản trị viên</option>
+                                <option value="User">Người dùng</option>
+                            </select>
+                            <label for="roleSelect" class="form-label">
+                                <i class="fas fa-user-tag text-primary me-2"></i>Vai Trò
+                                <span class="text-danger">*</span>
+                            </label>
+                            <span asp-validation-for="Role" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end border-top pt-4 mt-4">
+                            <a asp-action="Index" class="btn btn-outline-secondary btn-lg px-4 me-md-2">
+                                <i class="fas fa-arrow-left me-2"></i>Quay Lại
+                            </a>
+                            <button type="submit" class="btn btn-primary btn-lg px-4" id="submitBtn">
+                                <i class="fas fa-save me-2"></i>Tạo Người Dùng
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Enhanced Help Card -->
+            <div class="card mt-4 border-0 bg-light shadow-sm">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-2 text-center">
+                            <div class="icon-box bg-primary bg-opacity-10 rounded-circle p-3 d-inline-block">
+                                <i class="fas fa-question-circle fa-2x text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <h6 class="text-primary mb-3 fw-bold">
+                                Hướng dẫn sử dụng
+                            </h6>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled mb-0 small">
+                                        <li class="mb-2 d-flex align-items-start">
+                                            <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                                            <span>Tất cả các trường có dấu (*) là bắt buộc</span>
+                                        </li>
+                                        <li class="mb-2 d-flex align-items-start">
+                                            <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                                            <span>Email phải là địa chỉ hợp lệ và duy nhất</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled mb-0 small">
+                                        <li class="mb-2 d-flex align-items-start">
+                                            <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                                            <span>Mật khẩu sẽ được mã hóa tự động</span>
+                                        </li>
+                                        <li class="mb-2 d-flex align-items-start">
+                                            <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                                            <span>Vai trò xác định quyền truy cập hệ thống</span>
+                                        </li>
+                                    </ul>
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                                 </div>
                             </div>
                         </div>
@@ -264,6 +467,7 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 
+<<<<<<< HEAD
     <style>
         :root {
             --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -866,6 +1070,15 @@
                 const passwordField = $('#passwordField');
                 const eyeIcon = $('#eyeIcon');
                 
+=======
+    <script>
+        $(document).ready(function () {
+            // Toggle password visibility
+            $('#togglePassword').on('click', function () {
+                const passwordField = $('#passwordField');
+                const eyeIcon = $('#eyeIcon');
+
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
                 if (passwordField.attr('type') === 'password') {
                     passwordField.attr('type', 'text');
                     eyeIcon.removeClass('fa-eye').addClass('fa-eye-slash');
@@ -875,6 +1088,7 @@
                 }
             });
 
+<<<<<<< HEAD
             // Enhanced password validation with strength indicator
             $('#passwordField').on('input', function() {
                 const password = $(this).val();
@@ -1224,5 +1438,131 @@
                 $('.error-message').text('').css('display', 'none');
             });
         });
+=======
+            // Real-time password validation
+            $('#passwordField').on('input', function () {
+                const password = $(this).val();
+
+                // Check length
+                if (password.length >= 8) {
+                    $('#length-req').removeClass('text-muted').addClass('text-success');
+                    $('#length-req i').removeClass('fa-circle text-secondary').addClass('fa-check-circle text-success');
+                } else {
+                    $('#length-req').removeClass('text-success').addClass('text-muted');
+                    $('#length-req i').removeClass('fa-check-circle text-success').addClass('fa-circle text-secondary');
+                }
+
+                // Check uppercase
+                if (/[A-Z]/.test(password)) {
+                    $('#upper-req').removeClass('text-muted').addClass('text-success');
+                    $('#upper-req i').removeClass('fa-circle text-secondary').addClass('fa-check-circle text-success');
+                } else {
+                    $('#upper-req').removeClass('text-success').addClass('text-muted');
+                    $('#upper-req i').removeClass('fa-check-circle text-success').addClass('fa-circle text-secondary');
+                }
+
+                // Check lowercase
+                if (/[a-z]/.test(password)) {
+                    $('#lower-req').removeClass('text-muted').addClass('text-success');
+                    $('#lower-req i').removeClass('fa-circle text-secondary').addClass('fa-check-circle text-success');
+                } else {
+                    $('#lower-req').removeClass('text-success').addClass('text-muted');
+                    $('#lower-req i').removeClass('fa-check-circle text-success').addClass('fa-circle text-secondary');
+                }
+
+                // Check number
+                if (/[0-9]/.test(password)) {
+                    $('#number-req').removeClass('text-muted').addClass('text-success');
+                    $('#number-req i').removeClass('fa-circle text-secondary').addClass('fa-check-circle text-success');
+                } else {
+                    $('#number-req').removeClass('text-success').addClass('text-muted');
+                    $('#number-req i').removeClass('fa-check-circle text-success').addClass('fa-circle text-secondary');
+                }
+            });
+
+            // Enhanced form submission with loading states
+            $('#createUserForm').on('submit', function (e) {
+                console.log('Form submitted'); // Debug log
+
+                const submitBtn = $('#submitBtn');
+                const originalText = submitBtn.html();
+
+                // Show loading state
+                submitBtn.html('<i class="fas fa-spinner fa-spin me-2"></i>Đang tạo...')
+                    .prop('disabled', true)
+                    .removeClass('btn-primary')
+                    .addClass('btn-secondary');
+
+                // Add subtle animation to form
+                $(this).addClass('submitting');
+
+                // Let the form submit naturally - don't prevent default
+                // The controller will handle the redirect
+            });
+
+            // Auto-focus first input
+            $('#nameInput').focus();
+
+            // Add hover effects to buttons
+            $('.btn').on('mouseenter', function () {
+                $(this).addClass('shadow-sm');
+            }).on('mouseleave', function () {
+                $(this).removeClass('shadow-sm');
+            });
+
+            // Enhanced validation display
+            $('input, select').on('blur', function () {
+                if ($(this).hasClass('input-validation-error')) {
+                    $(this).removeClass('is-valid').addClass('is-invalid');
+                } else if ($(this).val() !== '') {
+                    $(this).removeClass('is-invalid').addClass('is-valid');
+                }
+            });
+
+            // Show validation summary if there are errors
+            if ($('.text-danger:visible').length > 0) {
+                $('.alert-danger').removeClass('d-none').addClass('show');
+            }
+        });
+
+        // CSS Animation for form submission
+        const style = document.createElement('style');
+        style.textContent = `
+                    .submitting {
+                        opacity: 0.8;
+                        transition: opacity 0.3s ease;
+                    }
+
+                    .form-floating > .form-control:focus ~ label,
+                    .form-floating > .form-control:not(:placeholder-shown) ~ label {
+                        opacity: 0.65;
+                        transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+                    }
+
+                    .icon-box {
+                        transition: all 0.3s ease;
+                    }
+
+                    .card:hover .icon-box {
+                        transform: scale(1.05);
+                    }
+
+        @@keyframes fadeInUp {
+                        from {
+                            opacity: 0;
+                            transform: translate3d(0, 30px, 0);
+                        }
+                        to {
+                            opacity: 1;
+                            transform: translate3d(0, 0, 0);
+                        }
+                    }
+
+                    .card {
+                        animation: fadeInUp 0.6s ease-out;
+                    }
+                `;
+        document.head.appendChild(style);
+>>>>>>> 64e0d03ff136d14360ec1ebf20b3b64dce1332fd
     </script>
 }
