@@ -1,0 +1,679 @@
+﻿@model IEnumerable<ParkingReservationSystem.Models.Reservation>
+@{
+    ViewData["Title"] = "Quản Lý Giao Dịch";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section Styles {
+@Html.AntiForgeryToken()
+    <link href="~/css/Admin/transactions.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+
+    <style>
+        /* Grid View Styles */
+        .grid-view {
+            padding: 1.5rem;
+        }
+
+        .transaction-card {
+            border: 1px solid var(--gray-200);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow);
+            transition: var(--transition-normal);
+            height: 100%;
+        }
+
+            .transaction-card:hover {
+                transform: translateY(-4px);
+                box-shadow: var(--shadow-lg);
+            }
+
+            .transaction-card .card-header {
+                background: var(--gray-50);
+                border-bottom: 1px solid var(--gray-200);
+                padding: 1rem 1.25rem;
+            }
+
+        .customer-info-grid {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .transaction-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: var(--font-size-sm);
+        }
+
+            .detail-item i {
+                width: 16px;
+                text-align: center;
+            }
+
+        .status-section {
+            text-align: center;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .card-footer {
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-200);
+            padding: 0.75rem 1.25rem;
+        }
+
+        /* Status expired style */
+        .status-expired {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+
+        .stats-card-danger::before {
+            background: linear-gradient(90deg, var(--danger-color), #ef4444);
+        }
+
+        .stats-card-danger .stats-icon {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+    </style>
+}
+
+<!-- Page Header -->
+<div class="page-header animate__animated animate__fadeInDown">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="header-content">
+                    <div class="breadcrumb-nav">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active">Giao Dịch</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <h1 class="page-title">
+                        <i class="fas fa-credit-card"></i>
+                        Quản Lý Giao Dịch
+                    </h1>
+                    <p class="page-subtitle">Theo dõi và quản lý các giao dịch đặt chỗ của hệ thống</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-end">
+                <div class="header-actions">
+                    <button class="btn btn-light btn-icon me-2" data-bs-toggle="tooltip" title="Làm mới">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                    <a asp-action="Create" class="btn btn-primary btn-create">
+                        <i class="fas fa-plus"></i>
+                        <span>Tạo Giao Dịch</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid px-4">
+    <!-- Statistics Dashboard -->
+    <div class="stats-section animate__animated animate__fadeInUp">
+        <div class="row g-4 mb-4">
+            <div class="col-xl-3 col-md-6">
+                <div class="stats-card stats-card-primary">
+                    <div class="stats-card-body">
+                        <div class="stats-content">
+                            <div class="stats-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stats-info">
+                                <h3 class="stats-number" data-count="@Model.Count()">0</h3>
+                                <p class="stats-label">Tổng Giao Dịch</p>
+                                <span class="stats-change positive">
+                                    <i class="fas fa-arrow-up"></i> +12%
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6">
+                <div class="stats-card stats-card-success">
+                    <div class="stats-card-body">
+                        <div class="stats-content">
+                            <div class="stats-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stats-info">
+                                <h3 class="stats-number" data-count="@Model.Count(r => r.IsConfirmed)">0</h3>
+                                <p class="stats-label">Đã Xác Nhận</p>
+                                <span class="stats-change positive">
+                                    <i class="fas fa-arrow-up"></i> +8%
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6">
+                <div class="stats-card stats-card-warning">
+                    <div class="stats-card-body">
+                        <div class="stats-content">
+                            <div class="stats-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stats-info">
+                                <h3 class="stats-number" data-count="@Model.Count(r => !r.IsConfirmed && r.ExpiresAt > DateTime.Now)">0</h3>
+                                <p class="stats-label">Chờ Xác Nhận</p>
+                                <span class="stats-change negative">
+                                    <i class="fas fa-arrow-down"></i> -3%
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6">
+                <div class="stats-card stats-card-danger">
+                    <div class="stats-card-body">
+                        <div class="stats-content">
+                            <div class="stats-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="stats-info">
+                                <h3 class="stats-number" data-count="@Model.Count(r => !r.IsConfirmed && r.ExpiresAt < DateTime.Now)">0</h3>
+                                <p class="stats-label">Đã Hết Hạn</p>
+                                <span class="stats-change negative">
+                                    <i class="fas fa-arrow-up"></i> +5%
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Advanced Filters -->
+    <div class="filter-section animate__animated animate__fadeInUp animate__delay-0.5s">
+        <div class="filter-card">
+            <div class="filter-header">
+                <h5 class="filter-title">
+                    <i class="fas fa-filter"></i>
+                    Bộ Lọc Nâng Cao
+                </h5>
+                <button class="btn btn-link btn-sm" id="toggleFilters">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+            </div>
+            <div class="filter-body" id="filterBody">
+                <form id="filterForm">
+                    <div class="row g-3">
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Tìm kiếm</label>
+                                <div class="search-box">
+                                    <input type="text" id="searchInput" class="form-control"
+                                           placeholder="Tên, email, số điện thoại...">
+                                    <i class="fas fa-search search-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Trạng thái</label>
+                                <select class="form-select" id="statusFilter">
+                                    <option value="">Tất cả trạng thái</option>
+                                    <option value="confirmed">Đã xác nhận</option>
+                                    <option value="pending">Chờ xác nhận</option>
+                                    <option value="expired">Đã hết hạn</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Từ ngày</label>
+                                <div class="date-picker-wrapper">
+                                    <input type="text" class="form-control datepicker" id="fromDate"
+                                           placeholder="dd/mm/yyyy" readonly>
+                                    <i class="fas fa-calendar-alt date-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Đến ngày</label>
+                                <div class="date-picker-wrapper">
+                                    <input type="text" class="form-control datepicker" id="toDate"
+                                           placeholder="dd/mm/yyyy" readonly>
+                                    <i class="fas fa-calendar-alt date-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-2 col-md-3">
+                            <div class="form-group">
+                                <label class="form-label">&nbsp;</label>
+                                <button type="button" class="btn btn-primary w-100" id="applyFiltersBtn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-actions">
+                        <button type="button" class="btn btn-outline-secondary btn-sm" id="clearFiltersBtn">
+                            <i class="fas fa-times"></i>
+                            Xóa lọc
+                        </button>
+                        <div class="ms-auto">
+                            <button type="button" class="btn btn-success btn-sm" id="exportExcelBtn">
+                                <i class="fas fa-file-excel"></i>
+                                Xuất Excel
+                            </button>
+                            <button type="button" class="btn btn-info btn-sm" id="exportPdfBtn">
+                                <i class="fas fa-file-pdf"></i>
+                                Xuất PDF
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Table -->
+    <div class="table-section animate__animated animate__fadeInUp animate__delay-0.5s">
+        <div class="table-card">
+            <div class="table-header">
+                <div class="table-title">
+                    <h5 class="mb-0">Danh Sách Giao Dịch</h5>
+                </div>
+                <div class="table-actions">
+                    <div class="view-toggle">
+                        <button class="btn btn-sm btn-outline-secondary active" data-view="table">
+                            <i class="fas fa-table"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-secondary" data-view="grid">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                                type="button"
+                                id="columnToggleDropdown"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                            <i class="fas fa-columns"></i>
+                        </button>
+                        <ul class="dropdown-menu column-toggle-menu" aria-labelledby="columnToggleDropdown">
+                            <li><label><input type="checkbox" checked data-column="customer"> Khách hàng</label></li>
+                            <li><label><input type="checkbox" checked data-column="email"> Email</label></li>
+                            <li><label><input type="checkbox" checked data-column="phone"> Điện thoại</label></li>
+                            <li><label><input type="checkbox" checked data-column="reserved"> Ngày đặt</label></li>
+                            <li><label><input type="checkbox" checked data-column="expires"> Hết hạn</label></li>
+                            <li><label><input type="checkbox" checked data-column="status"> Trạng thái</label></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table View -->
+            <div class="table-responsive" id="tableView">
+                <table class="table table-hover" id="transactionsTable">
+                    <thead class="table-header-custom">
+                        <tr>
+                            <th width="5%" style="text-align: center; vertical-align: middle;">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="selectAll">
+                                </div>
+                            </th>
+                            <th width="22%" class="sortable" data-sort="name">
+                                <div class="th-content">
+                                    <i class="fas fa-user me-2"></i>Khách hàng
+                                    <i class="fas fa-sort sort-icon"></i>
+                                </div>
+                            </th>
+                            <th width="20%" class="sortable" data-sort="email">
+                                <div class="th-content">
+                                    <i class="fas fa-envelope me-2"></i>Email
+                                    <i class="fas fa-sort sort-icon"></i>
+                                </div>
+                            </th>
+                            <th width="12%" class="sortable" data-sort="phone">
+                                <div class="th-content">
+                                    <i class="fas fa-phone me-2"></i>Điện thoại
+                                    <i class="fas fa-sort sort-icon"></i>
+                                </div>
+                            </th>
+                            <th width="12%" class="sortable" data-sort="reserved">
+                                <div class="th-content">
+                                    <i class="fas fa-calendar me-2"></i>Ngày đặt
+                                    <i class="fas fa-sort sort-icon"></i>
+                                </div>
+                            </th>
+                            <th width="12%" class="sortable" data-sort="expires">
+                                <div class="th-content">
+                                    <i class="fas fa-calendar-times me-2"></i>Hết hạn
+                                    <i class="fas fa-sort sort-icon"></i>
+                                </div>
+                            </th>
+                            <th width="10%" class="sortable" data-sort="status">
+                                <div class="th-content">
+                                    <i class="fas fa-info-circle me-2"></i>Trạng thái
+                                    <i class="fas fa-sort sort-icon"></i>
+                                </div>
+                            </th>
+                            <th width="8%">
+                                <div class="th-content">
+                                    <i class="fas fa-parking me-2"></i>Vị trí
+                                </div>
+                            </th>
+                            <th width="12%">
+                                <div class="th-content">
+                                    <i class="fas fa-cog me-2"></i>Thao tác
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        @foreach (var item in Model.OrderByDescending(r => r.ReservedAt))
+                        {
+                            <tr class="table-row" data-id="@item.Id">
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input row-checkbox" type="checkbox" value="@item.Id">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="customer-info">
+                                        <div class="customer-avatar">
+                                            @{
+                                                var initials = item.Name?.Split(' ').Select(n => n.FirstOrDefault()).Take(2);
+                                                var avatarText = string.Join("", initials ?? new[] { 'U', 'N' });
+                                            }
+                                            <span>@avatarText</span>
+                                        </div>
+                                        <div class="customer-details">
+                                            <div class="customer-name">@Html.DisplayFor(modelItem => item.Name)</div>
+                                            <div class="customer-id">ID: #@item.Id.ToString("000")</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="email-info">
+                                        <span>@Html.DisplayFor(modelItem => item.Email)</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="phone-info">
+                                        <span>@Html.DisplayFor(modelItem => item.Phone)</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="date-info">
+                                        <div class="date">@item.ReservedAt.ToString("dd/MM/yyyy")</div>
+                                        <div class="time">@item.ReservedAt.ToString("HH:mm")</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="date-info">
+                                        <div class="date">@(item.ExpiresAt.Value.ToString("dd/MM/yyyy"))</div>
+                                        <div class="time">@(item.ExpiresAt.Value.ToString("HH:mm"))</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    @if (item.IsConfirmed)
+                                    {
+                                        <span class="status-badge status-confirmed">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Đã xác nhận</span>
+                                        </span>
+                                    }
+                                    else if (item.ExpiresAt < DateTime.Now)
+                                    {
+                                        <span class="status-badge status-expired">
+                                            <i class="fas fa-times-circle"></i>
+                                            <span>Đã hết hạn</span>
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="status-badge status-pending">
+                                            <i class="fas fa-clock"></i>
+                                            <span>Chờ xác nhận</span>
+                                        </span>
+                                    }
+                                </td>
+                                <td>
+                                    <div class="slot-info">
+                                        <span class="slot-badge">@Html.DisplayFor(modelItem => item.ParkingSlot.SlotCode)</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <div class="btn-group">
+                                            <a asp-action="Details" asp-route-id="@item.Id"
+                                               class="btn btn-action btn-view"
+                                               data-bs-toggle="tooltip" title="Xem chi tiết">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a asp-action="Edit" asp-route-id="@item.Id"
+                                               class="btn btn-action btn-edit"
+                                               data-bs-toggle="tooltip" title="Chỉnh sửa">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a asp-action="Delete" asp-route-id="@item.Id"
+                                               class="btn btn-action btn-delete"
+                                               data-bs-toggle="tooltip" title="Xóa">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </div>
+                                        <div class="dropdown">
+                                            <button class="btn btn-action btn-more" data-bs-toggle="dropdown">
+                                                <i class="fas fa-ellipsis-h"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> In hóa đơn</a></li>
+                                                <li><a class="dropdown-item" href="#"><i class="fas fa-paper-plane"></i> Gửi email</a></li>
+                                                <li><hr class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-ban"></i> Hủy đặt chỗ</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Grid View -->
+            <div class="grid-view" id="gridView" style="display: none;">
+                <div class="row g-3" id="gridContainer">
+                    @foreach (var item in Model.OrderByDescending(r => r.ReservedAt))
+                    {
+                        <div class="col-xl-4 col-lg-6 col-md-12 grid-item" data-id="@item.Id">
+                            <div class="card transaction-card">
+                                <div class="card-header">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="customer-info-grid">
+                                            <div class="customer-avatar">
+                                                @{
+                                                    var initials = item.Name?.Split(' ').Select(n => n.FirstOrDefault()).Take(2);
+                                                    var avatarText = string.Join("", initials ?? new[] { 'U', 'N' });
+                                                }
+                                                <span>@avatarText</span>
+                                            </div>
+                                            <div>
+                                                <div class="customer-name">@item.Name</div>
+                                                <div class="customer-id">ID: #@item.Id.ToString("000")</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input row-checkbox" type="checkbox" value="@item.Id">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="transaction-details">
+                                        <div class="detail-item">
+                                            <i class="fas fa-envelope text-muted"></i>
+                                            <span>@item.Email</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-phone text-muted"></i>
+                                            <span>@item.Phone</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-calendar text-muted"></i>
+                                            <span>@item.ReservedAt.ToString("dd/MM/yyyy HH:mm")</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-calendar-times text-muted"></i>
+                                            <span>@item.ExpiresAt.Value.ToString("dd/MM/yyyy HH:mm")</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-parking text-muted"></i>
+                                            <span class="slot-badge">@item.ParkingSlot.SlotCode</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="status-section mt-3">
+                                        @if (item.IsConfirmed)
+                                        {
+                                            <span class="status-badge status-confirmed">
+                                                <i class="fas fa-check-circle"></i>
+                                                <span>Đã xác nhận</span>
+                                            </span>
+                                        }
+                                        else if (item.ExpiresAt < DateTime.Now)
+                                        {
+                                            <span class="status-badge status-expired">
+                                                <i class="fas fa-times-circle"></i>
+                                                <span>Đã hết hạn</span>
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="status-badge status-pending">
+                                                <i class="fas fa-clock"></i>
+                                                <span>Chờ xác nhận</span>
+                                            </span>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="action-buttons justify-content-center">
+                                        <a asp-action="Details" asp-route-id="@item.Id"
+                                           class="btn btn-action btn-view"
+                                           data-bs-toggle="tooltip" title="Xem chi tiết">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a asp-action="Edit" asp-route-id="@item.Id"
+                                           class="btn btn-action btn-edit"
+                                           data-bs-toggle="tooltip" title="Chỉnh sửa">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id"
+                                           class="btn btn-action btn-delete"
+                                           data-bs-toggle="tooltip" title="Xóa">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                        <div class="dropdown">
+                                            <button class="btn btn-action btn-more" data-bs-toggle="dropdown">
+                                                <i class="fas fa-ellipsis-h"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> In hóa đơn</a></li>
+                                                <li><a class="dropdown-item" href="#"><i class="fas fa-paper-plane"></i> Gửi email</a></li>
+                                                <li><hr class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-ban"></i> Hủy đặt chỗ</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Enhanced Pagination -->
+            <div class="table-footer">
+                <div class="pagination-info">
+                    <div class="showing-entries">
+                        Hiển thị <strong id="showingStart">1</strong>-<strong id="showingEnd">10</strong>
+                        của <strong id="totalEntries">@Model.Count()</strong> kết quả
+                    </div>
+                    <div class="page-size-selector">
+                        <label>Hiển thị:</label>
+                        <select class="form-select form-select-sm" id="pageSizeSelect">
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                        <span>/ trang</span>
+                    </div>
+                </div>
+                <nav class="pagination-nav">
+                    <ul class="pagination" id="paginationContainer">
+                        <!-- Pagination will be generated by JavaScript -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bulk Actions -->
+    <div class="bulk-actions" id="bulkActions" style="display: none;">
+        <div class="bulk-actions-content">
+            <div class="selected-count">
+                <span id="selectedCount">0</span> mục đã chọn
+            </div>
+            <div class="bulk-buttons">
+                <button class="btn btn-outline-success btn-sm" id="bulkConfirmBtn">
+                    <i class="fas fa-check"></i> Xác nhận
+                </button>
+                <button class="btn btn-outline-warning btn-sm" id="bulkExportBtn">
+                    <i class="fas fa-download"></i> Xuất dữ liệu
+                </button>
+                <button class="btn btn-outline-danger btn-sm" id="bulkDeleteBtn">
+                    <i class="fas fa-trash"></i> Xóa
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Loading Overlay -->
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner">
+        <div class="spinner-border text-primary" role="status">
+        </div>
+        <p class="loading-text">Đang xử lý...</p>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.vi.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <script src="~/js/Admin/transactions.js"></script>
+}

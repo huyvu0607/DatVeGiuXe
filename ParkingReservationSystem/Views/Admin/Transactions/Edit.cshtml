@@ -1,0 +1,71 @@
+﻿@page
+@model ParkingReservationSystem.Views.Admin.History.EditModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Reservation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Reservation.Id" />
+            <div class="form-group">
+                <label asp-for="Reservation.SlotCode" class="control-label"></label>
+                <select asp-for="Reservation.SlotCode" class="form-control" asp-items="ViewBag.SlotCode"></select>
+                <span asp-validation-for="Reservation.SlotCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reservation.Name" class="control-label"></label>
+                <input asp-for="Reservation.Name" class="form-control" />
+                <span asp-validation-for="Reservation.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reservation.Email" class="control-label"></label>
+                <input asp-for="Reservation.Email" class="form-control" />
+                <span asp-validation-for="Reservation.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reservation.Phone" class="control-label"></label>
+                <input asp-for="Reservation.Phone" class="form-control" />
+                <span asp-validation-for="Reservation.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reservation.ReservedAt" class="control-label"></label>
+                <input asp-for="Reservation.ReservedAt" class="form-control" />
+                <span asp-validation-for="Reservation.ReservedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reservation.ExpiresAt" class="control-label"></label>
+                <input asp-for="Reservation.ExpiresAt" class="form-control" />
+                <span asp-validation-for="Reservation.ExpiresAt" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Reservation.IsConfirmed" /> @Html.DisplayNameFor(model => model.Reservation.IsConfirmed)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reservation.UserId" class="control-label"></label>
+                <select asp-for="Reservation.UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                <span asp-validation-for="Reservation.UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

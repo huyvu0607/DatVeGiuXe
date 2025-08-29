@@ -1,0 +1,240 @@
+﻿@model ParkingReservationSystem.Models.ParkingSlot
+@{
+    ViewData["Title"] = "Xóa chỗ đỗ xe";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid px-4">
+    <!-- Header Section -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="text-danger mb-1">Xóa chỗ đỗ xe</h2>
+            <p class="text-muted mb-0">Xác nhận xóa chỗ đỗ xe: <strong>@Model.SlotCode</strong></p>
+        </div>
+        <a asp-action="Index" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left me-2"></i>Quay lại danh sách
+        </a>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <!-- Warning Card -->
+            <div class="alert alert-warning border-0 mb-4" style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-exclamation-triangle text-warning me-3" style="font-size: 2rem;"></i>
+                    <div>
+                        <h5 class="alert-heading mb-1 text-warning">Cảnh báo!</h5>
+                        <p class="mb-0">Bạn đang chuẩn bị xóa vĩnh viễn chỗ đỗ xe này. Hành động này không thể hoàn tác.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delete Confirmation Card -->
+            <div class="card shadow-lg border-0" style="border-top: 4px solid #dc3545 !important;">
+                <div class="card-header bg-white py-4">
+                    <div class="text-center">
+                        <i class="fas fa-trash-alt text-danger mb-3" style="font-size: 3.5rem; opacity: 0.7;"></i>
+                        <h4 class="text-danger mb-0">Xác nhận xóa chỗ đỗ xe</h4>
+                    </div>
+                </div>
+                <div class="card-body p-4">
+                    <!-- Parking Slot Information -->
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <h5 class="text-primary mb-3">
+                                <i class="fas fa-info-circle me-2"></i>Thông tin chỗ đỗ xe
+                            </h5>
+                            <div class="row g-4">
+                                <!-- Tăng khoảng cách giữa các cột -->
+                                <div class="col-md-4">
+                                    <div class="info-box p-3 border rounded text-center" style="background-color: #f8f9fa; gap:10px">
+                                        <label class="form-label fw-bold text-muted small" style="margin : auto 0">MÃ CHỖ ĐỖ XE</label>
+                                        <div class="fw-bold text-primary fs-5" style="margin : auto 0">@Model.SlotCode</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="info-box p-3 border rounded text-center" style="background-color: #f8f9fa; gap:10px">
+                                        <label class="form-label fw-bold text-muted small" style="margin : auto 0">TẦNG</label>
+                                        <div class="fw-bold text-info fs-5" style="margin : auto 0">Tầng @Model.Floor</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="info-box p-3 border rounded text-center" style="background-color: #f8f9fa; gap:10px">
+                                        <label class="form-label fw-bold text-muted small" style="margin : auto 0">TRẠNG THÁI</label>
+                                        <div class="fw-bold fs-6">
+                                            @if (Model.IsAvailable)
+                                            {
+                                                <span class="badge bg-success px-3 py-2" style="margin: 10px 0px">Có sẵn</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-danger px-3 py-2" style="margin: 10px 0px">Đã sử dụng</span>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Consequences Warning -->
+                    <div class="alert alert-danger border-0 mb-4" style="background-color: #fef2f2;">
+                        <div class="d-flex">
+                            <i class="fas fa-exclamation-circle text-danger me-3 mt-1"></i>
+                            <div>
+                                <h6 class="text-danger mb-2">Hệ quả của việc xóa:</h6>
+                                <ul class="mb-0 text-danger small">
+                                    <li>Chỗ đỗ xe sẽ bị xóa vĩnh viễn khỏi hệ thống</li>
+                                    <li>Tất cả dữ liệu liên quan sẽ không thể khôi phục</li>
+                                    <li>Các đặt chỗ hiện tại (nếu có) sẽ bị ảnh hưởng</li>
+                                    <li>Báo cáo và thống kê sẽ được cập nhật</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Confirmation Form -->
+                    <form asp-action="Delete" id="deleteForm" class="text-center">
+                        <input type="hidden" asp-for="Id" />
+
+                        <!-- Confirmation Checkbox -->
+                        <div class="form-check mb-4 d-inline-block">
+                            <input class="form-check-input" type="checkbox" id="confirmDelete" required
+                                   style="transform: scale(1.2);">
+                            <label class="form-check-label fw-semibold" for="confirmDelete">
+                                Tôi hiểu và xác nhận muốn xóa chỗ đỗ xe này
+                            </label>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="d-flex gap-4 justify-content-center mt-4" style ="gap: 15px;">
+                            <!-- gap-4 để các nút cách xa đều -->
+                            <a asp-action="Index" class="btn btn-outline-secondary btn-lg px-4" style="border-radius: 8px;">
+                                <i class="fas fa-times me-2"></i>Hủy bỏ
+                            </a>
+                            <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-outline-info btn-lg px-4" style="border-radius: 8px;">
+                                <i class="fas fa-eye me-2"></i>Xem chi tiết
+                            </a>
+                            <button type="submit" id="deleteButton" class="btn btn-danger btn-lg px-4" disabled style="border-radius: 8px;">
+                                <i class="fas fa-trash me-2"></i>Xóa vĩnh viễn
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Styles -->
+<style>
+    .info-box {
+        transition: transform 0.2s ease;
+    }
+
+    .info-box:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .card {
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .alert {
+        border-radius: 8px;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        transition: all 0.3s ease;
+    }
+
+    .btn-danger:hover:not(:disabled) {
+        background-color: #c82333;
+        border-color: #bd2130;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+    }
+
+    .btn-danger:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    .text-primary {
+        color: #4f46e5 !important;
+    }
+
+    .form-check-input:checked {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    .badge {
+        border-radius: 6px;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const confirmCheckbox = document.getElementById('confirmDelete');
+            const deleteButton = document.getElementById('deleteButton');
+            const deleteForm = document.getElementById('deleteForm');
+
+            // Enable/disable delete button based on checkbox
+            confirmCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    deleteButton.disabled = false;
+                    deleteButton.classList.remove('btn-secondary');
+                    deleteButton.classList.add('btn-danger');
+                } else {
+                    deleteButton.disabled = true;
+                    deleteButton.classList.remove('btn-danger');
+                    deleteButton.classList.add('btn-secondary');
+                }
+            });
+
+            // Form submission with final confirmation
+            deleteForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Show final confirmation dialog
+                if (confirm('LẦN CUỐI: Bạn có chắc chắn muốn xóa chỗ đỗ xe "' + '@Model.SlotCode' + '" không?\n\nHành động này không thể hoàn tác!')) {
+                    // Change button state
+                    deleteButton.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Đang xóa...';
+                    deleteButton.disabled = true;
+
+                    // Add loading animation to the card
+                    const card = document.querySelector('.card');
+                    card.style.opacity = '0.7';
+
+                    // Submit the form after a short delay for UX
+                    setTimeout(() => {
+                        this.submit();
+                    }, 1000);
+                } else {
+                    // User cancelled, uncheck the checkbox
+                    confirmCheckbox.checked = false;
+                    deleteButton.disabled = true;
+                }
+            });
+
+            // Add entrance animation
+            const card = document.querySelector('.card');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+
+            setTimeout(() => {
+                card.style.transition = 'all 0.6s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+}

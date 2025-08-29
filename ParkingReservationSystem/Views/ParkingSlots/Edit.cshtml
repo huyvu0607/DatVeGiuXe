@@ -1,0 +1,199 @@
+﻿@model ParkingReservationSystem.Models.ParkingSlot
+@{
+    ViewData["Title"] = "Chỉnh sửa chỗ đỗ xe";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid px-4">
+    <!-- Header Section -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="text-primary mb-1">Chỉnh sửa chỗ đỗ xe</h2>
+            <p class="text-muted mb-0">Cập nhật thông tin chỗ đỗ xe: <strong>@Model.SlotCode</strong></p>
+        </div>
+        <div class="d-flex gap-2">
+            <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-outline-info">
+                <i class="fas fa-eye me-2"></i>Xem chi tiết
+            </a>
+            <a asp-action="Index" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-2"></i>Quay lại
+            </a>
+        </div>
+    </div>
+
+    <!-- Edit Form Card -->
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-white py-3">
+                    <h5 class="card-title mb-0 text-primary">
+                        <i class="fas fa-edit me-2"></i>Thông tin chỗ đỗ xe
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Edit" id="editForm">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="SlotCode" class="form-label fw-semibold">
+                                    <i class="fas fa-barcode me-2 text-primary"></i>Mã chỗ đỗ xe
+                                </label>
+                                <input asp-for="SlotCode" class="form-control form-control-lg"
+                                       style="border-radius: 8px;" />
+                                <span asp-validation-for="SlotCode" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Floor" class="form-label fw-semibold">
+                                    <i class="fas fa-layer-group me-2 text-primary"></i>Tầng
+                                </label>
+                                <select asp-for="Floor" class="form-select form-select-lg"
+                                        style="border-radius: 8px;">
+                                    <option value="">Chọn tầng</option>
+                                    <option value="1">Tầng 1</option>
+                                    <option value="2">Tầng 2</option>
+                                    <option value="3">Tầng 3</option>
+                                    <option value="4">Tầng 4</option>
+                                    <option value="5">Tầng 5</option>
+                                </select>
+                                <span asp-validation-for="Floor" class="text-danger small"></span>
+                            </div>
+                        </div>
+
+                        <!-- Availability Status -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">
+                                <i class="fas fa-toggle-on me-2 text-primary"></i>Trạng thái
+                            </label>
+                            <div class="card border-0" style="background-color: #f8f9fa;">
+                                <div class="card-body p-3">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" asp-for="IsAvailable"
+                                               id="availabilitySwitch" style="transform: scale(1.2);">
+                                        <label class="form-check-label fw-semibold" for="availabilitySwitch">
+                                            <span id="statusText">
+                                                @(Model.IsAvailable ? "Có sẵn" : "Đã được sử dụng")
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <small class="text-muted d-block mt-1">
+                                        Bật/tắt để thay đổi trạng thái có sẵn của chỗ đỗ xe
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Current Status Display -->
+                        <div class="alert border-0 mb-4" id="statusAlert">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-circle me-2" id="statusIcon"></i>
+                                <span id="statusMessage"></span>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="d-flex justify-content-between mt-4">
+                            <a asp-action="Index" class="btn btn-outline-secondary btn-lg px-4" style="border-radius: 8px;">
+                                <i class="fas fa-times me-2"></i>Hủy bỏ
+                            </a>
+                            <button type="submit" class="btn btn-success btn-lg px-4" style="border-radius: 8px;">
+                                <i class="fas fa-save me-2"></i>Lưu thay đổi
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Styles -->
+<style>
+    .card {
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .card:hover {
+        transform: translateY(-2px);
+    }
+
+    .form-control:focus, .form-select:focus {
+        border-color: #4f46e5;
+        box-shadow: 0 0 0 0.2rem rgba(79, 70, 229, 0.25);
+    }
+
+    .form-check-input:checked {
+        background-color: #10b981;
+        border-color: #10b981;
+    }
+
+    .btn-success {
+        background-color: #10b981;
+        border-color: #10b981;
+    }
+
+    .btn-success:hover {
+        background-color: #059669;
+        border-color: #059669;
+    }
+
+    .text-primary {
+        color: #4f46e5 !important;
+    }
+
+    .alert-success {
+        background-color: #f0fdf4;
+        color: #166534;
+    }
+
+    .alert-warning {
+        background-color: #fffbeb;
+        color: #92400e;
+    }
+</style>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        // Update status display based on availability
+        function updateStatusDisplay() {
+            const isAvailable = document.getElementById('availabilitySwitch').checked;
+            const statusText = document.getElementById('statusText');
+            const statusAlert = document.getElementById('statusAlert');
+            const statusIcon = document.getElementById('statusIcon');
+            const statusMessage = document.getElementById('statusMessage');
+
+            if (isAvailable) {
+                statusText.textContent = 'Có sẵn';
+                statusAlert.className = 'alert alert-success border-0 mb-4';
+                statusIcon.className = 'fas fa-circle me-2 text-success';
+                statusMessage.textContent = 'Chỗ đỗ xe này hiện đang có sẵn và có thể được đặt trước.';
+            } else {
+                statusText.textContent = 'Đã được sử dụng';
+                statusAlert.className = 'alert alert-warning border-0 mb-4';
+                statusIcon.className = 'fas fa-circle me-2 text-warning';
+                statusMessage.textContent = 'Chỗ đỗ xe này hiện đang được sử dụng hoặc không khả dụng.';
+            }
+        }
+
+        // Initialize status display
+        document.addEventListener('DOMContentLoaded', function() {
+            updateStatusDisplay();
+
+            // Add event listener for availability switch
+            document.getElementById('availabilitySwitch').addEventListener('change', updateStatusDisplay);
+        });
+
+        // Form submission handling
+        document.getElementById('editForm').addEventListener('submit', function(e) {
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Đang lưu...';
+            submitBtn.disabled = true;
+        });
+    </script>
+}

@@ -1,0 +1,104 @@
+﻿@model IEnumerable<ParkingReservationSystem.Models.ParkingSlot>
+@{
+    ViewData["Title"] = "Parking Slots Management";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <!-- Statistics Cards -->
+    <div class="stats-container">
+        <div class="stat-card stat-total">
+            <div class="stat-value">@Model.Count()</div>
+            <div class="stat-label">Total Slots</div>
+        </div>
+        <div class="stat-card stat-available">
+            <div class="stat-value">@Model.Count(s => s.IsAvailable)</div>
+            <div class="stat-label">Available</div>
+        </div>
+        <div class="stat-card stat-occupied">
+            <div class="stat-value">@Model.Count(s => !s.IsAvailable)</div>
+            <div class="stat-label">Occupied</div>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <div class="header-section">
+        <div class="header-content">
+            <div>
+                <h1 class="page-title">Parking Slots</h1>
+                <p class="page-subtitle">Manage and monitor your parking facility</p>
+            </div>
+            <a asp-action="Create" class="create-btn">Create New Slot</a>
+        </div>
+    </div>
+
+    <!-- Table Section -->
+    <div class="table-container">
+        @if (Model.Any())
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.SlotCode)</th>
+                        <th>@Html.DisplayNameFor(model => model.IsAvailable)</th>
+                        <th>@Html.DisplayNameFor(model => model.Floor)</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model) {
+                    <tr data-slot-id="@item.Id">
+                        <td>
+                            <span class="slot-code">@Html.DisplayFor(modelItem => item.SlotCode)</span>
+                        </td>
+                        <td>
+                            @if (item.IsAvailable)
+                            {
+                                <span class="status-badge status-available">Available</span>
+                            }
+                            else
+                            {
+                                <span class="status-badge status-unavailable">Occupied</span>
+                            }
+                        </td>
+                        <td>
+                            <span class="floor-info">Floor @Html.DisplayFor(modelItem => item.Floor)</span>
+                        </td>
+                        <td>
+                            <div class="actions">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="action-btn btn-edit">Edit</a>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="action-btn btn-details">Details</a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="action-btn btn-delete">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="empty-state">
+                <div class="empty-state-icon">🚗</div>
+                <h3>No parking slots found</h3>
+                <p>Start by creating your first parking slot</p>
+                <br>
+                <a asp-action="Create" class="create-btn">Create First Slot</a>
+            </div>
+        }
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/parking-slots.css" />
+}
+
+@section Scripts {
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.0/signalr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    
+    <!-- Custom JavaScript -->
+    <script src="~/js/parking-slots.js"></script>
+}

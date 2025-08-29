@@ -1,0 +1,360 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Chính sách bảo mật - Parking Reservation System";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/privacy.css" asp-append-version="true" />
+}
+
+<div class="privacy-container">
+    <div class="privacy-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="icon-container">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h1 class="header-title">Chính sách bảo mật</h1>
+                <p class="header-subtitle">Cam kết bảo vệ thông tin cá nhân của bạn</p>
+                <div class="update-badge">
+                    <i class="fas fa-calendar-alt"></i>
+                    Cập nhật lần cuối: <strong>17/08/2025</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="privacy-content" role="main">
+        <div class="container">
+            <!-- Table of Contents -->
+            <div class="toc-card">
+                <h3><i class="fas fa-list me-2"></i>Mục lục</h3>
+                <div class="toc-grid">
+                    <a href="#section-1" class="toc-item">
+                        <i class="fas fa-database"></i>
+                        <span>Thông tin thu thập</span>
+                    </a>
+                    <a href="#section-2" class="toc-item">
+                        <i class="fas fa-bullseye"></i>
+                        <span>Mục đích sử dụng</span>
+                    </a>
+                    <a href="#section-3" class="toc-item">
+                        <i class="fas fa-gavel"></i>
+                        <span>Cơ sở pháp lý</span>
+                    </a>
+                    <a href="#section-4" class="toc-item">
+                        <i class="fas fa-cookie-bite"></i>
+                        <span>Cookies & Storage</span>
+                    </a>
+                    <a href="#section-5" class="toc-item">
+                        <i class="fas fa-lock"></i>
+                        <span>Bảo mật dữ liệu</span>
+                    </a>
+                    <a href="#section-6" class="toc-item">
+                        <i class="fas fa-share-alt"></i>
+                        <span>Chia sẻ thông tin</span>
+                    </a>
+                    <a href="#section-7" class="toc-item">
+                        <i class="fas fa-archive"></i>
+                        <span>Lưu trữ & Bảo quản</span>
+                    </a>
+                    <a href="#section-8" class="toc-item">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Quyền người dùng</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Introduction -->
+            <div class="content-card intro-card">
+                <div class="card-header">
+                    <i class="fas fa-info-circle"></i>
+                    <h2>Giới thiệu</h2>
+                </div>
+                <div class="card-content">
+                    <p class="intro-text">
+                        Chào mừng bạn đến với <strong>Parking Reservation System</strong> ("Chúng tôi", "Hệ thống").
+                        Trang này giải thích cách chúng tôi thu thập, sử dụng, lưu trữ và bảo vệ thông tin cá nhân của bạn
+                        khi bạn sử dụng ứng dụng đặt chỗ giữ xe của chúng tôi.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 1 -->
+            <div class="content-card" id="section-1">
+                <div class="card-header">
+                    <i class="fas fa-database"></i>
+                    <h2>1. Thông tin chúng tôi thu thập</h2>
+                </div>
+                <div class="card-content">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="info-details">
+                                <h4>Thông tin cá nhân</h4>
+                                <p>Tên, số điện thoại, email khi bạn đặt chỗ hoặc liên hệ với chúng tôi.</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div class="info-details">
+                                <h4>Thông tin đặt chỗ</h4>
+                                <p>Mã chỗ (slot code), tầng, thời gian giữ, trạng thái đặt/huỷ/xác nhận.</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="info-details">
+                                <h4>Dữ liệu hoạt động</h4>
+                                <p>Nhật ký thao tác, địa chỉ IP, trình duyệt, thời gian truy cập để phục vụ vận hành.</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <div class="info-details">
+                                <h4>Dữ liệu realtime</h4>
+                                <p>Thông tin cập nhật trạng thái chỗ theo thời gian thực qua SignalR.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="content-card" id="section-2">
+                <div class="card-header">
+                    <i class="fas fa-bullseye"></i>
+                    <h2>2. Mục đích sử dụng</h2>
+                </div>
+                <div class="card-content">
+                    <p class="section-intro">Chúng tôi sử dụng dữ liệu để:</p>
+                    <div class="purpose-list">
+                        <div class="purpose-item">
+                            <i class="fas fa-cogs"></i>
+                            <span>Quản lý và xử lý đặt chỗ, xác thực và cập nhật trạng thái chỗ</span>
+                        </div>
+                        <div class="purpose-item">
+                            <i class="fas fa-bell"></i>
+                            <span>Gửi thông báo realtime về trạng thái chỗ cho người dùng khác nhau</span>
+                        </div>
+                        <div class="purpose-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Cải thiện trải nghiệm người dùng, phân tích lỗi và tối ưu hệ thống</span>
+                        </div>
+                        <div class="purpose-item">
+                            <i class="fas fa-headset"></i>
+                            <span>Liên hệ với bạn khi cần thiết liên quan đến đặt chỗ hoặc hỗ trợ kỹ thuật</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="content-card" id="section-3">
+                <div class="card-header">
+                    <i class="fas fa-gavel"></i>
+                    <h2>3. Cơ sở pháp lý</h2>
+                </div>
+                <div class="card-content">
+                    <div class="legal-notice">
+                        <i class="fas fa-info-circle"></i>
+                        <p>
+                            Nếu ứng dụng phục vụ người dùng ở các khu vực có luật bảo vệ dữ liệu (ví dụ GDPR),
+                            chúng tôi thu thập và xử lý dữ liệu chỉ khi có sự đồng ý hợp lệ, để thực hiện hợp đồng
+                            (thực hiện dịch vụ đặt chỗ), hoặc khi có nghĩa vụ pháp lý.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="content-card" id="section-4">
+                <div class="card-header">
+                    <i class="fas fa-cookie-bite"></i>
+                    <h2>4. Cookies & Local Storage</h2>
+                </div>
+                <div class="card-content">
+                    <p class="section-intro">Chúng tôi có thể sử dụng cookies hoặc localStorage/sessionStorage để:</p>
+                    <div class="cookie-grid">
+                        <div class="cookie-item">
+                            <i class="fas fa-save"></i>
+                            <h4>Lưu trạng thái phiên</h4>
+                            <p>Thông tin UI như lựa chọn tầng, tùy chọn lọc</p>
+                        </div>
+                        <div class="cookie-item">
+                            <i class="fas fa-key"></i>
+                            <h4>Quản lý đăng nhập</h4>
+                            <p>Token xác thực nếu hệ thống có authentication</p>
+                        </div>
+                        <div class="cookie-item">
+                            <i class="fas fa-bell-slash"></i>
+                            <h4>Quản lý thông báo</h4>
+                            <p>Đảm bảo toast/notification không hiển thị lặp lại</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5 -->
+            <div class="content-card" id="section-5">
+                <div class="card-header">
+                    <i class="fas fa-lock"></i>
+                    <h2>5. Bảo mật dữ liệu</h2>
+                </div>
+                <div class="card-content">
+                    <p class="section-intro">Chúng tôi thực hiện các biện pháp bảo mật kỹ thuật và tổ chức thích hợp:</p>
+                    <div class="security-features">
+                        <div class="security-feature">
+                            <div class="security-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="security-details">
+                                <h4>Mã hoá truyền tải</h4>
+                                <p>HTTPS/TLS để bảo vệ SignalR và API</p>
+                            </div>
+                        </div>
+                        <div class="security-feature">
+                            <div class="security-icon">
+                                <i class="fas fa-user-lock"></i>
+                            </div>
+                            <div class="security-details">
+                                <h4>Quyền truy cập theo vai trò</h4>
+                                <p>Chỉ admin mới có thể xem/hủy tất cả đặt chỗ</p>
+                            </div>
+                        </div>
+                        <div class="security-feature">
+                            <div class="security-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="security-details">
+                                <h4>Sao lưu dữ liệu</h4>
+                                <p>Sao lưu định kỳ và kiểm soát truy cập cơ sở dữ liệu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6 -->
+            <div class="content-card" id="section-6">
+                <div class="card-header">
+                    <i class="fas fa-share-alt"></i>
+                    <h2>6. Chia sẻ thông tin</h2>
+                </div>
+                <div class="card-content">
+                    <div class="sharing-notice">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p><strong>Chúng tôi không bán thông tin cá nhân của bạn cho bên thứ ba.</strong></p>
+                    </div>
+                    <p class="section-intro">Chúng tôi chỉ chia sẻ dữ liệu với:</p>
+                    <div class="sharing-list">
+                        <div class="sharing-item">
+                            <i class="fas fa-server"></i>
+                            <span>Nhà cung cấp dịch vụ kỹ thuật (hosting, email) khi cần để vận hành hệ thống</span>
+                        </div>
+                        <div class="sharing-item">
+                            <i class="fas fa-balance-scale"></i>
+                            <span>Khi có yêu cầu pháp lý hợp lệ từ cơ quan có thẩm quyền</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 7 -->
+            <div class="content-card" id="section-7">
+                <div class="card-header">
+                    <i class="fas fa-archive"></i>
+                    <h2>7. Lưu trữ và bảo quản</h2>
+                </div>
+                <div class="card-content">
+                    <p class="section-intro">
+                        Dữ liệu đặt chỗ sẽ được lưu trữ trong cơ sở dữ liệu của hệ thống trong một khoảng thời gian
+                        hợp lý (ví dụ 1–3 năm) tuỳ theo chính sách vận hành. Bạn có thể yêu cầu xóa hoặc xuất dữ liệu
+                        cá nhân nếu hệ thống hỗ trợ.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 8 -->
+            <div class="content-card" id="section-8">
+                <div class="card-header">
+                    <i class="fas fa-user-shield"></i>
+                    <h2>8. Quyền của người dùng</h2>
+                </div>
+                <div class="card-content">
+                    <div class="rights-grid">
+                        <div class="right-item">
+                            <i class="fas fa-eye"></i>
+                            <h4>Quyền truy cập</h4>
+                            <p>Yêu cầu truy cập dữ liệu cá nhân của bạn</p>
+                        </div>
+                        <div class="right-item">
+                            <i class="fas fa-edit"></i>
+                            <h4>Quyền chỉnh sửa</h4>
+                            <p>Cập nhật hoặc sửa đổi thông tin cá nhân</p>
+                        </div>
+                        <div class="right-item">
+                            <i class="fas fa-trash-alt"></i>
+                            <h4>Quyền xóa</h4>
+                            <p>Yêu cầu xóa dữ liệu cá nhân khỏi hệ thống</p>
+                        </div>
+                        <div class="right-item">
+                            <i class="fas fa-hand-paper"></i>
+                            <h4>Quyền từ chối</h4>
+                            <p>Từ chối sử dụng dữ liệu cho mục đích quảng cáo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="content-card contact-card">
+                <div class="card-header">
+                    <i class="fas fa-phone"></i>
+                    <h2>Liên hệ với chúng tôi</h2>
+                </div>
+                <div class="card-content">
+                    <p class="contact-intro">Nếu bạn có câu hỏi hoặc muốn yêu cầu xóa/xuất dữ liệu, vui lòng liên hệ:</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email: <a href="mailto:support@parkingsystem.local">support@parkingsystem.local</a></span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <span>GITHUB: <a href="https://github.com/huyvu0607">My GITHUB</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <a href="~/" class="btn btn-primary">
+                    <i class="fas fa-home me-2"></i>
+                    Quay về trang chính
+                </a>
+                <button type="button" class="btn btn-outline" onclick="window.print()">
+                    <i class="fas fa-print me-2"></i>
+                    In trang này
+                </button>
+                <button type="button" class="btn btn-outline" onclick="scrollToTop()">
+                    <i class="fas fa-arrow-up me-2"></i>
+                    Lên đầu trang
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/privacy.js" asp-append-version="true"></script>
+}
